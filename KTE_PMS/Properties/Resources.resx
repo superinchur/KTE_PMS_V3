@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="main_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_generator_on_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_generator_on_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="control_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\control_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="control_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\control_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_bottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main_bottom.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dot_generator_001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dot_generator_001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_solar_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_solar_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monitor_off_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monitor off_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trend_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trend_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_off_R_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_off_R_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PCS_STOP_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PCS STOP_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mimic_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mimic_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_on_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_on_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MAIN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MAIN.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_grid_off_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_grid_off_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_on_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_on_long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="measure_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\measure_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_battery_off_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_battery_off_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_generator_off_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_generator_off_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_off_G_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_off_G_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SETTING" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SETTING.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_off_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_off_long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RUN_003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RUN_003.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="measure_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\measure_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="control_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\control_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_off_G_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_off_G_long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monitor_off_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monitor off_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trend_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trend_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monitor_off_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monitor off_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setting_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_top" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main_top.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_버튼7개" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main_버튼7개.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_solar_off_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_solar_off_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_battery_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_battery_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monitor_off_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monitor off_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setting_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mimic_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mimic_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_on_R_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_on_R_long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alarm_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alarm_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RUN_003_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RUN_003_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_solar_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_solar_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setting_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alarm_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alarm_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="measure_on_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\measure_on_11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trend_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trend_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PCS_STOP_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PCS STOP_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mimic_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mimic_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_on_G_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_on_G_long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trend_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trend_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mimic_off_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mimic_off_11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_solar_on_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_solar_on_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setting_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_generator_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_generator_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_generator_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_generator_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alarm_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alarm_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_off_R_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_off_R_long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MIMIC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MIMIC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_grid_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_grid_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="measure_위치만잡기" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\measure_위치만잡기.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_battery_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_battery_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_grid_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_grid_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PCS_STOP_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PCS STOP_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_on_R_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_on_R_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_on_G_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_on_G_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_battery_on_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_battery_on_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_grid_on_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_grid_on_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alarm_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alarm_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mimic_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mimic_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PCS_STOP_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PCS STOP_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="control_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\control_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kte_ci" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kte_ci.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_off_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_off_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STOP_003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STOP_003.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STOP_003_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STOP_003_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

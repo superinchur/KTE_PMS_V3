@@ -1,0 +1,33 @@
+/////////////////
+// PCS Setting
+/////////////////
+ID=1_enable = 0
+ID=1
+port = COM1
+baudrate = 9600
+parity = ODD
+stopbit = 1bit
+readtimeout = 1000
+writetimeout =  1000
+/////////////////
+// BSC Setting
+/////////////////
+type = LG
+ip_address = 172.31.110.33
+port = 504
+/////////////////
+// PMD Setting
+/////////////////
+ID = 1
+ip_address = 172.31.110.33
+port = 1004 
+ID = 2
+ip_address = 172.31.110.33
+port = 1004
+ID = 3
+ip_address = 172.31.110.33
+port = 1004
+ID = 4
+ip_address = 172.31.110.33
+port = 1004
+
