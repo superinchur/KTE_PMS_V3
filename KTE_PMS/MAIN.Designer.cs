@@ -63,7 +63,7 @@
             this.panel1.Location = new System.Drawing.Point(10, 98);
             this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(947, 462);
+            this.panel1.Size = new System.Drawing.Size(957, 498);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -84,7 +84,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(2, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(11, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(183, 81);
@@ -98,13 +98,12 @@
             this.NAVI_CONTROL.BackgroundImage = global::KTE_PMS.Properties.Resources.control_off;
             this.NAVI_CONTROL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_CONTROL.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_CONTROL.Location = new System.Drawing.Point(268, 532);
+            this.NAVI_CONTROL.Location = new System.Drawing.Point(279, 602);
             this.NAVI_CONTROL.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.NAVI_CONTROL.Name = "NAVI_CONTROL";
             this.NAVI_CONTROL.Size = new System.Drawing.Size(128, 80);
             this.NAVI_CONTROL.TabIndex = 6;
             this.NAVI_CONTROL.UseVisualStyleBackColor = true;
-            this.NAVI_CONTROL.Visible = false;
             this.NAVI_CONTROL.Click += new System.EventHandler(this.NAVI_CONTROL_Click);
             // 
             // CLOCK_TIMER
@@ -148,13 +147,12 @@
             this.NAVI_SETTING.BackgroundImage = global::KTE_PMS.Properties.Resources.setting_off;
             this.NAVI_SETTING.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_SETTING.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_SETTING.Location = new System.Drawing.Point(799, 532);
+            this.NAVI_SETTING.Location = new System.Drawing.Point(807, 602);
             this.NAVI_SETTING.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.NAVI_SETTING.Name = "NAVI_SETTING";
             this.NAVI_SETTING.Size = new System.Drawing.Size(128, 80);
             this.NAVI_SETTING.TabIndex = 7;
             this.NAVI_SETTING.UseVisualStyleBackColor = true;
-            this.NAVI_SETTING.Visible = false;
             this.NAVI_SETTING.Click += new System.EventHandler(this.NAVI_SETTING_Click);
             // 
             // NAVI_MEASURE
@@ -162,7 +160,7 @@
             this.NAVI_MEASURE.BackgroundImage = global::KTE_PMS.Properties.Resources.measure_off_1;
             this.NAVI_MEASURE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_MEASURE.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_MEASURE.Location = new System.Drawing.Point(534, 532);
+            this.NAVI_MEASURE.Location = new System.Drawing.Point(543, 602);
             this.NAVI_MEASURE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.NAVI_MEASURE.Name = "NAVI_MEASURE";
             this.NAVI_MEASURE.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -171,7 +169,6 @@
             this.NAVI_MEASURE.Text = "Measure";
             this.NAVI_MEASURE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.NAVI_MEASURE.UseVisualStyleBackColor = true;
-            this.NAVI_MEASURE.Visible = false;
             this.NAVI_MEASURE.Click += new System.EventHandler(this.NAVI_MEASURE_Click);
             // 
             // NAVI_MIMIC
@@ -179,13 +176,12 @@
             this.NAVI_MIMIC.BackgroundImage = global::KTE_PMS.Properties.Resources.mimic_off;
             this.NAVI_MIMIC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_MIMIC.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_MIMIC.Location = new System.Drawing.Point(401, 532);
+            this.NAVI_MIMIC.Location = new System.Drawing.Point(411, 602);
             this.NAVI_MIMIC.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.NAVI_MIMIC.Name = "NAVI_MIMIC";
             this.NAVI_MIMIC.Size = new System.Drawing.Size(128, 80);
             this.NAVI_MIMIC.TabIndex = 4;
             this.NAVI_MIMIC.UseVisualStyleBackColor = true;
-            this.NAVI_MIMIC.Visible = false;
             this.NAVI_MIMIC.Click += new System.EventHandler(this.NAVI_MIMIC_Click);
             // 
             // NAVI_TREND
@@ -193,13 +189,12 @@
             this.NAVI_TREND.BackgroundImage = global::KTE_PMS.Properties.Resources.trend_off;
             this.NAVI_TREND.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_TREND.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_TREND.Location = new System.Drawing.Point(666, 532);
+            this.NAVI_TREND.Location = new System.Drawing.Point(675, 602);
             this.NAVI_TREND.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.NAVI_TREND.Name = "NAVI_TREND";
             this.NAVI_TREND.Size = new System.Drawing.Size(128, 80);
             this.NAVI_TREND.TabIndex = 3;
             this.NAVI_TREND.UseVisualStyleBackColor = true;
-            this.NAVI_TREND.Visible = false;
             this.NAVI_TREND.Click += new System.EventHandler(this.NAVI_TREND_Click);
             // 
             // NAVI_ALARM
@@ -207,13 +202,12 @@
             this.NAVI_ALARM.BackgroundImage = global::KTE_PMS.Properties.Resources.alarm_off;
             this.NAVI_ALARM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_ALARM.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_ALARM.Location = new System.Drawing.Point(135, 532);
+            this.NAVI_ALARM.Location = new System.Drawing.Point(144, 602);
             this.NAVI_ALARM.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.NAVI_ALARM.Name = "NAVI_ALARM";
             this.NAVI_ALARM.Size = new System.Drawing.Size(128, 80);
             this.NAVI_ALARM.TabIndex = 2;
             this.NAVI_ALARM.UseVisualStyleBackColor = true;
-            this.NAVI_ALARM.Visible = false;
             this.NAVI_ALARM.Click += new System.EventHandler(this.NAVI_ALARM_Click);
             // 
             // NAVI_MAIN
@@ -222,13 +216,12 @@
             this.NAVI_MAIN.BackgroundImage = global::KTE_PMS.Properties.Resources.main_off;
             this.NAVI_MAIN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_MAIN.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_MAIN.Location = new System.Drawing.Point(2, 532);
+            this.NAVI_MAIN.Location = new System.Drawing.Point(12, 602);
             this.NAVI_MAIN.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.NAVI_MAIN.Name = "NAVI_MAIN";
             this.NAVI_MAIN.Size = new System.Drawing.Size(128, 80);
             this.NAVI_MAIN.TabIndex = 1;
             this.NAVI_MAIN.UseVisualStyleBackColor = true;
-            this.NAVI_MAIN.Visible = false;
             this.NAVI_MAIN.Click += new System.EventHandler(this.NAVI_MAIN_Click);
             // 
             // btn_GRID_ON
@@ -238,7 +231,7 @@
             this.btn_GRID_ON.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.btn_GRID_ON.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.btn_GRID_ON.Location = new System.Drawing.Point(337, 31);
-            this.btn_GRID_ON.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_GRID_ON.Margin = new System.Windows.Forms.Padding(2);
             this.btn_GRID_ON.Name = "btn_GRID_ON";
             this.btn_GRID_ON.Size = new System.Drawing.Size(64, 61);
             this.btn_GRID_ON.TabIndex = 82;
@@ -251,7 +244,7 @@
             this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton1.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.simpleButton1.Location = new System.Drawing.Point(426, 30);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(2);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(64, 61);
             this.simpleButton1.TabIndex = 83;
@@ -264,7 +257,7 @@
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton2.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.simpleButton2.Location = new System.Drawing.Point(246, 31);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(2);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(64, 61);
             this.simpleButton2.TabIndex = 84;
@@ -275,7 +268,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(240, -2);
+            this.label4.Location = new System.Drawing.Point(231, -2);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 31);
@@ -287,7 +280,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(342, -2);
+            this.label1.Location = new System.Drawing.Point(339, -2);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 31);
@@ -299,7 +292,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(429, -2);
+            this.label2.Location = new System.Drawing.Point(431, -2);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 31);
@@ -310,7 +303,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(508, 41);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(99, 39);
             this.textBox1.TabIndex = 100;
@@ -322,7 +315,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(518, -2);
+            this.label3.Location = new System.Drawing.Point(512, 8);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 31);
@@ -334,9 +327,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(966, 622);
+            this.ClientSize = new System.Drawing.Size(1002, 683);
+            this.Controls.Add(this.NAVI_SETTING);
+            this.Controls.Add(this.NAVI_MIMIC);
+            this.Controls.Add(this.NAVI_TREND);
+            this.Controls.Add(this.NAVI_MAIN);
+            this.Controls.Add(this.NAVI_MEASURE);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.NAVI_CONTROL);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NAVI_ALARM);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
@@ -344,15 +344,8 @@
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btn_GRID_ON);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.NAVI_CONTROL);
             this.Controls.Add(this.MONITOR_OFF);
             this.Controls.Add(this.CONTROL_PCSSTOP);
-            this.Controls.Add(this.NAVI_SETTING);
-            this.Controls.Add(this.NAVI_MEASURE);
-            this.Controls.Add(this.NAVI_MIMIC);
-            this.Controls.Add(this.NAVI_TREND);
-            this.Controls.Add(this.NAVI_ALARM);
-            this.Controls.Add(this.NAVI_MAIN);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "KTE_PMS";

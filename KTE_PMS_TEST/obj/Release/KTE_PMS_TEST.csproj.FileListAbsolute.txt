@@ -1,0 +1,1 @@
+C:\git\KTE_PMS_V3\KTE_PMS_TEST\obj\Release\KTE_PMS_TEST.csproj.CoreCompileInputs.cache

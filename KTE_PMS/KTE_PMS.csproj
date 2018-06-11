@@ -49,12 +49,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.2.UI, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.2.Wizard, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGauges.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGauges.v17.2.Win, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -64,6 +68,10 @@
     <Reference Include="ModbusTCP, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DLL\ModbusTCP.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.7\Assemblies\v4.0\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -92,9 +100,26 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLASS\cImageBTN.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CLASS\cImageBTN.Designer.cs">
+      <DependentUpon>cImageBTN.cs</DependentUpon>
+    </Compile>
     <Compile Include="CLASS\cSamsungBMS_Control.cs" />
     <Compile Include="CLASS\cSamsungBMS_System.cs" />
     <Compile Include="CLASS\cSamsungBMS_Rack.cs" />
+    <Compile Include="CLASS\ImageResize.cs" />
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBConnector.cs" />
     <Compile Include="MAIN.cs">
       <SubType>Form</SubType>
@@ -151,6 +176,12 @@
     <Compile Include="MIMIC\myTextBox.Designer.cs">
       <DependentUpon>myTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="MIMIC\PCSViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MIMIC\PCSViewer.Designer.cs">
+      <DependentUpon>PCSViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="MIMIC\Setting_PageViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,6 +217,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="sAlarm.cs" />
     <Compile Include="sBCS.cs" />
     <Compile Include="SingerOnScreenKeyboard.xaml.cs">
       <DependentUpon>SingerOnScreenKeyboard.xaml</DependentUpon>
@@ -207,6 +239,19 @@
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
+    <Compile Include="TREND_DATA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TREND_DATA.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Trend_Data1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Trend_Data1.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CLASS\cImageBTN.resx">
+      <DependentUpon>cImageBTN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MAIN.resx">
       <DependentUpon>MAIN.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MIMIC\myTextBox.resx">
       <DependentUpon>myTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIMIC\PCSViewer.resx">
+      <DependentUpon>PCSViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MIMIC\Setting_PageViewer.resx">
       <DependentUpon>Setting_PageViewer.cs</DependentUpon>
@@ -266,6 +314,28 @@
     <EmbeddedResource Include="MIMIC\PMDViewer.resx">
       <DependentUpon>PMDViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -275,6 +345,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TREND_DATA.xsc">
+      <DependentUpon>TREND_DATA.xsd</DependentUpon>
+    </None>
+    <None Include="TREND_DATA.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TREND_DATA.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TREND_DATA.xss">
+      <DependentUpon>TREND_DATA.xsd</DependentUpon>
+    </None>
+    <None Include="Trend_Data1.xsc">
+      <DependentUpon>Trend_Data1.xsd</DependentUpon>
+    </None>
+    <None Include="Trend_Data1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Trend_Data1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Trend_Data1.xss">
+      <DependentUpon>Trend_Data1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

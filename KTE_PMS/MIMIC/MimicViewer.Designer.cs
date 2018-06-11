@@ -38,6 +38,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Name = "MimicViewer";
+            this.Size = new System.Drawing.Size(950, 450);
             this.ResumeLayout(false);
 
         }

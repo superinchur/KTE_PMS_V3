@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Columns;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace KTE_PMS.MIMIC
 {
@@ -20,38 +22,60 @@ namespace KTE_PMS.MIMIC
         const int initialSize = 0;
         Color flashColor;
 
+
         const int max_row_size = 11;
 
         public AlarmViewer()
         {
             InitializeComponent();
-            //numberOfRows = initialSize;
-
-            //dataGridView2.ForceInitialize();
-
-            //GridColumn unbColumn = dataGridView2.
-            //dataGridview1_
-            //dataGridView1.Columns[0].Size
-
-            //dataGridView1.AutoSizeColumnsMode  = DataGridViewAutoSizeColumnsMode.AllCells;
         }
         private void Alarm_Load(object sender, EventArgs e)
         {
-
             threadingtimer = new System.Threading.Timer(ThreadingTimerCallback, null, 1000, 1000);
+        }
 
+        public void LoadCurrentFault()
+        {
+            dataGridView1.Rows.Clear();
+            ArrayList alFault = new ArrayList();
+
+            foreach (KeyValuePair<String, String> pDir in Repository.Instance.TagManager.htCurrentFault)
+            {
+                string szFault = pDir.Value + "";
+                if (szFault != "")
+                    alFault.Add(pDir.Value);
+            }
+
+            alFault.Sort();
+            string[] row0 = new string[5];
+
+            foreach (string szFaultData in alFault)
+            {
+                string[] szFault = szFaultData.Split('|');
+
+                row0[0] = szFault[0];
+                row0[1] = szFault[1];
+                row0[2] = szFault[2];
+                row0[3] = szFault[3];
+                row0[4] = szFault[4];
+  
+                // row0[4] 는 ACK, UNACK, UNACK_NORMAL로 구성됨
+
+                dataGridView1.Rows.Add(row0);
+            }
         }
 
         public new void ThreadingTimerCallback(object state)
         {
+
+
             try
             {
                 this.Invoke(new MethodInvoker(delegate ()
                 {
-                    // 1초 Timer에 의해서 수행되는 코드
-
-                    // 1초마다 Flashing을 하자
-
+                    Flashing_Row();
+                    LoadCurrentFault();
+                    Cell_Color_Painting();
                 }));
             }
             catch (ThreadAbortException ex)
@@ -114,8 +138,6 @@ namespace KTE_PMS.MIMIC
                 }
 
 
-
-
                 if (i.UnAck == true)
                 {
                     if (i.HiHi == true)
@@ -167,8 +189,6 @@ namespace KTE_PMS.MIMIC
 
             dataGridView1.Rows.Add(row0);
 
-            
-            
             //DataGridViewTextBoxRow a = new dataGridView1.Rows.DataGridViewTextBoxRow();
 
             // Tag가 있어야한다.
@@ -182,7 +202,7 @@ namespace KTE_PMS.MIMIC
         }
         private void MakeAlarm(string date, string type, string device, string description)
         {
-            string[] row0 = new string[4];
+            string[] row0 = new string[5];
 
             row0[0] = date;
             row0[1] = type;
@@ -190,10 +210,7 @@ namespace KTE_PMS.MIMIC
             row0[3] = description;
 
             dataGridView1.DefaultCellStyle.BackColor = Color.LightGray;
-            //dataGridView1.Rows[0].DefaultCellStyle.BackColor = Color.Green;
-            //dataGridView1.Get
             dataGridView1.Rows.Add(row0);
-            //newRowNeeded = true;
 
         }
         private void button1_Click(object sender, EventArgs e)
@@ -233,9 +250,8 @@ namespace KTE_PMS.MIMIC
                         break;
                     case "UNACK":
                         dataGridView1.Rows[i].DefaultCellStyle.BackColor = flashColor;
-
                         break;
-                    case "UNACK_NORMAL":
+                    case "UNACK NORMAL":
                         dataGridView1.Rows[i].DefaultCellStyle.BackColor = Color.Green;
                         break;
                 }
@@ -264,6 +280,52 @@ namespace KTE_PMS.MIMIC
             {
                 dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.FirstDisplayedScrollingRowIndex - max_row_size;
             }
+        }
+
+        private void btnACK_Click(object sender, EventArgs e)
+        {
+            // 일다안~~~ Unacked 인놈을 다 Ack로 변경해야한다.
+
+            
+            foreach (var key in Repository.Instance.TagManager.htCurrentFault.Keys.ToList())
+            {
+                // 값을 받아온다.
+                //string szFault = pDir.Value + "";
+                string szFault = Repository.Instance.TagManager.htCurrentFault[key] + "";
+                // Unacked이면 Acked로, Unacekd Normal이면 삭제.
+                string[] current_IO = szFault.Split('|');
+
+                if (current_IO[4] == "UNACK NORMAL")
+                {
+                    Repository.Instance.TagManager.htCurrentFault.Remove(key);
+                }
+                else if (current_IO[4] == "UNACK")
+                {
+                    szFault = szFault.Replace("UNACK", "ACK");
+                    Repository.Instance.TagManager.htCurrentFault.Remove(key);
+                    Repository.Instance.TagManager.htCurrentFault.Add(key, szFault);
+
+                }
+            }
+            /*
+            foreach (KeyValuePair<String, String> pDir in Repository.Instance.TagManager.htCurrentFault)
+            {
+                // 값을 받아온다.
+                string szFault = pDir.Value + "";
+                // Unacked이면 Acked로, Unacekd Normal이면 삭제.
+                if (szFault.Contains("UNACK NORMAL") )
+                {
+                    Repository.Instance.TagManager.htCurrentFault.Remove(pDir.Key);
+                }
+                else if (szFault.Contains("UNACK"))
+                {
+                    szFault.Replace("UNACK", "ACK");
+                    Repository.Instance.TagManager.htCurrentFault.Remove(pDir.Key);
+                    Repository.Instance.TagManager.htCurrentFault.Add(pDir.Key, szFault);
+
+                }
+            }
+            */
         }
     }
 }

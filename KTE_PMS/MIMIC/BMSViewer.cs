@@ -39,23 +39,24 @@ namespace KTE_PMS.MIMIC
             BSC_Controller_Data = new Byte[14];
 
             BSC1 = new Byte[50];
-            threadingtimer = new System.Threading.Timer(ThreadingTimerCallback, null, 0, 1000);
+            threadingtimer = new System.Threading.Timer(ThreadingTimerCallback, null, 0, 5000);
 
 
             // For test. IP 설정창을 그린 후 해당 내용으로 교체할 예정임
 
             // Samsung Battery로 변경함
+            /*
             txtIP1.Text = "17";
             txtIP2.Text = "91";
             txtIP3.Text = "30";
             txtIP4.Text = "246";
-
-            /*
+            */
+            
             txtIP1.Text = "127";
             txtIP2.Text = "0";
             txtIP3.Text = "0";
             txtIP4.Text = "1";
-            */
+            
             //-----------------------------
             // Modbus TCP - BMS 통신 시도 //
             //-----------------------------
@@ -212,7 +213,8 @@ namespace KTE_PMS.MIMIC
             try
             {
                 // Create new modbus master and add event functions
-                string ip_address = "17.91.30.246";
+                //string ip_address = "17.91.30.246";
+                string ip_address = "127.0.0.1";
                 ushort port_number = 502;
                 MBmaster = new Master(ip_address, port_number);
 
@@ -224,7 +226,7 @@ namespace KTE_PMS.MIMIC
             }
             catch (SystemException error)
             {
-                //MessageBox.Show(error.Message + "다시 접속해 주세요");
+                MessageBox.Show(error.Message + "다시 접속해 주세요");
                 System.Diagnostics.Debug.WriteLine(error.Message + "다시 접속해 주세요");
                 //flag_BSC_Connection = 0;
             }
@@ -243,68 +245,9 @@ namespace KTE_PMS.MIMIC
             //modbus_rtu = new Modbus_Setup();
         }
 
-
-        private void btnWriteMultipleReg_Click(object sender, EventArgs e)
-        {
-            /*
-            ushort ID = 8;
-            byte unit = Convert.ToByte(txtUnit.Text);
-            ushort StartAddress = ReadStartAdr();
-
-            //data = GetData(Convert.ToByte(txtSize.Text));
-            MBmaster.WriteMultipleRegister(ID, unit, StartAddress, data);
-            */
-        }
-
-
-        // ------------------------------------------------------------------------
-        // Read start address
-        // ------------------------------------------------------------------------
-        private ushort ReadStartAdr()
-        {
-            /*
-            // Convert hex numbers into decimal
-            if (txtStartAdress.Text.IndexOf("0x", 0, txtStartAdress.Text.Length) == 0)
-            {
-                string str = txtStartAdress.Text.Replace("0x", "");
-                ushort hex = Convert.ToUInt16(str, 16);
-                return hex;
-            }
-            else
-            {
-                return Convert.ToUInt16(txtStartAdress.Text);
-            }
-            
-            */
-            return 0;
-        }
         private ushort ReadStartAdr(UInt16 StartAddress)
         {
             return StartAddress;
-        }
-
-        private void btnReadHoldReg_Click(object sender, EventArgs e)
-        {
-            /*
-            ushort ID = 3;
-            byte unit = Convert.ToByte(txtUnit.Text);
-            ushort StartAddress = ReadStartAdr();
-            byte Length = Convert.ToByte(txtSize.Text);
-            
-            MBmaster.ReadHoldingRegister(ID, unit, StartAddress, Length);
-            */
-        }
-
-        private void ReadHoldReg()
-        {
-            /*
-            ushort ID = 3;
-            byte unit = Convert.ToByte(txtUnit.Text);
-            ushort StartAddress = ReadStartAdr();
-            byte Length = Convert.ToByte(txtSize.Text);
-            
-            MBmaster.ReadHoldingRegister(ID, unit, StartAddress, Length);
-            */
         }
 
         private void Read_BSC_Configuration()

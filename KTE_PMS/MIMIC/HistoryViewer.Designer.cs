@@ -83,7 +83,7 @@
             this.DESCRIPTION,
             this.IO});
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 134);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 65);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
@@ -91,14 +91,13 @@
             this.dataGridView1.Size = new System.Drawing.Size(858, 269);
             this.dataGridView1.TabIndex = 2;
             // 
-            // History
+            // HistoryViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 537);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "History";
-            this.Text = "History";
+            this.Name = "HistoryViewer";
+            this.Size = new System.Drawing.Size(950, 450);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

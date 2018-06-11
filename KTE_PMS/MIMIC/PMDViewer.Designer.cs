@@ -48,9 +48,9 @@
             this.label5.Font = new System.Drawing.Font("굴림", 24F);
             this.label5.Location = new System.Drawing.Point(274, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 32);
+            this.label5.Size = new System.Drawing.Size(84, 32);
             this.label5.TabIndex = 49;
-            this.label5.Text = "BMS";
+            this.label5.Text = "PMD";
             // 
             // txtIP4
             // 
@@ -156,7 +156,7 @@
             this.txtIP1.TabIndex = 38;
             this.txtIP1.Text = "127";
             // 
-            // UMD
+            // PMDViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -173,7 +173,7 @@
             this.Controls.Add(this.LB_IP);
             this.Controls.Add(this.txtPort);
             this.Controls.Add(this.txtIP1);
-            this.Name = "UMD";
+            this.Name = "PMDViewer";
             this.Text = "UMD";
             this.ResumeLayout(false);
             this.PerformLayout();

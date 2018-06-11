@@ -1,12 +1,13 @@
 ﻿using KTE_PMS.Observer;
 using KTE_PMS.Singleton;
 using System;
+using System.Threading;
 using System.Windows.Forms;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace KTE_PMS
 {
-
-
     public sealed class Repository : SingleTonBase<Repository>
     {
         //----------------------------------
@@ -36,6 +37,12 @@ namespace KTE_PMS
         IUpdate observers;
 
         public ushort remote_power;
+
+        //세파포어 선언 
+        private static Semaphore _resourcePool; //한번에 허용할 수 있는 최대 쓰레드 수 
+        private static int _maximumThreads = 1;
+
+        
         // ---------------------------------------------------------
         // 생성자
         // ---------------------------------------------------------
@@ -63,16 +70,15 @@ namespace KTE_PMS
             observers = p_main;
             bmsviewer.AddObserver(observers);
 
+            _resourcePool = new Semaphore(0, _maximumThreads);
+            _resourcePool.Release();
             //-----------------------------
             // // TagManager 생성
             //-----------------------------
             try
             {
                 TagManager = new TagManager(this);
-                //Thread t_tagmanager = new Thread(new ThreadStart(TagManager.Run ));
-                //t_tagmanager.Start();
 
-                //dbConnector = new DBConnector();
             }
             catch (Exception e)
             {
@@ -153,7 +159,7 @@ namespace KTE_PMS
             //년/월/일 시/분/초 를 초 단위로 표시함.
             //0: 2014 / 01 / 01 00:00:00 의미, 86399: 2014 / 01 / 01 23:59:59
 
-            DateTime baseTime = new DateTime(2014, 4, 1, 0, 0, 0);
+            DateTime baseTime = new DateTime(2018, 4, 1, 0, 0, 0);
             TimeSpan timeDiff = DateTime.Now.Subtract(baseTime);
             pmd.DateTime = timeDiff.TotalSeconds;
 
@@ -163,7 +169,7 @@ namespace KTE_PMS
             //PMD_DI_Status
         }
 
-
+        #region GnEPS PCS의 데이터 획득
         public void Get_PCS(byte[] data)
         {
             GnEPS_PCS.Stand_Grid_Mode = (BitConverter.ToInt16(data, 0) & 0x80) >> 7;
@@ -285,11 +291,11 @@ namespace KTE_PMS
             GnEPS_PCS.Wind_Current = BitConverter.ToInt16(data, 183);
             GnEPS_PCS.Wind_Power = BitConverter.ToInt16(data, 184);
         }
-
+#endregion
         public void Get_BSC(byte[] data)
         {
-            int addr;
-            addr = 0;
+            
+            _resourcePool.WaitOne();
             byte[] temp_byte = new byte[2];
 
             samsung_bcs.Protocol_Version = BitConverter.ToUInt16(swapbyte(data, 0),0);
@@ -320,7 +326,7 @@ namespace KTE_PMS
             samsung_bcs.System_SOH = BitConverter.ToUInt16(swapbyte(data, 4 * 2), 0) * 0.1;
             samsung_bcs.System_Mode = BitConverter.ToUInt16(swapbyte(data, 5 * 2), 0);
             samsung_bcs.System_Max_Voltage = BitConverter.ToUInt16(swapbyte(data, 6 * 2), 0) * 0.01;
-            samsung_bcs.System_Min_Voltage = BitConverter.ToUInt16(swapbyte(data, 7 * 2), 0) ;
+            samsung_bcs.System_Min_Voltage = BitConverter.ToUInt16(swapbyte(data, 7 * 2), 0) * 0.01;
             samsung_bcs.System_Max_Temp = BitConverter.ToInt16(swapbyte(data, 8 * 2), 0);
             samsung_bcs.System_Min_Temp = BitConverter.ToInt16(swapbyte(data, 9 * 2), 0);
             samsung_bcs.Protection_Summary4 = BitConverter.ToUInt16(swapbyte(data, 14 * 2), 0);
@@ -342,12 +348,13 @@ namespace KTE_PMS
             samsung_bcs.Service_Voltage = BitConverter.ToUInt16(swapbyte(data, 27 * 2), 0);
             samsung_bcs.Service_SOC = BitConverter.ToUInt16(swapbyte(data, 28 * 2), 0);
 
-            samsung_bcs.System_Alarm_Status = BitConverter.ToUInt16(swapbyte(data, 30 * 2), 0);
+            
             //samsung_bcs.System_Power = BitConverter.ToUInt16(data, 0);
 
+            TagManager.BMS_Fault_처리_프로시져();
+            _resourcePool.Release();
+
         }
-
-
         private byte[] swapbyte(byte[] word, int offset)
         {
             //BSC_Controller_Data[0]  =   BSC1[0] * 256 + data[1];
@@ -358,8 +365,6 @@ namespace KTE_PMS
 
             return data;
         }
-
-
         private byte[] HostToNetworkOrder(int word)
         {
             //BSC_Controller_Data[0]  =   BSC1[0] * 256 + data[1];
@@ -370,10 +375,6 @@ namespace KTE_PMS
 
             return data;
         }
-
-
-
-
         private void BT_Connect_Click(object sender, EventArgs e)
         {
             //Connect_to_BSC();

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using KTE_PMS.CLASS;
+using System;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace KTE_PMS
@@ -21,18 +23,15 @@ namespace KTE_PMS
 
             CLOCK_TIMER.Enabled = true;
             CLOCK_TIMER.Interval = 1000;
-
-
         }
-
 
         // ---------------------------------------------------------
         // KMS_PMS_ Load
         // ---------------------------------------------------------
         private void KTE_PMS_Load(object sender, EventArgs e)
         {
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(Repository.Instance.p_main);
+            panel1.Controls.Clear();
+            panel1.Controls.Add(Repository.Instance.p_main);
         }
 
         // ---------------------------------------------------------
@@ -53,112 +52,94 @@ namespace KTE_PMS
         // ---------------------------------------------------------
         private void NAVI_MAIN_Click(object sender, EventArgs e)
         {
-            
+
             // 모든 Button의 Image를 Null로 변경 해서 초기화 //
-            this.NAVI_MAIN.Image = null;
-            this.NAVI_ALARM.Image = null;
-            this.NAVI_TREND.Image = null;
-            this.NAVI_MIMIC.Image = null;
-            this.NAVI_MEASURE.Image = null;
-            this.NAVI_CONTROL.Image = null;
-            this.NAVI_SETTING.Image = null;
+            Navigation_Button_Initialize();
 
             // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
-            this.NAVI_MAIN.Image = global::KTE_PMS.Properties.Resources.main_on;
-            
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(Repository.Instance.p_main);
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.main_on, button.Width, button.Height);
+
+            panel1.Controls.Clear();
+            panel1.Controls.Add(Repository.Instance.p_main);
 
         }
         private void NAVI_ALARM_Click(object sender, EventArgs e)
         {
             // 모든 Button의 Image를 Null로 변경 해서 초기화 //
-            this.NAVI_MAIN.Image = null;
-            this.NAVI_ALARM.Image = null;
-            this.NAVI_TREND.Image = null;
-            this.NAVI_MIMIC.Image = null;
-            this.NAVI_MEASURE.Image = null;
-            this.NAVI_CONTROL.Image = null;
-            this.NAVI_SETTING.Image = null;
+            Navigation_Button_Initialize();
 
             // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
-            this.NAVI_ALARM.Image = global::KTE_PMS.Properties.Resources.alarm_on;
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.alarm_on, button.Width, button.Height);
 
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(Repository.Instance.p_alarm);
+            panel1.Controls.Clear();
+            panel1.Controls.Add(repository.p_alarm);
         }
         private void NAVI_TREND_Click(object sender, EventArgs e)
         {
             // 모든 Button의 Image를 Null로 변경 해서 초기화 //
-            this.NAVI_MAIN.Image = null;
-            this.NAVI_ALARM.Image = null;
-            this.NAVI_TREND.Image = null;
-            this.NAVI_MIMIC.Image = null;
-            this.NAVI_MEASURE.Image = null;
-            this.NAVI_CONTROL.Image = null;
-            this.NAVI_SETTING.Image = null;
+            Navigation_Button_Initialize();
 
             // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
-            this.NAVI_TREND.Image = global::KTE_PMS.Properties.Resources.trend_on;
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.trend_on, button.Width, button.Height);
 
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(Repository.Instance.p_trend);
+            panel1.Controls.Clear();
+            panel1.Controls.Add(Repository.Instance.p_trend);
         }
         private void NAVI_MIMIC_Click(object sender, EventArgs e)
         {
             // 모든 Button의 Image를 Null로 변경 해서 초기화 //
-            this.NAVI_MAIN.Image = null;
-            this.NAVI_ALARM.Image = null;
-            this.NAVI_TREND.Image = null;
-            this.NAVI_MIMIC.Image = null;
-            this.NAVI_MEASURE.Image = null;
-            this.NAVI_CONTROL.Image = null;
-            this.NAVI_SETTING.Image = null;
+            Navigation_Button_Initialize();
 
             // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
-            this.NAVI_MIMIC.Image = global::KTE_PMS.Properties.Resources.mimic_on;
-
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(Repository.Instance.p_mimic);
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.mimic_on, button.Width, button.Height);
+            
+            panel1.Controls.Clear();
+            panel1.Controls.Add(Repository.Instance.p_mimic);
         }
         private void NAVI_MEASURE_Click(object sender, EventArgs e)
         {
             // 모든 Button의 Image를 Null로 변경 해서 초기화 //
-            this.NAVI_MAIN.Image = null;
-            this.NAVI_ALARM.Image = null;
-            this.NAVI_TREND.Image = null;
-            this.NAVI_MIMIC.Image = null;
-            this.NAVI_MEASURE.Image = null;
-            this.NAVI_CONTROL.Image = null;
-            this.NAVI_SETTING.Image = null;
+            Navigation_Button_Initialize();
 
             // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
-            this.NAVI_MEASURE.Image = global::KTE_PMS.Properties.Resources.measure_on_1;           
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.measure_on_1, button.Width, button.Height);
 
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(Repository.Instance.p_measure);
+            panel1.Controls.Clear();
+            panel1.Controls.Add(Repository.Instance.p_measure);
         }
         private void NAVI_CONTROL_Click(object sender, EventArgs e)
         {
             // 모든 Button의 Image를 Null로 변경 해서 초기화 //
-            this.NAVI_MAIN.Image = null;
-            this.NAVI_ALARM.Image = null;
-            this.NAVI_TREND.Image = null;
-            this.NAVI_MIMIC.Image = null;
-            this.NAVI_MEASURE.Image = null;
-            this.NAVI_CONTROL.Image = null;
-            this.NAVI_SETTING.Image = null;
+            Navigation_Button_Initialize();
 
             // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
-            this.NAVI_CONTROL.Image = global::KTE_PMS.Properties.Resources.control_on;
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.control_on, button.Width, button.Height);
 
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(Repository.Instance.p_control);
+            panel1.Controls.Clear();
+            panel1.Controls.Add(Repository.Instance.p_control);
 
         }
         private void NAVI_SETTING_Click(object sender, EventArgs e)
         {
             // 모든 Button의 Image를 Null로 변경 해서 초기화 //
+            Navigation_Button_Initialize();
+
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.setting_on, button.Width, button.Height);
+
+            this.panel1.Controls.Clear();
+            this.panel1.Controls.Add(Repository.Instance.p_setting);
+        }
+
+        private void Navigation_Button_Initialize()
+        {
             this.NAVI_MAIN.Image = null;
             this.NAVI_ALARM.Image = null;
             this.NAVI_TREND.Image = null;
@@ -166,14 +147,7 @@ namespace KTE_PMS
             this.NAVI_MEASURE.Image = null;
             this.NAVI_CONTROL.Image = null;
             this.NAVI_SETTING.Image = null;
-
-            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
-            this.NAVI_SETTING.Image = global::KTE_PMS.Properties.Resources.setting_on;
-
-            this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(Repository.Instance.p_setting);
         }
-
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
@@ -186,8 +160,9 @@ namespace KTE_PMS
 
 
         private void CONTROL_PCSSTOP_MouseDown(object sender, MouseEventArgs e)
-        {
-            this.CONTROL_PCSSTOP.Image = global::KTE_PMS.Properties.Resources.PCS_STOP_off;
+        {         
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.PCS_STOP_off, button.Width, button.Height);
         }
 
         private void CONTROL_PCSSTOP_MouseUp(object sender, MouseEventArgs e)
@@ -197,7 +172,8 @@ namespace KTE_PMS
 
         private void MONITOR_OFF_MouseDown(object sender, MouseEventArgs e)
         {
-            this.MONITOR_OFF.Image = global::KTE_PMS.Properties.Resources.Monitor_off_off;
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.PCS_STOP_off, button.Width, button.Height);
         }
 
         private void MONITOR_OFF_MouseUp(object sender, MouseEventArgs e)
