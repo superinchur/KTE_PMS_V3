@@ -19,28 +19,24 @@ namespace KTE_PMS.MIMIC
         public byte[] BSC1 { get; set; }
         public byte[] BSC2 { get; set; }
 
-
+        DateTime tLastRecv;
         public byte[] WriteValueBuffers { get; set; }
-        //----------------------------------
-        // 임시변수
-        //----------------------------------
 
-
-        System.Threading.Timer threadingtimer; // 1초 타이머를 위한 함수(Main Timer)
         public BMSViewer()
         {
             InitializeComponent();
 
+            WriteValueBuffers = new byte[64];
 
-            WriteValueBuffers = new byte[2048];
-            MBmaster = new ModbusTCP.Master();
+            if (Properties.Settings.Default.DEBUG) return;
+            
+                MBmaster = new Master();
 
+            tLastRecv = new DateTime();
 
             BSC_Controller_Data = new Byte[14];
 
             BSC1 = new Byte[50];
-            threadingtimer = new System.Threading.Timer(ThreadingTimerCallback, null, 0, 5000);
-
 
             // For test. IP 설정창을 그린 후 해당 내용으로 교체할 예정임
 
@@ -65,32 +61,11 @@ namespace KTE_PMS.MIMIC
             // 2. 연결하기
             Connect_to_BSC();
 
+            timer.Enabled = true;
+            timer.Interval = 1000;
+            timer.Start();
 
         }
-        // ---------------------------------------------------------
-        // 1초 Thread. 추기적으로 Read와 Write를 날린다
-        // ---------------------------------------------------------
-        private void ThreadingTimerCallback(object state)
-        {
-
-
-
-            // 1초 Timer에 의해서 수행되는 코드
-            //-----------------------------------------------------------
-            // Read From BSC
-            // BSC와 연결되어있다면 Read 시도, 그렇지 않다면 재접속 시도.
-            //-----------------------------------------------------------
-
-                //-----------------------------------------------------------
-                // Read From BSC
-                // BSC와 연결되어있다면 Read 시도, 그렇지 않다면 재접속 시도.
-                //-----------------------------------------------------------
-                ReadFromBSC();
-
-            
-
-        }
-
 
         private void txtIP1_TextChanged(object sender, EventArgs e)
         {
@@ -108,7 +83,7 @@ namespace KTE_PMS.MIMIC
             ushort ID = 1;
             byte unit = Convert.ToByte(0);
             ushort StartAddress = ReadStartAdr(0);
-            byte Length = Convert.ToByte(80);
+            byte Length = Convert.ToByte(100);
 
             MBmaster.ReadInputRegister(ID, unit, StartAddress, Length);
             
@@ -219,8 +194,8 @@ namespace KTE_PMS.MIMIC
                 MBmaster = new Master(ip_address, port_number);
 
                 // Setting response data and exception
-                MBmaster.OnResponseData += new ModbusTCP.Master.ResponseData(MBmaster_OnResponseData);
-                MBmaster.OnException += new ModbusTCP.Master.ExceptionData(MBmaster_OnException);
+                MBmaster.OnResponseData += new Master.ResponseData(MBmaster_OnResponseData);
+                MBmaster.OnException += new Master.ExceptionData(MBmaster_OnException);
 
                 //flag_BSC_Connection = 1;
             }
@@ -345,6 +320,38 @@ namespace KTE_PMS.MIMIC
             {
                 observer.ObserverUpdate();
             }
+        }
+
+        public int Connected()
+        {
+            DateTime dt_now;
+            dt_now = DateTime.Now;
+
+            TimeSpan span = dt_now - tLastRecv;
+
+            if (span.Seconds < 10)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            // 1초 Timer에 의해서 수행되는 코드
+            //-----------------------------------------------------------
+            // Read From BSC
+            // BSC와 연결되어있다면 Read 시도, 그렇지 않다면 재접속 시도.
+            //-----------------------------------------------------------
+
+            //-----------------------------------------------------------
+            // Read From BSC
+            // BSC와 연결되어있다면 Read 시도, 그렇지 않다면 재접속 시도.
+            //-----------------------------------------------------------
+            ReadFromBSC();
         }
     }
 }

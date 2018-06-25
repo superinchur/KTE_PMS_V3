@@ -1,7 +1,5 @@
 ﻿using KTE_PMS.Observer;
 using System;
-using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace KTE_PMS.MIMIC
@@ -38,30 +36,46 @@ namespace KTE_PMS.MIMIC
 
         public void ObserverUpdate()
         {
+            ObserverUpdate_BMS_System();
 
+            CSafeSetText(lb1, Repository.Instance.samsung_bcs.System_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb3, Repository.Instance.samsung_bcs.System_SOC.ToString() + " " + "%");
+            CSafeSetText(lb5, Repository.Instance.samsung_bcs.Rack_Voltage.ToString() + " " + "V");
+        }
+
+        private void ObserverUpdate_BMS_System()
+        {
+            // BMS : System용 이다
             // 값 써주기
-            CSafeSetText(lb1, Repository.Instance.samsung_bcs.System_Voltage.ToString());
-            CSafeSetText(lb3, Repository.Instance.samsung_bcs.System_SOC.ToString());
-            CSafeSetText(lb5, Repository.Instance.samsung_bcs.Rack_Voltage.ToString());
+            CSafeSetText(lb1, Repository.Instance.samsung_bcs.System_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb3, Repository.Instance.samsung_bcs.System_SOC.ToString() + " " + "%");
+            CSafeSetText(lb5, Repository.Instance.samsung_bcs.Rack_Voltage.ToString() + " " + "V");
 
-            CSafeSetText(lb7, Repository.Instance.samsung_bcs.String1_Rack_Voltage.ToString());
-            CSafeSetText(lb9, Repository.Instance.samsung_bcs.String2_Rack_Voltage.ToString());
-            CSafeSetText(lb11, Repository.Instance.samsung_bcs.String1_Cell_Summation_Voltage.ToString());
-            CSafeSetText(lb13, Repository.Instance.samsung_bcs.String2_Cell_Summation_Voltage.ToString());
-            CSafeSetText(lb15, Repository.Instance.samsung_bcs.Rack_Current.ToString());
-            CSafeSetText(lb17, Repository.Instance.samsung_bcs.String1_Rack_Current.ToString());
-            CSafeSetText(lb19, Repository.Instance.samsung_bcs.String2_Rack_Current.ToString());
-            CSafeSetText(lb21, Repository.Instance.samsung_bcs.Rack_Current_Average.ToString());
-            CSafeSetText(lb23, Repository.Instance.samsung_bcs.Rack_SOC.ToString());
+            CSafeSetText(lb7, Repository.Instance.samsung_bcs.String1_Rack_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb9, Repository.Instance.samsung_bcs.String2_Rack_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb11, Repository.Instance.samsung_bcs.String1_Cell_Summation_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb13, Repository.Instance.samsung_bcs.String2_Cell_Summation_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb15, Repository.Instance.samsung_bcs.Rack_Current.ToString() + " " + "A");
+            CSafeSetText(lb17, Repository.Instance.samsung_bcs.String1_Rack_Current.ToString() + " " + "A");
+            CSafeSetText(lb19, Repository.Instance.samsung_bcs.String2_Rack_Current.ToString() + " " + "A");
+            CSafeSetText(lb21, Repository.Instance.samsung_bcs.Rack_Current_Average.ToString() + " " + "A");
+            CSafeSetText(lb23, Repository.Instance.samsung_bcs.Rack_SOC.ToString() + " " + "%");
+            CSafeSetText(lb22, Repository.Instance.samsung_bcs.Rack_SOH.ToString() + " " + "%");
 
-            CSafeSetText(lb2, Repository.Instance.samsung_bcs.System_Current.ToString());
-            CSafeSetText(lb4, Repository.Instance.samsung_bcs.System_SOH.ToString());
+            CSafeSetText(lb2, Repository.Instance.samsung_bcs.System_Current.ToString() + " " + "A");
+            CSafeSetText(lb4, Repository.Instance.samsung_bcs.System_SOH.ToString() + " " + "%");
             CSafeSetText(lb6, Repository.Instance.samsung_bcs.System_Mode.ToString());
-            CSafeSetText(lb8, Repository.Instance.samsung_bcs.System_Max_Voltage.ToString());
-            CSafeSetText(lb10, Repository.Instance.samsung_bcs.System_Min_Voltage.ToString());
-            CSafeSetText(lb12, Repository.Instance.samsung_bcs.System_Max_Temp.ToString());
-            CSafeSetText(lb14, Repository.Instance.samsung_bcs.System_Min_Temp.ToString());
+            CSafeSetText(lb8, Repository.Instance.samsung_bcs.System_Max_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb10, Repository.Instance.samsung_bcs.System_Min_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb12, Repository.Instance.samsung_bcs.System_Max_Temp.ToString() + " " + "°C");
+            CSafeSetText(lb14, Repository.Instance.samsung_bcs.System_Min_Temp.ToString() + " " + "°C");
 
+
+            CSafeSetText(lb24, Repository.Instance.samsung_bcs.Discharge_Current_Limit_of_Rack.ToString() + " " + "A");
+            CSafeSetText(lb25, Repository.Instance.samsung_bcs.Charge_Current_Limit.ToString() + " " + "A");
+
+            CSafeSetText(lb26, Repository.Instance.samsung_bcs.Watchdog_Response.ToString());
+            CSafeSetText(lb27, Repository.Instance.samsung_bcs.System_Heartbit.ToString());
         }
 
         private void TBO24_Click(object sender, EventArgs e)
@@ -77,6 +91,34 @@ namespace KTE_PMS.MIMIC
         private void TBO19_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Move_To_BMS_System_MouseClick(object sender, MouseEventArgs e)
+        {
+            Panel p = (Panel)Parent;
+            p.Controls.Clear();
+            p.Controls.Add(Repository.Instance.p_measure);
+        }
+
+        private void btn_Move_To_BMS_Rack_MouseClick(object sender, MouseEventArgs e)
+        {
+            Panel p = (Panel)Parent;
+            p.Controls.Clear();
+            p.Controls.Add(Repository.Instance.p_measure_BMS_Rack);
+        }
+
+        private void btn_Move_To_PCS_Data_MouseClick(object sender, MouseEventArgs e)
+        {
+            Panel p = (Panel)Parent;
+            p.Controls.Clear();
+            p.Controls.Add(Repository.Instance.p_measure_PCS);
+        }
+
+        private void btn_Move_To_PCS_Fault_MouseClick(object sender, MouseEventArgs e)
+        {
+            Panel p = (Panel)Parent;
+            p.Controls.Clear();
+            p.Controls.Add(Repository.Instance.p_measure_PCS_Fault );
         }
     }
 }

@@ -3,8 +3,6 @@ using KTE_PMS.Singleton;
 using System;
 using System.Threading;
 using System.Windows.Forms;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace KTE_PMS
 {
@@ -17,11 +15,15 @@ namespace KTE_PMS
         public MIMIC.PMDViewer pmdviewer;
         public MIMIC.MainViewer p_main = null;
         public MIMIC.AlarmViewer p_alarm = null;
+        public MIMIC.HistoryViewer p_history = null;
         public MIMIC.ControlViewer p_control = null;
         public MIMIC.MeasureViewer p_measure { set; get; }
+        public MIMIC.MeasureViewer2 p_measure_BMS_Rack { set; get; }
+        public MIMIC.MeasureViewer3 p_measure_PCS_Fault { set; get; }
+        public MIMIC.MeasureViewer4 p_measure_PCS { set; get; }
         public MIMIC.MimicViewer p_mimic = null;
         public MIMIC.Setting_PageViewer p_setting = null;
-        public MIMIC.TrendViewer p_trend = null;
+        public TrendViewer p_trend = null;
         //----------------------------------
         // Modbus RTU Controller - Master
         //----------------------------------
@@ -36,13 +38,33 @@ namespace KTE_PMS
         public DBConnector dbConnector;
         IUpdate observers;
 
+        public TimeSpan Charging_StartTime { get; set; }
+        public TimeSpan Charging_EndTime { get; set; }
+        public TimeSpan Discharging_StartTime { get; set; }
+        public TimeSpan Discharging_EndTime { get; set; }
+
+        public sPower power { get; set; }
+        public float Charging_Stop_SOC { get; set; }
+        public float Discharging_Stop_SOC { get; set; }
+        public float Discharging_Start_SOC { get; set; }
+        public float Charging_Start_SOC { get; set; }
+
+        public bool flag_Charging_Time { get; set; }
+        public bool flag_DisCharging_Time { get; set; }
+
         public ushort remote_power;
+        public ushort current_pcs_mode;
 
         //세파포어 선언 
         private static Semaphore _resourcePool; //한번에 허용할 수 있는 최대 쓰레드 수 
         private static int _maximumThreads = 1;
 
-        
+        public int user_level;
+
+        public string password;
+        public string first_password;
+
+
         // ---------------------------------------------------------
         // 생성자
         // ---------------------------------------------------------
@@ -50,28 +72,63 @@ namespace KTE_PMS
         {
             GnEPS_PCS = new sPCS();
             pmd = new sPMD();
+
             samsung_bcs = new sSamsungBCS();
 
             bmsviewer = new MIMIC.BMSViewer();
             pmdviewer = new MIMIC.PMDViewer();
+
             //modbus_rtuviewer = new Modbus_Setup();
             p_main = new MIMIC.MainViewer();
             p_alarm = new MIMIC.AlarmViewer();
+            p_history = new MIMIC.HistoryViewer();
             p_control = new MIMIC.ControlViewer();
             p_measure = new MIMIC.MeasureViewer();
+            p_measure_BMS_Rack = new MIMIC.MeasureViewer2();
+            p_measure_PCS_Fault = new MIMIC.MeasureViewer3();
+            p_measure_PCS = new MIMIC.MeasureViewer4();
+
             p_mimic = new MIMIC.MimicViewer();
-            p_trend = new MIMIC.TrendViewer();
+            p_trend = new TrendViewer();
             p_setting = new MIMIC.Setting_PageViewer();
 
+            password = "0000";
 
             observers = p_measure;
             bmsviewer.AddObserver(observers);
+            observers = p_measure_BMS_Rack;
+            bmsviewer.AddObserver(observers);
+
 
             observers = p_main;
             bmsviewer.AddObserver(observers);
 
+            observers = p_main;
+            pmdviewer.AddObserver(observers);
+
+            observers = p_measure_PCS_Fault;
+            pmdviewer.AddObserver(observers);
+
+            observers = p_measure_PCS;
+            pmdviewer.AddObserver(observers);
+
             _resourcePool = new Semaphore(0, _maximumThreads);
             _resourcePool.Release();
+
+            dbConnector = new DBConnector();
+
+            Charging_StartTime = new TimeSpan( 08, 00, 00);
+            Charging_EndTime = new TimeSpan( 12, 00, 00); 
+            Discharging_StartTime = new TimeSpan( 16, 00, 00);
+            Discharging_EndTime = new TimeSpan( 20, 00, 00);
+
+            power = new sPower();
+
+            Charging_Stop_SOC = 80.0F;           
+            Discharging_Stop_SOC = 30.0F;
+            Discharging_Start_SOC = 85.0F;
+            Charging_Start_SOC = 30.0F;
+
             //-----------------------------
             // // TagManager 생성
             //-----------------------------
@@ -169,9 +226,11 @@ namespace KTE_PMS
             //PMD_DI_Status
         }
 
+
         #region GnEPS PCS의 데이터 획득
         public void Get_PCS(byte[] data)
         {
+            /*
             GnEPS_PCS.Stand_Grid_Mode = (BitConverter.ToInt16(data, 0) & 0x80) >> 7;
             GnEPS_PCS.Diesel_Converter_Run_Stop = (BitConverter.ToInt16(data, 0) & 0x10) >> 5;
             GnEPS_PCS.Wind_Converter_Run_Stop = (BitConverter.ToInt16(data, 0) & 0x0F) >> 4;
@@ -179,133 +238,101 @@ namespace KTE_PMS
             GnEPS_PCS.ESS_Converter_Run_Stop = (BitConverter.ToInt16(data, 0) & 0x04) >> 2;
             GnEPS_PCS.Inverter_Run_Stop = (BitConverter.ToInt16(data, 0) & 0x02) >> 1;
             GnEPS_PCS.System_Run_Stop = (BitConverter.ToInt16(data, 0) & 0x01) >> 0;
+            */
+            _resourcePool.WaitOne();
 
-            Console.WriteLine(GnEPS_PCS.Wind_Converter_Run_Stop);
-            GnEPS_PCS.Inverter_Voltage_P = BitConverter.ToInt16(data, 1);
-            GnEPS_PCS.Inverter_Voltage_I = BitConverter.ToInt16(data, 2);
-            GnEPS_PCS.Inverter_Current_P = BitConverter.ToInt16(data, 3);
-            GnEPS_PCS.Inverter_Current_I = BitConverter.ToInt16(data, 4);
-            GnEPS_PCS.ESS1_Voltage_P = BitConverter.ToInt16(data, 5);
-            GnEPS_PCS.ESS1_Voltage_I = BitConverter.ToInt16(data, 6);
-            GnEPS_PCS.ESS1_Current_P = BitConverter.ToInt16(data, 7);
-            GnEPS_PCS.ESS1_Current_I = BitConverter.ToInt16(data, 8);
-            GnEPS_PCS.ESS2_Voltage_P = BitConverter.ToInt16(data, 9);
-            GnEPS_PCS.ESS2_Voltage_I = BitConverter.ToInt16(data, 10);
-            GnEPS_PCS.ESS2_Current_P = BitConverter.ToInt16(data, 11);
-            GnEPS_PCS.ESS2_Current_I = BitConverter.ToInt16(data, 12);
-            GnEPS_PCS.Diesel_Current_P = BitConverter.ToInt16(data, 13);
-            GnEPS_PCS.Diesel_Current_I = BitConverter.ToInt16(data, 14);
+            //Mode_Standby
 
-            GnEPS_PCS.Inverter_AC_Voltage_Reference = BitConverter.ToInt16(data, 30);
-            GnEPS_PCS.Inverter_P_Reference = BitConverter.ToInt16(data, 31);
-            GnEPS_PCS.Inverter_Q_Reference = BitConverter.ToInt16(data, 32);
-            GnEPS_PCS.Inverter_Freq_reference = BitConverter.ToInt16(data, 33);
-            GnEPS_PCS.Inverter_OVR_Voltage_Reference = BitConverter.ToInt16(data, 34);
-            GnEPS_PCS.Inverter_UVR_Voltage_Reference = BitConverter.ToInt16(data, 35);
-            GnEPS_PCS.Inverter_OCR_Current_Reference = BitConverter.ToInt16(data, 36);
+            GnEPS_PCS.GRID_R_Voltage = ByteConverterToUInt16(data, 0);
+            GnEPS_PCS.GRID_S_Voltage = ByteConverterToUInt16(data, 1);
+            GnEPS_PCS.GRID_T_Voltage = ByteConverterToInt16(data, 2);
+            GnEPS_PCS.GRID_R_Current = ByteConverterToInt16(data, 3);
+            GnEPS_PCS.GRID_S_Current = ByteConverterToInt16(data, 4);
+            GnEPS_PCS.GRID_T_Current = ByteConverterToInt16(data, 5);
+            GnEPS_PCS.GRID_Power = ByteConverterToInt16(data, 6);
+            power.setPCSPower(GnEPS_PCS.GRID_Power);
 
-            GnEPS_PCS.ESS1_Master_Slave_Mode = BitConverter.ToInt16(data, 50);
-            GnEPS_PCS.ESS1_Out_Voltage_Reference = BitConverter.ToInt16(data, 51);
-            GnEPS_PCS.ESS1_Power_Reference = BitConverter.ToInt16(data, 52);
-            GnEPS_PCS.ESS1_Bat1_Max_Voltage = BitConverter.ToInt16(data, 53);
-            GnEPS_PCS.ESS1_Bat1_Min_Voltage = BitConverter.ToInt16(data, 54);
-            GnEPS_PCS.ESS1_OUT_OVR_Reference = BitConverter.ToInt16(data, 55);
-            GnEPS_PCS.ESS1_OUT_UVR_Reference = BitConverter.ToInt16(data, 56);
-            GnEPS_PCS.ESS1_IN_OVR_Reference = BitConverter.ToInt16(data, 57);
-            GnEPS_PCS.ESS1_IN_UVR_Reference = BitConverter.ToInt16(data, 58);
+            GnEPS_PCS.GRID_Frequency = ByteConverterToUInt16(data, 7) * 0.1;
+            GnEPS_PCS.isTemperatureWarning = ByteConverterToUInt16(data, 8);
 
-            GnEPS_PCS.ESS2_Master_Slave_Mode = BitConverter.ToInt16(data, 70);
-            GnEPS_PCS.ESS2_Out_Voltage_Reference = BitConverter.ToInt16(data, 71);
-            GnEPS_PCS.ESS2_Power_Reference = BitConverter.ToInt16(data, 72);
-            GnEPS_PCS.ESS2_Bat1_Max_Voltage = BitConverter.ToInt16(data, 73);
-            GnEPS_PCS.ESS2_Bat1_Min_Voltage = BitConverter.ToInt16(data, 74);
-            GnEPS_PCS.ESS2_OUT_OVR_Reference = BitConverter.ToInt16(data, 75);
-            GnEPS_PCS.ESS2_OUT_UVR_Reference = BitConverter.ToInt16(data, 76);
-            GnEPS_PCS.ESS2_IN_OVR_Reference = BitConverter.ToInt16(data, 77);
-            GnEPS_PCS.ESS2_IN_UVR_Reference = BitConverter.ToInt16(data, 78);
+            GnEPS_PCS.LOAD_R_Current = ByteConverterToInt16(data, 11);
+            GnEPS_PCS.LOAD_S_Current = ByteConverterToInt16(data, 12);
+            GnEPS_PCS.LOAD_T_Current = ByteConverterToInt16(data, 13);
+            GnEPS_PCS.LOAD_Power = ByteConverterToUInt16(data, 14);
+            GnEPS_PCS.INVERTER_Power = ByteConverterToInt16(data, 15);
 
-            GnEPS_PCS.Diesel_AC_VoIltage_Reference = BitConverter.ToInt16(data, 90);
-            GnEPS_PCS.Diesel_Freq_reference = BitConverter.ToInt16(data, 91);
-            GnEPS_PCS.Diesel_Power_Reference = BitConverter.ToInt16(data, 92);
-            GnEPS_PCS.Diesel_OVR_Voltage_Reference = BitConverter.ToInt16(data, 93);
-            GnEPS_PCS.Diesel_UVR_Voltage_Reference = BitConverter.ToInt16(data, 94);
-            GnEPS_PCS.Diesel_OCR_Current_Reference = BitConverter.ToInt16(data, 95);
+            GnEPS_PCS.PCS_GRID_Status = ByteConverterToUInt16(data, 16);
+            GnEPS_PCS.PCS_Fault_Status = ByteConverterToUInt16(data, 17);
+            GnEPS_PCS.PCS_STANDBY = ByteConverterToUInt16(data, 18);
+            GnEPS_PCS.Fault_Battery_Voltage = ByteConverterToInt16(data, 19);
+            GnEPS_PCS.Fault_Battery_Current = ByteConverterToInt16(data, 20);
+            GnEPS_PCS.Fault_System_A_Current = ByteConverterToInt16(data, 21);
+            GnEPS_PCS.Fault_System_B_Current = ByteConverterToInt16(data, 22);
+            GnEPS_PCS.Fault_System_C_Current = ByteConverterToInt16(data, 23);
+            GnEPS_PCS.Fault_Inverter_A_Current = ByteConverterToInt16(data, 24);
+            GnEPS_PCS.Fault_Inverter_B_Current = ByteConverterToInt16(data, 25);
+            GnEPS_PCS.Fault_Inverter_C_Current = ByteConverterToInt16(data, 26);
+            GnEPS_PCS.Fault_Inverter_A_Voltage = ByteConverterToInt16(data, 27);
+            GnEPS_PCS.Fault_Inverter_B_Voltage = ByteConverterToInt16(data, 28);
+            GnEPS_PCS.Fault_Inverter_C_Voltage = ByteConverterToInt16(data, 29);
+            GnEPS_PCS.Fault_Active_Power = ByteConverterToInt16(data, 30);
 
-            GnEPS_PCS.Inverter_OCR_Fault = (BitConverter.ToInt16(data, 100) & 0x80) >> 7;
-            GnEPS_PCS.Inverter_OVR_Fault = (BitConverter.ToInt16(data, 100) & 0x40) >> 6;
-            GnEPS_PCS.Inverter_UVR_Fault = (BitConverter.ToInt16(data, 100) & 0x20) >> 5;
-            GnEPS_PCS.Inverter_OTR_Fault = (BitConverter.ToInt16(data, 100) & 0x10) >> 4;
-            GnEPS_PCS.Inverter_AC_Voltage = BitConverter.ToInt16(data, 101);
-            GnEPS_PCS.Inverter_P = BitConverter.ToInt16(data, 102);
-            GnEPS_PCS.Inverter_Q = BitConverter.ToInt16(data, 103);
-            GnEPS_PCS.Inverter_Frequency = BitConverter.ToInt16(data, 104);
+            GnEPS_PCS.Control_MODE = ByteConverterToInt16(data, 31);
 
-            GnEPS_PCS.ESS1_OCR_Fault = (BitConverter.ToInt16(data, 120) & 0x80) >> 7;
-            GnEPS_PCS.ESS1_In_OVR_Fault = (BitConverter.ToInt16(data, 120) & 0x40) >> 6;
-            GnEPS_PCS.ESS1_In_UVR_Fault = (BitConverter.ToInt16(data, 120) & 0x20) >> 5;
-            GnEPS_PCS.ESS1_Out_OVR_Fault = (BitConverter.ToInt16(data, 120) & 0x10) >> 4;
-            GnEPS_PCS.ESS1_Out_UVR_Fault = (BitConverter.ToInt16(data, 120) & 0x08) >> 3;
-            GnEPS_PCS.ESS1_In_OTR_Fault = (BitConverter.ToInt16(data, 120) & 0x04) >> 2;
-            GnEPS_PCS.ESS1_In_Voltage = BitConverter.ToInt16(data, 121);
-            GnEPS_PCS.ESS1_Out_Voltage = BitConverter.ToInt16(data, 122);
-            GnEPS_PCS.ESS1_Current = BitConverter.ToInt16(data, 123);
-            GnEPS_PCS.ESS1_Power = BitConverter.ToInt16(data, 124);
+            GnEPS_PCS.Mode_Standby = (GnEPS_PCS.Control_MODE >> 0) & 0x01;
+            GnEPS_PCS.Mode_Peak_cut = (GnEPS_PCS.Control_MODE >> 2) & 0x01;
+            GnEPS_PCS.Mode_Charging = (GnEPS_PCS.Control_MODE >> 6) & 0x01;
+            GnEPS_PCS.Mode_Discharging = (GnEPS_PCS.Control_MODE >> 7) & 0x01;
+            GnEPS_PCS.Mode_Reset = (GnEPS_PCS.Control_MODE >> 8) & 0x01;
 
-            GnEPS_PCS.ESS2_OCR_Fault = (BitConverter.ToInt16(data, 140) & 0x80) >> 7;
-            GnEPS_PCS.ESS2_In_OVR_Fault = (BitConverter.ToInt16(data, 140) & 0x40) >> 6;
-            GnEPS_PCS.ESS2_In_UVR_Fault = (BitConverter.ToInt16(data, 140) & 0x20) >> 5;
-            GnEPS_PCS.ESS2_Out_OVR_Fault = (BitConverter.ToInt16(data, 140) & 0x10) >> 4;
-            GnEPS_PCS.ESS2_Out_UVR_Fault = (BitConverter.ToInt16(data, 140) & 0x08) >> 3;
-            GnEPS_PCS.ESS2_In_OTR_Fault = (BitConverter.ToInt16(data, 140) & 0x04) >> 2;
-            GnEPS_PCS.ESS2_In_Voltage = BitConverter.ToInt16(data, 141);
-            GnEPS_PCS.ESS2_Out_Voltage = BitConverter.ToInt16(data, 142);
-            GnEPS_PCS.ESS2_Current = BitConverter.ToInt16(data, 143);
-            GnEPS_PCS.ESS2_Power = BitConverter.ToInt16(data, 144);
+            GnEPS_PCS.Fault_System_CB_Status = ByteConverterToInt16(data, 32);
+            GnEPS_PCS.Inverter_Current_Reference = ByteConverterToInt16(data, 33);
+            GnEPS_PCS.Inverter_Q_Current = ByteConverterToInt16(data, 34);
+            GnEPS_PCS.Inverter_D_Current = ByteConverterToInt16(data, 35);
 
-            GnEPS_PCS.Diesel_OCR_Fault = (BitConverter.ToInt16(data, 160) & 0x80) >> 7;
-            GnEPS_PCS.Diesel_OVR_Fault = (BitConverter.ToInt16(data, 160) & 0x40) >> 6;
-            GnEPS_PCS.Diesel_UVR_Fault = (BitConverter.ToInt16(data, 160) & 0x20) >> 5;
-            GnEPS_PCS.Diesel_OTR_Fault = (BitConverter.ToInt16(data, 160) & 0x10) >> 4;
-            GnEPS_PCS.Diesel_AC_Voltage = BitConverter.ToInt16(data, 161);
-            GnEPS_PCS.Diesel_Current = BitConverter.ToInt16(data, 162);
-            GnEPS_PCS.Diesel_Frequency = BitConverter.ToInt16(data, 163);
-            GnEPS_PCS.Diesel_Power = BitConverter.ToInt16(data, 164);
-            GnEPS_PCS.Diesel_P = BitConverter.ToInt16(data, 165);
-            GnEPS_PCS.Diesel_Q = BitConverter.ToInt16(data, 166);
+            GnEPS_PCS.Battery_Voltage = ByteConverterToInt16(data, 50);
+            GnEPS_PCS.Battery_Current = ByteConverterToInt16(data, 51);
 
-            GnEPS_PCS.Solar_OCR_Fault = (BitConverter.ToInt16(data, 170) & 0x80) >> 7;
-            GnEPS_PCS.Solar_OVR_Fault = (BitConverter.ToInt16(data, 170) & 0x40) >> 6;
-            GnEPS_PCS.Solar_UVR_Fault = (BitConverter.ToInt16(data, 170) & 0x20) >> 5;
-            GnEPS_PCS.Solar_OTR_Fault = (BitConverter.ToInt16(data, 170) & 0x10) >> 4;
-            GnEPS_PCS.Solar_In_Voltage = BitConverter.ToInt16(data, 171);
-            GnEPS_PCS.Solar_Out_Voltage = BitConverter.ToInt16(data, 172);
-            GnEPS_PCS.Solar_Current = BitConverter.ToInt16(data, 173);
-            GnEPS_PCS.Solar_Power = BitConverter.ToInt16(data, 174);
-
-            GnEPS_PCS.Wind_OCR_Fault = (BitConverter.ToInt16(data, 180) & 0x80) >> 7;
-            GnEPS_PCS.Wind_OVR_Fault = (BitConverter.ToInt16(data, 180) & 0x40) >> 6;
-            GnEPS_PCS.Wind_UVR_Fault = (BitConverter.ToInt16(data, 180) & 0x20) >> 5;
-            GnEPS_PCS.Wind_OTR_Fault = (BitConverter.ToInt16(data, 180) & 0x10) >> 4;
-            GnEPS_PCS.Wind_In_Voltage = BitConverter.ToInt16(data, 181);
-            GnEPS_PCS.Wind_Out_Voltage = BitConverter.ToInt16(data, 182);
-            GnEPS_PCS.Wind_Current = BitConverter.ToInt16(data, 183);
-            GnEPS_PCS.Wind_Power = BitConverter.ToInt16(data, 184);
+            TagManager.PCS_Fault_처리_프로시져();
         }
-#endregion
+        #endregion
         public void Get_BSC(byte[] data)
         {
-            
+
             _resourcePool.WaitOne();
             byte[] temp_byte = new byte[2];
 
-            samsung_bcs.Protocol_Version = BitConverter.ToUInt16(swapbyte(data, 0),0);
+            samsung_bcs.Protocol_Version = ByteConverterToUInt16(data, 0);
 
 
-            samsung_bcs.System_Voltage = BitConverter.ToUInt16(swapbyte(data,2 * 1),0) * 0.1;
-            samsung_bcs.System_Current = BitConverter.ToInt16(swapbyte(data, 2 * 2), 0);
+            samsung_bcs.System_Voltage = ByteConverterToUInt16(data, 1) * 0.1;
+            samsung_bcs.System_Current = ByteConverterToInt16(data, 2);
             samsung_bcs.System_Power = samsung_bcs.System_Voltage * samsung_bcs.System_Current / 1000;
 
-            
+            // Charging과 DisCHarging을 나누기 위해서 만듬
+            power.setBMSPower(samsung_bcs.System_Power);
+
+            if (!(samsung_bcs.System_SOC == ByteConverterToUInt16(data, 3) * 0.1))
+            {
+                Repository.Instance.pmdviewer.flag_WriteSOCBuffers_isChanged = true;
+                samsung_bcs.System_SOC = ByteConverterToUInt16(data, 3) * 0.1;
+            }
+
+
+            if (!(samsung_bcs.System_SOH == ByteConverterToUInt16(data, 4) * 0.1))
+            {
+                Repository.Instance.pmdviewer.flag_WriteSOCBuffers_isChanged = true;
+                samsung_bcs.System_SOH = ByteConverterToUInt16(data, 4) * 0.1;
+            }
+
+            if (!(samsung_bcs.System_Mode == ByteConverterToUInt16(data, 5)))
+            {
+                Repository.Instance.pmdviewer.flag_WriteSOCBuffers_isChanged = true;
+                samsung_bcs.System_Mode = ByteConverterToUInt16(data, 5);
+            }
+
+
+
             // SOC
             Repository.Instance.pmdviewer.WriteSOCBuffers[0] = data[6];
             Repository.Instance.pmdviewer.WriteSOCBuffers[1] = data[7];
@@ -322,39 +349,104 @@ namespace KTE_PMS
             Repository.Instance.pmdviewer.WriteHeartBitBuffers[0] = data[50];
             Repository.Instance.pmdviewer.WriteHeartBitBuffers[1] = data[51];
 
-            samsung_bcs.System_SOC = BitConverter.ToUInt16(swapbyte(data, 3 * 2), 0) * 0.1;
-            samsung_bcs.System_SOH = BitConverter.ToUInt16(swapbyte(data, 4 * 2), 0) * 0.1;
-            samsung_bcs.System_Mode = BitConverter.ToUInt16(swapbyte(data, 5 * 2), 0);
-            samsung_bcs.System_Max_Voltage = BitConverter.ToUInt16(swapbyte(data, 6 * 2), 0) * 0.01;
-            samsung_bcs.System_Min_Voltage = BitConverter.ToUInt16(swapbyte(data, 7 * 2), 0) * 0.01;
-            samsung_bcs.System_Max_Temp = BitConverter.ToInt16(swapbyte(data, 8 * 2), 0);
-            samsung_bcs.System_Min_Temp = BitConverter.ToInt16(swapbyte(data, 9 * 2), 0);
-            samsung_bcs.Protection_Summary4 = BitConverter.ToUInt16(swapbyte(data, 14 * 2), 0);
-            samsung_bcs.Protection_Summary3 = BitConverter.ToUInt16(swapbyte(data, 15 * 2), 0);
-            samsung_bcs.Protection_Summary2 = BitConverter.ToUInt16(swapbyte(data, 16 * 2), 0);
-            samsung_bcs.Protection_Summary1 = BitConverter.ToUInt16(swapbyte(data, 17 * 2), 0);
-            samsung_bcs.Alarm_Summary4 = BitConverter.ToUInt16(swapbyte(data, 18 * 2), 0);
-            samsung_bcs.Alarm_Summary3 = BitConverter.ToUInt16(swapbyte(data, 19 * 2), 0);
-            samsung_bcs.Alarm_Summary2 = BitConverter.ToUInt16(swapbyte(data, 20 * 2), 0);
-            samsung_bcs.Alarm_Summary1 = BitConverter.ToUInt16(swapbyte(data, 21 * 2), 0);
 
-            samsung_bcs.Discharge_Current_Limit = BitConverter.ToUInt16(swapbyte(data, 22 * 2), 0);
-            samsung_bcs.Charge_Current_Limit = BitConverter.ToUInt16(swapbyte(data, 23 * 2), 0);
-            samsung_bcs.Watchdog_Response = BitConverter.ToInt16(swapbyte(data, 24 * 2), 0);
 
-            samsung_bcs.System_Heartbit = BitConverter.ToUInt16(swapbyte(data, 25 * 2), 0);
-            samsung_bcs.Connecting_Status = BitConverter.ToUInt16(swapbyte(data, 26 * 2), 0);
+            samsung_bcs.Mode_Charging = (samsung_bcs.System_Mode >> 15) & 0x01;
+            samsung_bcs.Mode_Discharging = (samsung_bcs.System_Mode >> 14) & 0x01;
+            samsung_bcs.Mode_Offline = (samsung_bcs.System_Mode >> 10) & 0x01;
+            samsung_bcs.Mode_Idle = (samsung_bcs.System_Mode >> 9) & 0x01;
+            samsung_bcs.Mode_Ready = (samsung_bcs.System_Mode >> 8) & 0x01;
+            samsung_bcs.Mode_InputSignal4 = (samsung_bcs.System_Mode >> 7) & 0x01;
+            samsung_bcs.Mode_InputSignal3 = (samsung_bcs.System_Mode >> 6) & 0x01;
+            samsung_bcs.Mode_InputSignal2 = (samsung_bcs.System_Mode >> 5) & 0x01;
+            samsung_bcs.Mode_InputSIgnal1 = (samsung_bcs.System_Mode >> 4) & 0x01;
+            samsung_bcs.Mode_OutputControl2 = (samsung_bcs.System_Mode >> 1) & 0x01;
+            samsung_bcs.Mode_OutputControl1 = (samsung_bcs.System_Mode >> 0) & 0x01;
 
-            samsung_bcs.Service_Voltage = BitConverter.ToUInt16(swapbyte(data, 27 * 2), 0);
-            samsung_bcs.Service_SOC = BitConverter.ToUInt16(swapbyte(data, 28 * 2), 0);
+            samsung_bcs.System_Max_Voltage = ByteConverterToUInt16(data, 6) * 0.01;
+            samsung_bcs.System_Min_Voltage = ByteConverterToUInt16(data, 7) * 0.01;
+            samsung_bcs.System_Max_Temp = ByteConverterToInt16(data, 8);
+            samsung_bcs.System_Min_Temp = ByteConverterToInt16(data, 9);
+            samsung_bcs.Protection_Summary4 = ByteConverterToUInt16(data, 14);
+            samsung_bcs.Protection_Summary3 = ByteConverterToUInt16(data, 15);
+            samsung_bcs.Protection_Summary2 = ByteConverterToUInt16(data, 16);
+            samsung_bcs.Protection_Summary1 = ByteConverterToUInt16(data, 17);
+            samsung_bcs.Alarm_Summary4 = ByteConverterToUInt16(data, 18);
+            samsung_bcs.Alarm_Summary3 = ByteConverterToUInt16(data, 19);
+            samsung_bcs.Alarm_Summary2 = ByteConverterToUInt16(data, 20);
+            samsung_bcs.Alarm_Summary1 = ByteConverterToUInt16(data, 21);
 
-            
-            //samsung_bcs.System_Power = BitConverter.ToUInt16(data, 0);
+            samsung_bcs.Discharge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 22);
+            samsung_bcs.Charge_Current_Limit = ByteConverterToUInt16(data, 23);
+            samsung_bcs.Watchdog_Response = ByteConverterToInt16(data, 24);
 
+            samsung_bcs.System_Heartbit = ByteConverterToUInt16(data, 25);
+            samsung_bcs.Connecting_Status = ByteConverterToUInt16(data, 26);
+
+            samsung_bcs.Service_Voltage = ByteConverterToUInt16(data, 27);
+            samsung_bcs.Service_SOC = ByteConverterToUInt16(data, 28);
+
+            samsung_bcs.System_Alarm_Status = ByteConverterToUInt16(data, 30);
+            samsung_bcs.Rack_Voltage = ByteConverterToUInt16(data, 40);
+            samsung_bcs.String1_Rack_Voltage = ByteConverterToUInt16(data, 41);
+            samsung_bcs.String2_Rack_Voltage = ByteConverterToUInt16(data, 42);
+            samsung_bcs.String1_Cell_Summation_Voltage = ByteConverterToUInt16(data, 43);
+            samsung_bcs.String2_Cell_Summation_Voltage = ByteConverterToUInt16(data, 44);
+
+            samsung_bcs.Rack_Current = ByteConverterToInt16(data, 45);
+            samsung_bcs.String1_Rack_Current = ByteConverterToInt16(data, 46);
+            samsung_bcs.String2_Rack_Current = ByteConverterToInt16(data, 47);
+            samsung_bcs.Rack_Current_Average = ByteConverterToInt16(data, 48);
+            samsung_bcs.Rack_Mode = ByteConverterToUInt16(data, 49);
+            samsung_bcs.Rack_SOC = ByteConverterToInt16(data, 50);
+            samsung_bcs.Rack_SOH = ByteConverterToInt16(data, 51);
+
+            samsung_bcs.Max1_Cell_Voltage_Value = ByteConverterToInt16(data, 64);
+            samsung_bcs.Max1_Cell_Voltage_Position = ByteConverterToInt16(data, 65);
+            samsung_bcs.Max2_Cell_Voltage_Value = ByteConverterToInt16(data, 66);
+            samsung_bcs.Max2_Cell_Voltage_Position = ByteConverterToInt16(data, 67);
+
+            samsung_bcs.Average_Cell_Voltage_Value = ByteConverterToInt16(data, 68);
+            samsung_bcs.Min2_Cell_Voltage_Value = ByteConverterToInt16(data, 69);
+            samsung_bcs.Min2_Cell_Voltage_Position = ByteConverterToInt16(data, 70);
+            samsung_bcs.Min1_Cell_Voltage_Value = ByteConverterToInt16(data, 71);
+            samsung_bcs.Min1_Cell_Voltage_Position = ByteConverterToInt16(data, 72);
+
+            samsung_bcs.Max1_Cell_Temp_Value = ByteConverterToInt16(data, 73);
+            samsung_bcs.Max1_Cell_Temp_Position = ByteConverterToInt16(data, 74);
+            samsung_bcs.Max2_Cell_Temp_Value = ByteConverterToInt16(data, 75);
+            samsung_bcs.Max2_Cell_Temp_Position = ByteConverterToInt16(data, 76);
+
+            samsung_bcs.Average_Cell_Temp_Value = ByteConverterToInt16(data, 77);
+
+            samsung_bcs.Min2_Cell_Temp_Value = ByteConverterToInt16(data, 78);
+            samsung_bcs.Min2_Cell_Temp_Position = ByteConverterToInt16(data, 79);
+            samsung_bcs.Min1_Cell_Temp_Value = ByteConverterToInt16(data, 80);
+            samsung_bcs.Min1_Cell_Temp_Position = ByteConverterToInt16(data, 81);
+
+            samsung_bcs.Discharge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 82);
+            samsung_bcs.Charge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 83);
+
+            samsung_bcs.Rack_Switch_Control_Info = ByteConverterToUInt16(data, 84);
+            samsung_bcs.Rack_Switch_Sensor_Info = ByteConverterToUInt16(data, 85);
+            samsung_bcs.Rack_External_Sensor_Info = ByteConverterToUInt16(data, 86);
+            samsung_bcs.Module_Comm_Fault_Position = (ByteConverterToUInt16(data, 86) >> 8) & 0xFF;
+
+            dbConnector.Insert_Value_to_Database();
             TagManager.BMS_Fault_처리_프로시져();
             _resourcePool.Release();
 
         }
+
+        private ushort ByteConverterToUInt16(byte[] data, int offset)
+        {
+            return BitConverter.ToUInt16(swapbyte(data, offset * 2), 0);
+        }
+        private short ByteConverterToInt16(byte[] data, int offset)
+        {
+            return BitConverter.ToInt16(swapbyte(data, offset * 2), 0);
+        }
+
         private byte[] swapbyte(byte[] word, int offset)
         {
             //BSC_Controller_Data[0]  =   BSC1[0] * 256 + data[1];
@@ -365,20 +457,7 @@ namespace KTE_PMS
 
             return data;
         }
-        private byte[] HostToNetworkOrder(int word)
-        {
-            //BSC_Controller_Data[0]  =   BSC1[0] * 256 + data[1];
-            byte[] data = new Byte[2];
-            byte[] dat = BitConverter.GetBytes(System.Net.IPAddress.HostToNetworkOrder((short)word));
-            data[0] = dat[0];
-            data[1] = dat[1];
 
-            return data;
-        }
-        private void BT_Connect_Click(object sender, EventArgs e)
-        {
-            //Connect_to_BSC();
-        }
     }
 }
 

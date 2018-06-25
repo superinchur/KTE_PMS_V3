@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.Viewer_Timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // Viewer
@@ -35,11 +37,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "Viewer";
-            this.Size = new System.Drawing.Size(1905, 760);
+            this.Size = new System.Drawing.Size(960, 450);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer Viewer_Timer;
     }
 }

@@ -28,27 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlarmViewer));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlarmViewer));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.PREV = new System.Windows.Forms.Button();
-            this.NEXT = new System.Windows.Forms.Button();
-            this.btnACK = new System.Windows.Forms.Button();
             this.TIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CLASS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DEVICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PREV = new System.Windows.Forms.Button();
+            this.NEXT = new System.Windows.Forms.Button();
+            this.btnACK = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btn_TO_HISTORY = new System.Windows.Forms.Button();
+            this.btn_TO_ALARM = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +64,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 10F);
@@ -86,6 +90,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dataGridView1.Location = new System.Drawing.Point(65, 68);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -108,53 +113,11 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(829, 343);
+            this.dataGridView1.Size = new System.Drawing.Size(835, 379);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(900, 199);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 39);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // PREV
-            // 
-            this.PREV.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PREV.BackgroundImage")));
-            this.PREV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PREV.Location = new System.Drawing.Point(423, 417);
-            this.PREV.Name = "PREV";
-            this.PREV.Size = new System.Drawing.Size(30, 30);
-            this.PREV.TabIndex = 3;
-            this.PREV.UseVisualStyleBackColor = true;
-            this.PREV.Click += new System.EventHandler(this.PREV_Click);
-            // 
-            // NEXT
-            // 
-            this.NEXT.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NEXT.BackgroundImage")));
-            this.NEXT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.NEXT.Location = new System.Drawing.Point(506, 417);
-            this.NEXT.Name = "NEXT";
-            this.NEXT.Size = new System.Drawing.Size(30, 30);
-            this.NEXT.TabIndex = 4;
-            this.NEXT.UseVisualStyleBackColor = true;
-            this.NEXT.Click += new System.EventHandler(this.NEXT_Click);
-            // 
-            // btnACK
-            // 
-            this.btnACK.Location = new System.Drawing.Point(900, 244);
-            this.btnACK.Name = "btnACK";
-            this.btnACK.Size = new System.Drawing.Size(47, 39);
-            this.btnACK.TabIndex = 5;
-            this.btnACK.Text = "button2";
-            this.btnACK.UseVisualStyleBackColor = true;
-            this.btnACK.Click += new System.EventHandler(this.btnACK_Click);
             // 
             // TIME
             // 
@@ -211,6 +174,62 @@
             this.IO.ReadOnly = true;
             this.IO.Width = 170;
             // 
+            // PREV
+            // 
+            this.PREV.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PREV.BackgroundImage")));
+            this.PREV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PREV.Location = new System.Drawing.Point(906, 137);
+            this.PREV.Name = "PREV";
+            this.PREV.Size = new System.Drawing.Size(47, 47);
+            this.PREV.TabIndex = 3;
+            this.PREV.UseVisualStyleBackColor = true;
+            this.PREV.Click += new System.EventHandler(this.PREV_Click);
+            // 
+            // NEXT
+            // 
+            this.NEXT.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NEXT.BackgroundImage")));
+            this.NEXT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.NEXT.Location = new System.Drawing.Point(906, 281);
+            this.NEXT.Name = "NEXT";
+            this.NEXT.Size = new System.Drawing.Size(47, 47);
+            this.NEXT.TabIndex = 4;
+            this.NEXT.UseVisualStyleBackColor = true;
+            this.NEXT.Click += new System.EventHandler(this.NEXT_Click);
+            // 
+            // btnACK
+            // 
+            this.btnACK.Location = new System.Drawing.Point(906, 187);
+            this.btnACK.Name = "btnACK";
+            this.btnACK.Size = new System.Drawing.Size(47, 88);
+            this.btnACK.TabIndex = 5;
+            this.btnACK.Text = "ACK";
+            this.btnACK.UseVisualStyleBackColor = true;
+            this.btnACK.Click += new System.EventHandler(this.btnACK_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btn_TO_HISTORY
+            // 
+            this.btn_TO_HISTORY.Location = new System.Drawing.Point(204, 18);
+            this.btn_TO_HISTORY.Name = "btn_TO_HISTORY";
+            this.btn_TO_HISTORY.Size = new System.Drawing.Size(142, 27);
+            this.btn_TO_HISTORY.TabIndex = 6;
+            this.btn_TO_HISTORY.Text = "HISTORY";
+            this.btn_TO_HISTORY.UseVisualStyleBackColor = true;
+            this.btn_TO_HISTORY.Click += new System.EventHandler(this.btn_TO_HISTORY_Click);
+            // 
+            // btn_TO_ALARM
+            // 
+            this.btn_TO_ALARM.Location = new System.Drawing.Point(65, 18);
+            this.btn_TO_ALARM.Name = "btn_TO_ALARM";
+            this.btn_TO_ALARM.Size = new System.Drawing.Size(142, 27);
+            this.btn_TO_ALARM.TabIndex = 7;
+            this.btn_TO_ALARM.Text = "ALARM";
+            this.btn_TO_ALARM.UseVisualStyleBackColor = true;
+            this.btn_TO_ALARM.Click += new System.EventHandler(this.btn_TO_ALARM_Click);
+            // 
             // AlarmViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -218,15 +237,15 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.btn_TO_ALARM);
+            this.Controls.Add(this.btn_TO_HISTORY);
             this.Controls.Add(this.btnACK);
             this.Controls.Add(this.NEXT);
             this.Controls.Add(this.PREV);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AlarmViewer";
-            this.Size = new System.Drawing.Size(950, 450);
-            this.Load += new System.EventHandler(this.Alarm_Load);
+            this.Size = new System.Drawing.Size(964, 454);
+            this.Load += new System.EventHandler(this.AlarmViewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -234,7 +253,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button PREV;
         private System.Windows.Forms.Button NEXT;
         private System.Windows.Forms.Button btnACK;
@@ -243,5 +261,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DEVICE;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPTION;
         private System.Windows.Forms.DataGridViewTextBoxColumn IO;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btn_TO_HISTORY;
+        private System.Windows.Forms.Button btn_TO_ALARM;
+        private System.Windows.Forms.Timer timer2;
     }
 }

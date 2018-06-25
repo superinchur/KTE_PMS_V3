@@ -1,37 +1,34 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
-using System.Threading;
-using System.Windows.Forms;
-using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid.Columns;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace KTE_PMS.MIMIC
 {
     public partial class AlarmViewer : Viewer
     {
 
-        //System.Threading.Timer threadingtimer = null; // 1초 타이머를 위한 함수(Main Timer)
-
-        //bool newRowNeeded;
-        //private int numberOfRows;
-        const int initialSize = 0;
         Color flashColor;
-
-
+        
         const int max_row_size = 11;
 
         public AlarmViewer()
         {
             InitializeComponent();
+
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Start();
+            
         }
-        private void Alarm_Load(object sender, EventArgs e)
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            threadingtimer = new System.Threading.Timer(ThreadingTimerCallback, null, 1000, 1000);
+            Flashing_Row();
+            LoadCurrentFault();
+            Cell_Color_Painting();
         }
 
         public void LoadCurrentFault()
@@ -65,26 +62,6 @@ namespace KTE_PMS.MIMIC
             }
         }
 
-        public new void ThreadingTimerCallback(object state)
-        {
-
-
-            try
-            {
-                this.Invoke(new MethodInvoker(delegate ()
-                {
-                    Flashing_Row();
-                    LoadCurrentFault();
-                    Cell_Color_Painting();
-                }));
-            }
-            catch (ThreadAbortException ex)
-            {
-                MessageBox.Show("Abort", ex.Message);
-                throw ex;
-            }
-
-        }
 
         private void Flashing_Row()
         {
@@ -98,6 +75,7 @@ namespace KTE_PMS.MIMIC
             }
         }
 
+        #region ALARM_TEST
         private void RiseAlarm(cTag[] tt)
         {
             foreach (cTag i in Repository.Instance.TagManager.tt)
@@ -218,6 +196,7 @@ namespace KTE_PMS.MIMIC
 
             AlarmTest();
         }
+        #endregion
 
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
@@ -286,46 +265,32 @@ namespace KTE_PMS.MIMIC
         {
             // 일다안~~~ Unacked 인놈을 다 Ack로 변경해야한다.
 
-            
-            foreach (var key in Repository.Instance.TagManager.htCurrentFault.Keys.ToList())
-            {
-                // 값을 받아온다.
-                //string szFault = pDir.Value + "";
-                string szFault = Repository.Instance.TagManager.htCurrentFault[key] + "";
-                // Unacked이면 Acked로, Unacekd Normal이면 삭제.
-                string[] current_IO = szFault.Split('|');
+            Repository.Instance.TagManager.ALARM_ACK();
 
-                if (current_IO[4] == "UNACK NORMAL")
-                {
-                    Repository.Instance.TagManager.htCurrentFault.Remove(key);
-                }
-                else if (current_IO[4] == "UNACK")
-                {
-                    szFault = szFault.Replace("UNACK", "ACK");
-                    Repository.Instance.TagManager.htCurrentFault.Remove(key);
-                    Repository.Instance.TagManager.htCurrentFault.Add(key, szFault);
+        }
 
-                }
-            }
-            /*
-            foreach (KeyValuePair<String, String> pDir in Repository.Instance.TagManager.htCurrentFault)
-            {
-                // 값을 받아온다.
-                string szFault = pDir.Value + "";
-                // Unacked이면 Acked로, Unacekd Normal이면 삭제.
-                if (szFault.Contains("UNACK NORMAL") )
-                {
-                    Repository.Instance.TagManager.htCurrentFault.Remove(pDir.Key);
-                }
-                else if (szFault.Contains("UNACK"))
-                {
-                    szFault.Replace("UNACK", "ACK");
-                    Repository.Instance.TagManager.htCurrentFault.Remove(pDir.Key);
-                    Repository.Instance.TagManager.htCurrentFault.Add(pDir.Key, szFault);
+        private void label2_Click(object sender, EventArgs e)
+        {
 
-                }
-            }
-            */
+        }
+
+        private void btn_TO_ALARM_Click(object sender, EventArgs e)
+        {
+            Panel p = (Panel)Parent;
+            p.Controls.Clear();
+            p.Controls.Add(Repository.Instance.p_alarm);
+        }
+
+        private void btn_TO_HISTORY_Click(object sender, EventArgs e)
+        {
+            Panel p = (Panel)Parent;
+            p.Controls.Clear();
+            p.Controls.Add(Repository.Instance.p_history);
+        }
+
+        private void AlarmViewer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

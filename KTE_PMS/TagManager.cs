@@ -1,10 +1,8 @@
 ﻿using KTE_PMS.MIMIC;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Windows.Forms;
-using System.Collections;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace KTE_PMS
 {
@@ -16,8 +14,6 @@ namespace KTE_PMS
         public cTag[] tt;
         public Dictionary<string, cTag> dictionary = new Dictionary<string, cTag>();
         string directory;
-
-        string filename = "\\TagList.csv";
 
         public Dictionary<string, string> htCurrentFault = new Dictionary<string, string>();
         Queue<string> qRecvFault = new Queue<string>();
@@ -66,13 +62,13 @@ namespace KTE_PMS
                 tt[i] = new cTag();
             }
 
-            
+
             Read_AlarmData(ref tt);
         }
 
         public string GetFaultText(int nFileNo, int nBit)
         {
-            string szReturn = "";
+            string szReturn = string.Empty;
 
 
             for (int i = 0; i <= Samsung_BMS_FAULT_CODE.GetLength(0) - 1; i++)
@@ -92,13 +88,17 @@ namespace KTE_PMS
 
         public void PCS_Fault_처리_프로시져()
         {
-
+            ushort ushValue = 0;
             // PCS_DataDisplay(szMode, szMessage)
             // 46~47 에러 하기 (PCS쪽 Fault)
             for (int nFileNo = 46; nFileNo <= 47; nFileNo++)
             {
-                //ushort ushValue = GetModbusData_Ushort(nFileNo);
-                ushort ushValue = 0;
+                if (nFileNo == 46)
+                    ushValue = Repository.Instance.GnEPS_PCS.PCS_GRID_Status;
+                else if (nFileNo == 47)
+                    ushValue = Repository.Instance.samsung_bcs.Protection_Summary3;
+                else
+                    ushValue = 0;
 
                 for (int nBit = 0; nBit <= 15; nBit++)
                 {
@@ -108,70 +108,68 @@ namespace KTE_PMS
                 }
             }
         }
-
         public void BMS_Fault_처리_프로시져()
         {
-            ushort ushValue;
+            ushort ushValue = 0;
             // 14~15 에러 하기 (BMS쪽 Fault)
             for (int nFileNo = 14; nFileNo <= 22; nFileNo++)
             {
-                
+                if (nFileNo == 14)
+                    ushValue = Repository.Instance.samsung_bcs.Protection_Summary4;
+                else if (nFileNo == 15)
+                    ushValue = Repository.Instance.samsung_bcs.Protection_Summary3;
+                else if (nFileNo == 16)
+                    ushValue = Repository.Instance.samsung_bcs.Protection_Summary2;
+                else if (nFileNo == 17)
+                    ushValue = Repository.Instance.samsung_bcs.Protection_Summary1;
+                else if (nFileNo == 18)
+                    ushValue = Repository.Instance.samsung_bcs.Alarm_Summary4;
+                else if (nFileNo == 19)
+                    ushValue = Repository.Instance.samsung_bcs.Alarm_Summary3;
+                else if (nFileNo == 20)
+                    ushValue = Repository.Instance.samsung_bcs.Alarm_Summary2;
+                else if (nFileNo == 21)
+                    ushValue = Repository.Instance.samsung_bcs.Alarm_Summary1;
+                else
+                    ushValue = 0;
+
                 for (int nBit = 0; nBit <= 15; nBit++)
                 {
-                    if (nFileNo == 14)
-                        ushValue = Repository.Instance.samsung_bcs.Protection_Summary4;
-                    else if (nFileNo == 15)
-                        ushValue = Repository.Instance.samsung_bcs.Protection_Summary3;
-                    else if (nFileNo == 16)
-                        ushValue = Repository.Instance.samsung_bcs.Protection_Summary2;
-                    else if (nFileNo == 17)
-                        ushValue = Repository.Instance.samsung_bcs.Protection_Summary1;
-                    else if (nFileNo == 18)
-                        ushValue = Repository.Instance.samsung_bcs.Alarm_Summary4;
-                    else if (nFileNo == 19)
-                        ushValue = Repository.Instance.samsung_bcs.Alarm_Summary3;
-                    else if (nFileNo == 20)
-                        ushValue = Repository.Instance.samsung_bcs.Alarm_Summary2;
-                    else if (nFileNo == 21)
-                        ushValue = Repository.Instance.samsung_bcs.Alarm_Summary1;
-                    else
-                        ushValue = 0;
-
-
                     int nStatus = ushValue >> nBit & 0x1;
 
                     if (FAULT_STATUS[nFileNo, nBit, 0] == null)
-                        FAULT_STATUS[nFileNo, nBit, 0] = "";
+                        FAULT_STATUS[nFileNo, nBit, 0] = string.Empty;
 
                     if (FAULT_STATUS[nFileNo, nBit, 0] != nStatus.ToString())
-                    { 
+                    {
                         경보발생및해제(nStatus, nFileNo, nBit);
                     }
                 }
             }
-            
+
         }
 
         private string getDeviceName(int nFileNo)
         {
             if (nFileNo >= 14 && nFileNo <= 22)
             {
-                return("BMS");
+                return ("BMS");
             }
             else if (nFileNo >= 46 && nFileNo <= 47)
             {
-                return("PCS");
+                return ("PCS");
             }
             else
             {
-                return("Unexpected Device");
-            }         
+                return ("Unexpected Device");
+            }
         }
         public void 경보발생및해제(int nStatus, int nFileNo, int nBit)
         {
             // heartbit가 동작중에는 flag_PCS_COMMFAULT Flag를 설정시키기 때문에 
             // Heartbit가 동작중에는 초기화 하는것이 필요하다. Heartbit가 11이 됨으로 부터 정상적인 PCS Alarm 발생을 시작
             string szFaultCode = string.Format("{0}_{1}", nFileNo, nBit);
+            string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
             // 화면_고장
             string szFaultText = GetFaultText(nFileNo, nBit);
@@ -184,32 +182,35 @@ namespace KTE_PMS
             {
                 // 해제
                 FAULT_STATUS[nFileNo, nBit, 0] = nStatus.ToString();
-                FAULT_STATUS[nFileNo, nBit, 1] = "";
-                string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss") , string.Format("{0} [0x{1:X2}] ", nFileNo, nBit ), DeviceName, szFaultText, "NORMAL");
+                FAULT_STATUS[nFileNo, nBit, 1] = string.Empty;
+                string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), string.Format("{0} [0x{1:X2}] ", nFileNo, nBit), DeviceName, szFaultText, "NORMAL");
                 qRecvFault.Enqueue(szFault);
-
+                
                 // Ack Bit 여부를 확인하고, Ack면 해제, Ack가 아니라면 UnAcked Normal을 띄워줘야함.
-                
-                
+
                 foreach (var key in htCurrentFault.Keys.ToList())
                 {
                     // 값을 받아온다.
-                    string szCurrentFault = htCurrentFault[key] + "";
+                    string szCurrentFault = htCurrentFault[key] + string.Empty;
                     string[] current_IO = szCurrentFault.Split('|');
-                    
+
 
                     // Unacked이면 Acked로, Unacekd Normal이면 삭제.
                     if (current_IO[4] == "ACK")
                     {
                         Repository.Instance.TagManager.htCurrentFault.Remove(key);
+                        szCurrentFault = szCurrentFault.Replace(current_IO[0], strDateTime);
+                        szCurrentFault = szCurrentFault.Replace("ACK", "NORMAL");
+                        Repository.Instance.dbConnector.Insert_Alarm_to_Database(szCurrentFault);
                     }
                     // UNACK라면?
                     else if (current_IO[4] == "UNACK")
                     {
+                        szCurrentFault = szCurrentFault.Replace(current_IO[0], strDateTime);
                         szCurrentFault = szCurrentFault.Replace("UNACK", "UNACK NORMAL");
                         Repository.Instance.TagManager.htCurrentFault.Remove(key);
                         Repository.Instance.TagManager.htCurrentFault.Add(key, szCurrentFault);
-
+                        Repository.Instance.dbConnector.Insert_Alarm_to_Database(szCurrentFault);
                     }
                 }
             }
@@ -218,13 +219,43 @@ namespace KTE_PMS
                 // 발생
                 FAULT_STATUS[nFileNo, nBit, 0] = nStatus.ToString();
                 FAULT_STATUS[nFileNo, nBit, 1] = tCurrent.ToString("yyyy-MM-dd HH:mm:ss");
-                string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"),string.Format("{0} [0x{1:X2}] ", nFileNo, nBit), DeviceName, szFaultText, "UNACK");
+                string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), string.Format("{0} [0x{1:X2}] ", nFileNo, nBit), DeviceName, szFaultText, "UNACK");
                 qRecvFault.Enqueue(szFault);
-                //szFault = string.Format("{0}|{1}|{2}{3}{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), string.Format("{0} [0x{1:X2}] {2}", nFileNo, nBit, szFaultText), DeviceName, szFaultText);
+                Repository.Instance.dbConnector.Insert_Alarm_to_Database(szFault);
+
                 htCurrentFault[szFaultCode] = szFault;
             }
         }
 
+        public void ALARM_ACK()
+        {
+            string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            foreach (var key in Repository.Instance.TagManager.htCurrentFault.Keys.ToList())
+            {
+                // 값을 받아온다.
+                //string szFault = pDir.Value + "";
+                string szFault = Repository.Instance.TagManager.htCurrentFault[key] + "";
+                // Unacked이면 Acked로, Unacekd Normal이면 삭제.
+                string[] current_IO = szFault.Split('|');
+
+                if (current_IO[4] == "UNACK NORMAL")
+                {
+                    Repository.Instance.TagManager.htCurrentFault.Remove(key);
+
+                    szFault = szFault.Replace(current_IO[0], strDateTime);
+                    szFault = szFault.Replace("UNACK NORMAL", "NORMAL");
+                    Repository.Instance.dbConnector.Insert_Alarm_to_Database(szFault);
+                }
+                else if (current_IO[4] == "UNACK")
+                {
+                    szFault = szFault.Replace(current_IO[0], strDateTime);
+                    szFault = szFault.Replace("UNACK", "ACK");
+                    Repository.Instance.TagManager.htCurrentFault.Remove(key);
+                    Repository.Instance.TagManager.htCurrentFault.Add(key, szFault);
+                    Repository.Instance.dbConnector.Insert_Alarm_to_Database(szFault);
+                }
+            }
+        }
         private void 경보전시()
         {
             if (qRecvFault.Count > 0)
@@ -234,7 +265,7 @@ namespace KTE_PMS
                     string szFaultData = qRecvFault.Dequeue();
                     string[] szFault = szFaultData.Split('|');
 
-                //qRecvFault.
+                    //qRecvFault.
 
                 }
             }

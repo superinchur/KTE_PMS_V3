@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KTE_PMS
+﻿namespace KTE_PMS
 {
     public class sSamsungBCS
     {
@@ -30,6 +24,18 @@ namespace KTE_PMS
         public double System_Min_Voltage { get; set; } // 7
         public short System_Max_Temp { get; set; }  //8
         public short System_Min_Temp { get; set; } // 9
+        public int Mode_Charging { get; set; }
+        public int Mode_Discharging { get; set; }
+        public int Mode_Offline { get; set; } 
+        public int Mode_Idle { get; set; } 
+        public int Mode_Ready { get; set; }
+        public int Mode_InputSignal4 { get; set; }
+        public int Mode_InputSignal3 { get; set; }
+        public int Mode_InputSignal2 { get; set; }
+        public int Mode_InputSIgnal1 { get; set; }
+        public int Mode_OutputControl2 { get; set; }
+        public int Mode_OutputControl1 { get; set; }
+
         public ushort Protection_Summary4 { get; set; } // 14
         public ushort Protection_Summary3 { get; set; } // 15
         public ushort Protection_Summary2 { get; set; } // 16
@@ -39,7 +45,7 @@ namespace KTE_PMS
         public ushort Alarm_Summary2 { get; set; } // 20
         public ushort Alarm_Summary1 { get; set; } // 21
 
-        public ushort Discharge_Current_Limit { get; set; } // 22
+        public ushort Discharge_Current_Limit_of_Rack { get; set; } // 22
         public ushort Charge_Current_Limit { get; set; } // 23
         public short Watchdog_Response { get; set; } // 24
         public ushort System_Heartbit { get; set; } // 25
@@ -63,7 +69,34 @@ namespace KTE_PMS
         public ushort Rack_Mode { get; set; }
         public double Rack_SOC { get; set; }
         public double Rack_SOH { get; set; }
-        
+
+
+        public double Max1_Cell_Voltage_Value { get; set; }
+        public double Max1_Cell_Voltage_Position { get; set; }
+        public double Min1_Cell_Voltage_Value { get; set; }
+        public double Min1_Cell_Voltage_Position { get; set; }
+        public double Max2_Cell_Voltage_Value { get; set; }
+        public double Max2_Cell_Voltage_Position { get; set; }
+        public double Min2_Cell_Voltage_Value { get; set; }
+        public double Min2_Cell_Voltage_Position { get; set; }
+        public double Max1_Cell_Temp_Value { get; set; }
+        public double Max1_Cell_Temp_Position { get; set; }
+        public double Min1_Cell_Temp_Value { get; set; }
+        public double Min1_Cell_Temp_Position { get; set; }
+        public double Max2_Cell_Temp_Value { get; set; }
+        public double Max2_Cell_Temp_Position { get; set; }
+        public double Min2_Cell_Temp_Value { get; set; }
+        public double Min2_Cell_Temp_Position { get; set; }
+        public double Average_Cell_Voltage_Value { get; set; }
+        public double Average_Cell_Temp_Value { get; set; }
+        public double Discharge_Current_limit_of_Rack { get; set; }
+        public double Charge_Current_Limit_of_Rack { get; set; }
+
+        public double Rack_Switch_Control_Info { get; set; }
+        public double Rack_Switch_Sensor_Info { get; set; }
+        public double Rack_External_Sensor_Info { get; set; }
+        public double Module_Comm_Fault_Position { get; set; }
+
         #endregion
 
 

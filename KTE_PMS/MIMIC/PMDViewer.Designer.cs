@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label5 = new System.Windows.Forms.Label();
             this.txtIP4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.LB_IP = new System.Windows.Forms.Label();
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtIP1 = new System.Windows.Forms.TextBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label5
@@ -156,6 +158,11 @@
             this.txtIP1.TabIndex = 38;
             this.txtIP1.Text = "127";
             // 
+            // timer
+            // 
+            this.timer.Interval = 400;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // PMDViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -194,5 +201,6 @@
         private System.Windows.Forms.Label LB_IP;
         private System.Windows.Forms.TextBox txtPort;
         private System.Windows.Forms.TextBox txtIP1;
+        private System.Windows.Forms.Timer timer;
     }
 }

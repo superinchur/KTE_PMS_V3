@@ -5,10 +5,10 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FE832CAA-034B-423E-96C6-67B894FC8089}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>KTE_PMS</RootNamespace>
     <AssemblyName>KTE_PMS</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -37,6 +37,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,11 +48,17 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -65,23 +73,33 @@
     <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="ModbusTCP, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DLL\ModbusTCP.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.7\Assemblies\v4.0\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQLConnection, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySQLConnection.1.0.1\lib\MySQLConnection.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -92,7 +110,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider" />
@@ -110,16 +127,6 @@
     <Compile Include="CLASS\cSamsungBMS_System.cs" />
     <Compile Include="CLASS\cSamsungBMS_Rack.cs" />
     <Compile Include="CLASS\ImageResize.cs" />
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DBConnector.cs" />
     <Compile Include="MAIN.cs">
       <SubType>Form</SubType>
@@ -158,6 +165,30 @@
     <Compile Include="MIMIC\MainViewer.Designer.cs">
       <DependentUpon>MainViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="MIMIC\MeasureViewer4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MIMIC\MeasureViewer4.Designer.cs">
+      <DependentUpon>MeasureViewer4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MIMIC\MeasureViewer3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MIMIC\MeasureViewer3.Designer.cs">
+      <DependentUpon>MeasureViewer3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MIMIC\MeasureViewer2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MIMIC\MeasureViewer2.Designer.cs">
+      <DependentUpon>MeasureViewer2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MIMIC\MeasureViewerV2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MIMIC\MeasureViewerV2.Designer.cs">
+      <DependentUpon>MeasureViewerV2.cs</DependentUpon>
+    </Compile>
     <Compile Include="MIMIC\MeasureViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -176,23 +207,11 @@
     <Compile Include="MIMIC\myTextBox.Designer.cs">
       <DependentUpon>myTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="MIMIC\PCSViewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MIMIC\PCSViewer.Designer.cs">
-      <DependentUpon>PCSViewer.cs</DependentUpon>
-    </Compile>
     <Compile Include="MIMIC\Setting_PageViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MIMIC\Setting_PageViewer.Designer.cs">
       <DependentUpon>Setting_PageViewer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MIMIC\TrendViewer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MIMIC\TrendViewer.Designer.cs">
-      <DependentUpon>TrendViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="MIMIC\Viewer.cs">
       <SubType>UserControl</SubType>
@@ -213,6 +232,14 @@
     <Compile Include="Modbus_Setup.Designer.cs">
       <DependentUpon>Modbus_Setup.cs</DependentUpon>
     </Compile>
+    <Compile Include="mssql_dataset.cs">
+      <DependentUpon>mssql_dataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="mssql_dataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mssql_dataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Observer\IUpdate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -225,6 +252,7 @@
     <Compile Include="Singleton\SingleTon.cs" />
     <Compile Include="sPCS.cs" />
     <Compile Include="sPMD.cs" />
+    <Compile Include="sPower.cs" />
     <Compile Include="sSamsungBCS.cs" />
     <Compile Include="TagManager.cs" />
     <Compile Include="MIMIC\PMDViewer.cs">
@@ -239,15 +267,11 @@
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
-    <Compile Include="TREND_DATA.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TREND_DATA.xsd</DependentUpon>
+    <Compile Include="TrendViewer.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Trend_Data1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Trend_Data1.xsd</DependentUpon>
+    <Compile Include="TrendViewer.Designer.cs">
+      <DependentUpon>TrendViewer.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CLASS\cImageBTN.resx">
       <DependentUpon>cImageBTN.cs</DependentUpon>
@@ -270,6 +294,18 @@
     <EmbeddedResource Include="MIMIC\MainViewer.resx">
       <DependentUpon>MainViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MIMIC\MeasureViewer4.resx">
+      <DependentUpon>MeasureViewer4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIMIC\MeasureViewer3.resx">
+      <DependentUpon>MeasureViewer3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIMIC\MeasureViewer2.resx">
+      <DependentUpon>MeasureViewer2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIMIC\MeasureViewerV2.resx">
+      <DependentUpon>MeasureViewerV2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MIMIC\MeasureViewer.resx">
       <DependentUpon>MeasureViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,14 +315,8 @@
     <EmbeddedResource Include="MIMIC\myTextBox.resx">
       <DependentUpon>myTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MIMIC\PCSViewer.resx">
-      <DependentUpon>PCSViewer.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MIMIC\Setting_PageViewer.resx">
       <DependentUpon>Setting_PageViewer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MIMIC\TrendViewer.resx">
-      <DependentUpon>TrendViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MIMIC\Viewer.resx">
       <DependentUpon>Viewer.cs</DependentUpon>
@@ -314,28 +344,21 @@
     <EmbeddedResource Include="MIMIC\PMDViewer.resx">
       <DependentUpon>PMDViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <EmbeddedResource Include="TrendViewer.resx">
+      <DependentUpon>TrendViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="mssql_dataset.xsc">
+      <DependentUpon>mssql_dataset.xsd</DependentUpon>
     </None>
-    <None Include="DataSet1.xsd">
+    <None Include="mssql_dataset.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>mssql_dataset.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="mssql_dataset.xss">
+      <DependentUpon>mssql_dataset.xsd</DependentUpon>
     </None>
-    <None Include="DataSet2.xsc">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSet2.xss">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -345,28 +368,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TREND_DATA.xsc">
-      <DependentUpon>TREND_DATA.xsd</DependentUpon>
-    </None>
-    <None Include="TREND_DATA.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TREND_DATA.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="TREND_DATA.xss">
-      <DependentUpon>TREND_DATA.xsd</DependentUpon>
-    </None>
-    <None Include="Trend_Data1.xsc">
-      <DependentUpon>Trend_Data1.xsd</DependentUpon>
-    </None>
-    <None Include="Trend_Data1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Trend_Data1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Trend_Data1.xss">
-      <DependentUpon>Trend_Data1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -1014,6 +1015,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\STOP_003_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_icon_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_blue_1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pv_toLeft.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid_toLeft.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grid_toRight.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toLeft.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toRight.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\generator_toLeft.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot_battery_PCS_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot_generator_0011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot_solar_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot_Grid_PCS_001.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,14 +1,6 @@
-﻿using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
-using System.Threading;
+﻿using KTE_PMS.CLASS;
+using System;
 using System.Windows.Forms;
-using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid.Columns;
-
-
 
 namespace KTE_PMS.MIMIC
 {
@@ -29,47 +21,136 @@ namespace KTE_PMS.MIMIC
         public ControlViewer()
         {
             InitializeComponent();
-            //this.elementHost1.Child = new SingerOSK.SingerOnScreenKeyboard(this.Handle);
 
-            threadingtimer = new System.Threading.Timer(ThreadingTimerCallback, null, 5000, 1000);
-        }
+            ControlTimer.Enabled = true;
+            ControlTimer.Interval = 400;
+            ControlTimer.Start();
 
-              
-
-    public new void ThreadingTimerCallback(object state)
-    {
-        try
-        {
- 
-                /*
-            this.Invoke(new MethodInvoker(delegate ()
-            {
-                // 1초 Timer에 의해서 수행되는 코드
-
-                
-                
-
-
-            }));
-            */
-            }
-        catch (ThreadAbortException ex)
-        {
-            MessageBox.Show("Abort", ex.Message);
-            throw ex;
-        }
-
-    }
-    private void button2_Click(object sender, EventArgs e)
-        {
-            display_RUN_button(button2, ref grid_run);
         }
 
         private void ControlTimer_Tick(object sender, EventArgs e)
         {
-            // 1초마다 Flashing을 하자
+            // 현재 상태를 보고 BTN의 불을 켤것인지 말것인지 결정하자.
 
-                //pictureBox1.Image = Arrow.Images[index];
+            // 값을 써주자.
+            if (Repository.Instance.samsung_bcs.Mode_Charging == 1)
+            {
+                lb_System_Status.Text = "CHARGING";
+                
+            }
+            else if (Repository.Instance.samsung_bcs.Mode_Discharging == 1)
+            {
+                lb_System_Status.Text = "DISCHARGING";
+            }
+            else
+            {
+                lb_System_Status.Text = "IDLE";
+            }
+            int common_warning = Repository.Instance.samsung_bcs.Alarm_Summary1 +
+                                Repository.Instance.samsung_bcs.Alarm_Summary2 +
+                                Repository.Instance.samsung_bcs.Alarm_Summary3 +
+                                Repository.Instance.samsung_bcs.Alarm_Summary4;
+            int common_alarm = Repository.Instance.samsung_bcs.Protection_Summary1  +
+                                Repository.Instance.samsung_bcs.Protection_Summary2 +
+                                Repository.Instance.samsung_bcs.Protection_Summary3 +
+                                Repository.Instance.samsung_bcs.Protection_Summary4;
+            if (common_alarm > 0)
+            {
+                lb_Common_Alarm_Status.Text = "PROTECTION";
+            }
+            else if (common_warning > 0)
+            {
+                lb_Common_Alarm_Status.Text = "ALARM";
+            }
+            else
+            {
+                lb_Common_Alarm_Status.Text = "NORMAL";
+            }
+
+            if (Repository.Instance.GnEPS_PCS.Mode_Standby == 1)
+            {
+                lb_PCS_System_Status.Text = "STANDBY";
+                ImageResize.ResizeImage(Properties.Resources.STOP_003, btn_IDLE.Width, btn_IDLE.Height);
+                btn_Charging.Image = null;
+                btn_Discharging = null;
+            }
+            else if (Repository.Instance.GnEPS_PCS.Mode_Charging == 1)
+            {
+                lb_PCS_System_Status.Text = "CHARGING";
+                ImageResize.ResizeImage(Properties.Resources.RUN_003, btn_Charging.Width, btn_Charging.Height);
+                btn_IDLE = null;
+                btn_Discharging = null;
+            }
+            else if (Repository.Instance.GnEPS_PCS.Mode_Discharging == 1)
+            {
+                lb_PCS_System_Status.Text = "DISCHARGING";
+                ImageResize.ResizeImage(Properties.Resources.RUN_003, btn_Discharging.Width, btn_Discharging.Height);
+                btn_IDLE = null;
+                btn_Charging.Image = null;
+            }
+            else
+            {
+                lb_PCS_System_Status.Text = "UNEXPECTED";
+            }
+
+            if (Repository.Instance.bmsviewer.Connected() > 0)
+            {
+                // BCS가 끊어진것이 아닌 상태에서, 값이 올라올때만 버튼을 표시하자.
+                if (Repository.Instance.samsung_bcs.Mode_Idle == 1 ||
+                    Repository.Instance.samsung_bcs.Mode_Offline == 1)
+                {
+                    btn_Grid_ON.Image = null;
+                    btn_Grid_OFF.Image = ImageResize.ResizeImage(Properties.Resources.STOP_003, btn_Grid_OFF.Width, btn_Grid_OFF.Height);
+                }
+                else if (Repository.Instance.samsung_bcs.Mode_Ready == 1 ||
+                    Repository.Instance.samsung_bcs.Mode_Charging == 1 ||
+                    Repository.Instance.samsung_bcs.Mode_Discharging == 1)
+                {
+                    btn_Grid_ON.Image = ImageResize.ResizeImage(Properties.Resources.RUN_003, btn_Grid_ON.Width, btn_Grid_ON.Height);
+                    btn_Grid_OFF.Image = null;
+                }
+            }
+            else
+            {
+                btn_Grid_ON.Image = null;
+                btn_Grid_OFF.Image = null;
+            }
+
+            
+
+                int PCS_alarm = Repository.Instance.GnEPS_PCS.PCS_GRID_Status +
+                            Repository.Instance.GnEPS_PCS.PCS_Fault_Status;
+
+            if (PCS_alarm > 0)
+            {
+                lb_PCS_Common_Alarm.Text = "ALARM";
+            }
+            else
+            {
+                lb_PCS_Common_Alarm.Text = "NORMAL";
+            }
+
+            if (Repository.Instance.bmsviewer.Connected() > 0)
+            {
+                lb_Batt_Comm_Status.Text = "NORMAL";
+            }
+            else
+            {
+                lb_Batt_Comm_Status.Text = "FAULT";
+            }
+
+            if (Repository.Instance.pmdviewer.Connected() > 0)
+            {
+                lb_PCS_Comm_Status.Text = "NORMAL";
+            }
+            else
+            {
+                lb_PCS_Comm_Status.Text = "FAULT";
+            }
+
+            // 버튼 색상 정하기.
+
+            
             index++;
             if (index == 5)
             {
@@ -77,99 +158,126 @@ namespace KTE_PMS.MIMIC
             }
         }
 
-        private void button2_MouseDown(object sender, MouseEventArgs e)
+       
+        
+        private void btn_Grid_ON_MouseDown(object sender, MouseEventArgs e)
         {
-
+            //Button button = (Button)sender;
+  //          button.Image = ImageResize.ResizeImage(Properties.Resources.RUN_003, button.Width, button.Height);
         }
 
-        private void button8_MouseDown(object sender, MouseEventArgs e)
+        private void btn_Grid_ON_MouseClick(object sender, MouseEventArgs e)
         {
-
+            if (MessageBox.Show("GRID ON 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Repository.Instance.bmsviewer.GRID_ON();
+            }
+            
         }
 
-        private void display_RUN_button(Button button, ref int a)
+        private void btn_Grid_OFF_MouseDown(object sender, MouseEventArgs e)
         {
+            //Button button = (Button)sender;
+//            button.Image = ImageResize.ResizeImage(Properties.Resources.RUN_003, button.Width, button.Height);
+        }
 
-            if (a == 0)
+        private void btn_Grid_OFF_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (MessageBox.Show("GRID OFF 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                a = 1;
+                Repository.Instance.bmsviewer.GRID_OFF();
             }
-            else
-            {
-                a = 0;
-            }
+        }
 
-            if (a == 1)
+        private void btn_IDLE_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("정지모드로 변경 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                button.BackgroundImage  = global::KTE_PMS.Properties.Resources.RUN_003;
+                // PCS Mode 설정
+                Repository.Instance.current_pcs_mode = 1;
+
+                Repository.Instance.pmdviewer.Control_Idle();
+            }
+        }
+
+        private void btn_Charging_Click(object sender, EventArgs e)
+        {
+            if (Repository.Instance.current_pcs_mode == 3)
+            {
+                MessageBox.Show("스케줄모드일때는 사용할 수 없습니다", "확인", MessageBoxButtons.OK);
+                return;
+            }
+            if (MessageBox.Show("충전모드로 변경 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Repository.Instance.pmdviewer.Control_Charge();
+            }
+        }
+
+        private void btn_Discharging_Click(object sender, EventArgs e)
+        {
+            if (Repository.Instance.current_pcs_mode == 3)
+            {
+                MessageBox.Show("스케줄모드일때는 사용할 수 없습니다", "확인", MessageBoxButtons.OK);
+                return;
+            }
+            if (MessageBox.Show("방전모드로 변경 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Repository.Instance.pmdviewer.Control_Discharge();
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
                 
+        }
+
+        private void tb_Power_Set_TextChanged(object sender, EventArgs e)
+        {
+            ushort a = Convert.ToUInt16(tb_Power_Set.Text);
+
+            Repository.Instance.remote_power = Convert.ToUInt16(a * 10);
+
+        }
+
+        private void tb_Power_Set_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            if (tb_Power_Set.MaskFull)
+            {
+                MessageBox.Show("모든 사항이 입력되었습니다. 추가입력이 불가합니다");
+            }
+            else if (e.Position == tb_Power_Set.Mask.Length)
+            {
+                MessageBox.Show("마스크 위치를 넘어섰습니다. 입력이 불가합니다");
             }
             else
             {
-                button.BackgroundImage = global::KTE_PMS.Properties.Resources.RUN_003_1; ;
+                MessageBox.Show("숫자만 입력해야 합니다. 입력이 불가합니다");
             }
-
         }
-        private void display_STOP_button(Button button, ref int a)
+
+        private void btn_Manual_Mode_Click(object sender, EventArgs e)
         {
 
-            if (a == 0)
+            if (MessageBox.Show("메뉴얼모드로 변경 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                a = 1;
+                System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
+
+                Repository.Instance.current_pcs_mode = 2;   // 2 indicates Manual Mode
+                btn_Manual_Mode.Image = ImageResize.ResizeImage(Properties.Resources.RUN_003, button.Width, button.Height);
+                btn_Scheduling_Mode.Image = null;
             }
-            else
+        }
+
+        private void btn_Scheduling_Mode_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("스케줄모드로 변경 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                a = 0;
+                System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
+
+                btn_Manual_Mode.Image = null;
+                btn_Scheduling_Mode.Image = ImageResize.ResizeImage(Properties.Resources.RUN_003, button.Width, button.Height);
+                Repository.Instance.current_pcs_mode = 3;   // 3 indicates Scheduling Mode
             }
-
-            if (a == 1)
-            {
-                button.BackgroundImage = global::KTE_PMS.Properties.Resources.STOP_003;
-
-
-            }
-            else
-            {
-                button.BackgroundImage = global::KTE_PMS.Properties.Resources.STOP_003_1;
-            }
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-            display_STOP_button(button3, ref grid_stop);
-        }
-
-        private void button8_MouseClick(object sender, MouseEventArgs e)
-        {
-            display_RUN_button(button8, ref gen_run);
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {         
-
-            display_STOP_button(button7, ref gen_stop);
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            display_RUN_button(button10, ref bat_run);
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            display_STOP_button(button9, ref bat_stop);
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            display_RUN_button(button12, ref pv_run);
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            display_STOP_button(button11, ref pv_stop);
         }
     }
 }

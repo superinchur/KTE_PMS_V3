@@ -29,89 +29,78 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Setting_PageViewer));
-            this.CumulativeValueInitialization = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.lb9 = new System.Windows.Forms.Label();
+            this.btn_Access_To_Operating_System = new System.Windows.Forms.Button();
+            this.btn_Password_Change = new System.Windows.Forms.Button();
+            this.btn_Export_Data = new System.Windows.Forms.Button();
+            this.btn_Import_Data = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tb_Discharging_Period_Start = new System.Windows.Forms.MaskedTextBox();
+            this.tb_Discharging_Period_End = new System.Windows.Forms.MaskedTextBox();
+            this.tb_Charging_Period_Start = new System.Windows.Forms.MaskedTextBox();
+            this.tb_Charging_Period_End = new System.Windows.Forms.MaskedTextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tb_Charging_Stop_SOC = new System.Windows.Forms.MaskedTextBox();
+            this.tb_Discharging_Stop_SOC = new System.Windows.Forms.MaskedTextBox();
+            this.tb_Charging_Start_SOC = new System.Windows.Forms.MaskedTextBox();
+            this.tb_Discharging_Start_SOC = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btn_Apply = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // CumulativeValueInitialization
+            // btn_Access_To_Operating_System
             // 
-            this.CumulativeValueInitialization.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CumulativeValueInitialization.BackgroundImage")));
-            this.CumulativeValueInitialization.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CumulativeValueInitialization.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.CumulativeValueInitialization.Location = new System.Drawing.Point(747, 324);
-            this.CumulativeValueInitialization.Name = "CumulativeValueInitialization";
-            this.CumulativeValueInitialization.Size = new System.Drawing.Size(90, 40);
-            this.CumulativeValueInitialization.TabIndex = 6;
-            this.CumulativeValueInitialization.UseVisualStyleBackColor = true;
+            this.btn_Access_To_Operating_System.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Access_To_Operating_System.BackgroundImage")));
+            this.btn_Access_To_Operating_System.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Access_To_Operating_System.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Access_To_Operating_System.Location = new System.Drawing.Point(747, 298);
+            this.btn_Access_To_Operating_System.Name = "btn_Access_To_Operating_System";
+            this.btn_Access_To_Operating_System.Size = new System.Drawing.Size(90, 40);
+            this.btn_Access_To_Operating_System.TabIndex = 6;
+            this.btn_Access_To_Operating_System.UseVisualStyleBackColor = true;
+            this.btn_Access_To_Operating_System.Click += new System.EventHandler(this.btn_Access_To_Operating_System_Click);
             // 
-            // button3
+            // btn_Password_Change
             // 
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button3.Location = new System.Drawing.Point(747, 201);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 40);
-            this.button3.TabIndex = 7;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_Password_Change.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Password_Change.BackgroundImage")));
+            this.btn_Password_Change.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Password_Change.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Password_Change.Location = new System.Drawing.Point(747, 238);
+            this.btn_Password_Change.Name = "btn_Password_Change";
+            this.btn_Password_Change.Size = new System.Drawing.Size(90, 40);
+            this.btn_Password_Change.TabIndex = 8;
+            this.btn_Password_Change.UseVisualStyleBackColor = true;
+            this.btn_Password_Change.Click += new System.EventHandler(this.btn_Password_Change_Click);
             // 
-            // button4
+            // btn_Export_Data
             // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Location = new System.Drawing.Point(747, 264);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 40);
-            this.button4.TabIndex = 8;
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_Export_Data.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Export_Data.BackgroundImage")));
+            this.btn_Export_Data.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Export_Data.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Export_Data.Location = new System.Drawing.Point(747, 182);
+            this.btn_Export_Data.Name = "btn_Export_Data";
+            this.btn_Export_Data.Size = new System.Drawing.Size(90, 40);
+            this.btn_Export_Data.TabIndex = 9;
+            this.btn_Export_Data.UseVisualStyleBackColor = true;
+            this.btn_Export_Data.Click += new System.EventHandler(this.btn_Export_Data_Click);
             // 
-            // button1
+            // btn_Import_Data
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(747, 140);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 40);
-            this.button1.TabIndex = 9;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(747, 83);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 40);
-            this.button2.TabIndex = 10;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // lb9
-            // 
-            this.lb9.AutoSize = true;
-            this.lb9.BackColor = System.Drawing.Color.Transparent;
-            this.lb9.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lb9.ForeColor = System.Drawing.Color.Black;
-            this.lb9.Location = new System.Drawing.Point(311, 179);
-            this.lb9.Name = "lb9";
-            this.lb9.Size = new System.Drawing.Size(54, 19);
-            this.lb9.TabIndex = 20;
-            this.lb9.Text = "12.34 ";
+            this.btn_Import_Data.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Import_Data.BackgroundImage")));
+            this.btn_Import_Data.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Import_Data.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Import_Data.Location = new System.Drawing.Point(747, 125);
+            this.btn_Import_Data.Name = "btn_Import_Data";
+            this.btn_Import_Data.Size = new System.Drawing.Size(90, 40);
+            this.btn_Import_Data.TabIndex = 10;
+            this.btn_Import_Data.UseVisualStyleBackColor = true;
+            this.btn_Import_Data.Click += new System.EventHandler(this.btn_Import_Data_Click);
             // 
             // label5
             // 
@@ -119,24 +108,12 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(93, 179);
+            this.label5.Location = new System.Drawing.Point(97, 145);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 19);
+            this.label5.Size = new System.Drawing.Size(122, 19);
             this.label5.TabIndex = 19;
-            this.label5.Text = "유효전류 값";
+            this.label5.Text = "충전 정지 SOC 값";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(311, 211);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 19);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "12.34 ";
             // 
             // label2
             // 
@@ -144,23 +121,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(93, 211);
+            this.label2.Location = new System.Drawing.Point(97, 177);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 19);
+            this.label2.Size = new System.Drawing.Size(122, 19);
             this.label2.TabIndex = 21;
-            this.label2.Text = "무효전류 값";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(311, 242);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 19);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "12.34 ";
+            this.label2.Text = "방전 정지 SOC 값";
             // 
             // label4
             // 
@@ -168,23 +133,11 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(93, 242);
+            this.label4.Location = new System.Drawing.Point(97, 209);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 19);
             this.label4.TabIndex = 23;
-            this.label4.Text = "충전 정지 SOC";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(311, 274);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 19);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "12.34 ";
+            this.label4.Text = "충전 시작 SOC";
             // 
             // label7
             // 
@@ -192,11 +145,202 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(93, 274);
+            this.label7.Location = new System.Drawing.Point(97, 240);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 19);
             this.label7.TabIndex = 25;
             this.label7.Text = "방전 방지 SOC";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(97, 273);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(101, 19);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "방전 시작 설정";
+            // 
+            // tb_Discharging_Period_Start
+            // 
+            this.tb_Discharging_Period_Start.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Discharging_Period_Start.Location = new System.Drawing.Point(213, 267);
+            this.tb_Discharging_Period_Start.Mask = "90시90분";
+            this.tb_Discharging_Period_Start.Name = "tb_Discharging_Period_Start";
+            this.tb_Discharging_Period_Start.Size = new System.Drawing.Size(87, 26);
+            this.tb_Discharging_Period_Start.TabIndex = 29;
+            this.tb_Discharging_Period_Start.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Discharging_Period_Start.ValidatingType = typeof(System.DateTime);
+            this.tb_Discharging_Period_Start.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
+            // 
+            // tb_Discharging_Period_End
+            // 
+            this.tb_Discharging_Period_End.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Discharging_Period_End.Location = new System.Drawing.Point(315, 267);
+            this.tb_Discharging_Period_End.Mask = "90시90분";
+            this.tb_Discharging_Period_End.Name = "tb_Discharging_Period_End";
+            this.tb_Discharging_Period_End.Size = new System.Drawing.Size(87, 26);
+            this.tb_Discharging_Period_End.TabIndex = 31;
+            this.tb_Discharging_Period_End.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Discharging_Period_End.ValidatingType = typeof(System.DateTime);
+            this.tb_Discharging_Period_End.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
+            // 
+            // tb_Charging_Period_Start
+            // 
+            this.tb_Charging_Period_Start.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Charging_Period_Start.Location = new System.Drawing.Point(213, 298);
+            this.tb_Charging_Period_Start.Mask = "90시90분";
+            this.tb_Charging_Period_Start.Name = "tb_Charging_Period_Start";
+            this.tb_Charging_Period_Start.Size = new System.Drawing.Size(87, 26);
+            this.tb_Charging_Period_Start.TabIndex = 32;
+            this.tb_Charging_Period_Start.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Charging_Period_Start.ValidatingType = typeof(System.DateTime);
+            this.tb_Charging_Period_Start.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
+            // 
+            // tb_Charging_Period_End
+            // 
+            this.tb_Charging_Period_End.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Charging_Period_End.Location = new System.Drawing.Point(315, 298);
+            this.tb_Charging_Period_End.Mask = "90시90분";
+            this.tb_Charging_Period_End.Name = "tb_Charging_Period_End";
+            this.tb_Charging_Period_End.Size = new System.Drawing.Size(87, 26);
+            this.tb_Charging_Period_End.TabIndex = 33;
+            this.tb_Charging_Period_End.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Charging_Period_End.ValidatingType = typeof(System.DateTime);
+            this.tb_Charging_Period_End.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(97, 304);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(101, 19);
+            this.label11.TabIndex = 34;
+            this.label11.Text = "충전 시간 설정";
+            // 
+            // tb_Charging_Stop_SOC
+            // 
+            this.tb_Charging_Stop_SOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
+            this.tb_Charging_Stop_SOC.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Charging_Stop_SOC.Location = new System.Drawing.Point(319, 142);
+            this.tb_Charging_Stop_SOC.Mask = "999.9";
+            this.tb_Charging_Stop_SOC.Name = "tb_Charging_Stop_SOC";
+            this.tb_Charging_Stop_SOC.Size = new System.Drawing.Size(59, 26);
+            this.tb_Charging_Stop_SOC.TabIndex = 102;
+            this.tb_Charging_Stop_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Charging_Stop_SOC.ValidatingType = typeof(int);
+            this.tb_Charging_Stop_SOC.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
+            this.tb_Charging_Stop_SOC.Leave += new System.EventHandler(this.tb_Charging_Stop_SOC_Leave);
+            // 
+            // tb_Discharging_Stop_SOC
+            // 
+            this.tb_Discharging_Stop_SOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
+            this.tb_Discharging_Stop_SOC.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Discharging_Stop_SOC.Location = new System.Drawing.Point(319, 174);
+            this.tb_Discharging_Stop_SOC.Mask = "999.9";
+            this.tb_Discharging_Stop_SOC.Name = "tb_Discharging_Stop_SOC";
+            this.tb_Discharging_Stop_SOC.Size = new System.Drawing.Size(59, 26);
+            this.tb_Discharging_Stop_SOC.TabIndex = 103;
+            this.tb_Discharging_Stop_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Discharging_Stop_SOC.ValidatingType = typeof(int);
+            this.tb_Discharging_Stop_SOC.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
+            this.tb_Discharging_Stop_SOC.Leave += new System.EventHandler(this.SOC_TextBox_TextChanged);
+            // 
+            // tb_Charging_Start_SOC
+            // 
+            this.tb_Charging_Start_SOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
+            this.tb_Charging_Start_SOC.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Charging_Start_SOC.Location = new System.Drawing.Point(319, 206);
+            this.tb_Charging_Start_SOC.Mask = "999.9";
+            this.tb_Charging_Start_SOC.Name = "tb_Charging_Start_SOC";
+            this.tb_Charging_Start_SOC.Size = new System.Drawing.Size(59, 26);
+            this.tb_Charging_Start_SOC.TabIndex = 104;
+            this.tb_Charging_Start_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Charging_Start_SOC.ValidatingType = typeof(int);
+            this.tb_Charging_Start_SOC.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
+            this.tb_Charging_Start_SOC.Leave += new System.EventHandler(this.SOC_TextBox_TextChanged);
+            // 
+            // tb_Discharging_Start_SOC
+            // 
+            this.tb_Discharging_Start_SOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
+            this.tb_Discharging_Start_SOC.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_Discharging_Start_SOC.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Discharging_Start_SOC.Location = new System.Drawing.Point(319, 237);
+            this.tb_Discharging_Start_SOC.Mask = "999.9";
+            this.tb_Discharging_Start_SOC.Name = "tb_Discharging_Start_SOC";
+            this.tb_Discharging_Start_SOC.Size = new System.Drawing.Size(59, 19);
+            this.tb_Discharging_Start_SOC.TabIndex = 105;
+            this.tb_Discharging_Start_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Discharging_Start_SOC.ValidatingType = typeof(int);
+            this.tb_Discharging_Start_SOC.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
+            this.tb_Discharging_Start_SOC.Leave += new System.EventHandler(this.SOC_TextBox_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(375, 145);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(23, 19);
+            this.label6.TabIndex = 109;
+            this.label6.Text = "%";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(375, 177);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(23, 19);
+            this.label10.TabIndex = 110;
+            this.label10.Text = "%";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(376, 209);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(23, 19);
+            this.label12.TabIndex = 111;
+            this.label12.Text = "%";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(376, 240);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(23, 19);
+            this.label13.TabIndex = 112;
+            this.label13.Text = "%";
+            // 
+            // btn_Apply
+            // 
+            this.btn_Apply.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Apply.BackgroundImage")));
+            this.btn_Apply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Apply.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_Apply.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Apply.Location = new System.Drawing.Point(312, 341);
+            this.btn_Apply.Name = "btn_Apply";
+            this.btn_Apply.Size = new System.Drawing.Size(90, 40);
+            this.btn_Apply.TabIndex = 113;
+            this.btn_Apply.Text = "적용";
+            this.btn_Apply.UseVisualStyleBackColor = true;
+            this.btn_Apply.Click += new System.EventHandler(this.btn_Apply_Click);
             // 
             // Setting_PageViewer
             // 
@@ -204,40 +348,60 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.btn_Apply);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.tb_Discharging_Start_SOC);
+            this.Controls.Add(this.tb_Charging_Start_SOC);
+            this.Controls.Add(this.tb_Discharging_Stop_SOC);
+            this.Controls.Add(this.tb_Charging_Stop_SOC);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.tb_Charging_Period_End);
+            this.Controls.Add(this.tb_Charging_Period_Start);
+            this.Controls.Add(this.tb_Discharging_Period_End);
+            this.Controls.Add(this.tb_Discharging_Period_Start);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lb9);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.CumulativeValueInitialization);
+            this.Controls.Add(this.btn_Import_Data);
+            this.Controls.Add(this.btn_Export_Data);
+            this.Controls.Add(this.btn_Password_Change);
+            this.Controls.Add(this.btn_Access_To_Operating_System);
             this.DoubleBuffered = true;
             this.Name = "Setting_PageViewer";
-            this.Size = new System.Drawing.Size(950, 450);
+            this.Load += new System.EventHandler(this.Setting_PageViewer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button CumulativeValueInitialization;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label lb9;
+        private System.Windows.Forms.Button btn_Access_To_Operating_System;
+        private System.Windows.Forms.Button btn_Password_Change;
+        private System.Windows.Forms.Button btn_Export_Data;
+        private System.Windows.Forms.Button btn_Import_Data;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MaskedTextBox tb_Discharging_Period_Start;
+        private System.Windows.Forms.MaskedTextBox tb_Discharging_Period_End;
+        private System.Windows.Forms.MaskedTextBox tb_Charging_Period_Start;
+        private System.Windows.Forms.MaskedTextBox tb_Charging_Period_End;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.MaskedTextBox tb_Charging_Stop_SOC;
+        private System.Windows.Forms.MaskedTextBox tb_Discharging_Stop_SOC;
+        private System.Windows.Forms.MaskedTextBox tb_Charging_Start_SOC;
+        private System.Windows.Forms.MaskedTextBox tb_Discharging_Start_SOC;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btn_Apply;
     }
 }

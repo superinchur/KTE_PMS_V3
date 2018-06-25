@@ -5,8 +5,9 @@ namespace KTE_PMS
 {
     public class sPCS
     {
+        //internal short Fault_Battery_Voltage;
+
         // System Part Control
-        //Stand/Grid Mode     Deisel Converter RUN/STOP Wind Converter RUN/STOP Solor Converter RUN/STOP ESS Converter RUN/STOP Inverter RUN/STOP System RUN/STOP
         public int Stand_Grid_Mode { get; set; }
         public int Diesel_Converter_Run_Stop { get; set; }
         public int Wind_Converter_Run_Stop { get; set; }
@@ -15,126 +16,53 @@ namespace KTE_PMS
         public int Inverter_Run_Stop { get; set; }
         public int System_Run_Stop { get; set; }
 
-        public int Inverter_Voltage_P { get; set; }
-        public int Inverter_Voltage_I { get; set; }
-        public int Inverter_Current_P { get; set; }
-        public int Inverter_Current_I { get; set; }
-        public int ESS1_Voltage_P { get; set; }
-        public int ESS1_Voltage_I { get; set; }
-        public int ESS1_Current_P { get; set; }
-        public int ESS1_Current_I { get; set; }
-        public int ESS2_Voltage_P { get; set; }
-        public int ESS2_Voltage_I { get; set; }
-        public int ESS2_Current_P { get; set; }
-        public int ESS2_Current_I { get; set; }
-        public int Diesel_Current_P { get; set; }
-        public int Diesel_Current_I { get; set; }
+        public int Mode_Standby { get; set; }
+        public int Mode_Peak_cut{ get; set; }
+        public int Mode_Charging { get; set; }
+        public int Mode_Discharging { get; set; }
+        public int Mode_Reset { get; set; }
 
-        // Inverter Part
-        public int Inverter_AC_Voltage_Reference { get; set; }
-        public int Inverter_P_Reference { get; set; }
-        public int Inverter_Q_Reference { get; set; }
-        public int Inverter_Freq_reference { get; set; }
-        public int Inverter_OVR_Voltage_Reference { get; set; }
-        public int Inverter_UVR_Voltage_Reference { get; set; }
-        public int Inverter_OCR_Current_Reference { get; set; }
 
-        // ESS1 Part
-        public int ESS1_Master_Slave_Mode { get; set; }
-        public int ESS1_Out_Voltage_Reference { get; set; }
-        public int ESS1_Power_Reference { get; set; }
-        public int ESS1_Bat1_Max_Voltage { get; set; }
-        public int ESS1_Bat1_Min_Voltage { get; set; }
-        public int ESS1_OUT_OVR_Reference { get; set; }
-        public int ESS1_OUT_UVR_Reference { get; set; }
-        public int ESS1_IN_OVR_Reference { get; set; }
-        public int ESS1_IN_UVR_Reference { get; set; }
 
-        // ESS2 Part
-        public int ESS2_Master_Slave_Mode { get; set; }
-        public int ESS2_Out_Voltage_Reference { get; set; }
-        public int ESS2_Power_Reference { get; set; }
-        public int ESS2_Bat1_Max_Voltage { get; set; }
-        public int ESS2_Bat1_Min_Voltage { get; set; }
-        public int ESS2_OUT_OVR_Reference { get; set; }
-        public int ESS2_OUT_UVR_Reference { get; set; }
-        public int ESS2_IN_OVR_Reference { get; set; }
-        public int ESS2_IN_UVR_Reference { get; set; }
+        public int GRID_R_Voltage { get; set; }
+        public int GRID_S_Voltage { get; set; }
+        public int GRID_T_Voltage { get; set; }
+        public int GRID_R_Current { get; set; }
+        public int GRID_S_Current { get; set; }
+        public int GRID_T_Current { get; set; }
+        public int GRID_Power { get; set; }
+        public double GRID_Frequency { get; set; }
+        public int isTemperatureWarning { get; set; }
 
-        // Diesel Part
+        public int LOAD_R_Current { get; set; }
+        public int LOAD_S_Current { get; set; }
+        public int LOAD_T_Current { get; set; }
+        public int LOAD_Power { get; set; }
+        public int INVERTER_Power { get; set; }
 
-        public int Diesel_AC_VoIltage_Reference { get; set; }
-        public int Diesel_Freq_reference { get; set; }
-        public int Diesel_Power_Reference { get; set; }
-        public int Diesel_OVR_Voltage_Reference { get; set; }
-        public int Diesel_UVR_Voltage_Reference { get; set; }
-        public int Diesel_OCR_Current_Reference { get; set; }
+        public ushort PCS_GRID_Status { get; set; }
+        public ushort PCS_Fault_Status { get; set; }
+        public ushort PCS_STANDBY { get; set; }
 
-        // Inverter Part Monitoring
+        public int Fault_Battery_Voltage { get; set; }
+        public int Fault_Battery_Current { get; set; }
+        public int Fault_System_A_Current { get; set; }
+        public int Fault_System_B_Current { get; set; }
+        public int Fault_System_C_Current { get; set; }
+        public int Fault_Inverter_A_Current { get; set; }
+        public int Fault_Inverter_B_Current { get; set; }
+        public int Fault_Inverter_C_Current { get; set; }
+        public int Fault_Inverter_A_Voltage { get; set; }
+        public int Fault_Inverter_B_Voltage { get; set; }
+        public int Fault_Inverter_C_Voltage { get; set; }
+        public int Fault_Active_Power { get; set; }
+        public int Control_MODE { get; set; }
+        public int Fault_System_CB_Status { get; set; }
+        public int Inverter_Current_Reference { get; set; }
+        public int Inverter_Q_Current { get; set; }
+        public int Inverter_D_Current { get; set; }
 
-        public int Inverter_OCR_Fault { get; set; }
-        public int Inverter_OVR_Fault { get; set; }
-        public int Inverter_UVR_Fault { get; set; }
-        public int Inverter_OTR_Fault { get; set; }
-        public int Inverter_AC_Voltage { get; set; }
-        public int Inverter_P { get; set; }
-        public int Inverter_Q { get; set; }
-        public int Inverter_Frequency { get; set; }
-
-        // ESS1 Part
-        public int ESS1_OCR_Fault { get; set; }
-        public int ESS1_In_OVR_Fault { get; set; }
-        public int ESS1_In_UVR_Fault { get; set; }
-        public int ESS1_Out_OVR_Fault { get; set; }
-        public int ESS1_Out_UVR_Fault { get; set; }
-        public int ESS1_In_OTR_Fault { get; set; }
-        public int ESS1_In_Voltage { get; set; }
-        public int ESS1_Out_Voltage { get; set; }
-        public int ESS1_Current { get; set; }
-        public int ESS1_Power { get; set; }
-
-        // ESS2 Part
-        public int ESS2_OCR_Fault { get; set; }
-        public int ESS2_In_OVR_Fault { get; set; }
-        public int ESS2_In_UVR_Fault { get; set; }
-        public int ESS2_Out_OVR_Fault { get; set; }
-        public int ESS2_Out_UVR_Fault { get; set; }
-        public int ESS2_In_OTR_Fault { get; set; }
-        public int ESS2_In_Voltage { get; set; }
-        public int ESS2_Out_Voltage { get; set; }
-        public int ESS2_Current { get; set; }
-        public int ESS2_Power { get; set; }
-
-        // Diesel Part
-        public int Diesel_OCR_Fault { get; set; }
-        public int Diesel_OVR_Fault { get; set; }
-        public int Diesel_UVR_Fault { get; set; }
-        public int Diesel_OTR_Fault { get; set; }
-        public int Diesel_AC_Voltage { get; set; }
-        public int Diesel_Current { get; set; }
-        public int Diesel_Frequency { get; set; }
-        public int Diesel_Power { get; set; }
-        public int Diesel_P { get; set; }
-        public int Diesel_Q { get; set; }
-
-        // Solar Part
-        public int Solar_OCR_Fault { get; set; }
-        public int Solar_OVR_Fault { get; set; }
-        public int Solar_UVR_Fault { get; set; }
-        public int Solar_OTR_Fault { get; set; }
-        public int Solar_In_Voltage { get; set; }
-        public int Solar_Out_Voltage { get; set; }
-        public int Solar_Current { get; set; }
-        public int Solar_Power { get; set; }
-
-        // Wind Part
-        public int Wind_OCR_Fault { get; set; }
-        public int Wind_OVR_Fault { get; set; }
-        public int Wind_UVR_Fault { get; set; }
-        public int Wind_OTR_Fault { get; set; }
-        public int Wind_In_Voltage { get; set; }
-        public int Wind_Out_Voltage { get; set; }
-        public int Wind_Current { get; set; }
-        public int Wind_Power { get; set; }
+        public int Battery_Voltage { get; set; }
+        public int Battery_Current { get; set; }
     }
 }
