@@ -4,8 +4,8 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Web.UI.WebControls;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace KTE_PMS
 {
@@ -51,15 +51,15 @@ namespace KTE_PMS
         {
             if (maskedTextBox2.MaskFull)
             {
-                MessageBox.Show("모든 사항이 입력되었습니다. 추가입력이 불가합니다");
+                System.Windows.MessageBox.Show("모든 사항이 입력되었습니다. 추가입력이 불가합니다");
             }
             else if (e.Position == maskedTextBox2.Mask.Length)
             {
-                MessageBox.Show("마스크 위치를 넘어섰습니다. 입력이 불가합니다");
+                System.Windows.MessageBox.Show("마스크 위치를 넘어섰습니다. 입력이 불가합니다");
             }
             else
             {
-                MessageBox.Show("숫자만 입력해야 합니다. 입력이 불가합니다");
+                System.Windows.MessageBox.Show("숫자만 입력해야 합니다. 입력이 불가합니다");
             }
         }
 
@@ -67,38 +67,44 @@ namespace KTE_PMS
         {
             if (maskedTextBox1.MaskFull)
             {
-                MessageBox.Show("모든 사항이 입력되었습니다. 추가입력이 불가합니다");
+                System.Windows.MessageBox.Show("모든 사항이 입력되었습니다. 추가입력이 불가합니다");
             }
             else if (e.Position == maskedTextBox1.Mask.Length)
             {
-                MessageBox.Show("마스크 위치를 넘어섰습니다. 입력이 불가합니다");
+                System.Windows.MessageBox.Show("마스크 위치를 넘어섰습니다. 입력이 불가합니다");
             }
             else
             {
-                MessageBox.Show("숫자만 입력해야 합니다. 입력이 불가합니다");
+                System.Windows.MessageBox.Show("숫자만 입력해야 합니다. 입력이 불가합니다");
             }
         }
 
         private void SetDiagramTimeRange(XYDiagram diagram, int diff)
         {
+            try
+            { 
+                if (diff != 0)
+                {
+                    DateTime dt1 = DateTime.Now.AddMinutes(diff);
+                    DateTime dt2 = DateTime.Now.AddMinutes(-1 * diff);
 
-            if (diff != 0)
-            {
-                DateTime dt1 = DateTime.Now.AddMinutes(diff);
-                DateTime dt2 = DateTime.Now.AddMinutes(-1 * diff);
+                    maskedTextBox1.Text = dt1.Year.ToString("D4") + "년" + dt1.Month.ToString("D2") + "월" + dt1.Day.ToString("D2") + "일 " + dt1.Hour.ToString("D2") + "시" + dt1.Minute.ToString("D2") + "분";
+                    maskedTextBox2.Text = dt2.Year.ToString("D4") + "년" + dt2.Month.ToString("D2") + "월" + dt2.Day.ToString("D2") + "일 " + dt2.Hour.ToString("D2") + "시" + dt2.Minute.ToString("D2") + "분";
+                }
 
-                maskedTextBox1.Text = dt1.Year.ToString("D4") + "년" + dt1.Month.ToString("D2") + "월" + dt1.Day.ToString("D2") + "일 " + dt1.Hour.ToString("D2") + "시" + dt1.Minute.ToString("D2") + "분";
-                maskedTextBox2.Text = dt2.Year.ToString("D4") + "년" + dt2.Month.ToString("D2") + "월" + dt2.Day.ToString("D2") + "일 " + dt2.Hour.ToString("D2") + "시" + dt2.Minute.ToString("D2") + "분";
+
+                DateTime t_Datetime_Maxvalue = DateTime.Parse(maskedTextBox1.Text.Trim());
+                diagram.AxisX.VisualRange.MaxValue = t_Datetime_Maxvalue;
+                diagram.AxisX.WholeRange.MaxValue = t_Datetime_Maxvalue;
+
+                DateTime t_Datetime_Minvalue = DateTime.Parse(maskedTextBox2.Text.Trim());
+                diagram.AxisX.VisualRange.MinValue = t_Datetime_Minvalue;
+                diagram.AxisX.WholeRange.MinValue = t_Datetime_Minvalue;
             }
-
-
-            DateTime t_Datetime_Maxvalue = DateTime.Parse(maskedTextBox1.Text.Trim());
-            diagram.AxisX.VisualRange.MaxValue = t_Datetime_Maxvalue;
-            diagram.AxisX.WholeRange.MaxValue = t_Datetime_Maxvalue;
-
-            DateTime t_Datetime_Minvalue = DateTime.Parse(maskedTextBox2.Text.Trim());
-            diagram.AxisX.VisualRange.MinValue = t_Datetime_Minvalue;
-            diagram.AxisX.WholeRange.MinValue = t_Datetime_Minvalue;
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
         }
         private void button5_Click(object sender, EventArgs e)

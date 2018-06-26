@@ -22,7 +22,7 @@ namespace KTE_PMS
                                         {"46_5", "Reserved"}, {"46_6", "Reserved"}, {"46_7", "Reserved"}, {"46_8", "Reserved"}, {"46_9", "Reserved"}, {"46_10", "Reserved"}, {"46_11", "Reserved"},
                                         {"46_12", "Reserved"}, {"46_13", "Reserved"}, {"46_13", "Reserved"}, {"46_14", "Reserved"}, {"46_15", "Reserved"},
                                         {"47_0", "INV_OVR"}, {"47_1", "INV_OCR"}, {"47_2", "GRID_OCR"}, {"47_3", "DC_OCR"}, {"47_4", "DC_UVR"}, {"47_5", "DC_OCR"},
-                                        {"47_6", "OT"}, {"47_7", "Door_Open_Fault"}, {"47_8", "PCS Comm Fault"}, {"47_9", "HW Fault"}};
+                                        {"47_6", "OT"}, {"47_7", "Door_Open_Fault"}, {"47_8", "PCS Comm Fault"}, {"47_9", "HW Fault"}, {"47_10", "BMS Comm Fault"}};
 
         public string[,] Samsung_BMS_FAULT_CODE = {{"14_15", "Reserved"} , {"14_14", "Reserved"}, {"14_13", "Reserved"},{"14_12", "Reserved"},{"14_11", "Reserved"}, {"14_10", "Reserved"},{"14_9", "Reserved"}, {"14_8", "Reserved"},
             {"14_7", "Reserved"}, {"14_6", "Reserved"}, {"14_5", "Reserved"},{"14_4", "Reserved"}, {"14_3", "Reserved"}, {"14_2", "Reserved"},{"14_1", "Reserved"}, {"14_0", "Additional Protection Fail"},{"15_15", "Cell dchg operation limit"},
@@ -70,18 +70,35 @@ namespace KTE_PMS
         {
             string szReturn = string.Empty;
 
-
-            for (int i = 0; i <= Samsung_BMS_FAULT_CODE.GetLength(0) - 1; i++)
+            if (nFileNo == 46 || nFileNo == 47)
             {
-
-                string szFileNo = Samsung_BMS_FAULT_CODE[i, 0];
-
-                if (szFileNo == string.Format("{0}_{1}", nFileNo, nBit))
+                for (int i = 0; i <= FAULT_CODE.GetLength(0) - 1; i++)
                 {
-                    szReturn = Samsung_BMS_FAULT_CODE[i, 1];
-                    break;
+
+                    string szFileNo = FAULT_CODE[i, 0];
+
+                    if (szFileNo == string.Format("{0}_{1}", nFileNo, nBit))
+                    {
+                        szReturn = FAULT_CODE[i, 1];
+                        break;
+                    }
                 }
             }
+            else if (nFileNo >= 14 && nFileNo <= 21)
+            {
+                for (int i = 0; i <= Samsung_BMS_FAULT_CODE.GetLength(0) - 1; i++)
+                {
+
+                    string szFileNo = Samsung_BMS_FAULT_CODE[i, 0];
+
+                    if (szFileNo == string.Format("{0}_{1}", nFileNo, nBit))
+                    {
+                        szReturn = Samsung_BMS_FAULT_CODE[i, 1];
+                        break;
+                    }
+                }
+            }
+
 
             return szReturn;
         }
@@ -97,6 +114,9 @@ namespace KTE_PMS
                     ushValue = Repository.Instance.GnEPS_PCS.PCS_GRID_Status;
                 else if (nFileNo == 47)
                     ushValue = Repository.Instance.samsung_bcs.Protection_Summary3;
+
+
+
                 else
                     ushValue = 0;
 

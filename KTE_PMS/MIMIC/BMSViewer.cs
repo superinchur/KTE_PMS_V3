@@ -30,29 +30,29 @@ namespace KTE_PMS.MIMIC
 
             if (Properties.Settings.Default.DEBUG) return;
             
-                MBmaster = new Master();
+            MBmaster = new Master();
 
             tLastRecv = new DateTime();
 
             BSC_Controller_Data = new Byte[14];
 
             BSC1 = new Byte[50];
-
             // For test. IP 설정창을 그린 후 해당 내용으로 교체할 예정임
-
             // Samsung Battery로 변경함
-            /*
-            txtIP1.Text = "17";
-            txtIP2.Text = "91";
-            txtIP3.Text = "30";
-            txtIP4.Text = "246";
-            */
-            
-            txtIP1.Text = "127";
-            txtIP2.Text = "0";
-            txtIP3.Text = "0";
-            txtIP4.Text = "1";
-            
+            if (Properties.Settings.Default.DEBUG)
+            {
+                txtIP1.Text = "127";
+                txtIP2.Text = "0";
+                txtIP3.Text = "0";
+                txtIP4.Text = "1";
+            }
+            else
+            {
+                txtIP1.Text = "17";
+                txtIP2.Text = "91";
+                txtIP3.Text = "30";
+                txtIP4.Text = "246";
+            }
             //-----------------------------
             // Modbus TCP - BMS 통신 시도 //
             //-----------------------------
@@ -69,13 +69,7 @@ namespace KTE_PMS.MIMIC
 
         private void txtIP1_TextChanged(object sender, EventArgs e)
         {
-            /*
-            txtIP1;
-            txtIP4;
-            txtIP3;
-            txtIP2;
-            txtPort;
-            */
+
         }
         public void ReadFromBSC()
         {
@@ -142,7 +136,7 @@ namespace KTE_PMS.MIMIC
                 return;
             }
 
-
+            
             // ------------------------------------------------------------------------
             // Identify requested data
             switch (ID)
@@ -152,6 +146,8 @@ namespace KTE_PMS.MIMIC
                     // 30000~30100
                     // ---------------------------------------------------------
                     Repository.Instance.Get_BSC(values);
+                    tLastRecv = DateTime.Now;
+                    Notify();
                     break;
 
                 case 8:
@@ -159,7 +155,8 @@ namespace KTE_PMS.MIMIC
                     break;
             }
 
-            Notify();
+
+
         }
 
         // ------------------------------------------------------------------------
@@ -188,8 +185,8 @@ namespace KTE_PMS.MIMIC
             try
             {
                 // Create new modbus master and add event functions
-                //string ip_address = "17.91.30.246";
-                string ip_address = "127.0.0.1";
+                string ip_address = "17.91.30.246";
+                //string ip_address = "127.0.0.1";
                 ushort port_number = 502;
                 MBmaster = new Master(ip_address, port_number);
 
@@ -331,10 +328,12 @@ namespace KTE_PMS.MIMIC
 
             if (span.Seconds < 10)
             {
+                Repository.Instance.TagManager.경보발생및해제(0, 47, 10);
                 return 1;
             }
             else
             {
+                Repository.Instance.TagManager.경보발생및해제(1, 47, 10);
                 return 0;
             }
         }

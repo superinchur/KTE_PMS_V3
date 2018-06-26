@@ -22,8 +22,8 @@
         public ushort System_Mode { get; set; } // 5 
         public double System_Max_Voltage { get; set; } // 6
         public double System_Min_Voltage { get; set; } // 7
-        public short System_Max_Temp { get; set; }  //8
-        public short System_Min_Temp { get; set; } // 9
+        public double System_Max_Temp { get; set; }  //8
+        public double System_Min_Temp { get; set; } // 9
         public int Mode_Charging { get; set; }
         public int Mode_Discharging { get; set; }
         public int Mode_Offline { get; set; } 
@@ -45,14 +45,14 @@
         public ushort Alarm_Summary2 { get; set; } // 20
         public ushort Alarm_Summary1 { get; set; } // 21
 
-        public ushort Discharge_Current_Limit_of_Rack { get; set; } // 22
-        public ushort Charge_Current_Limit { get; set; } // 23
+        public double Discharge_Current_Limit_of_Rack { get; set; } // 22
+        public double Charge_Current_Limit { get; set; } // 23
         public short Watchdog_Response { get; set; } // 24
         public ushort System_Heartbit { get; set; } // 25
         public ushort Connecting_Status { get; set; } // 26
 
-        public ushort Service_Voltage { get; set; } // 27
-        public ushort Service_SOC { get; set; } // 28
+        public double Service_Voltage { get; set; } // 27
+        public double Service_SOC { get; set; } // 28
         public double Ambient_Temp { get; set; } // 30
         public ushort System_Alarm_Status { get; set; } // 31
         public double System_Power { get; set; } // calculated
@@ -72,21 +72,21 @@
 
 
         public double Max1_Cell_Voltage_Value { get; set; }
-        public double Max1_Cell_Voltage_Position { get; set; }
+        public int Max1_Cell_Voltage_Position { get; set; }
         public double Min1_Cell_Voltage_Value { get; set; }
-        public double Min1_Cell_Voltage_Position { get; set; }
+        public int Min1_Cell_Voltage_Position { get; set; }
         public double Max2_Cell_Voltage_Value { get; set; }
-        public double Max2_Cell_Voltage_Position { get; set; }
+        public int Max2_Cell_Voltage_Position { get; set; }
         public double Min2_Cell_Voltage_Value { get; set; }
-        public double Min2_Cell_Voltage_Position { get; set; }
+        public int Min2_Cell_Voltage_Position { get; set; }
         public double Max1_Cell_Temp_Value { get; set; }
-        public double Max1_Cell_Temp_Position { get; set; }
+        public int Max1_Cell_Temp_Position { get; set; }
         public double Min1_Cell_Temp_Value { get; set; }
-        public double Min1_Cell_Temp_Position { get; set; }
+        public int Min1_Cell_Temp_Position { get; set; }
         public double Max2_Cell_Temp_Value { get; set; }
-        public double Max2_Cell_Temp_Position { get; set; }
+        public int Max2_Cell_Temp_Position { get; set; }
         public double Min2_Cell_Temp_Value { get; set; }
-        public double Min2_Cell_Temp_Position { get; set; }
+        public int Min2_Cell_Temp_Position { get; set; }
         public double Average_Cell_Voltage_Value { get; set; }
         public double Average_Cell_Temp_Value { get; set; }
         public double Discharge_Current_limit_of_Rack { get; set; }

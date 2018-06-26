@@ -14,7 +14,6 @@ C:\git\KTE_PMS_V3\Test_Trend\bin\Debug\DevExpress.XtraCharts.v17.2.UI.dll
 C:\git\KTE_PMS_V3\Test_Trend\bin\Debug\DevExpress.XtraCharts.v17.2.Wizard.dll
 C:\git\KTE_PMS_V3\Test_Trend\bin\Debug\DevExpress.XtraEditors.v17.2.dll
 C:\git\KTE_PMS_V3\Test_Trend\bin\Debug\DevExpress.XtraPrinting.v17.2.dll
-C:\git\KTE_PMS_V3\Test_Trend\bin\Debug\MySql.Data.dll
 C:\git\KTE_PMS_V3\Test_Trend\bin\Debug\DevExpress.RichEdit.v17.2.Core.dll
 C:\git\KTE_PMS_V3\Test_Trend\bin\Debug\DevExpress.Office.v17.2.Core.dll
 C:\git\KTE_PMS_V3\Test_Trend\bin\Debug\DevExpress.Pdf.v17.2.Core.dll
