@@ -38,6 +38,7 @@ namespace KTE_PMS.MIMIC
         {
             ObserverUpdate_BMS_System();
 
+            
             CSafeSetText(lb1, Repository.Instance.samsung_bcs.System_Voltage.ToString() + " " + "V");
             CSafeSetText(lb3, Repository.Instance.samsung_bcs.System_SOC.ToString() + " " + "%");
             CSafeSetText(lb5, Repository.Instance.samsung_bcs.Rack_Voltage.ToString() + " " + "V");

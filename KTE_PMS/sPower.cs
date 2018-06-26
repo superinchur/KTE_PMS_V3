@@ -22,7 +22,7 @@ namespace KTE_PMS
             }
             else if (power < 0)
             {
-                BMS_DISCHARGE_POWER = BMS_DISCHARGE_POWER + power;
+                BMS_DISCHARGE_POWER = -1 * BMS_DISCHARGE_POWER + power;
             }
             return true;
         }
@@ -36,7 +36,7 @@ namespace KTE_PMS
             }
             else if (power < 0)
             {
-                PCS_DISCHARGE_POWER = PCS_DISCHARGE_POWER + power;
+                PCS_DISCHARGE_POWER = -1 * PCS_DISCHARGE_POWER + power;
             }
             return true;
         }

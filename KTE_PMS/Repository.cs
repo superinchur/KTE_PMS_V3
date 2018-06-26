@@ -60,8 +60,11 @@ namespace KTE_PMS
         public ushort current_pcs_mode;
 
         //세파포어 선언 
-        private static Semaphore _resourcePool; //한번에 허용할 수 있는 최대 쓰레드 수 
-        private static int _maximumThreads = 1;
+        private static Semaphore bms_resourcePool; //한번에 허용할 수 있는 최대 쓰레드 수 
+        private static int bms_maximumThreads = 1;
+
+        private static Semaphore pcs_resourcePool; //한번에 허용할 수 있는 최대 쓰레드 수 
+        private static int pcs_maximumThreads = 1;
 
         public int user_level;
 
@@ -104,6 +107,11 @@ namespace KTE_PMS
             bmsviewer.AddObserver(observers);
 
 
+            observers = p_mimic;
+            bmsviewer.AddObserver(observers);
+            observers = p_mimic;
+            pmdviewer.AddObserver(observers);
+
             observers = p_main;
             bmsviewer.AddObserver(observers);
 
@@ -116,9 +124,11 @@ namespace KTE_PMS
             observers = p_measure_PCS;
             pmdviewer.AddObserver(observers);
 
-            _resourcePool = new Semaphore(0, _maximumThreads);
-            _resourcePool.Release();
+            bms_resourcePool = new Semaphore(0, bms_maximumThreads);
+            bms_resourcePool.Release();
 
+            pcs_resourcePool = new Semaphore(0, pcs_maximumThreads);
+            pcs_resourcePool.Release();
             dbConnector = new DBConnector();
 
             Charging_StartTime = new TimeSpan( 08, 00, 00);
@@ -246,7 +256,7 @@ namespace KTE_PMS
             GnEPS_PCS.Inverter_Run_Stop = (BitConverter.ToInt16(data, 0) & 0x02) >> 1;
             GnEPS_PCS.System_Run_Stop = (BitConverter.ToInt16(data, 0) & 0x01) >> 0;
             */
-            _resourcePool.WaitOne();
+            pcs_resourcePool.WaitOne();
 
             //Mode_Standby
 
@@ -301,12 +311,15 @@ namespace KTE_PMS
             GnEPS_PCS.Battery_Current = ByteConverterToInt16(data, 51);
 
             TagManager.PCS_Fault_처리_프로시져();
+
+            pcs_resourcePool.Release();
+
         }
         #endregion
         public void Get_BSC(byte[] data)
         {
 
-            _resourcePool.WaitOne();
+            bms_resourcePool.WaitOne();
             byte[] temp_byte = new byte[2];
 
             samsung_bcs.Protocol_Version = ByteConverterToUInt16(data, 0);
@@ -370,10 +383,10 @@ namespace KTE_PMS
             samsung_bcs.Mode_OutputControl2 = (samsung_bcs.System_Mode >> 1) & 0x01;
             samsung_bcs.Mode_OutputControl1 = (samsung_bcs.System_Mode >> 0) & 0x01;
 
-            samsung_bcs.System_Max_Voltage = ByteConverterToUInt16(data, 6) * 0.01;
-            samsung_bcs.System_Min_Voltage = ByteConverterToUInt16(data, 7) * 0.01;
-            samsung_bcs.System_Max_Temp = ByteConverterToInt16(data, 8);
-            samsung_bcs.System_Min_Temp = ByteConverterToInt16(data, 9);
+            samsung_bcs.System_Max_Voltage = ByteConverterToUInt16(data, 6) * 0.001;
+            samsung_bcs.System_Min_Voltage = ByteConverterToUInt16(data, 7) * 0.001;
+            samsung_bcs.System_Max_Temp = ByteConverterToInt16(data, 8) * 0.01;
+            samsung_bcs.System_Min_Temp = ByteConverterToInt16(data, 9) * 0.01;
             samsung_bcs.Protection_Summary4 = ByteConverterToUInt16(data, 14);
             samsung_bcs.Protection_Summary3 = ByteConverterToUInt16(data, 15);
             samsung_bcs.Protection_Summary2 = ByteConverterToUInt16(data, 16);
@@ -383,56 +396,56 @@ namespace KTE_PMS
             samsung_bcs.Alarm_Summary2 = ByteConverterToUInt16(data, 20);
             samsung_bcs.Alarm_Summary1 = ByteConverterToUInt16(data, 21);
 
-            samsung_bcs.Discharge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 22);
-            samsung_bcs.Charge_Current_Limit = ByteConverterToUInt16(data, 23);
+            samsung_bcs.Discharge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 22) * 0.1;
+            samsung_bcs.Charge_Current_Limit = ByteConverterToUInt16(data, 23) * 0.1;
             samsung_bcs.Watchdog_Response = ByteConverterToInt16(data, 24);
 
             samsung_bcs.System_Heartbit = ByteConverterToUInt16(data, 25);
             samsung_bcs.Connecting_Status = ByteConverterToUInt16(data, 26);
 
-            samsung_bcs.Service_Voltage = ByteConverterToUInt16(data, 27);
-            samsung_bcs.Service_SOC = ByteConverterToUInt16(data, 28);
+            samsung_bcs.Service_Voltage = ByteConverterToUInt16(data, 27) * 0.1;
+            samsung_bcs.Service_SOC = ByteConverterToUInt16(data, 28) * 0.1;
 
             samsung_bcs.System_Alarm_Status = ByteConverterToUInt16(data, 30);
-            samsung_bcs.Rack_Voltage = ByteConverterToUInt16(data, 40);
-            samsung_bcs.String1_Rack_Voltage = ByteConverterToUInt16(data, 41);
-            samsung_bcs.String2_Rack_Voltage = ByteConverterToUInt16(data, 42);
-            samsung_bcs.String1_Cell_Summation_Voltage = ByteConverterToUInt16(data, 43);
-            samsung_bcs.String2_Cell_Summation_Voltage = ByteConverterToUInt16(data, 44);
+            samsung_bcs.Rack_Voltage = ByteConverterToUInt16(data, 40) * 0.1;
+            samsung_bcs.String1_Rack_Voltage = ByteConverterToUInt16(data, 41) * 0.1;
+            samsung_bcs.String2_Rack_Voltage = ByteConverterToUInt16(data, 42) * 0.1;
+            samsung_bcs.String1_Cell_Summation_Voltage = ByteConverterToUInt16(data, 43) * 0.1;
+            samsung_bcs.String2_Cell_Summation_Voltage = ByteConverterToUInt16(data, 44) * 0.1;
 
-            samsung_bcs.Rack_Current = ByteConverterToInt16(data, 45);
-            samsung_bcs.String1_Rack_Current = ByteConverterToInt16(data, 46);
-            samsung_bcs.String2_Rack_Current = ByteConverterToInt16(data, 47);
-            samsung_bcs.Rack_Current_Average = ByteConverterToInt16(data, 48);
+            samsung_bcs.Rack_Current = ByteConverterToInt16(data, 45) * 0.1;
+            samsung_bcs.String1_Rack_Current = ByteConverterToInt16(data, 46) * 0.1;
+            samsung_bcs.String2_Rack_Current = ByteConverterToInt16(data, 47) * 0.1;
+            samsung_bcs.Rack_Current_Average = ByteConverterToInt16(data, 48) * 0.1;
             samsung_bcs.Rack_Mode = ByteConverterToUInt16(data, 49);
-            samsung_bcs.Rack_SOC = ByteConverterToInt16(data, 50);
-            samsung_bcs.Rack_SOH = ByteConverterToInt16(data, 51);
+            samsung_bcs.Rack_SOC = ByteConverterToInt16(data, 50) * 0.1;
+            samsung_bcs.Rack_SOH = ByteConverterToInt16(data, 51) * 0.1;
 
-            samsung_bcs.Max1_Cell_Voltage_Value = ByteConverterToInt16(data, 64);
+            samsung_bcs.Max1_Cell_Voltage_Value = ByteConverterToInt16(data, 64) * 0.001;
             samsung_bcs.Max1_Cell_Voltage_Position = ByteConverterToInt16(data, 65);
-            samsung_bcs.Max2_Cell_Voltage_Value = ByteConverterToInt16(data, 66);
+            samsung_bcs.Max2_Cell_Voltage_Value = ByteConverterToInt16(data, 66) * 0.001;
             samsung_bcs.Max2_Cell_Voltage_Position = ByteConverterToInt16(data, 67);
 
-            samsung_bcs.Average_Cell_Voltage_Value = ByteConverterToInt16(data, 68);
-            samsung_bcs.Min2_Cell_Voltage_Value = ByteConverterToInt16(data, 69);
+            samsung_bcs.Average_Cell_Voltage_Value = ByteConverterToInt16(data, 68) * 0.001;
+            samsung_bcs.Min2_Cell_Voltage_Value = ByteConverterToInt16(data, 69) * 0.001;
             samsung_bcs.Min2_Cell_Voltage_Position = ByteConverterToInt16(data, 70);
-            samsung_bcs.Min1_Cell_Voltage_Value = ByteConverterToInt16(data, 71);
+            samsung_bcs.Min1_Cell_Voltage_Value = ByteConverterToInt16(data, 71) * 0.001;
             samsung_bcs.Min1_Cell_Voltage_Position = ByteConverterToInt16(data, 72);
 
-            samsung_bcs.Max1_Cell_Temp_Value = ByteConverterToInt16(data, 73);
+            samsung_bcs.Max1_Cell_Temp_Value = ByteConverterToInt16(data, 73) * 0.01;
             samsung_bcs.Max1_Cell_Temp_Position = ByteConverterToInt16(data, 74);
-            samsung_bcs.Max2_Cell_Temp_Value = ByteConverterToInt16(data, 75);
+            samsung_bcs.Max2_Cell_Temp_Value = ByteConverterToInt16(data, 75) * 0.01;
             samsung_bcs.Max2_Cell_Temp_Position = ByteConverterToInt16(data, 76);
 
-            samsung_bcs.Average_Cell_Temp_Value = ByteConverterToInt16(data, 77);
+            samsung_bcs.Average_Cell_Temp_Value = ByteConverterToInt16(data, 77) * 0.01;
 
-            samsung_bcs.Min2_Cell_Temp_Value = ByteConverterToInt16(data, 78);
+            samsung_bcs.Min2_Cell_Temp_Value = ByteConverterToInt16(data, 78) * 0.01;
             samsung_bcs.Min2_Cell_Temp_Position = ByteConverterToInt16(data, 79);
-            samsung_bcs.Min1_Cell_Temp_Value = ByteConverterToInt16(data, 80);
+            samsung_bcs.Min1_Cell_Temp_Value = ByteConverterToInt16(data, 80) * 0.01;
             samsung_bcs.Min1_Cell_Temp_Position = ByteConverterToInt16(data, 81);
 
-            samsung_bcs.Discharge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 82);
-            samsung_bcs.Charge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 83);
+            samsung_bcs.Discharge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 82) * 0.1;
+            samsung_bcs.Charge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 83) * 0.1;
 
             samsung_bcs.Rack_Switch_Control_Info = ByteConverterToUInt16(data, 84);
             samsung_bcs.Rack_Switch_Sensor_Info = ByteConverterToUInt16(data, 85);
@@ -441,7 +454,7 @@ namespace KTE_PMS
 
             dbConnector.Insert_Value_to_Database();
             TagManager.BMS_Fault_처리_프로시져();
-            _resourcePool.Release();
+            bms_resourcePool.Release();
 
         }
 

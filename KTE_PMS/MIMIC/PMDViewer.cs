@@ -60,7 +60,7 @@ namespace KTE_PMS.MIMIC
             // 2. 연결하기
             Connect_to_PMD();
 
-            timer.Interval = 2000;
+            timer.Interval = 1000;
             timer.Enabled = true;
             timer.Start();
 
@@ -71,79 +71,102 @@ namespace KTE_PMS.MIMIC
 
             // Mode에 따라서 동작하도록 코드 수정
 
-            ReadFromPCS();
-            if (Repository.Instance.current_pcs_mode == 2)
+            if (DateTime.Now.Second % 2 == 1)
             {
-                //Manual Mode
-                
+                ReadFromPCS();
             }
-            else if (Repository.Instance.current_pcs_mode == 3)
+            else
             {
-                // 충전모드라면 충전신호를 보낸다. 충전모드가 아니라면 충전신호를 지속적으로 보낸다
-                // 방전모드라면 방전신호를 보낸다. 방전모드가 아니라면 방전신호를 지속적으로 보낸다.
-                // 단 방전/충전 정지 SOC, 방전/충전 시작 SOC등을 확인해서 신호를 보낸다.
-
-                // Charging시간이 아니더라도 Charging 조건은 가장 우선시해야한다.
-
-                if (Repository.Instance.flag_Charging_Time)
+                if (Repository.Instance.current_pcs_mode == 2)
                 {
-                    // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.  
-                    if (!(Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
-                    {
-                        if (Repository.Instance.samsung_bcs.System_SOC < Repository.Instance.Charging_Stop_SOC)
-                        {
-                            Control_Charge();
-                        }
-                    }
+                    //Manual Mode
+                
                 }
-                else if (Repository.Instance.flag_DisCharging_Time)
+                else if (Repository.Instance.current_pcs_mode == 3)
                 {
-                    // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.
-                    if (!(Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
-                    {
-                        if (Repository.Instance.samsung_bcs.System_SOC > Repository.Instance.Discharging_Stop_SOC)
-                        {
-                            Control_Discharge();
-                        }
-                    }
-                }
-                else
-                {
-                    // nothing to do
-                    // 만약 충전신호나 방전신호가 가고있다면 0으로 바꿔준다.
+                    // 충전모드라면 충전신호를 보낸다. 충전모드가 아니라면 충전신호를 지속적으로 보낸다
+                    // 방전모드라면 방전신호를 보낸다. 방전모드가 아니라면 방전신호를 지속적으로 보낸다.
+                    // 단 방전/충전 정지 SOC, 방전/충전 시작 SOC등을 확인해서 신호를 보낸다.
 
-                    if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.Charging_Start_SOC)
+                    // Charging시간이 아니더라도 Charging 조건은 가장 우선시해야한다.
+
+                    if (Repository.Instance.flag_Charging_Time)
                     {
+                        // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.  
                         if (!(Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
                         {
-                            Control_Charge();
+                            if (Repository.Instance.samsung_bcs.System_SOC < Repository.Instance.Charging_Stop_SOC)
+                            {
+                                Repository.Instance.pmdviewer.Control_Charge();
+                            }
                         }
                     }
-                    else if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.Discharging_Start_SOC)
+                    else if (Repository.Instance.flag_DisCharging_Time)
                     {
+                        // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.
                         if (!(Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
                         {
-                            Control_Discharge();
+                            if (Repository.Instance.samsung_bcs.System_SOC > Repository.Instance.Discharging_Stop_SOC)
+                            {
+                                Repository.Instance.pmdviewer.Control_Discharge();
+                            }
                         }
-                    }
-                    else if ((Repository.Instance.GnEPS_PCS.Mode_Discharging == 1) || (Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
-                    {
-                        Control_Idle();
                     }
                     else
                     {
-                        Console.WriteLine("Unexpected Situtation. Need to Check");                        
+                        // nothing to do
+                        // 만약 충전신호나 방전신호가 가고있다면 0으로 바꿔준다.
+
+                        if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.Charging_Start_SOC)
+                        {
+                            if (!(Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
+                            {
+                                Repository.Instance.pmdviewer.Control_Charge();
+                            }
+                        }
+                        else if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.Discharging_Start_SOC)
+                        {
+                            if (!(Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
+                            {
+                                Repository.Instance.pmdviewer.Control_Discharge();
+                            }
+                        }
+                        else if ((Repository.Instance.GnEPS_PCS.Mode_Discharging == 1) || (Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
+                        {
+                            Repository.Instance.pmdviewer.Control_Idle();
+                        }
+                        else
+                        {
+                            // nothing to do
+                            //Console.WriteLine("Unexpected Situtation. Need to Check");                        
+                        }
                     }
                 }
             }
-
             /* 변경이 있을때만 보내도록 하자  */
-             
-            if (flag_WriteHeartBitBuffers_isChanged ) WriteHeartBit();
-            if (flag_WriteSOCBuffers_isChanged )      WriteSOC();
-            if (flag_WriteVoltageBuffers_isChanged )  WriteVoltage();
-            if (flag_WriteCurrentBuffers_isChanged )  WriteCurrent();
-            
+
+            if (flag_WriteHeartBitBuffers_isChanged )
+            {
+                WriteHeartBit();
+                flag_WriteHeartBitBuffers_isChanged = false;
+            }
+
+            if (flag_WriteSOCBuffers_isChanged )
+            { 
+                WriteSOC();
+                flag_WriteSOCBuffers_isChanged = false;
+            }
+            if (flag_WriteVoltageBuffers_isChanged )
+            { 
+                WriteVoltage();
+                flag_WriteVoltageBuffers_isChanged = false;
+            }
+            if (flag_WriteCurrentBuffers_isChanged )
+            { 
+                WriteCurrent();
+                flag_WriteCurrentBuffers_isChanged = false;
+            }
+
         }
 
         private void Connect_to_PMD()
@@ -174,7 +197,8 @@ namespace KTE_PMS.MIMIC
             ushort StartAddress = ReadStartAdr(30);
             byte Length = Convert.ToByte(52);
 
-            master.ReadInputRegister(ID, unit, StartAddress, Length);
+            master.ReadHoldingRegister(ID, unit, StartAddress, Length);
+
         }
 
      public void WriteHeartBit()
@@ -382,10 +406,12 @@ public void Control_Power_Active_Set()
 
             if (span.Seconds < 10)
             {
+                Repository.Instance.TagManager.경보발생및해제(0, 47, 8);
                 return 1;
             }
             else
             {
+                Repository.Instance.TagManager.경보발생및해제(1, 47, 8);
                 return 0;
             }
         }

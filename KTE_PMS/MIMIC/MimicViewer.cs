@@ -1,10 +1,11 @@
-﻿using System;
+﻿using KTE_PMS.Observer;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace KTE_PMS.MIMIC
 {
-    public partial class MimicViewer : Viewer
+    public partial class MimicViewer : Viewer, IUpdate
     {
         public MimicViewer()
         {

@@ -23,7 +23,7 @@ namespace KTE_PMS.MIMIC
             InitializeComponent();
 
             ControlTimer.Enabled = true;
-            ControlTimer.Interval = 400;
+            ControlTimer.Interval = 2000;
             ControlTimer.Start();
 
         }
@@ -42,9 +42,21 @@ namespace KTE_PMS.MIMIC
             {
                 lb_System_Status.Text = "DISCHARGING";
             }
-            else
+            else if (Repository.Instance.samsung_bcs.Mode_Offline == 1)
+            {
+                lb_System_Status.Text = "OFFLINE";
+            }
+            else if (Repository.Instance.samsung_bcs.Mode_Idle == 1)
             {
                 lb_System_Status.Text = "IDLE";
+            }
+            else if (Repository.Instance.samsung_bcs.Mode_Ready == 1)
+            {
+                lb_System_Status.Text = "READY";
+            }
+            else
+            {
+                lb_System_Status.Text = "UNEXPECTED";
             }
             int common_warning = Repository.Instance.samsung_bcs.Alarm_Summary1 +
                                 Repository.Instance.samsung_bcs.Alarm_Summary2 +
@@ -90,7 +102,7 @@ namespace KTE_PMS.MIMIC
             }
             else
             {
-                lb_PCS_System_Status.Text = "UNEXPECTED";
+                lb_PCS_System_Status.Text = "NO STANDBY";
             }
 
             if (Repository.Instance.bmsviewer.Connected() > 0)
@@ -137,6 +149,7 @@ namespace KTE_PMS.MIMIC
             else
             {
                 lb_Batt_Comm_Status.Text = "FAULT";
+
             }
 
             if (Repository.Instance.pmdviewer.Connected() > 0)
@@ -233,10 +246,16 @@ namespace KTE_PMS.MIMIC
 
         private void tb_Power_Set_TextChanged(object sender, EventArgs e)
         {
-            ushort a = Convert.ToUInt16(tb_Power_Set.Text);
+            try
+            { 
+                double a = Convert.ToSingle(tb_Power_Set.Text);
 
-            Repository.Instance.remote_power = Convert.ToUInt16(a * 10);
-
+                Repository.Instance.remote_power = Convert.ToUInt16(a * 10);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void tb_Power_Set_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
