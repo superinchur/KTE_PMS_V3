@@ -21,31 +21,12 @@ namespace KTE_PMS.MIMIC
         {
             InitializeComponent();
 
-
             timer1.Enabled = true;
-            timer1.Interval = 400;
+            timer1.Interval = 1000;
             timer1.Start();
         }
 
         delegate void CrossThreadSafetySetText(Control ctl, String text);
-
-        private void btn_GRID_OFF_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("GRID OFF 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Repository.Instance.bmsviewer.GRID_OFF();
-            }
-        }
-
-
-        private void btn_GRID_ON_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("GRID ON 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Repository.Instance.bmsviewer.GRID_ON();
-            }
-        }
-
         private void CSafeSetText(Control ctl, String text)
         {
 
@@ -63,19 +44,22 @@ namespace KTE_PMS.MIMIC
                 ctl.Text = text;
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
+            Display_Animation();
+            Display_Textbox_Power();
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Display_Textbox_Power()
+        {
+
+        }
+        private void Display_Animation()
         {
             // Status Check
             // Reverse Mode가 있어야한다.
-            #pragma warning disable CS0219 // 변수가 할당되었지만 해당 값이 사용되지 않았습니다.
-            int reverse_index;
-            #pragma warning restore CS0219 // 변수가 할당되었지만 해당 값이 사용되지 않았습니다. // 밑에서 쓰고있는데 왜 없다고 함? 노이해
+            int reverse_index = new int();
 
             switch (index)
             {
@@ -101,7 +85,7 @@ namespace KTE_PMS.MIMIC
             ////////////////////////////////////////////////////////////
             //   Depending a status, Determine a direction of signal  //
             ////////////////////////////////////////////////////////////
-            if (Repository.Instance.samsung_bcs.Mode_Charging == 1 )
+            if (Repository.Instance.samsung_bcs.Mode_Charging == 1)
             {
                 pb_Battery_to_PCS.Image = Battery_to_PCS.Images[reverse_index];
                 lb_Current_Status.Text = "배터리 충전 중";
@@ -137,12 +121,9 @@ namespace KTE_PMS.MIMIC
                 pb_PCS_to_Grid.Image = Battery_to_PCS.Images[0];
             }
 
-
-
-                // Index가 4 이상이라면(5라면) Index를 0으로 초기화해준다.
+            // Index가 4 이상이라면(5라면) Index를 0으로 초기화해준다.
             index++;
             if (index > 4) index = 0;
-            
         }
 
         public void ObserverUpdate()
@@ -161,6 +142,23 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(lb6, Grid_Current.ToString());
             CSafeSetText(lb7, Repository.Instance.GnEPS_PCS.GRID_Power.ToString());
             CSafeSetText(lb8, Repository.Instance.GnEPS_PCS.GRID_Frequency.ToString());
+
+            CSafeSetText(lb9, Repository.Instance.power_day.BMS_CHARGE_POWER.ToString()); // 배터리 일별 충전
+            CSafeSetText(lb12, Repository.Instance.power_day.BMS_DISCHARGE_POWER.ToString()); // 배터리 일별 방전
+            CSafeSetText(lb15, Repository.Instance.power_day.PCS_CHARGE_POWER.ToString()); // PCS 일별 충전
+            CSafeSetText(lb18, Repository.Instance.power_day.PCS_DISCHARGE_POWER.ToString()); // PCS 일별 방전
+
+            CSafeSetText(lb10, Repository.Instance.power_month.BMS_CHARGE_POWER.ToString()); // 배터리 월별 충전
+            CSafeSetText(lb13, Repository.Instance.power_month.BMS_DISCHARGE_POWER.ToString()); // 배터리 월별 방전
+            CSafeSetText(lb16, Repository.Instance.power_month.PCS_CHARGE_POWER.ToString()); // PCS 일별 월전
+            CSafeSetText(lb19, Repository.Instance.power_month.PCS_DISCHARGE_POWER.ToString()); // PCS 월별 방전
+
+            CSafeSetText(lb11, Repository.Instance.power_year.BMS_CHARGE_POWER.ToString()); // 배터리 년별 충전
+            CSafeSetText(lb14, Repository.Instance.power_year.BMS_DISCHARGE_POWER.ToString()); // 배터리 년별 방전
+            CSafeSetText(lb17, Repository.Instance.power_year.PCS_CHARGE_POWER.ToString()); // PCS 년별 충전
+            CSafeSetText(lb20, Repository.Instance.power_year.PCS_DISCHARGE_POWER.ToString()); // PCS 년별 방전
+
+
         }
     }
 }

@@ -44,6 +44,10 @@ namespace KTE_PMS
         public TimeSpan Discharging_EndTime { get; set; }
 
         public sPower power { get; set; }
+        public sPower power_day { get; set; }
+        public sPower power_month { get; set; }
+        public sPower power_year { get; set; }
+
         public float Charging_Stop_SOC { get; set; }
         public float Discharging_Stop_SOC { get; set; }
         public float Discharging_Start_SOC { get; set; }
@@ -123,6 +127,9 @@ namespace KTE_PMS
             Discharging_EndTime = new TimeSpan( 20, 00, 00);
 
             power = new sPower();
+            power_day = new sPower();
+            power_month = new sPower();
+            power_year = new sPower();
 
             Charging_Stop_SOC = 80.0F;           
             Discharging_Stop_SOC = 30.0F;

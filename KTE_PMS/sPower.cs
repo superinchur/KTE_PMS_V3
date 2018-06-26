@@ -41,5 +41,16 @@ namespace KTE_PMS
             return true;
         }
 
+        public static sPower operator+ (sPower a, sPower b)
+        {
+            sPower newPower = new sPower();
+
+            newPower.BMS_CHARGE_POWER = a.BMS_CHARGE_POWER + b.BMS_CHARGE_POWER;
+            newPower.BMS_DISCHARGE_POWER = a.BMS_DISCHARGE_POWER + b.BMS_DISCHARGE_POWER;
+            newPower.PCS_CHARGE_POWER = a.PCS_CHARGE_POWER + b.PCS_CHARGE_POWER;
+            newPower.PCS_DISCHARGE_POWER = a.PCS_DISCHARGE_POWER + b.PCS_DISCHARGE_POWER;
+            return newPower;
+
+        }
     }
 }

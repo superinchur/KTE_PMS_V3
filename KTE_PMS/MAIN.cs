@@ -299,13 +299,7 @@ namespace KTE_PMS
             LoadCurrentFault();  // TOP에 위치한 Alarm을 표시하기위해서 있는 항목 // 최적화 필요성 있음
             Cell_Color_Painting(); // TOP에 위치한 Alarm List의 색상을 표시하기위해서 있는 항목 // 최적화 필요성 있음
             Calculate_Power(); // 전력량 계산하기
-            Display_Current_Power(); // 전력량 Main 화면에 전시하기
 
-
-        }
-
-        private void Display_Current_Power()
-        {
 
         }
         private void Calculate_Power()

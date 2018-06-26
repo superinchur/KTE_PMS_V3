@@ -224,7 +224,7 @@ namespace KTE_PMS
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             cmd.ExecuteNonQuery();
         }
-        private sPower GetPowerFromDatabase(DataSet ds)
+        private  sPower GetPowerFromDatabase(DataSet ds)
         {
             sPower power = new sPower();
             int total_count = new int();
@@ -249,6 +249,48 @@ namespace KTE_PMS
             power.BMS_DISCHARGE_POWER = power.BMS_DISCHARGE_POWER / ds.Tables.Count;
 
             return power;
+        }
+
+        public void Select_Power()
+        {
+            string str_start = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
+            string str_end = DateTime.Now.ToString("yyyy-mm-dd HH:mm:ss");
+
+            String sql = "SELECT * FROM power_data_hour WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
+
+            DataSet ds = new DataSet();
+            MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+            adpt.Fill(ds);
+
+            Repository.Instance.power_day = GetPowerFromDatabase(ds);
+
+            //
+            str_start = DateTime.Now.ToString("yyyy-mm-01 00:00:00");
+            str_end = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
+
+            sql = "SELECT * FROM power_data_day WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
+
+            ds.Clear();
+            adpt.Dispose();
+
+            adpt = new MySqlDataAdapter(sql, conn);
+            adpt.Fill(ds);
+
+            Repository.Instance.power_month = Repository.Instance.power_day + GetPowerFromDatabase(ds);
+
+            //
+            str_start = DateTime.Now.ToString("yyyy-01-01 00:00:00");
+            str_end = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
+
+            sql = "SELECT * FROM power_data_month WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
+
+            ds.Clear();
+            adpt.Dispose();
+
+            adpt = new MySqlDataAdapter(sql, conn);
+            adpt.Fill(ds);
+
+            Repository.Instance.power_year = Repository.Instance.power_month + GetPowerFromDatabase(ds);
         }
     }
 
