@@ -152,6 +152,11 @@ namespace KTE_PMS.MIMIC
                     Notify();
                     break;
 
+
+                case 2:
+                    break;
+                case 3:
+                    break;
                 case 8:
                     //grpData.Text = "Write multiple register";
                     break;
