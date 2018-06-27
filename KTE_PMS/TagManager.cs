@@ -22,7 +22,7 @@ namespace KTE_PMS
                                         {"46_5", "Reserved"}, {"46_6", "Reserved"}, {"46_7", "Reserved"}, {"46_8", "Reserved"}, {"46_9", "Reserved"}, {"46_10", "Reserved"}, {"46_11", "Reserved"},
                                         {"46_12", "Reserved"}, {"46_13", "Reserved"}, {"46_13", "Reserved"}, {"46_14", "Reserved"}, {"46_15", "Reserved"},
                                         {"47_0", "INV_OVR"}, {"47_1", "INV_OCR"}, {"47_2", "GRID_OCR"}, {"47_3", "DC_OCR"}, {"47_4", "DC_UVR"}, {"47_5", "DC_OCR"},
-                                        {"47_6", "OT"}, {"47_7", "Door_Open_Fault"}, {"47_8", "PCS Comm Fault"}, {"47_9", "HW Fault"}, {"47_10", "BMS Comm Fault"}};
+                                        {"47_6", "OT"}, {"47_7", "Door_Open_Fault"}, {"48_8", "PCS Comm Fault"}, {"48_9", "HW Fault"}, {"48_10", "BMS Comm Fault"}};
 
         public string[,] Samsung_BMS_FAULT_CODE = {{"14_15", "Reserved"} , {"14_14", "Reserved"}, {"14_13", "Reserved"},{"14_12", "Reserved"},{"14_11", "Reserved"}, {"14_10", "Reserved"},{"14_9", "Reserved"}, {"14_8", "Reserved"},
             {"14_7", "Reserved"}, {"14_6", "Reserved"}, {"14_5", "Reserved"},{"14_4", "Reserved"}, {"14_3", "Reserved"}, {"14_2", "Reserved"},{"14_1", "Reserved"}, {"14_0", "Additional Protection Fail"},{"15_15", "Cell dchg operation limit"},
@@ -70,7 +70,7 @@ namespace KTE_PMS
                         FAULT_STATUS[nFileNo, nBit, 0] = "0";
                 }
             }
-            for (int nFileNo = 46; nFileNo <= 47; nFileNo++)
+            for (int nFileNo = 46; nFileNo <= 48; nFileNo++)
             {
                 for (int nBit = 0; nBit <= 15; nBit++)
                 {
@@ -87,7 +87,7 @@ namespace KTE_PMS
         {
             string szReturn = string.Empty;
 
-            if (nFileNo == 46 || nFileNo == 47)
+            if (nFileNo >= 46 || nFileNo <= 48)
             {
                 for (int i = 0; i <= FAULT_CODE.GetLength(0) - 1; i++)
                 {
@@ -194,6 +194,10 @@ namespace KTE_PMS
             else if (nFileNo >= 46 && nFileNo <= 47)
             {
                 return ("PCS");
+            }
+            else if (nFileNo == 48)
+            {
+                return ("SYSTEM");
             }
             else
             {

@@ -79,7 +79,7 @@ namespace KTE_PMS.MIMIC
             ushort ID = 1;
             byte unit = Convert.ToByte(0);
             ushort StartAddress = ReadStartAdr(0);
-            byte Length = Convert.ToByte(100);
+            byte Length = Convert.ToByte(150);
 
             MBmaster.ReadInputRegister(ID, unit, StartAddress, Length);
             
@@ -331,14 +331,28 @@ namespace KTE_PMS.MIMIC
 
             if (span.TotalSeconds < 10)
             {
-                if (Repository.Instance.TagManager.FAULT_STATUS[47, 10, 0] != "0")
-                    Repository.Instance.TagManager.경보발생및해제(0, 47, 10);
+                if (Repository.Instance.TagManager.FAULT_STATUS[48, 10, 0] != "0")
+                    Repository.Instance.TagManager.경보발생및해제(0, 48, 10);
+
+
                 return 1;
             }
             else
             {
-                if (Repository.Instance.TagManager.FAULT_STATUS[47, 10, 0] != "1")
-                    Repository.Instance.TagManager.경보발생및해제(1, 47, 10);
+                if (Repository.Instance.TagManager.FAULT_STATUS[48, 10, 0] != "1")
+                    Repository.Instance.TagManager.경보발생및해제(1, 48, 10);
+
+
+                //MBmaster.Dispose();
+                //Connect_to_BSC();
+
+                if (Properties.Settings.Default.DEBUG )
+                {
+                    MessageBox.Show("재접속 시도합니다");
+                }
+
+
+
                 return 0;
             }
         }
