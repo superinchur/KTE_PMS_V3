@@ -34,11 +34,13 @@ namespace KTE_PMS.MIMIC
         public PMDViewer()
         {
             InitializeComponent();
+
+            tLastRecv = new DateTime();
+            tLastRecv = DateTime.Now;
+
             if (Properties.Settings.Default.DEBUG) return;
 
             master = new Master();
-            tLastRecv = new DateTime();
-
             WriteValueBuffers = new byte[2];
             WriteHeartBitBuffers = new byte[2];
             WriteSOCBuffers = new byte[2];
@@ -404,14 +406,16 @@ public void Control_Power_Active_Set()
 
             TimeSpan span = dt_now - tLastRecv;
 
-            if (span.Seconds < 10)
+            if (span.TotalSeconds < 10)
             {
-                Repository.Instance.TagManager.경보발생및해제(0, 47, 8);
+                if (Repository.Instance.TagManager.FAULT_STATUS[47, 8, 0] != "0")
+                    Repository.Instance.TagManager.경보발생및해제(0, 47, 8);
                 return 1;
             }
             else
             {
-                Repository.Instance.TagManager.경보발생및해제(1, 47, 8);
+                if (Repository.Instance.TagManager.FAULT_STATUS[47, 8, 0] != "1")
+                    Repository.Instance.TagManager.경보발생및해제(1, 47, 8);
                 return 0;
             }
         }

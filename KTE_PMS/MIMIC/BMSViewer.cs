@@ -27,12 +27,14 @@ namespace KTE_PMS.MIMIC
             InitializeComponent();
 
             WriteValueBuffers = new byte[64];
+            tLastRecv = new DateTime();
+            tLastRecv = DateTime.Now;
 
             if (Properties.Settings.Default.DEBUG) return;
             
             MBmaster = new Master();
 
-            tLastRecv = new DateTime();
+
 
             BSC_Controller_Data = new Byte[14];
 
@@ -185,7 +187,8 @@ namespace KTE_PMS.MIMIC
             try
             {
                 // Create new modbus master and add event functions
-                string ip_address = "17.91.30.246";
+
+                string ip_address = txtIP1.Text + "." + txtIP2.Text + "." + txtIP3.Text + "." + txtIP4.Text;
                 //string ip_address = "127.0.0.1";
                 ushort port_number = 502;
                 MBmaster = new Master(ip_address, port_number);
@@ -326,14 +329,16 @@ namespace KTE_PMS.MIMIC
 
             TimeSpan span = dt_now - tLastRecv;
 
-            if (span.Seconds < 10)
+            if (span.TotalSeconds < 10)
             {
-                Repository.Instance.TagManager.경보발생및해제(0, 47, 10);
+                if (Repository.Instance.TagManager.FAULT_STATUS[47, 10, 0] != "0")
+                    Repository.Instance.TagManager.경보발생및해제(0, 47, 10);
                 return 1;
             }
             else
             {
-                Repository.Instance.TagManager.경보발생및해제(1, 47, 10);
+                if (Repository.Instance.TagManager.FAULT_STATUS[47, 10, 0] != "1")
+                    Repository.Instance.TagManager.경보발생및해제(1, 47, 10);
                 return 0;
             }
         }

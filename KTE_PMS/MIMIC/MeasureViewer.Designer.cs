@@ -87,11 +87,11 @@
             // 
             this.lb2.AutoSize = true;
             this.lb2.BackColor = System.Drawing.Color.Transparent;
-            this.lb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb2.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb2.Location = new System.Drawing.Point(368, 85);
+            this.lb2.Location = new System.Drawing.Point(322, 71);
             this.lb2.Name = "lb2";
-            this.lb2.Size = new System.Drawing.Size(60, 24);
+            this.lb2.Size = new System.Drawing.Size(51, 17);
             this.lb2.TabIndex = 87;
             this.lb2.Text = "12.34 ";
             this.lb2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -100,11 +100,11 @@
             // 
             this.lb14.AutoSize = true;
             this.lb14.BackColor = System.Drawing.Color.Transparent;
-            this.lb14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb14.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb14.Location = new System.Drawing.Point(788, 204);
+            this.lb14.Location = new System.Drawing.Point(690, 166);
             this.lb14.Name = "lb14";
-            this.lb14.Size = new System.Drawing.Size(60, 24);
+            this.lb14.Size = new System.Drawing.Size(51, 17);
             this.lb14.TabIndex = 93;
             this.lb14.Text = "12.34 ";
             this.lb14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -113,11 +113,11 @@
             // 
             this.lb12.AutoSize = true;
             this.lb12.BackColor = System.Drawing.Color.Transparent;
-            this.lb12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb12.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb12.Location = new System.Drawing.Point(788, 164);
+            this.lb12.Location = new System.Drawing.Point(690, 134);
             this.lb12.Name = "lb12";
-            this.lb12.Size = new System.Drawing.Size(60, 24);
+            this.lb12.Size = new System.Drawing.Size(51, 17);
             this.lb12.TabIndex = 92;
             this.lb12.Text = "12.34 ";
             this.lb12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -126,11 +126,11 @@
             // 
             this.lb10.AutoSize = true;
             this.lb10.BackColor = System.Drawing.Color.Transparent;
-            this.lb10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb10.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb10.Location = new System.Drawing.Point(788, 125);
+            this.lb10.Location = new System.Drawing.Point(690, 103);
             this.lb10.Name = "lb10";
-            this.lb10.Size = new System.Drawing.Size(60, 24);
+            this.lb10.Size = new System.Drawing.Size(51, 17);
             this.lb10.TabIndex = 91;
             this.lb10.Text = "12.34 ";
             this.lb10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -139,11 +139,11 @@
             // 
             this.lb8.AutoSize = true;
             this.lb8.BackColor = System.Drawing.Color.Transparent;
-            this.lb8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb8.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb8.Location = new System.Drawing.Point(788, 85);
+            this.lb8.Location = new System.Drawing.Point(690, 71);
             this.lb8.Name = "lb8";
-            this.lb8.Size = new System.Drawing.Size(60, 24);
+            this.lb8.Size = new System.Drawing.Size(51, 17);
             this.lb8.TabIndex = 90;
             this.lb8.Text = "12.34 ";
             this.lb8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -152,11 +152,11 @@
             // 
             this.lb6.AutoSize = true;
             this.lb6.BackColor = System.Drawing.Color.Transparent;
-            this.lb6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb6.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb6.Location = new System.Drawing.Point(788, 46);
+            this.lb6.Location = new System.Drawing.Point(690, 40);
             this.lb6.Name = "lb6";
-            this.lb6.Size = new System.Drawing.Size(60, 24);
+            this.lb6.Size = new System.Drawing.Size(51, 17);
             this.lb6.TabIndex = 89;
             this.lb6.Text = "12.34 ";
             this.lb6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -165,11 +165,11 @@
             // 
             this.lb4.AutoSize = true;
             this.lb4.BackColor = System.Drawing.Color.Transparent;
-            this.lb4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb4.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb4.Location = new System.Drawing.Point(368, 164);
+            this.lb4.Location = new System.Drawing.Point(322, 134);
             this.lb4.Name = "lb4";
-            this.lb4.Size = new System.Drawing.Size(60, 24);
+            this.lb4.Size = new System.Drawing.Size(51, 17);
             this.lb4.TabIndex = 88;
             this.lb4.Text = "12.34 ";
             this.lb4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -178,11 +178,11 @@
             // 
             this.label31.AutoSize = true;
             this.label31.BackColor = System.Drawing.Color.Transparent;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label31.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label31.Location = new System.Drawing.Point(527, 204);
+            this.label31.Location = new System.Drawing.Point(461, 166);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(229, 24);
+            this.label31.Size = new System.Drawing.Size(182, 17);
             this.label31.TabIndex = 81;
             this.label31.Text = "Min Cell. Temp. of System";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -191,11 +191,11 @@
             // 
             this.label32.AutoSize = true;
             this.label32.BackColor = System.Drawing.Color.Transparent;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label32.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label32.Location = new System.Drawing.Point(527, 164);
+            this.label32.Location = new System.Drawing.Point(461, 134);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(234, 24);
+            this.label32.Size = new System.Drawing.Size(185, 17);
             this.label32.TabIndex = 80;
             this.label32.Text = "Max Cell. Temp. of System";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -204,11 +204,11 @@
             // 
             this.label33.AutoSize = true;
             this.label33.BackColor = System.Drawing.Color.Transparent;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label33.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label33.Location = new System.Drawing.Point(527, 125);
+            this.label33.Location = new System.Drawing.Point(461, 103);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(211, 24);
+            this.label33.Size = new System.Drawing.Size(172, 17);
             this.label33.TabIndex = 79;
             this.label33.Text = "Min. Cell Volt. of System";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -217,11 +217,11 @@
             // 
             this.label34.AutoSize = true;
             this.label34.BackColor = System.Drawing.Color.Transparent;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label34.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label34.Location = new System.Drawing.Point(527, 85);
+            this.label34.Location = new System.Drawing.Point(461, 71);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(216, 24);
+            this.label34.Size = new System.Drawing.Size(175, 17);
             this.label34.TabIndex = 78;
             this.label34.Text = "Max. Cell Volt. of System";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -230,11 +230,11 @@
             // 
             this.label35.AutoSize = true;
             this.label35.BackColor = System.Drawing.Color.Transparent;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label35.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label35.Location = new System.Drawing.Point(527, 46);
+            this.label35.Location = new System.Drawing.Point(461, 40);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(125, 24);
+            this.label35.Size = new System.Drawing.Size(100, 17);
             this.label35.TabIndex = 77;
             this.label35.Text = "System Mode";
             this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -243,11 +243,11 @@
             // 
             this.label36.AutoSize = true;
             this.label36.BackColor = System.Drawing.Color.Transparent;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label36.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label36.Location = new System.Drawing.Point(109, 164);
+            this.label36.Location = new System.Drawing.Point(95, 134);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(117, 24);
+            this.label36.Size = new System.Drawing.Size(92, 17);
             this.label36.TabIndex = 76;
             this.label36.Text = "System SOH";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -256,11 +256,11 @@
             // 
             this.label49.AutoSize = true;
             this.label49.BackColor = System.Drawing.Color.Transparent;
-            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label49.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label49.Location = new System.Drawing.Point(109, 85);
+            this.label49.Location = new System.Drawing.Point(95, 71);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(138, 24);
+            this.label49.Size = new System.Drawing.Size(114, 17);
             this.label49.TabIndex = 75;
             this.label49.Text = "System Current";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -269,11 +269,11 @@
             // 
             this.lb1.AutoSize = true;
             this.lb1.BackColor = System.Drawing.Color.Transparent;
-            this.lb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb1.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb1.Location = new System.Drawing.Point(368, 46);
+            this.lb1.Location = new System.Drawing.Point(322, 40);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(60, 24);
+            this.lb1.Size = new System.Drawing.Size(51, 17);
             this.lb1.TabIndex = 14;
             this.lb1.Text = "12.34 ";
             this.lb1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -282,11 +282,11 @@
             // 
             this.lb23.AutoSize = true;
             this.lb23.BackColor = System.Drawing.Color.Transparent;
-            this.lb23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb23.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb23.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb23.Location = new System.Drawing.Point(368, 478);
+            this.lb23.Location = new System.Drawing.Point(322, 385);
             this.lb23.Name = "lb23";
-            this.lb23.Size = new System.Drawing.Size(60, 24);
+            this.lb23.Size = new System.Drawing.Size(51, 17);
             this.lb23.TabIndex = 25;
             this.lb23.Text = "12.34 ";
             this.lb23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -295,11 +295,11 @@
             // 
             this.lb21.AutoSize = true;
             this.lb21.BackColor = System.Drawing.Color.Transparent;
-            this.lb21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb21.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb21.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb21.Location = new System.Drawing.Point(368, 439);
+            this.lb21.Location = new System.Drawing.Point(322, 354);
             this.lb21.Name = "lb21";
-            this.lb21.Size = new System.Drawing.Size(60, 24);
+            this.lb21.Size = new System.Drawing.Size(51, 17);
             this.lb21.TabIndex = 24;
             this.lb21.Text = "12.34 ";
             this.lb21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -308,11 +308,11 @@
             // 
             this.lb19.AutoSize = true;
             this.lb19.BackColor = System.Drawing.Color.Transparent;
-            this.lb19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb19.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb19.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb19.Location = new System.Drawing.Point(368, 399);
+            this.lb19.Location = new System.Drawing.Point(322, 322);
             this.lb19.Name = "lb19";
-            this.lb19.Size = new System.Drawing.Size(60, 24);
+            this.lb19.Size = new System.Drawing.Size(51, 17);
             this.lb19.TabIndex = 23;
             this.lb19.Text = "12.34 ";
             this.lb19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -322,11 +322,11 @@
             // 
             this.lb17.AutoSize = true;
             this.lb17.BackColor = System.Drawing.Color.Transparent;
-            this.lb17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb17.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb17.Location = new System.Drawing.Point(368, 360);
+            this.lb17.Location = new System.Drawing.Point(322, 291);
             this.lb17.Name = "lb17";
-            this.lb17.Size = new System.Drawing.Size(60, 24);
+            this.lb17.Size = new System.Drawing.Size(51, 17);
             this.lb17.TabIndex = 22;
             this.lb17.Text = "12.34 ";
             this.lb17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -335,11 +335,11 @@
             // 
             this.lb15.AutoSize = true;
             this.lb15.BackColor = System.Drawing.Color.Transparent;
-            this.lb15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb15.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb15.Location = new System.Drawing.Point(368, 243);
+            this.lb15.Location = new System.Drawing.Point(322, 197);
             this.lb15.Name = "lb15";
-            this.lb15.Size = new System.Drawing.Size(60, 24);
+            this.lb15.Size = new System.Drawing.Size(51, 17);
             this.lb15.TabIndex = 21;
             this.lb15.Text = "12.34 ";
             this.lb15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -348,11 +348,11 @@
             // 
             this.lb13.AutoSize = true;
             this.lb13.BackColor = System.Drawing.Color.Transparent;
-            this.lb13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb13.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb13.Location = new System.Drawing.Point(788, 360);
+            this.lb13.Location = new System.Drawing.Point(690, 291);
             this.lb13.Name = "lb13";
-            this.lb13.Size = new System.Drawing.Size(60, 24);
+            this.lb13.Size = new System.Drawing.Size(51, 17);
             this.lb13.TabIndex = 20;
             this.lb13.Text = "12.34 ";
             this.lb13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -361,11 +361,11 @@
             // 
             this.lb11.AutoSize = true;
             this.lb11.BackColor = System.Drawing.Color.Transparent;
-            this.lb11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb11.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb11.Location = new System.Drawing.Point(788, 321);
+            this.lb11.Location = new System.Drawing.Point(690, 260);
             this.lb11.Name = "lb11";
-            this.lb11.Size = new System.Drawing.Size(60, 24);
+            this.lb11.Size = new System.Drawing.Size(51, 17);
             this.lb11.TabIndex = 19;
             this.lb11.Text = "12.34 ";
             this.lb11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -374,11 +374,11 @@
             // 
             this.lb9.AutoSize = true;
             this.lb9.BackColor = System.Drawing.Color.Transparent;
-            this.lb9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb9.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb9.Location = new System.Drawing.Point(368, 321);
+            this.lb9.Location = new System.Drawing.Point(322, 260);
             this.lb9.Name = "lb9";
-            this.lb9.Size = new System.Drawing.Size(60, 24);
+            this.lb9.Size = new System.Drawing.Size(51, 17);
             this.lb9.TabIndex = 18;
             this.lb9.Text = "12.34 ";
             this.lb9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -387,11 +387,11 @@
             // 
             this.lb7.AutoSize = true;
             this.lb7.BackColor = System.Drawing.Color.Transparent;
-            this.lb7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb7.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb7.Location = new System.Drawing.Point(368, 282);
+            this.lb7.Location = new System.Drawing.Point(322, 229);
             this.lb7.Name = "lb7";
-            this.lb7.Size = new System.Drawing.Size(60, 24);
+            this.lb7.Size = new System.Drawing.Size(51, 17);
             this.lb7.TabIndex = 17;
             this.lb7.Text = "12.34 ";
             this.lb7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -400,11 +400,11 @@
             // 
             this.lb5.AutoSize = true;
             this.lb5.BackColor = System.Drawing.Color.Transparent;
-            this.lb5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb5.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb5.Location = new System.Drawing.Point(368, 204);
+            this.lb5.Location = new System.Drawing.Point(322, 166);
             this.lb5.Name = "lb5";
-            this.lb5.Size = new System.Drawing.Size(60, 24);
+            this.lb5.Size = new System.Drawing.Size(51, 17);
             this.lb5.TabIndex = 16;
             this.lb5.Text = "12.34 ";
             this.lb5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -413,11 +413,11 @@
             // 
             this.lb3.AutoSize = true;
             this.lb3.BackColor = System.Drawing.Color.Transparent;
-            this.lb3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb3.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb3.Location = new System.Drawing.Point(368, 125);
+            this.lb3.Location = new System.Drawing.Point(322, 103);
             this.lb3.Name = "lb3";
-            this.lb3.Size = new System.Drawing.Size(60, 24);
+            this.lb3.Size = new System.Drawing.Size(51, 17);
             this.lb3.TabIndex = 15;
             this.lb3.Text = "12.34 ";
             this.lb3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -426,11 +426,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label10.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(109, 478);
+            this.label10.Location = new System.Drawing.Point(95, 385);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 24);
+            this.label10.Size = new System.Drawing.Size(73, 17);
             this.label10.TabIndex = 13;
             this.label10.Text = "Rack SOC";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -439,11 +439,11 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label11.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(109, 439);
+            this.label11.Location = new System.Drawing.Point(95, 354);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(202, 24);
+            this.label11.Size = new System.Drawing.Size(167, 17);
             this.label11.TabIndex = 12;
             this.label11.Text = "Rack Current(Average)";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -453,11 +453,11 @@
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label12.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(109, 399);
+            this.label12.Location = new System.Drawing.Point(95, 322);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(197, 24);
+            this.label12.Size = new System.Drawing.Size(162, 17);
             this.label12.TabIndex = 11;
             this.label12.Text = "String #2 Rack Current";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -466,11 +466,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(109, 360);
+            this.label7.Location = new System.Drawing.Point(95, 291);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(197, 24);
+            this.label7.Size = new System.Drawing.Size(162, 17);
             this.label7.TabIndex = 10;
             this.label7.Text = "String #1 Rack Current";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -479,11 +479,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(109, 243);
+            this.label8.Location = new System.Drawing.Point(95, 197);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(169, 24);
+            this.label8.Size = new System.Drawing.Size(139, 17);
             this.label8.TabIndex = 9;
             this.label8.Text = "Rack Current(Real)";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -492,11 +492,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(527, 360);
+            this.label9.Location = new System.Drawing.Point(461, 291);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(238, 24);
+            this.label9.Size = new System.Drawing.Size(194, 17);
             this.label9.TabIndex = 8;
             this.label9.Text = "String #2 Cell Sum. Voltage";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -505,11 +505,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(527, 321);
+            this.label4.Location = new System.Drawing.Point(461, 260);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(238, 24);
+            this.label4.Size = new System.Drawing.Size(194, 17);
             this.label4.TabIndex = 7;
             this.label4.Text = "String #1 Cell Sum. Voltage";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -518,11 +518,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(109, 321);
+            this.label5.Location = new System.Drawing.Point(95, 260);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(199, 24);
+            this.label5.Size = new System.Drawing.Size(162, 17);
             this.label5.TabIndex = 6;
             this.label5.Text = "String #2 Rack Voltage";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -531,11 +531,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(109, 282);
+            this.label6.Location = new System.Drawing.Point(95, 229);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(199, 24);
+            this.label6.Size = new System.Drawing.Size(162, 17);
             this.label6.TabIndex = 5;
             this.label6.Text = "String #1 Rack Voltage";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -544,11 +544,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(109, 204);
+            this.label3.Location = new System.Drawing.Point(95, 166);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 24);
+            this.label3.Size = new System.Drawing.Size(96, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Rack Voltage";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -557,11 +557,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(109, 125);
+            this.label2.Location = new System.Drawing.Point(95, 103);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 24);
+            this.label2.Size = new System.Drawing.Size(91, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "System SOC";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -570,11 +570,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(109, 46);
+            this.label1.Location = new System.Drawing.Point(95, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 24);
+            this.label1.Size = new System.Drawing.Size(114, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "System Voltage";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -583,11 +583,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label13.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label13.Location = new System.Drawing.Point(527, 243);
+            this.label13.Location = new System.Drawing.Point(461, 197);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(205, 24);
+            this.label13.Size = new System.Drawing.Size(170, 17);
             this.label13.TabIndex = 102;
             this.label13.Text = "Discharge Current Limit";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -596,11 +596,11 @@
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label14.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label14.Location = new System.Drawing.Point(527, 282);
+            this.label14.Location = new System.Drawing.Point(461, 229);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(182, 24);
+            this.label14.Size = new System.Drawing.Size(151, 17);
             this.label14.TabIndex = 103;
             this.label14.Text = "Charge Current Limit";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -609,11 +609,11 @@
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label15.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label15.Location = new System.Drawing.Point(527, 399);
+            this.label15.Location = new System.Drawing.Point(461, 322);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(180, 24);
+            this.label15.Size = new System.Drawing.Size(144, 17);
             this.label15.TabIndex = 104;
             this.label15.Text = "Watchdog response";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -622,11 +622,11 @@
             // 
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label16.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label16.Location = new System.Drawing.Point(527, 439);
+            this.label16.Location = new System.Drawing.Point(461, 354);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(137, 24);
+            this.label16.Size = new System.Drawing.Size(115, 17);
             this.label16.TabIndex = 105;
             this.label16.Text = "System heartbit";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -635,11 +635,11 @@
             // 
             this.lb24.AutoSize = true;
             this.lb24.BackColor = System.Drawing.Color.Transparent;
-            this.lb24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb24.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb24.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb24.Location = new System.Drawing.Point(788, 243);
+            this.lb24.Location = new System.Drawing.Point(690, 197);
             this.lb24.Name = "lb24";
-            this.lb24.Size = new System.Drawing.Size(60, 24);
+            this.lb24.Size = new System.Drawing.Size(51, 17);
             this.lb24.TabIndex = 106;
             this.lb24.Text = "12.34 ";
             this.lb24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -648,11 +648,11 @@
             // 
             this.lb25.AutoSize = true;
             this.lb25.BackColor = System.Drawing.Color.Transparent;
-            this.lb25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb25.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb25.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb25.Location = new System.Drawing.Point(788, 282);
+            this.lb25.Location = new System.Drawing.Point(690, 229);
             this.lb25.Name = "lb25";
-            this.lb25.Size = new System.Drawing.Size(60, 24);
+            this.lb25.Size = new System.Drawing.Size(51, 17);
             this.lb25.TabIndex = 107;
             this.lb25.Text = "12.34 ";
             this.lb25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -661,11 +661,11 @@
             // 
             this.lb26.AutoSize = true;
             this.lb26.BackColor = System.Drawing.Color.Transparent;
-            this.lb26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb26.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb26.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb26.Location = new System.Drawing.Point(788, 399);
+            this.lb26.Location = new System.Drawing.Point(690, 322);
             this.lb26.Name = "lb26";
-            this.lb26.Size = new System.Drawing.Size(60, 24);
+            this.lb26.Size = new System.Drawing.Size(51, 17);
             this.lb26.TabIndex = 108;
             this.lb26.Text = "12.34 ";
             this.lb26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -674,11 +674,11 @@
             // 
             this.lb27.AutoSize = true;
             this.lb27.BackColor = System.Drawing.Color.Transparent;
-            this.lb27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb27.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb27.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb27.Location = new System.Drawing.Point(788, 439);
+            this.lb27.Location = new System.Drawing.Point(690, 354);
             this.lb27.Name = "lb27";
-            this.lb27.Size = new System.Drawing.Size(60, 24);
+            this.lb27.Size = new System.Drawing.Size(51, 17);
             this.lb27.TabIndex = 109;
             this.lb27.Text = "12.34 ";
             this.lb27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -687,11 +687,11 @@
             // 
             this.lb22.AutoSize = true;
             this.lb22.BackColor = System.Drawing.Color.Transparent;
-            this.lb22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb22.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb22.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb22.Location = new System.Drawing.Point(789, 478);
+            this.lb22.Location = new System.Drawing.Point(690, 385);
             this.lb22.Name = "lb22";
-            this.lb22.Size = new System.Drawing.Size(60, 24);
+            this.lb22.Size = new System.Drawing.Size(51, 17);
             this.lb22.TabIndex = 111;
             this.lb22.Text = "12.34 ";
             this.lb22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -700,11 +700,11 @@
             // 
             this.label22.AutoSize = true;
             this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label22.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label22.Location = new System.Drawing.Point(527, 478);
+            this.label22.Location = new System.Drawing.Point(461, 385);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(98, 24);
+            this.label22.Size = new System.Drawing.Size(74, 17);
             this.label22.TabIndex = 110;
             this.label22.Text = "Rack SOH";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -713,13 +713,13 @@
             // 
             this.btn_Move_To_PCS_Fault.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Move_To_PCS_Fault.BackgroundImage")));
             this.btn_Move_To_PCS_Fault.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Move_To_PCS_Fault.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_Move_To_PCS_Fault.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Move_To_PCS_Fault.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Move_To_PCS_Fault.Location = new System.Drawing.Point(906, 290);
-            this.btn_Move_To_PCS_Fault.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Move_To_PCS_Fault.Location = new System.Drawing.Point(793, 232);
             this.btn_Move_To_PCS_Fault.Name = "btn_Move_To_PCS_Fault";
-            this.btn_Move_To_PCS_Fault.Size = new System.Drawing.Size(173, 74);
+            this.btn_Move_To_PCS_Fault.Size = new System.Drawing.Size(151, 59);
             this.btn_Move_To_PCS_Fault.TabIndex = 138;
+            this.btn_Move_To_PCS_Fault.TabStop = false;
             this.btn_Move_To_PCS_Fault.Text = "PCS Fault시 데이터";
             this.btn_Move_To_PCS_Fault.UseVisualStyleBackColor = true;
             this.btn_Move_To_PCS_Fault.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_Move_To_PCS_Fault_MouseClick);
@@ -728,13 +728,13 @@
             // 
             this.btn_Move_To_PCS_Data.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Move_To_PCS_Data.BackgroundImage")));
             this.btn_Move_To_PCS_Data.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Move_To_PCS_Data.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_Move_To_PCS_Data.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Move_To_PCS_Data.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Move_To_PCS_Data.Location = new System.Drawing.Point(906, 212);
-            this.btn_Move_To_PCS_Data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Move_To_PCS_Data.Location = new System.Drawing.Point(793, 170);
             this.btn_Move_To_PCS_Data.Name = "btn_Move_To_PCS_Data";
-            this.btn_Move_To_PCS_Data.Size = new System.Drawing.Size(173, 74);
+            this.btn_Move_To_PCS_Data.Size = new System.Drawing.Size(151, 59);
             this.btn_Move_To_PCS_Data.TabIndex = 137;
+            this.btn_Move_To_PCS_Data.TabStop = false;
             this.btn_Move_To_PCS_Data.Text = "PCS Data";
             this.btn_Move_To_PCS_Data.UseVisualStyleBackColor = true;
             this.btn_Move_To_PCS_Data.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_Move_To_PCS_Data_MouseClick);
@@ -743,13 +743,13 @@
             // 
             this.btn_Move_To_BMS_Rack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Move_To_BMS_Rack.BackgroundImage")));
             this.btn_Move_To_BMS_Rack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Move_To_BMS_Rack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_Move_To_BMS_Rack.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Move_To_BMS_Rack.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Move_To_BMS_Rack.Location = new System.Drawing.Point(906, 131);
-            this.btn_Move_To_BMS_Rack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Move_To_BMS_Rack.Location = new System.Drawing.Point(793, 105);
             this.btn_Move_To_BMS_Rack.Name = "btn_Move_To_BMS_Rack";
-            this.btn_Move_To_BMS_Rack.Size = new System.Drawing.Size(173, 74);
+            this.btn_Move_To_BMS_Rack.Size = new System.Drawing.Size(151, 59);
             this.btn_Move_To_BMS_Rack.TabIndex = 136;
+            this.btn_Move_To_BMS_Rack.TabStop = false;
             this.btn_Move_To_BMS_Rack.Text = "BMS : Rack ";
             this.btn_Move_To_BMS_Rack.UseVisualStyleBackColor = true;
             this.btn_Move_To_BMS_Rack.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_Move_To_BMS_Rack_MouseClick);
@@ -758,20 +758,20 @@
             // 
             this.btn_Move_To_BMS_System.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Move_To_BMS_System.BackgroundImage")));
             this.btn_Move_To_BMS_System.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Move_To_BMS_System.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_Move_To_BMS_System.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Move_To_BMS_System.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Move_To_BMS_System.Location = new System.Drawing.Point(906, 50);
-            this.btn_Move_To_BMS_System.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Move_To_BMS_System.Location = new System.Drawing.Point(793, 40);
             this.btn_Move_To_BMS_System.Name = "btn_Move_To_BMS_System";
-            this.btn_Move_To_BMS_System.Size = new System.Drawing.Size(173, 74);
+            this.btn_Move_To_BMS_System.Size = new System.Drawing.Size(151, 59);
             this.btn_Move_To_BMS_System.TabIndex = 135;
+            this.btn_Move_To_BMS_System.TabStop = false;
             this.btn_Move_To_BMS_System.Text = "BMS : System";
             this.btn_Move_To_BMS_System.UseVisualStyleBackColor = true;
             this.btn_Move_To_BMS_System.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_Move_To_BMS_System_MouseClick);
             // 
             // MeasureViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));

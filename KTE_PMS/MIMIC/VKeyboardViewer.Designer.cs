@@ -51,6 +51,7 @@
             this.BTN7.Name = "BTN7";
             this.BTN7.Size = new System.Drawing.Size(101, 101);
             this.BTN7.TabIndex = 7;
+            this.BTN7.TabStop = false;
             this.BTN7.Text = "7";
             this.BTN7.UseVisualStyleBackColor = true;
             this.BTN7.Click += new System.EventHandler(this.BTN7_Click);
@@ -62,6 +63,7 @@
             this.BTN4.Name = "BTN4";
             this.BTN4.Size = new System.Drawing.Size(101, 101);
             this.BTN4.TabIndex = 8;
+            this.BTN4.TabStop = false;
             this.BTN4.Text = "4";
             this.BTN4.UseVisualStyleBackColor = true;
             this.BTN4.Click += new System.EventHandler(this.BTN4_Click);
@@ -73,6 +75,7 @@
             this.BTN1.Name = "BTN1";
             this.BTN1.Size = new System.Drawing.Size(101, 101);
             this.BTN1.TabIndex = 9;
+            this.BTN1.TabStop = false;
             this.BTN1.Text = "1";
             this.BTN1.UseVisualStyleBackColor = true;
             this.BTN1.Click += new System.EventHandler(this.BTN1_Click);
@@ -84,6 +87,7 @@
             this.BTN0.Name = "BTN0";
             this.BTN0.Size = new System.Drawing.Size(315, 101);
             this.BTN0.TabIndex = 10;
+            this.BTN0.TabStop = false;
             this.BTN0.Text = "0";
             this.BTN0.UseVisualStyleBackColor = true;
             this.BTN0.Click += new System.EventHandler(this.BTN0_Click);
@@ -95,6 +99,7 @@
             this.BTN2.Name = "BTN2";
             this.BTN2.Size = new System.Drawing.Size(101, 101);
             this.BTN2.TabIndex = 13;
+            this.BTN2.TabStop = false;
             this.BTN2.Text = "2";
             this.BTN2.UseVisualStyleBackColor = true;
             this.BTN2.Click += new System.EventHandler(this.BTN2_Click);
@@ -106,6 +111,7 @@
             this.BTN5.Name = "BTN5";
             this.BTN5.Size = new System.Drawing.Size(101, 101);
             this.BTN5.TabIndex = 12;
+            this.BTN5.TabStop = false;
             this.BTN5.Text = "5";
             this.BTN5.UseVisualStyleBackColor = true;
             this.BTN5.Click += new System.EventHandler(this.BTN5_Click);
@@ -117,6 +123,7 @@
             this.BTN8.Name = "BTN8";
             this.BTN8.Size = new System.Drawing.Size(101, 101);
             this.BTN8.TabIndex = 11;
+            this.BTN8.TabStop = false;
             this.BTN8.Text = "8";
             this.BTN8.UseVisualStyleBackColor = true;
             this.BTN8.Click += new System.EventHandler(this.BTN8_Click);
@@ -128,6 +135,7 @@
             this.BTN3.Name = "BTN3";
             this.BTN3.Size = new System.Drawing.Size(101, 101);
             this.BTN3.TabIndex = 17;
+            this.BTN3.TabStop = false;
             this.BTN3.Text = "3";
             this.BTN3.UseVisualStyleBackColor = true;
             this.BTN3.Click += new System.EventHandler(this.BTN3_Click);
@@ -139,6 +147,7 @@
             this.BTN6.Name = "BTN6";
             this.BTN6.Size = new System.Drawing.Size(101, 101);
             this.BTN6.TabIndex = 16;
+            this.BTN6.TabStop = false;
             this.BTN6.Text = "6";
             this.BTN6.UseVisualStyleBackColor = true;
             this.BTN6.Click += new System.EventHandler(this.BTN6_Click);
@@ -150,6 +159,7 @@
             this.BTN9.Name = "BTN9";
             this.BTN9.Size = new System.Drawing.Size(101, 101);
             this.BTN9.TabIndex = 15;
+            this.BTN9.TabStop = false;
             this.BTN9.Text = "9";
             this.BTN9.UseVisualStyleBackColor = true;
             this.BTN9.Click += new System.EventHandler(this.BTN9_Click);
@@ -161,6 +171,7 @@
             this.BTN_ENTER.Name = "BTN_ENTER";
             this.BTN_ENTER.Size = new System.Drawing.Size(101, 208);
             this.BTN_ENTER.TabIndex = 22;
+            this.BTN_ENTER.TabStop = false;
             this.BTN_ENTER.Text = "ENTER";
             this.BTN_ENTER.UseVisualStyleBackColor = true;
             this.BTN_ENTER.Click += new System.EventHandler(this.BTN_ENTER_Click);
@@ -172,6 +183,7 @@
             this.BTN_CLEAR.Name = "BTN_CLEAR";
             this.BTN_CLEAR.Size = new System.Drawing.Size(101, 208);
             this.BTN_CLEAR.TabIndex = 19;
+            this.BTN_CLEAR.TabStop = false;
             this.BTN_CLEAR.Text = "CLEAR";
             this.BTN_CLEAR.UseVisualStyleBackColor = true;
             this.BTN_CLEAR.Click += new System.EventHandler(this.BTN_CLEAR_Click);
@@ -185,6 +197,7 @@
             this.tb_Password.PasswordChar = '*';
             this.tb_Password.Size = new System.Drawing.Size(422, 118);
             this.tb_Password.TabIndex = 23;
+            this.tb_Password.TabStop = false;
             this.tb_Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_Password.UseSystemPasswordChar = true;
             this.tb_Password.WordWrap = false;
@@ -205,6 +218,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.ClientSize = new System.Drawing.Size(442, 629);
             this.Controls.Add(this.lb_STATUS);
             this.Controls.Add(this.tb_Password);

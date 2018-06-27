@@ -31,15 +31,11 @@ namespace KTE_PMS
         int prev_hour;
         int prev_day;
         int prev_month;
-
-        public Repository repository;
-
+        int prev_year;
 
         public KTE_PMS()
         {
             InitializeComponent();
-            repository = Repository.Instance;
-
 
             CLOCK_TIMER.Enabled = true;
             CLOCK_TIMER.Interval = 1000;
@@ -155,6 +151,13 @@ namespace KTE_PMS
         {
             panel1.Controls.Clear();
             panel1.Controls.Add(Repository.Instance.p_main);
+
+            prev_minute = DateTime.Now.Minute;
+            prev_hour = DateTime.Now.Hour;
+            prev_day = DateTime.Now.Day;
+            prev_month = DateTime.Now.Month;
+            prev_year = DateTime.Now.Year;
+
         }
         private void NAVI_ALARM_Click(object sender, EventArgs e)
         {
@@ -166,7 +169,7 @@ namespace KTE_PMS
             button.Image = ImageResize.ResizeImage(Properties.Resources.alarm_on, button.Width, button.Height);
 
             panel1.Controls.Clear();
-            panel1.Controls.Add(repository.p_alarm);
+            panel1.Controls.Add(Repository.Instance.p_alarm);
         }
         private void NAVI_CONTROL_Click(object sender, EventArgs e)
         {
@@ -333,16 +336,21 @@ namespace KTE_PMS
             }
             if (prev_day != today.Day)
             {
-                // 저장된 데이터를 DB에 저장한다.
-                //Todo :  저장된 데이터를 DB에 저장한다.
-                prev_day = today.Day;
+                // 저장된 데이터를 DB에 저장한다.              
                 Repository.Instance.dbConnector.Insert_Power_Day();
+                prev_day = today.Day;
             }
             if (prev_month != today.Month)
             {
-                prev_month = today.Month;
                 Repository.Instance.dbConnector.Insert_Power_Month();
+                prev_month = today.Month;
             }
+            if (prev_year != today.Year)
+            {
+                Repository.Instance.dbConnector.Insert_Power_year();
+                prev_year = today.Year;
+            }
+            
         }
 
         // ---------------------------------------------------------
@@ -356,7 +364,7 @@ namespace KTE_PMS
             // Byte 배열로 받고
             data = Repository.Instance.p_control.getTextBox1();
             //Trigger로 날려주기.
-            repository.Set_BSC_Control(data);
+            Repository.Instance.Set_BSC_Control(data);
         }
 
 

@@ -149,7 +149,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 19);
             this.label7.TabIndex = 25;
-            this.label7.Text = "방전 방지 SOC";
+            this.label7.Text = "방전 시작 SOC";
             // 
             // label8
             // 
@@ -171,6 +171,7 @@
             this.tb_Discharging_Period_Start.Name = "tb_Discharging_Period_Start";
             this.tb_Discharging_Period_Start.Size = new System.Drawing.Size(87, 26);
             this.tb_Discharging_Period_Start.TabIndex = 29;
+            this.tb_Discharging_Period_Start.TabStop = false;
             this.tb_Discharging_Period_Start.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_Discharging_Period_Start.ValidatingType = typeof(System.DateTime);
             this.tb_Discharging_Period_Start.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
@@ -183,6 +184,7 @@
             this.tb_Discharging_Period_End.Name = "tb_Discharging_Period_End";
             this.tb_Discharging_Period_End.Size = new System.Drawing.Size(87, 26);
             this.tb_Discharging_Period_End.TabIndex = 31;
+            this.tb_Discharging_Period_End.TabStop = false;
             this.tb_Discharging_Period_End.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_Discharging_Period_End.ValidatingType = typeof(System.DateTime);
             this.tb_Discharging_Period_End.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
@@ -195,6 +197,7 @@
             this.tb_Charging_Period_Start.Name = "tb_Charging_Period_Start";
             this.tb_Charging_Period_Start.Size = new System.Drawing.Size(87, 26);
             this.tb_Charging_Period_Start.TabIndex = 32;
+            this.tb_Charging_Period_Start.TabStop = false;
             this.tb_Charging_Period_Start.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_Charging_Period_Start.ValidatingType = typeof(System.DateTime);
             this.tb_Charging_Period_Start.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
@@ -207,6 +210,7 @@
             this.tb_Charging_Period_End.Name = "tb_Charging_Period_End";
             this.tb_Charging_Period_End.Size = new System.Drawing.Size(87, 26);
             this.tb_Charging_Period_End.TabIndex = 33;
+            this.tb_Charging_Period_End.TabStop = false;
             this.tb_Charging_Period_End.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_Charging_Period_End.ValidatingType = typeof(System.DateTime);
             this.tb_Charging_Period_End.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
@@ -232,6 +236,7 @@
             this.tb_Charging_Stop_SOC.Name = "tb_Charging_Stop_SOC";
             this.tb_Charging_Stop_SOC.Size = new System.Drawing.Size(59, 26);
             this.tb_Charging_Stop_SOC.TabIndex = 102;
+            this.tb_Charging_Stop_SOC.TabStop = false;
             this.tb_Charging_Stop_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_Charging_Stop_SOC.ValidatingType = typeof(int);
             this.tb_Charging_Stop_SOC.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
@@ -246,6 +251,7 @@
             this.tb_Discharging_Stop_SOC.Name = "tb_Discharging_Stop_SOC";
             this.tb_Discharging_Stop_SOC.Size = new System.Drawing.Size(59, 26);
             this.tb_Discharging_Stop_SOC.TabIndex = 103;
+            this.tb_Discharging_Stop_SOC.TabStop = false;
             this.tb_Discharging_Stop_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_Discharging_Stop_SOC.ValidatingType = typeof(int);
             this.tb_Discharging_Stop_SOC.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
@@ -260,6 +266,7 @@
             this.tb_Charging_Start_SOC.Name = "tb_Charging_Start_SOC";
             this.tb_Charging_Start_SOC.Size = new System.Drawing.Size(59, 26);
             this.tb_Charging_Start_SOC.TabIndex = 104;
+            this.tb_Charging_Start_SOC.TabStop = false;
             this.tb_Charging_Start_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_Charging_Start_SOC.ValidatingType = typeof(int);
             this.tb_Charging_Start_SOC.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
@@ -270,11 +277,12 @@
             this.tb_Discharging_Start_SOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.tb_Discharging_Start_SOC.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_Discharging_Start_SOC.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_Discharging_Start_SOC.Location = new System.Drawing.Point(319, 237);
+            this.tb_Discharging_Start_SOC.Location = new System.Drawing.Point(319, 239);
             this.tb_Discharging_Start_SOC.Mask = "999.9";
             this.tb_Discharging_Start_SOC.Name = "tb_Discharging_Start_SOC";
             this.tb_Discharging_Start_SOC.Size = new System.Drawing.Size(59, 19);
             this.tb_Discharging_Start_SOC.TabIndex = 105;
+            this.tb_Discharging_Start_SOC.TabStop = false;
             this.tb_Discharging_Start_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tb_Discharging_Start_SOC.ValidatingType = typeof(int);
             this.tb_Discharging_Start_SOC.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
@@ -346,6 +354,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.btn_Apply);
@@ -372,6 +381,7 @@
             this.Controls.Add(this.btn_Password_Change);
             this.Controls.Add(this.btn_Access_To_Operating_System);
             this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Setting_PageViewer";
             this.Load += new System.EventHandler(this.Setting_PageViewer_Load);
             this.ResumeLayout(false);

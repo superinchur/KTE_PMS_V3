@@ -100,5 +100,6 @@ namespace KTE_PMS.MIMIC
             p.Controls.Clear();
             p.Controls.Add(Repository.Instance.p_measure_PCS_Fault);
         }
+
     }
 }

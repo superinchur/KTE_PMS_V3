@@ -247,14 +247,19 @@ namespace KTE_PMS.MIMIC
         private void tb_Power_Set_TextChanged(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 double a = Convert.ToSingle(tb_Power_Set.Text);
-
+                if (a > 50)
+                {
+                    a = 50;
+                    MessageBox.Show("Power를 50kW 이상 설정할 수 없습니다");
+                }
                 Repository.Instance.remote_power = Convert.ToUInt16(a * 10);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -262,7 +267,9 @@ namespace KTE_PMS.MIMIC
         {
             if (tb_Power_Set.MaskFull)
             {
-                MessageBox.Show("모든 사항이 입력되었습니다. 추가입력이 불가합니다");
+                tb_Power_Set.Enabled = false;
+                tb_Power_Set.Enabled = true;
+                //MessageBox.Show("모든 사항이 입력되었습니다. 추가입력이 불가합니다");
             }
             else if (e.Position == tb_Power_Set.Mask.Length)
             {
@@ -297,6 +304,41 @@ namespace KTE_PMS.MIMIC
                 btn_Scheduling_Mode.Image = ImageResize.ResizeImage(Properties.Resources.RUN_003, button.Width, button.Height);
                 Repository.Instance.current_pcs_mode = 3;   // 3 indicates Scheduling Mode
             }
+        }
+
+        private void tb_Power_Set_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                double a = Convert.ToSingle(tb_Power_Set.Text);
+                if (a > 50)
+                {
+                    a = 50;
+                    MessageBox.Show("Power를 50kW 이상 설정할 수 없습니다");
+                }
+                Repository.Instance.remote_power = Convert.ToUInt16(a * 10);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void tb_Power_Set_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
+            {
+                case (char)Keys.Enter:
+                    tb_Power_Set.Enabled = false;
+                    tb_Power_Set.Enabled = true;
+                    break;
+            }
+           
+        }
+
+        private void tb_Power_Set_Validated(object sender, EventArgs e)
+        {
+            
         }
     }
 }

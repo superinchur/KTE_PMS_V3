@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MimicViewer));
             this.lbGRID_R_VOLTAGE = new System.Windows.Forms.Label();
             this.lbGRID_S_VOLTAGE = new System.Windows.Forms.Label();
@@ -68,7 +67,6 @@
             this.lbLOAD_S_CURRENT = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lbLOAD_T_CURRENT = new System.Windows.Forms.Label();
-            this.timer = new System.Windows.Forms.Timer(this.components);
             this.lbisTemperatureWarning = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -78,7 +76,6 @@
             // 
             // lbGRID_R_VOLTAGE
             // 
-            this.lbGRID_R_VOLTAGE.AutoSize = true;
             this.lbGRID_R_VOLTAGE.BackColor = System.Drawing.Color.Transparent;
             this.lbGRID_R_VOLTAGE.Font = new System.Drawing.Font("나눔바른고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbGRID_R_VOLTAGE.ForeColor = System.Drawing.Color.Black;
@@ -87,10 +84,10 @@
             this.lbGRID_R_VOLTAGE.Size = new System.Drawing.Size(46, 15);
             this.lbGRID_R_VOLTAGE.TabIndex = 94;
             this.lbGRID_R_VOLTAGE.Text = "12.34 ";
+            this.lbGRID_R_VOLTAGE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbGRID_S_VOLTAGE
             // 
-            this.lbGRID_S_VOLTAGE.AutoSize = true;
             this.lbGRID_S_VOLTAGE.BackColor = System.Drawing.Color.Transparent;
             this.lbGRID_S_VOLTAGE.Font = new System.Drawing.Font("나눔바른고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbGRID_S_VOLTAGE.ForeColor = System.Drawing.Color.Black;
@@ -99,10 +96,10 @@
             this.lbGRID_S_VOLTAGE.Size = new System.Drawing.Size(46, 15);
             this.lbGRID_S_VOLTAGE.TabIndex = 96;
             this.lbGRID_S_VOLTAGE.Text = "12.34 ";
+            this.lbGRID_S_VOLTAGE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbGRID_T_VOLTAGE
             // 
-            this.lbGRID_T_VOLTAGE.AutoSize = true;
             this.lbGRID_T_VOLTAGE.BackColor = System.Drawing.Color.Transparent;
             this.lbGRID_T_VOLTAGE.Font = new System.Drawing.Font("나눔바른고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbGRID_T_VOLTAGE.ForeColor = System.Drawing.Color.Black;
@@ -111,6 +108,7 @@
             this.lbGRID_T_VOLTAGE.Size = new System.Drawing.Size(46, 15);
             this.lbGRID_T_VOLTAGE.TabIndex = 97;
             this.lbGRID_T_VOLTAGE.Text = "12.34 ";
+            this.lbGRID_T_VOLTAGE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
@@ -122,6 +120,7 @@
             this.label3.Size = new System.Drawing.Size(27, 15);
             this.label3.TabIndex = 98;
             this.label3.Text = "R상";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
@@ -133,6 +132,7 @@
             this.label4.Size = new System.Drawing.Size(27, 15);
             this.label4.TabIndex = 99;
             this.label4.Text = "S상";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label5
             // 
@@ -144,6 +144,7 @@
             this.label5.Size = new System.Drawing.Size(27, 15);
             this.label5.TabIndex = 100;
             this.label5.Text = "T상";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox1
             // 
@@ -190,6 +191,7 @@
             this.label30.Size = new System.Drawing.Size(15, 15);
             this.label30.TabIndex = 117;
             this.label30.Text = "A";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
@@ -202,6 +204,7 @@
             this.label1.Size = new System.Drawing.Size(15, 15);
             this.label1.TabIndex = 116;
             this.label1.Text = "A";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
@@ -217,7 +220,6 @@
             // 
             // lbGRID_R_CURRENT
             // 
-            this.lbGRID_R_CURRENT.AutoSize = true;
             this.lbGRID_R_CURRENT.BackColor = System.Drawing.Color.Transparent;
             this.lbGRID_R_CURRENT.Font = new System.Drawing.Font("나눔바른고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbGRID_R_CURRENT.ForeColor = System.Drawing.Color.Black;
@@ -226,10 +228,10 @@
             this.lbGRID_R_CURRENT.Size = new System.Drawing.Size(46, 15);
             this.lbGRID_R_CURRENT.TabIndex = 109;
             this.lbGRID_R_CURRENT.Text = "12.34 ";
+            this.lbGRID_R_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbGRID_S_CURRENT
             // 
-            this.lbGRID_S_CURRENT.AutoSize = true;
             this.lbGRID_S_CURRENT.BackColor = System.Drawing.Color.Transparent;
             this.lbGRID_S_CURRENT.Font = new System.Drawing.Font("나눔바른고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbGRID_S_CURRENT.ForeColor = System.Drawing.Color.Black;
@@ -238,10 +240,10 @@
             this.lbGRID_S_CURRENT.Size = new System.Drawing.Size(46, 15);
             this.lbGRID_S_CURRENT.TabIndex = 110;
             this.lbGRID_S_CURRENT.Text = "12.34 ";
+            this.lbGRID_S_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbGRID_T_CURRENT
             // 
-            this.lbGRID_T_CURRENT.AutoSize = true;
             this.lbGRID_T_CURRENT.BackColor = System.Drawing.Color.Transparent;
             this.lbGRID_T_CURRENT.Font = new System.Drawing.Font("나눔바른고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbGRID_T_CURRENT.ForeColor = System.Drawing.Color.Black;
@@ -250,6 +252,7 @@
             this.lbGRID_T_CURRENT.Size = new System.Drawing.Size(46, 15);
             this.lbGRID_T_CURRENT.TabIndex = 111;
             this.lbGRID_T_CURRENT.Text = "12.34 ";
+            this.lbGRID_T_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label26
             // 
@@ -262,6 +265,7 @@
             this.label26.Size = new System.Drawing.Size(15, 15);
             this.label26.TabIndex = 108;
             this.label26.Text = "V";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label25
             // 
@@ -298,6 +302,7 @@
             this.label23.Size = new System.Drawing.Size(22, 15);
             this.label23.TabIndex = 107;
             this.label23.Text = "Hz";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label22
             // 
@@ -310,6 +315,7 @@
             this.label22.Size = new System.Drawing.Size(27, 15);
             this.label22.TabIndex = 104;
             this.label22.Text = "kW";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbGRID_Frequency
             // 
@@ -322,6 +328,7 @@
             this.lbGRID_Frequency.Size = new System.Drawing.Size(46, 15);
             this.lbGRID_Frequency.TabIndex = 105;
             this.lbGRID_Frequency.Text = "12.34 ";
+            this.lbGRID_Frequency.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbGRID_POWER
             // 
@@ -334,6 +341,7 @@
             this.lbGRID_POWER.Size = new System.Drawing.Size(46, 15);
             this.lbGRID_POWER.TabIndex = 103;
             this.lbGRID_POWER.Text = "12.34 ";
+            this.lbGRID_POWER.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label17
             // 
@@ -345,6 +353,7 @@
             this.label17.Size = new System.Drawing.Size(70, 15);
             this.label17.TabIndex = 106;
             this.label17.Text = "Frequency";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label15
             // 
@@ -356,6 +365,7 @@
             this.label15.Size = new System.Drawing.Size(45, 15);
             this.label15.TabIndex = 104;
             this.label15.Text = "Power";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox2
             // 
@@ -394,6 +404,7 @@
             this.label29.Size = new System.Drawing.Size(15, 15);
             this.label29.TabIndex = 111;
             this.label29.Text = "V";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label28
             // 
@@ -406,6 +417,7 @@
             this.label28.Size = new System.Drawing.Size(15, 15);
             this.label28.TabIndex = 110;
             this.label28.Text = "V";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label27
             // 
@@ -418,6 +430,7 @@
             this.label27.Size = new System.Drawing.Size(15, 15);
             this.label27.TabIndex = 109;
             this.label27.Text = "V";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label21
             // 
@@ -430,6 +443,7 @@
             this.label21.Size = new System.Drawing.Size(27, 15);
             this.label21.TabIndex = 104;
             this.label21.Text = "kW";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label20
             // 
@@ -442,6 +456,7 @@
             this.label20.Size = new System.Drawing.Size(27, 15);
             this.label20.TabIndex = 103;
             this.label20.Text = "kW";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbINVERTER_POWER
             // 
@@ -454,6 +469,7 @@
             this.lbINVERTER_POWER.Size = new System.Drawing.Size(46, 15);
             this.lbINVERTER_POWER.TabIndex = 103;
             this.lbINVERTER_POWER.Text = "12.34 ";
+            this.lbINVERTER_POWER.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label19
             // 
@@ -465,6 +481,7 @@
             this.label19.Size = new System.Drawing.Size(108, 15);
             this.label19.TabIndex = 104;
             this.label19.Text = "INVERTER Power";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbLOAD_POWER
             // 
@@ -477,6 +494,7 @@
             this.lbLOAD_POWER.Size = new System.Drawing.Size(46, 15);
             this.lbLOAD_POWER.TabIndex = 101;
             this.lbLOAD_POWER.Text = "12.34 ";
+            this.lbLOAD_POWER.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label13
             // 
@@ -488,6 +506,7 @@
             this.label13.Size = new System.Drawing.Size(81, 15);
             this.label13.TabIndex = 102;
             this.label13.Text = "LOAD Power";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
             // 
@@ -499,10 +518,10 @@
             this.label6.Size = new System.Drawing.Size(27, 15);
             this.label6.TabIndex = 100;
             this.label6.Text = "T상";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbLOAD_R_CURRENT
             // 
-            this.lbLOAD_R_CURRENT.AutoSize = true;
             this.lbLOAD_R_CURRENT.BackColor = System.Drawing.Color.Transparent;
             this.lbLOAD_R_CURRENT.Font = new System.Drawing.Font("나눔바른고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbLOAD_R_CURRENT.ForeColor = System.Drawing.Color.Black;
@@ -511,6 +530,7 @@
             this.lbLOAD_R_CURRENT.Size = new System.Drawing.Size(46, 15);
             this.lbLOAD_R_CURRENT.TabIndex = 94;
             this.lbLOAD_R_CURRENT.Text = "12.34 ";
+            this.lbLOAD_R_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label8
             // 
@@ -522,10 +542,10 @@
             this.label8.Size = new System.Drawing.Size(27, 15);
             this.label8.TabIndex = 99;
             this.label8.Text = "S상";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbLOAD_S_CURRENT
             // 
-            this.lbLOAD_S_CURRENT.AutoSize = true;
             this.lbLOAD_S_CURRENT.BackColor = System.Drawing.Color.Transparent;
             this.lbLOAD_S_CURRENT.Font = new System.Drawing.Font("나눔바른고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbLOAD_S_CURRENT.ForeColor = System.Drawing.Color.Black;
@@ -534,6 +554,7 @@
             this.lbLOAD_S_CURRENT.Size = new System.Drawing.Size(46, 15);
             this.lbLOAD_S_CURRENT.TabIndex = 96;
             this.lbLOAD_S_CURRENT.Text = "12.34 ";
+            this.lbLOAD_S_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label10
             // 
@@ -545,10 +566,10 @@
             this.label10.Size = new System.Drawing.Size(27, 15);
             this.label10.TabIndex = 98;
             this.label10.Text = "R상";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbLOAD_T_CURRENT
             // 
-            this.lbLOAD_T_CURRENT.AutoSize = true;
             this.lbLOAD_T_CURRENT.BackColor = System.Drawing.Color.Transparent;
             this.lbLOAD_T_CURRENT.Font = new System.Drawing.Font("나눔바른고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lbLOAD_T_CURRENT.ForeColor = System.Drawing.Color.Black;
@@ -557,10 +578,7 @@
             this.lbLOAD_T_CURRENT.Size = new System.Drawing.Size(46, 15);
             this.lbLOAD_T_CURRENT.TabIndex = 97;
             this.lbLOAD_T_CURRENT.Text = "12.34 ";
-            // 
-            // timer
-            // 
-            this.timer.Interval = 400;
+            this.lbLOAD_T_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbisTemperatureWarning
             // 
@@ -573,6 +591,7 @@
             this.lbisTemperatureWarning.Size = new System.Drawing.Size(60, 15);
             this.lbisTemperatureWarning.TabIndex = 103;
             this.lbisTemperatureWarning.Text = "NORMAL";
+            this.lbisTemperatureWarning.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox3
             // 
@@ -592,6 +611,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.groupBox3);
@@ -599,7 +619,6 @@
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "MimicViewer";
-            this.Size = new System.Drawing.Size(964, 454);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -644,7 +663,6 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

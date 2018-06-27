@@ -35,195 +35,264 @@ namespace KTE_PMS
         {
             String sql = "SELECT * FROM alarm_data ORDER BY DATETIME desc";
 
-            DataTable dataTable1 = new DataTable();
-            DataTable dataTable2 = new DataTable();
-            DataTable dataTable3 = new DataTable();
-            DataTable dataTable4 = new DataTable();
-            DataTable dataTable5 = new DataTable();
-
             DataSet ds = new DataSet();
             MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
-
 
             adpt.Fill(ds);
             return ds;
 
         }
+        public DataSet Get_Product(string strstartTime,string strendTime)
+        {
+            String sql = "SELECT * FROM alarm_data WHERE DATETIME BETWEEN '" + strstartTime + "' and '" + strendTime + "' ORDER BY DATETIME desc";
+
+            DataSet ds = new DataSet();
+            MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+
+            adpt.Fill(ds);
+            return ds;
+        }
 
         public void Insert_Value_to_Database()
         {
-            string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            try
+            {
+                string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-            double voltage;
-            double current;
-            double power;
+                double voltage;
+                double current;
+                double power;
 
-            voltage = Repository.Instance.samsung_bcs.System_Voltage;
-            current = Repository.Instance.samsung_bcs.System_Current;
-            power = Repository.Instance.samsung_bcs.System_Power;
+                voltage = Repository.Instance.samsung_bcs.System_Voltage;
+                current = Repository.Instance.samsung_bcs.System_Current;
+                power = Repository.Instance.samsung_bcs.System_Power;
 
-            String sql = "INSERT INTO trend_data (DATETIME, VOLTAGE, CURRENT, POWER) " + "VALUES ('"
-                + strDateTime + "','"
-                + voltage.ToString() + "','"
-                + current.ToString() + "','"
-                + power.ToString() + "')";
+                String sql = "INSERT INTO trend_data (DATETIME, VOLTAGE, CURRENT, POWER) " + "VALUES ('"
+                    + strDateTime + "','"
+                    + voltage.ToString() + "','"
+                    + current.ToString() + "','"
+                    + power.ToString() + "')";
 
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void Insert_Alarm_to_Database(string sz)
         {
-            string[] szFault = sz.Split('|');
+            try
+            {
+                string[] szFault = sz.Split('|');
 
-            String sql = "INSERT INTO alarm_data (DATETIME, CLASS, DEVICE, DESCRIPTION, IO) " + "VALUES ('"
-                + szFault[0] + "','"
-                + szFault[1] + "','"
-                + szFault[2] + "','"
-                + szFault[3] + "','"
-                + szFault[4] + "')";
+                String sql = "INSERT INTO alarm_data (DATETIME, CLASS, DEVICE, DESCRIPTION, IO) " + "VALUES ('"
+                    + szFault[0] + "','"
+                    + szFault[1] + "','"
+                    + szFault[2] + "','"
+                    + szFault[3] + "','"
+                    + szFault[4] + "')";
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
         public void Insert_START_PMS()
         {
-            string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            try
+            {
+                string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-            String sql = "INSERT INTO alarm_data (DATETIME, CLASS, DEVICE, DESCRIPTION, IO) " + "VALUES ('"
-                + strDateTime + "','"
-                + "SYSTEM" + "','"
-                + "PMS" + "','"
-                + "PMS TURN ON" + "','"
-                + "NORMAL" + "')";
+                String sql = "INSERT INTO alarm_data (DATETIME, CLASS, DEVICE, DESCRIPTION, IO) " + "VALUES ('"
+                    + strDateTime + "','"
+                    + "SYSTEM" + "','"
+                    + "PMS" + "','"
+                    + "PMS TURN ON" + "','"
+                    + "NORMAL" + "')";
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
         public void Insert_EXIT_PMS()
         {
-            string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            try
+            {
+                string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-            String sql = "INSERT INTO alarm_data (DATETIME, CLASS, DEVICE, DESCRIPTION, IO) " + "VALUES ('"
-                + strDateTime + "','"
-                + "SYSTEM" + "','"
-                + "PMS" + "','"
-                + "PMS TURN OFF" + "','"
-                + "NORMAL" + "')";
+                String sql = "INSERT INTO alarm_data (DATETIME, CLASS, DEVICE, DESCRIPTION, IO) " + "VALUES ('"
+                    + strDateTime + "','"
+                    + "SYSTEM" + "','"
+                    + "PMS" + "','"
+                    + "PMS TURN OFF" + "','"
+                    + "NORMAL" + "')";
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
         public void Insert_Power()
         {
-            string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            try
+            {
+                string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:00");
 
-            String sql = "INSERT INTO power_data_minute (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
-                + strDateTime + "','"
-                + Repository.Instance.power.PCS_CHARGE_POWER + "','"
-                + Repository.Instance.power.PCS_DISCHARGE_POWER + "','"
-                + Repository.Instance.power.BMS_CHARGE_POWER + "','"
-                + Repository.Instance.power.BMS_DISCHARGE_POWER + "')";
+                String sql = "INSERT INTO power_data_minute (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
+                    + strDateTime + "','"
+                    + Repository.Instance.power.PCS_CHARGE_POWER + "','"
+                    + Repository.Instance.power.PCS_DISCHARGE_POWER + "','"
+                    + Repository.Instance.power.BMS_CHARGE_POWER + "','"
+                    + Repository.Instance.power.BMS_DISCHARGE_POWER + "')";
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
         public void Insert_Power_Hour()
         {
-            string strYesterday = DateTime.Now.AddHours(-1).ToString("yyyy-MM-dd HH:00:00");
-            string strToday = DateTime.Now.ToString("yyyy-MM-dd HH:00:00");
+            try
+            {
+                string strYesterday = DateTime.Now.AddHours(-1).ToString("yyyy-MM-dd HH:00:00");
+                string strToday = DateTime.Now.ToString("yyyy-MM-dd HH:00:00");
 
-            String sql = "SELECT * FROM power_data_minute WHERE DATETIME BETWEEN '"+ strYesterday + "' and '"+ strToday + "' ORDER BY DATETIME desc";
+                String sql = "SELECT * FROM power_data_minute WHERE DATETIME BETWEEN '"+ strYesterday + "' and '"+ strToday + "' ORDER BY DATETIME desc";
 
-            DataSet ds = new DataSet();
+                DataSet ds = new DataSet();
 
 
-            MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
-            adpt.Fill(ds);
+                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds);
 
-            sPower total_power = GetPowerFromDatabase(ds);
+                sPower total_power = GetPowerFromDatabase(ds);
 
-            sql = "INSERT INTO power_data_hour (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
-                + strYesterday + "','"
-                + total_power.PCS_CHARGE_POWER + "','"
-                + total_power.PCS_DISCHARGE_POWER + "','"
-                + total_power.BMS_CHARGE_POWER + "','"
-                + total_power.BMS_DISCHARGE_POWER + "')";
+                sql = "INSERT INTO power_data_hour (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
+                    + strYesterday + "','"
+                    + total_power.PCS_CHARGE_POWER + "','"
+                    + total_power.PCS_DISCHARGE_POWER + "','"
+                    + total_power.BMS_CHARGE_POWER + "','"
+                    + total_power.BMS_DISCHARGE_POWER + "')";
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void Insert_Power_Day()
         {
-            string strYesterday = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd 00:00:00");
-            string strToday = DateTime.Now.ToString("yyyy-MM-dd 00:00:00");
-            String sql = "SELECT * FROM power_data_hour WHERE DATETIME BETWEEN '" + strYesterday + "' and '" + strToday + "' ORDER BY DATETIME desc";
+            try
+            {
+                string strYesterday = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd 00:00:00");
+                string strToday = DateTime.Now.ToString("yyyy-MM-dd 00:00:00");
+                String sql = "SELECT * FROM power_data_hour WHERE DATETIME BETWEEN '" + strYesterday + "' and '" + strToday + "' ORDER BY DATETIME desc";
 
-            DataSet ds = new DataSet();
-            MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
-            adpt.Fill(ds);
+                DataSet ds = new DataSet();
+                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds);
 
-            sPower total_power = GetPowerFromDatabase(ds);
+                sPower total_power = GetPowerFromDatabase(ds);
 
-            sql = "INSERT INTO power_data_day (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
-                + strYesterday + "','"
-                + total_power.PCS_CHARGE_POWER + "','"
-                + total_power.PCS_DISCHARGE_POWER + "','"
-                + total_power.BMS_CHARGE_POWER + "','"
-                + total_power.BMS_DISCHARGE_POWER + "')";
+                sql = "INSERT INTO power_data_day (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
+                    + strYesterday + "','"
+                    + total_power.PCS_CHARGE_POWER + "','"
+                    + total_power.PCS_DISCHARGE_POWER + "','"
+                    + total_power.BMS_CHARGE_POWER + "','"
+                    + total_power.BMS_DISCHARGE_POWER + "')";
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void Insert_Power_Month()
         {
-            string strYesterday = DateTime.Now.AddMonths(-1).ToString("yyyy-MM-01 00:00:00");
-            string strToday = DateTime.Now.ToString("yyyy-MM-01 00:00:00");
+            try
+            {
 
-            String sql = "SELECT * FROM power_data_day WHERE DATETIME BETWEEN '" + strYesterday + "' and '" + strToday + "' ORDER BY DATETIME desc";
+                string strYesterday = DateTime.Now.AddMonths(-1).ToString("yyyy-MM-01 00:00:00");
+                string strToday = DateTime.Now.ToString("yyyy-MM-01 00:00:00");
 
-            DataSet ds = new DataSet();
-            MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
-            adpt.Fill(ds);
+                String sql = "SELECT * FROM power_data_day WHERE DATETIME BETWEEN '" + strYesterday + "' and '" + strToday + "' ORDER BY DATETIME desc";
 
-            sPower total_power = GetPowerFromDatabase(ds);
+                DataSet ds = new DataSet();
+                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds);
 
-            sql = "INSERT INTO power_data_month (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
-                + strYesterday + "','"
-                + total_power.PCS_CHARGE_POWER + "','"
-                + total_power.PCS_DISCHARGE_POWER + "','"
-                + total_power.BMS_CHARGE_POWER + "','"
-                + total_power.BMS_DISCHARGE_POWER + "')";
+                sPower total_power = GetPowerFromDatabase(ds);
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
+                sql = "INSERT INTO power_data_month (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
+                    + strYesterday + "','"
+                    + total_power.PCS_CHARGE_POWER + "','"
+                    + total_power.PCS_DISCHARGE_POWER + "','"
+                    + total_power.BMS_CHARGE_POWER + "','"
+                    + total_power.BMS_DISCHARGE_POWER + "')";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
         public void Insert_Power_year()
         {
-            string strYesterday = DateTime.Now.AddYears(-1).ToString("yyyy-01-01 00:00:00");
-            string strToday = DateTime.Now.ToString("yyyy-01-01 00:00:00");
+            try
+            {
 
-            String sql = "SELECT * FROM power_data_month WHERE DATETIME BETWEEN '" + strYesterday + "' and '" + strToday + "' ORDER BY DATETIME desc";
+                string strYesterday = DateTime.Now.AddYears(-1).ToString("yyyy-01-01 00:00:00");
+                string strToday = DateTime.Now.ToString("yyyy-01-01 00:00:00");
 
-            DataSet ds = new DataSet();
-            MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
-            adpt.Fill(ds);
+                String sql = "SELECT * FROM power_data_month WHERE DATETIME BETWEEN '" + strYesterday + "' and '" + strToday + "' ORDER BY DATETIME desc";
 
-            sPower total_power = GetPowerFromDatabase(ds);
+                DataSet ds = new DataSet();
+                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds);
 
-            sql = "INSERT INTO power_data_year (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
-                + strYesterday + "','"
-                + total_power.PCS_CHARGE_POWER + "','"
-                + total_power.PCS_DISCHARGE_POWER + "','"
-                + total_power.BMS_CHARGE_POWER + "','"
-                + total_power.BMS_DISCHARGE_POWER + "')";
+                sPower total_power = GetPowerFromDatabase(ds);
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
+                sql = "INSERT INTO power_data_year (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
+                    + strYesterday + "','"
+                    + total_power.PCS_CHARGE_POWER + "','"
+                    + total_power.PCS_DISCHARGE_POWER + "','"
+                    + total_power.BMS_CHARGE_POWER + "','"
+                    + total_power.BMS_DISCHARGE_POWER + "')";
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
+
         private  sPower GetPowerFromDatabase(DataSet ds)
         {
             sPower power = new sPower();
@@ -253,44 +322,52 @@ namespace KTE_PMS
 
         public void Select_Power()
         {
-            string str_start = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
-            string str_end = DateTime.Now.ToString("yyyy-mm-dd HH:mm:ss");
+            try
+            {
+                string str_start = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
+                string str_end = DateTime.Now.ToString("yyyy-mm-dd HH:mm:ss");
 
-            String sql = "SELECT * FROM power_data_hour WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
+                String sql = "SELECT * FROM power_data_hour WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
 
-            DataSet ds = new DataSet();
-            MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
-            adpt.Fill(ds);
+                DataSet ds = new DataSet();
+                MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds);
 
-            Repository.Instance.power_day = GetPowerFromDatabase(ds);
+                Repository.Instance.power_day = GetPowerFromDatabase(ds);
 
-            //
-            str_start = DateTime.Now.ToString("yyyy-mm-01 00:00:00");
-            str_end = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
+                //
+                str_start = DateTime.Now.ToString("yyyy-mm-01 00:00:00");
+                str_end = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
 
-            sql = "SELECT * FROM power_data_day WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
+                sql = "SELECT * FROM power_data_day WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
 
-            ds.Clear();
-            adpt.Dispose();
+                ds.Clear();
+                adpt.Dispose();
 
-            adpt = new MySqlDataAdapter(sql, conn);
-            adpt.Fill(ds);
+                adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds);
 
-            Repository.Instance.power_month = Repository.Instance.power_day + GetPowerFromDatabase(ds);
+                Repository.Instance.power_month = Repository.Instance.power_day + GetPowerFromDatabase(ds);
 
-            //
-            str_start = DateTime.Now.ToString("yyyy-01-01 00:00:00");
-            str_end = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
+                //
+                str_start = DateTime.Now.ToString("yyyy-01-01 00:00:00");
+                str_end = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
 
-            sql = "SELECT * FROM power_data_month WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
+                sql = "SELECT * FROM power_data_month WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
 
-            ds.Clear();
-            adpt.Dispose();
+                ds.Clear();
+                adpt.Dispose();
 
-            adpt = new MySqlDataAdapter(sql, conn);
-            adpt.Fill(ds);
+                adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds);
 
-            Repository.Instance.power_year = Repository.Instance.power_month + GetPowerFromDatabase(ds);
+                Repository.Instance.power_year = Repository.Instance.power_month + GetPowerFromDatabase(ds);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 

@@ -11,16 +11,9 @@ namespace KTE_PMS.MIMIC
         {
             InitializeComponent();
 
-            timer.Interval = 400;
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
-        }
-
-        private void timer_Tick(object sender, EventArgs e)
-        {
 
         }
-
+        
         delegate void CrossThreadSafetySetText(Control ctl, String text);
 
         private void CSafeSetText(Control ctl, String text)
