@@ -1,7 +1,0 @@
-C:\git\KTE_PMS_V3\UDP\bin\Release\UDP.exe.config
-C:\git\KTE_PMS_V3\UDP\bin\Release\UDP.exe
-C:\git\KTE_PMS_V3\UDP\bin\Release\UDP.pdb
-C:\git\KTE_PMS_V3\UDP\obj\Release\UDP.csprojAssemblyReference.cache
-C:\git\KTE_PMS_V3\UDP\obj\Release\UDP.csproj.CoreCompileInputs.cache
-C:\git\KTE_PMS_V3\UDP\obj\Release\UDP.exe
-C:\git\KTE_PMS_V3\UDP\obj\Release\UDP.pdb

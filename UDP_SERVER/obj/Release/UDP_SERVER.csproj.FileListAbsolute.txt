@@ -1,6 +1,0 @@
-C:\git\KTE_PMS_V3\UDP_SERVER\bin\Release\UDP_SERVER.exe.config
-C:\git\KTE_PMS_V3\UDP_SERVER\bin\Release\UDP_SERVER.exe
-C:\git\KTE_PMS_V3\UDP_SERVER\bin\Release\UDP_SERVER.pdb
-C:\git\KTE_PMS_V3\UDP_SERVER\obj\Release\UDP_SERVER.csproj.CoreCompileInputs.cache
-C:\git\KTE_PMS_V3\UDP_SERVER\obj\Release\UDP_SERVER.exe
-C:\git\KTE_PMS_V3\UDP_SERVER\obj\Release\UDP_SERVER.pdb

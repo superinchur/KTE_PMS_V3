@@ -1,5 +1,0 @@
-C:\git\KTE_PMS_V3\KTE_PMS\obj\Release\KTE_PMS.csprojAssemblyReference.cache
-C:\git\KTE_PMS_V3\KTE_PMS\obj\Release\SingerOnScreenKeyboard.baml
-C:\git\KTE_PMS_V3\KTE_PMS\obj\Release\SingerOnScreenKeyboard.g.cs
-C:\git\KTE_PMS_V3\KTE_PMS\obj\Release\KTE_PMS_MarkupCompile.cache
-C:\git\KTE_PMS_V3\KTE_PMS\obj\Release\KTE_PMS.g.resources
