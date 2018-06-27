@@ -62,6 +62,23 @@ namespace KTE_PMS
                 tt[i] = new cTag();
             }
 
+            for (int nFileNo = 14; nFileNo <= 21; nFileNo++)
+            {
+                for (int nBit = 0; nBit <= 15; nBit++)
+                {
+                    if (FAULT_STATUS[nFileNo, nBit, 0] == null)
+                        FAULT_STATUS[nFileNo, nBit, 0] = "0";
+                }
+            }
+            for (int nFileNo = 46; nFileNo <= 47; nFileNo++)
+            {
+                for (int nBit = 0; nBit <= 15; nBit++)
+                {
+                    if (FAULT_STATUS[nFileNo, nBit, 0] == null)
+                        FAULT_STATUS[nFileNo, nBit, 0] = "0";
+                }
+            }
+
 
             Read_AlarmData(ref tt);
         }
@@ -113,7 +130,7 @@ namespace KTE_PMS
                 if (nFileNo == 46)
                     ushValue = Repository.Instance.GnEPS_PCS.PCS_GRID_Status;
                 else if (nFileNo == 47)
-                    ushValue = Repository.Instance.samsung_bcs.Protection_Summary3;
+                    ushValue = Repository.Instance.GnEPS_PCS.PCS_Fault_Status;
 
 
 
@@ -123,6 +140,8 @@ namespace KTE_PMS
                 for (int nBit = 0; nBit <= 15; nBit++)
                 {
                     int nStatus = ushValue >> nBit & 0x1;
+
+
                     if (FAULT_STATUS[nFileNo, nBit, 0] != nStatus.ToString())
                         경보발생및해제(nStatus, nFileNo, nBit);
                 }
@@ -132,7 +151,7 @@ namespace KTE_PMS
         {
             ushort ushValue = 0;
             // 14~15 에러 하기 (BMS쪽 Fault)
-            for (int nFileNo = 14; nFileNo <= 22; nFileNo++)
+            for (int nFileNo = 14; nFileNo <= 21; nFileNo++)
             {
                 if (nFileNo == 14)
                     ushValue = Repository.Instance.samsung_bcs.Protection_Summary4;
@@ -157,9 +176,6 @@ namespace KTE_PMS
                 {
                     int nStatus = ushValue >> nBit & 0x1;
 
-                    if (FAULT_STATUS[nFileNo, nBit, 0] == null)
-                        FAULT_STATUS[nFileNo, nBit, 0] = string.Empty;
-
                     if (FAULT_STATUS[nFileNo, nBit, 0] != nStatus.ToString())
                     {
                         경보발생및해제(nStatus, nFileNo, nBit);
@@ -171,7 +187,7 @@ namespace KTE_PMS
 
         private string getDeviceName(int nFileNo)
         {
-            if (nFileNo >= 14 && nFileNo <= 22)
+            if (nFileNo >= 14 && nFileNo <= 21)
             {
                 return ("BMS");
             }
@@ -186,30 +202,32 @@ namespace KTE_PMS
         }
         public void 경보발생및해제(int nStatus, int nFileNo, int nBit)
         {
-            // heartbit가 동작중에는 flag_PCS_COMMFAULT Flag를 설정시키기 때문에 
-            // Heartbit가 동작중에는 초기화 하는것이 필요하다. Heartbit가 11이 됨으로 부터 정상적인 PCS Alarm 발생을 시작
-            string szFaultCode = string.Format("{0}_{1}", nFileNo, nBit);
-            string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-            // 화면_고장
-            string szFaultText = GetFaultText(nFileNo, nBit);
-            string DeviceName = getDeviceName(nFileNo);
-            DateTime tCurrent = DateTime.Now;
-
-
-
-            if (nStatus == 0)
+            try
             {
-                // 해제
-                FAULT_STATUS[nFileNo, nBit, 0] = nStatus.ToString();
-                FAULT_STATUS[nFileNo, nBit, 1] = string.Empty;
-                string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), string.Format("{0} [0x{1:X2}] ", nFileNo, nBit), DeviceName, szFaultText, "NORMAL");
-                qRecvFault.Enqueue(szFault);
-                
-                // Ack Bit 여부를 확인하고, Ack면 해제, Ack가 아니라면 UnAcked Normal을 띄워줘야함.
+                // heartbit가 동작중에는 flag_PCS_COMMFAULT Flag를 설정시키기 때문에 
+                // Heartbit가 동작중에는 초기화 하는것이 필요하다. Heartbit가 11이 됨으로 부터 정상적인 PCS Alarm 발생을 시작
+                string szFaultCode = string.Format("{0}_{1}", nFileNo, nBit);
+                string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                foreach (var key in htCurrentFault.Keys.ToList())
+                // 화면_고장
+                string szFaultText = GetFaultText(nFileNo, nBit);
+                string DeviceName = getDeviceName(nFileNo);
+                DateTime tCurrent = DateTime.Now;
+
+                string key;
+
+                if (nStatus == 0)
                 {
+                    // 해제
+                    FAULT_STATUS[nFileNo, nBit, 0] = nStatus.ToString();
+                    FAULT_STATUS[nFileNo, nBit, 1] = string.Empty;
+                    string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), string.Format("{0} [0x{1:X2}] ", nFileNo, nBit), DeviceName, szFaultText, "NORMAL");
+                    qRecvFault.Enqueue(szFault);
+
+                    // Ack Bit 여부를 확인하고, Ack면 해제, Ack가 아니라면 UnAcked Normal을 띄워줘야함.
+
+                    key = nFileNo + "_" + nBit;
+                    
                     // 값을 받아온다.
                     string szCurrentFault = htCurrentFault[key] + string.Empty;
                     string[] current_IO = szCurrentFault.Split('|');
@@ -233,17 +251,22 @@ namespace KTE_PMS
                         Repository.Instance.dbConnector.Insert_Alarm_to_Database(szCurrentFault);
                     }
                 }
-            }
-            else
-            {
-                // 발생
-                FAULT_STATUS[nFileNo, nBit, 0] = nStatus.ToString();
-                FAULT_STATUS[nFileNo, nBit, 1] = tCurrent.ToString("yyyy-MM-dd HH:mm:ss");
-                string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), string.Format("{0} [0x{1:X2}] ", nFileNo, nBit), DeviceName, szFaultText, "UNACK");
-                qRecvFault.Enqueue(szFault);
-                Repository.Instance.dbConnector.Insert_Alarm_to_Database(szFault);
+                else
+                {
+                    // 발생
+                    FAULT_STATUS[nFileNo, nBit, 0] = nStatus.ToString();
+                    FAULT_STATUS[nFileNo, nBit, 1] = tCurrent.ToString("yyyy-MM-dd HH:mm:ss");
+                    string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), string.Format("{0} [0x{1:X2}] ", nFileNo, nBit), DeviceName, szFaultText, "UNACK");
+                    qRecvFault.Enqueue(szFault);
+                    Repository.Instance.dbConnector.Insert_Alarm_to_Database(szFault);
 
-                htCurrentFault[szFaultCode] = szFault;
+                    htCurrentFault[szFaultCode] = szFault;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("경보발생및해제(int "+ nStatus +", int " + nFileNo+", int "+nBit+")");
+                Console.WriteLine(ex.Message);
             }
         }
 

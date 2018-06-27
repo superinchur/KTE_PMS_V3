@@ -160,5 +160,10 @@ namespace KTE_PMS.MIMIC
 
 
         }
+
+        private void MainViewer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

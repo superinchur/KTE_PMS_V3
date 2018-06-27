@@ -256,7 +256,7 @@ namespace KTE_PMS
             GnEPS_PCS.Inverter_Run_Stop = (BitConverter.ToInt16(data, 0) & 0x02) >> 1;
             GnEPS_PCS.System_Run_Stop = (BitConverter.ToInt16(data, 0) & 0x01) >> 0;
             */
-            pcs_resourcePool.WaitOne();
+            //pcs_resourcePool.WaitOne();
 
             //Mode_Standby
 
@@ -312,14 +312,14 @@ namespace KTE_PMS
 
             TagManager.PCS_Fault_처리_프로시져();
 
-            pcs_resourcePool.Release();
+            //pcs_resourcePool.Release();
 
         }
         #endregion
         public void Get_BSC(byte[] data)
         {
 
-            bms_resourcePool.WaitOne();
+            //bms_resourcePool.WaitOne();
             byte[] temp_byte = new byte[2];
 
             samsung_bcs.Protocol_Version = ByteConverterToUInt16(data, 0);
@@ -454,7 +454,7 @@ namespace KTE_PMS
 
             dbConnector.Insert_Value_to_Database();
             TagManager.BMS_Fault_처리_프로시져();
-            bms_resourcePool.Release();
+            //bms_resourcePool.Release();
 
         }
 

@@ -44,7 +44,14 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(lbGRID_T_CURRENT, Repository.Instance.GnEPS_PCS.GRID_T_Current.ToString());
             CSafeSetText(lbGRID_POWER, Repository.Instance.GnEPS_PCS.GRID_Power.ToString());
             CSafeSetText(lbGRID_Frequency, Repository.Instance.GnEPS_PCS.GRID_Frequency.ToString());
-            CSafeSetText(lbisTemperatureWarning, Repository.Instance.GnEPS_PCS.GRID_Frequency.ToString());
+            if (Repository.Instance.GnEPS_PCS.isTemperatureWarning == 1)
+            {
+                CSafeSetText(lbisTemperatureWarning, "WARNING");
+            }
+            else
+            {
+                CSafeSetText(lbisTemperatureWarning, "NORMAL");
+            }
 
             CSafeSetText(lbLOAD_R_CURRENT, Repository.Instance.GnEPS_PCS.LOAD_R_Current.ToString());
             CSafeSetText(lbLOAD_S_CURRENT, Repository.Instance.GnEPS_PCS.LOAD_S_Current.ToString());

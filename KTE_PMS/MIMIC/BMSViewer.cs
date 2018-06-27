@@ -64,7 +64,7 @@ namespace KTE_PMS.MIMIC
             Connect_to_BSC();
 
             timer.Enabled = true;
-            timer.Interval = 1000;
+            timer.Interval = 2000;
             timer.Start();
 
         }
