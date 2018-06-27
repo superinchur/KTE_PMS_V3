@@ -62,7 +62,7 @@ namespace KTE_PMS.MIMIC
             // 2. 연결하기
             Connect_to_PMD();
 
-            timer.Interval = 1000;
+            timer.Interval = 1500;
             timer.Enabled = true;
             timer.Start();
 
