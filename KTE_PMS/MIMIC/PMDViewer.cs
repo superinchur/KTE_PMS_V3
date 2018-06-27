@@ -408,14 +408,14 @@ public void Control_Power_Active_Set()
 
             if (span.TotalSeconds < 10)
             {
-                if (Repository.Instance.TagManager.FAULT_STATUS[47, 8, 0] != "0")
-                    Repository.Instance.TagManager.경보발생및해제(0, 47, 8);
+                if (Repository.Instance.TagManager.FAULT_STATUS[48, 8, 0] != "0")
+                    Repository.Instance.TagManager.경보발생및해제(0, 48, 8);
                 return 1;
             }
             else
             {
-                if (Repository.Instance.TagManager.FAULT_STATUS[47, 8, 0] != "1")
-                    Repository.Instance.TagManager.경보발생및해제(1, 47, 8);
+                if (Repository.Instance.TagManager.FAULT_STATUS[48, 8, 0] != "1")
+                    Repository.Instance.TagManager.경보발생및해제(1, 48, 8);
                 return 0;
             }
         }

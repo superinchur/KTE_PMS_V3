@@ -407,55 +407,64 @@ namespace KTE_PMS
             samsung_bcs.Service_SOC = ByteConverterToUInt16(data, 28) * 0.1;
 
             samsung_bcs.System_Alarm_Status = ByteConverterToUInt16(data, 30);
-            samsung_bcs.Rack_Voltage = ByteConverterToUInt16(data, 40) * 0.1;
-            samsung_bcs.String1_Rack_Voltage = ByteConverterToUInt16(data, 41) * 0.1;
-            samsung_bcs.String2_Rack_Voltage = ByteConverterToUInt16(data, 42) * 0.1;
-            samsung_bcs.String1_Cell_Summation_Voltage = ByteConverterToUInt16(data, 43) * 0.1;
-            samsung_bcs.String2_Cell_Summation_Voltage = ByteConverterToUInt16(data, 44) * 0.1;
-
-            samsung_bcs.Rack_Current = ByteConverterToInt16(data, 45) * 0.1;
-            samsung_bcs.String1_Rack_Current = ByteConverterToInt16(data, 46) * 0.1;
-            samsung_bcs.String2_Rack_Current = ByteConverterToInt16(data, 47) * 0.1;
-            samsung_bcs.Rack_Current_Average = ByteConverterToInt16(data, 48) * 0.1;
-            samsung_bcs.Rack_Mode = ByteConverterToUInt16(data, 49);
-            samsung_bcs.Rack_SOC = ByteConverterToInt16(data, 50) * 0.1;
-            samsung_bcs.Rack_SOH = ByteConverterToInt16(data, 51) * 0.1;
-
-            samsung_bcs.Max1_Cell_Voltage_Value = ByteConverterToInt16(data, 64) * 0.001;
-            samsung_bcs.Max1_Cell_Voltage_Position = ByteConverterToInt16(data, 65);
-            samsung_bcs.Max2_Cell_Voltage_Value = ByteConverterToInt16(data, 66) * 0.001;
-            samsung_bcs.Max2_Cell_Voltage_Position = ByteConverterToInt16(data, 67);
-
-            samsung_bcs.Average_Cell_Voltage_Value = ByteConverterToInt16(data, 68) * 0.001;
-            samsung_bcs.Min2_Cell_Voltage_Value = ByteConverterToInt16(data, 69) * 0.001;
-            samsung_bcs.Min2_Cell_Voltage_Position = ByteConverterToInt16(data, 70);
-            samsung_bcs.Min1_Cell_Voltage_Value = ByteConverterToInt16(data, 71) * 0.001;
-            samsung_bcs.Min1_Cell_Voltage_Position = ByteConverterToInt16(data, 72);
-
-            samsung_bcs.Max1_Cell_Temp_Value = ByteConverterToInt16(data, 73) * 0.01;
-            samsung_bcs.Max1_Cell_Temp_Position = ByteConverterToInt16(data, 74);
-            samsung_bcs.Max2_Cell_Temp_Value = ByteConverterToInt16(data, 75) * 0.01;
-            samsung_bcs.Max2_Cell_Temp_Position = ByteConverterToInt16(data, 76);
-
-            samsung_bcs.Average_Cell_Temp_Value = ByteConverterToInt16(data, 77) * 0.01;
-
-            samsung_bcs.Min2_Cell_Temp_Value = ByteConverterToInt16(data, 78) * 0.01;
-            samsung_bcs.Min2_Cell_Temp_Position = ByteConverterToInt16(data, 79);
-            samsung_bcs.Min1_Cell_Temp_Value = ByteConverterToInt16(data, 80) * 0.01;
-            samsung_bcs.Min1_Cell_Temp_Position = ByteConverterToInt16(data, 81);
-
-            samsung_bcs.Discharge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 82) * 0.1;
-            samsung_bcs.Charge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 83) * 0.1;
-
-            samsung_bcs.Rack_Switch_Control_Info = ByteConverterToUInt16(data, 84);
-            samsung_bcs.Rack_Switch_Sensor_Info = ByteConverterToUInt16(data, 85);
-            samsung_bcs.Rack_External_Sensor_Info = ByteConverterToUInt16(data, 86);
-            samsung_bcs.Module_Comm_Fault_Position = (ByteConverterToUInt16(data, 86) >> 8) & 0xFF;
-
+            Insert_Rack(ref samsung_bcs.Rack1, data, 1);
+            Insert_Rack(ref samsung_bcs.Rack2, data, 2);
             dbConnector.Insert_Value_to_Database();
             TagManager.BMS_Fault_처리_프로시져();
             //bms_resourcePool.Release();
 
+        }
+
+        private void Insert_Rack(ref Samsung_BMS_Rack Rack, byte[] data, int num_of_Rack)
+        {
+
+            int offset = (num_of_Rack-1) * 60;
+
+            Rack.Rack_Voltage = ByteConverterToUInt16(data, 40+ offset) * 0.1;
+            Rack.String1_Rack_Voltage = ByteConverterToUInt16(data, 41+ offset) * 0.1;
+            Rack.String2_Rack_Voltage = ByteConverterToUInt16(data, 42+ offset) * 0.1;
+            Rack.String1_Cell_Summation_Voltage = ByteConverterToUInt16(data, 43 + offset) * 0.1;
+            Rack.String2_Cell_Summation_Voltage = ByteConverterToUInt16(data, 44 + offset) * 0.1;
+
+            Rack.Rack_Current = ByteConverterToInt16(data, 45 + offset) * 0.1;
+            Rack.String1_Rack_Current = ByteConverterToInt16(data, 46 + offset) * 0.1;
+            Rack.String2_Rack_Current = ByteConverterToInt16(data, 47 + offset) * 0.1;
+            Rack.Rack_Current_Average = ByteConverterToInt16(data, 48 + offset) * 0.1;
+            Rack.Rack_Mode = ByteConverterToUInt16(data, 49 + offset);
+            Rack.Rack_SOC = ByteConverterToInt16(data, 50 + offset) * 0.1;
+            Rack.Rack_SOH = ByteConverterToInt16(data, 51 + offset) * 0.1;
+
+
+            Rack.Max1_Cell_Voltage_Value = ByteConverterToInt16(data, 64 + offset) * 0.001;
+            Rack.Max1_Cell_Voltage_Position = ByteConverterToInt16(data, 65 + offset);
+            Rack.Max2_Cell_Voltage_Value = ByteConverterToInt16(data, 66 + offset) * 0.001;
+            Rack.Max2_Cell_Voltage_Position = ByteConverterToInt16(data, 67 + offset);
+
+            Rack.Average_Cell_Voltage_Value = ByteConverterToInt16(data, 68 + offset) * 0.001;
+            Rack.Min2_Cell_Voltage_Value = ByteConverterToInt16(data, 69 + offset) * 0.001;
+            Rack.Min2_Cell_Voltage_Position = ByteConverterToInt16(data, 70 + offset);
+            Rack.Min1_Cell_Voltage_Value = ByteConverterToInt16(data, 71 + offset) * 0.001;
+            Rack.Min1_Cell_Voltage_Position = ByteConverterToInt16(data, 72 + offset);
+
+            Rack.Max1_Cell_Temp_Value = ByteConverterToInt16(data, 73 + offset) * 0.01;
+            Rack.Max1_Cell_Temp_Position = ByteConverterToInt16(data, 74 + offset);
+            Rack.Max2_Cell_Temp_Value = ByteConverterToInt16(data, 75 + offset) * 0.01;
+            Rack.Max2_Cell_Temp_Position = ByteConverterToInt16(data, 76 + offset);
+
+            Rack.Average_Cell_Temp_Value = ByteConverterToInt16(data, 77 + offset) * 0.01;
+
+            Rack.Min2_Cell_Temp_Value = ByteConverterToInt16(data, 78 + offset) * 0.01;
+            Rack.Min2_Cell_Temp_Position = ByteConverterToInt16(data, 79 + offset);
+            Rack.Min1_Cell_Temp_Value = ByteConverterToInt16(data, 80 + offset) * 0.01;
+            Rack.Min1_Cell_Temp_Position = ByteConverterToInt16(data, 81 + offset);
+
+            Rack.Rack_Discharge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 82 + offset) * 0.1;
+            Rack.Rack_Charge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 83 + offset) * 0.1;
+
+            Rack.Rack_Switch_Control_Info = ByteConverterToUInt16(data, 84 + offset);
+            Rack.Rack_Switch_Sensor_Info = ByteConverterToUInt16(data, 85 + offset);
+            Rack.Rack_External_Sensor_Info = ByteConverterToUInt16(data, 86 + offset);
+            Rack.Module_Comm_Fault_Position = (ByteConverterToUInt16(data, 86 + offset) >> 8) & 0xFF;
         }
 
         private ushort ByteConverterToUInt16(byte[] data, int offset)
