@@ -41,7 +41,7 @@ namespace KTE_PMS.MIMIC
             
             CSafeSetText(lb1, Repository.Instance.samsung_bcs.System_Voltage.ToString() + " " + "V");
             CSafeSetText(lb3, Repository.Instance.samsung_bcs.System_SOC.ToString() + " " + "%");
-            CSafeSetText(lb5, Repository.Instance.samsung_bcs.Rack_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb5, Repository.Instance.samsung_bcs.Rack1.Rack_Voltage.ToString() + " " + "V");
         }
 
         private void ObserverUpdate_BMS_System()
@@ -50,18 +50,18 @@ namespace KTE_PMS.MIMIC
             // 값 써주기
             CSafeSetText(lb1, Repository.Instance.samsung_bcs.System_Voltage.ToString() + " " + "V");
             CSafeSetText(lb3, Repository.Instance.samsung_bcs.System_SOC.ToString() + " " + "%");
-            CSafeSetText(lb5, Repository.Instance.samsung_bcs.Rack_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb5, Repository.Instance.samsung_bcs.Rack1.Rack_Voltage.ToString() + " " + "V");
 
-            CSafeSetText(lb7, Repository.Instance.samsung_bcs.String1_Rack_Voltage.ToString() + " " + "V");
-            CSafeSetText(lb9, Repository.Instance.samsung_bcs.String2_Rack_Voltage.ToString() + " " + "V");
-            CSafeSetText(lb11, Repository.Instance.samsung_bcs.String1_Cell_Summation_Voltage.ToString() + " " + "V");
-            CSafeSetText(lb13, Repository.Instance.samsung_bcs.String2_Cell_Summation_Voltage.ToString() + " " + "V");
-            CSafeSetText(lb15, Repository.Instance.samsung_bcs.Rack_Current.ToString() + " " + "A");
-            CSafeSetText(lb17, Repository.Instance.samsung_bcs.String1_Rack_Current.ToString() + " " + "A");
-            CSafeSetText(lb19, Repository.Instance.samsung_bcs.String2_Rack_Current.ToString() + " " + "A");
-            CSafeSetText(lb21, Repository.Instance.samsung_bcs.Rack_Current_Average.ToString() + " " + "A");
-            CSafeSetText(lb23, Repository.Instance.samsung_bcs.Rack_SOC.ToString() + " " + "%");
-            CSafeSetText(lb22, Repository.Instance.samsung_bcs.Rack_SOH.ToString() + " " + "%");
+            CSafeSetText(lb7, Repository.Instance.samsung_bcs.Rack1.String1_Rack_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb9, Repository.Instance.samsung_bcs.Rack1.String2_Rack_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb11, Repository.Instance.samsung_bcs.Rack1.String1_Cell_Summation_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb13, Repository.Instance.samsung_bcs.Rack1.String2_Cell_Summation_Voltage.ToString() + " " + "V");
+            CSafeSetText(lb15, Repository.Instance.samsung_bcs.Rack1.Rack_Current.ToString() + " " + "A");
+            CSafeSetText(lb17, Repository.Instance.samsung_bcs.Rack1.String1_Rack_Current.ToString() + " " + "A");
+            CSafeSetText(lb19, Repository.Instance.samsung_bcs.Rack1.String2_Rack_Current.ToString() + " " + "A");
+            CSafeSetText(lb21, Repository.Instance.samsung_bcs.Rack1.Rack_Current_Average.ToString() + " " + "A");
+            CSafeSetText(lb23, Repository.Instance.samsung_bcs.Rack1.Rack_SOC.ToString() + " " + "%");
+            CSafeSetText(lb22, Repository.Instance.samsung_bcs.Rack1.Rack_SOH.ToString() + " " + "%");
 
             CSafeSetText(lb2, Repository.Instance.samsung_bcs.System_Current.ToString() + " " + "A");
             CSafeSetText(lb4, Repository.Instance.samsung_bcs.System_SOH.ToString() + " " + "%");

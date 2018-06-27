@@ -271,7 +271,6 @@ C:\git\KTE_PMS_V3\KTE_PMS\obj\Debug\SingerOnScreenKeyboard.baml
 C:\git\KTE_PMS_V3\KTE_PMS\obj\Debug\SingerOnScreenKeyboard.g.cs
 C:\git\KTE_PMS_V3\KTE_PMS\obj\Debug\KTE_PMS_MarkupCompile.cache
 C:\git\KTE_PMS_V3\KTE_PMS\obj\Debug\KTE_PMS.g.resources
-C:\git\KTE_PMS_V3\KTE_PMS\obj\Debug\KTE_PMS.CLASS.cImageBTN.resources
 C:\git\KTE_PMS_V3\KTE_PMS\obj\Debug\KTE_PMS.KTE_PMS.resources
 C:\git\KTE_PMS_V3\KTE_PMS\obj\Debug\KTE_PMS.MIMIC.AlarmViewer.resources
 C:\git\KTE_PMS_V3\KTE_PMS\obj\Debug\KTE_PMS.MIMIC.BMSViewer.resources

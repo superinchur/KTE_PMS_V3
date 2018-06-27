@@ -43,68 +43,68 @@ namespace KTE_PMS.MIMIC
 
             // BMS : System용 이다
             // 값 써주기
-            CSafeSetText(lb1, Repository.Instance.samsung_bcs.Max1_Cell_Voltage_Value.ToString() + " " + "V");
+            CSafeSetText(lb1, Repository.Instance.samsung_bcs.Rack1.Max1_Cell_Voltage_Value.ToString() + " " + "V");
 
-            Module = Repository.Instance.samsung_bcs.Max1_Cell_Voltage_Position >> 8 & 0xFF;
-            Cell = Repository.Instance.samsung_bcs.Max1_Cell_Voltage_Position & 0xFF;
+            Module = Repository.Instance.samsung_bcs.Rack1.Max1_Cell_Voltage_Position >> 8 & 0xFF;
+            Cell = Repository.Instance.samsung_bcs.Rack1.Max1_Cell_Voltage_Position & 0xFF;
             CSafeSetText(lb2, Module.ToString());
             CSafeSetText(lbb2, Cell.ToString());
-            CSafeSetText(lb3, Repository.Instance.samsung_bcs.Min1_Cell_Voltage_Value.ToString() + " " + "V");
+            CSafeSetText(lb3, Repository.Instance.samsung_bcs.Rack1.Min1_Cell_Voltage_Value.ToString() + " " + "V");
 
-            Module = Repository.Instance.samsung_bcs.Min1_Cell_Voltage_Position >> 8 & 0xFF;
-            Cell = Repository.Instance.samsung_bcs.Min1_Cell_Voltage_Position & 0xFF;
+            Module = Repository.Instance.samsung_bcs.Rack1.Min1_Cell_Voltage_Position >> 8 & 0xFF;
+            Cell = Repository.Instance.samsung_bcs.Rack1.Min1_Cell_Voltage_Position & 0xFF;
             CSafeSetText(lb4, Module.ToString());
             CSafeSetText(lbb4, Cell.ToString());
 
-            CSafeSetText(lb5, Repository.Instance.samsung_bcs.Max1_Cell_Temp_Value.ToString() + " " + "°C");
+            CSafeSetText(lb5, Repository.Instance.samsung_bcs.Rack1.Max1_Cell_Temp_Value.ToString() + " " + "°C");
 
-            Module = Repository.Instance.samsung_bcs.Max1_Cell_Temp_Position >> 8 & 0xFF;
-            Cell = Repository.Instance.samsung_bcs.Max1_Cell_Temp_Position & 0xFF;
+            Module = Repository.Instance.samsung_bcs.Rack1.Max1_Cell_Temp_Position >> 8 & 0xFF;
+            Cell = Repository.Instance.samsung_bcs.Rack1.Max1_Cell_Temp_Position & 0xFF;
             CSafeSetText(lb6, Module.ToString());
             CSafeSetText(lbb6, Cell.ToString());
 
-            CSafeSetText(lb7, Repository.Instance.samsung_bcs.Min1_Cell_Temp_Value.ToString() + " " + "°C");
+            CSafeSetText(lb7, Repository.Instance.samsung_bcs.Rack1.Min1_Cell_Temp_Value.ToString() + " " + "°C");
 
-            Module = Repository.Instance.samsung_bcs.Min1_Cell_Temp_Position >> 8 & 0xFF;
-            Cell = Repository.Instance.samsung_bcs.Min1_Cell_Temp_Position & 0xFF;
+            Module = Repository.Instance.samsung_bcs.Rack1.Min1_Cell_Temp_Position >> 8 & 0xFF;
+            Cell = Repository.Instance.samsung_bcs.Rack1.Min1_Cell_Temp_Position & 0xFF;
             CSafeSetText(lb8, Module.ToString());
             CSafeSetText(lbb8, Cell.ToString());
 
-            CSafeSetText(lb9, Repository.Instance.samsung_bcs.Average_Cell_Voltage_Value.ToString() + " " + "V");
-            CSafeSetText(lb10, Repository.Instance.samsung_bcs.Discharge_Current_Limit_of_Rack.ToString() + " " + "A");
-            CSafeSetText(lb11, Repository.Instance.samsung_bcs.Charge_Current_Limit_of_Rack.ToString() + " " + "A");
+            CSafeSetText(lb9, Repository.Instance.samsung_bcs.Rack1.Average_Cell_Voltage_Value.ToString() + " " + "V");
+            CSafeSetText(lb10, Repository.Instance.samsung_bcs.Rack1.Rack_Discharge_Current_Limit_of_Rack.ToString() + " " + "A");
+            CSafeSetText(lb11, Repository.Instance.samsung_bcs.Rack1.Rack_Charge_Current_Limit_of_Rack.ToString() + " " + "A");
 
-            CSafeSetText(lb12, Repository.Instance.samsung_bcs.Module_Comm_Fault_Position.ToString());
+            CSafeSetText(lb12, Repository.Instance.samsung_bcs.Rack1.Module_Comm_Fault_Position.ToString());
 
-            CSafeSetText(lb13, Repository.Instance.samsung_bcs.Max2_Cell_Voltage_Value.ToString() + " " + "V");
+            CSafeSetText(lb13, Repository.Instance.samsung_bcs.Rack1.Max2_Cell_Voltage_Value.ToString() + " " + "V");
 
-            Module = Repository.Instance.samsung_bcs.Max2_Cell_Voltage_Position >> 8 & 0xFF;
-            Cell = Repository.Instance.samsung_bcs.Max2_Cell_Voltage_Position & 0xFF;
+            Module = Repository.Instance.samsung_bcs.Rack1.Max2_Cell_Voltage_Position >> 8 & 0xFF;
+            Cell = Repository.Instance.samsung_bcs.Rack1.Max2_Cell_Voltage_Position & 0xFF;
             CSafeSetText(lb14, Module.ToString());
             CSafeSetText(lbb14, Cell.ToString());
 
-            CSafeSetText(lb15, Repository.Instance.samsung_bcs.Min2_Cell_Voltage_Value.ToString() + " " + "V");
-            Module = Repository.Instance.samsung_bcs.Min2_Cell_Voltage_Position >> 8 & 0xFF;
-            Cell = Repository.Instance.samsung_bcs.Min2_Cell_Voltage_Position & 0xFF;
+            CSafeSetText(lb15, Repository.Instance.samsung_bcs.Rack1.Min2_Cell_Voltage_Value.ToString() + " " + "V");
+            Module = Repository.Instance.samsung_bcs.Rack1.Min2_Cell_Voltage_Position >> 8 & 0xFF;
+            Cell = Repository.Instance.samsung_bcs.Rack1.Min2_Cell_Voltage_Position & 0xFF;
             CSafeSetText(lb16, Module.ToString());
             CSafeSetText(lbb16, Cell.ToString());
 
-            CSafeSetText(lb17, Repository.Instance.samsung_bcs.Max2_Cell_Temp_Value.ToString() + " " + "°C");
-            Module = Repository.Instance.samsung_bcs.Max2_Cell_Temp_Position >> 8 & 0xFF;
-            Cell = Repository.Instance.samsung_bcs.Max2_Cell_Temp_Position & 0xFF;
+            CSafeSetText(lb17, Repository.Instance.samsung_bcs.Rack1.Max2_Cell_Temp_Value.ToString() + " " + "°C");
+            Module = Repository.Instance.samsung_bcs.Rack1.Max2_Cell_Temp_Position >> 8 & 0xFF;
+            Cell = Repository.Instance.samsung_bcs.Rack1.Max2_Cell_Temp_Position & 0xFF;
             CSafeSetText(lb18, Module.ToString());
             CSafeSetText(lbb18, Cell.ToString());
 
-            CSafeSetText(lb19, Repository.Instance.samsung_bcs.Min2_Cell_Temp_Value.ToString() + " " + "°C");
-            Module = Repository.Instance.samsung_bcs.Min2_Cell_Temp_Position >> 8 & 0xFF;
-            Cell = Repository.Instance.samsung_bcs.Min2_Cell_Temp_Position & 0xFF;
+            CSafeSetText(lb19, Repository.Instance.samsung_bcs.Rack1.Min2_Cell_Temp_Value.ToString() + " " + "°C");
+            Module = Repository.Instance.samsung_bcs.Rack1.Min2_Cell_Temp_Position >> 8 & 0xFF;
+            Cell = Repository.Instance.samsung_bcs.Rack1.Min2_Cell_Temp_Position & 0xFF;
             CSafeSetText(lb20, Module.ToString());
             CSafeSetText(lbb20, Cell.ToString());
 
-            CSafeSetText(lb21, Repository.Instance.samsung_bcs.Average_Cell_Temp_Value.ToString() + " " + "°C");
-            CSafeSetText(lb22, Repository.Instance.samsung_bcs.Rack_Switch_Control_Info.ToString());
-            CSafeSetText(lb23, Repository.Instance.samsung_bcs.Rack_Switch_Sensor_Info.ToString());
-            CSafeSetText(lb24, Repository.Instance.samsung_bcs.Rack_External_Sensor_Info.ToString());
+            CSafeSetText(lb21, Repository.Instance.samsung_bcs.Rack1.Average_Cell_Temp_Value.ToString() + " " + "°C");
+            CSafeSetText(lb22, Repository.Instance.samsung_bcs.Rack1.Rack_Switch_Control_Info.ToString());
+            CSafeSetText(lb23, Repository.Instance.samsung_bcs.Rack1.Rack_Switch_Sensor_Info.ToString());
+            CSafeSetText(lb24, Repository.Instance.samsung_bcs.Rack1.Rack_External_Sensor_Info.ToString());
 
         }
 

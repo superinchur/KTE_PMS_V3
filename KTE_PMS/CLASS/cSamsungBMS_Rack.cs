@@ -6,47 +6,47 @@ using System.Threading.Tasks;
 
 namespace KTE_PMS
 {
-    class C_Samsung_BMS_Data
+    public class Samsung_BMS_Rack
     {
-        /*
-        float Rack_Voltage;
-        float String1_Rack_Voltage;
-        float String2_Rack_Voltage;
-        float String1_Cell_Summation_Voltage;
-        float String2_Cell_Summation_Voltage;
-        float Rack_Current_Real;
-        float String1_Rack_Current;
-        float String2_Rack_Current;
-        float Rack_Current_Average;
-        ushort Rack_Mode;
-        float Rack_SOC;
-        float Rack_SOH;
-        ushort Major_Protection2_Summary;
-        ushort Major_Protection1_Summary;
-        ushort Minor_Protection2_Summary;
-        ushort Minor_Protection1_Summary;
-        ushort Alarm2_Summary;
-        ushort Alarm1_Summary;
-        ushort Maximum1_Cell_Voltage_Value;
-        ushort Maximum1_Cell_Voltage_Position;
-        ushort Maximum2_Cell_Voltage_Value;
-        ushort Maximum2_Cell_Voltage_Position;
-        ushort Average_Cell_Voltage_Value;
-        float Minimum2_Cell_Voltage_Value;
-        float Minimum2_Cell_Voltage_Position;
-        float Minimum1_Cell_Voltage_Value;
-        float Minimum1_Cell_Voltage_Position;
-        short Maximum1_Cell_Temperature_Value;
-        short Maximum1_Cell_Temperature_Position;
-        short Maximum2_Cell_Temperature_Value;
-        short Maximum2_Cell_Temperature_Position;
-        short Minimum1_Cell_Temperature_Value;
-        short Minimum1_Cell_Temperature_Position;
-        ushort Discharge_Current_limit_of_Rack;
-        ushort Charge_Current_Limit_of_Rack;
-        ushort Rack_Switch_Control_Info;
-        ushort Rack_Switch_Sensor_Info;
-        ushort Rack_External_Sensor_Info;
-        */
+
+        public double Rack_Voltage { get; set; }
+        public double String1_Rack_Voltage { get; set; }
+        public double String2_Rack_Voltage { get; set; }
+        public double String1_Cell_Summation_Voltage { get; set; }
+        public double String2_Cell_Summation_Voltage { get; set; }
+        public double Rack_Current { get; set; }
+        public double String1_Rack_Current { get; set; }
+        public double String2_Rack_Current { get; set; }
+        public double Rack_Current_Average { get; set; }
+        public ushort Rack_Mode { get; set; }
+        public double Rack_SOC { get; set; }
+        public double Rack_SOH { get; set; }
+
+
+        public double Max1_Cell_Voltage_Value { get; set; }
+        public int Max1_Cell_Voltage_Position { get; set; }
+        public double Min1_Cell_Voltage_Value { get; set; }
+        public int Min1_Cell_Voltage_Position { get; set; }
+        public double Max2_Cell_Voltage_Value { get; set; }
+        public int Max2_Cell_Voltage_Position { get; set; }
+        public double Min2_Cell_Voltage_Value { get; set; }
+        public int Min2_Cell_Voltage_Position { get; set; }
+        public double Max1_Cell_Temp_Value { get; set; }
+        public int Max1_Cell_Temp_Position { get; set; }
+        public double Min1_Cell_Temp_Value { get; set; }
+        public int Min1_Cell_Temp_Position { get; set; }
+        public double Max2_Cell_Temp_Value { get; set; }
+        public int Max2_Cell_Temp_Position { get; set; }
+        public double Min2_Cell_Temp_Value { get; set; }
+        public int Min2_Cell_Temp_Position { get; set; }
+        public double Average_Cell_Voltage_Value { get; set; }
+        public double Average_Cell_Temp_Value { get; set; }
+        public double Rack_Discharge_Current_Limit_of_Rack { get; set; }
+        public double Rack_Charge_Current_Limit_of_Rack { get; set; }
+
+        public double Rack_Switch_Control_Info { get; set; }
+        public double Rack_Switch_Sensor_Info { get; set; }
+        public double Rack_External_Sensor_Info { get; set; }
+        public double Module_Comm_Fault_Position { get; set; }
     }
 }

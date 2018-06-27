@@ -117,14 +117,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLASS\cImageBTN.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CLASS\cImageBTN.Designer.cs">
-      <DependentUpon>cImageBTN.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CLASS\cSamsungBMS_Control.cs" />
-    <Compile Include="CLASS\cSamsungBMS_System.cs" />
     <Compile Include="CLASS\cSamsungBMS_Rack.cs" />
     <Compile Include="CLASS\ImageResize.cs" />
     <Compile Include="DBConnector.cs" />
@@ -273,9 +265,6 @@
     <Compile Include="TrendViewer.Designer.cs">
       <DependentUpon>TrendViewer.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CLASS\cImageBTN.resx">
-      <DependentUpon>cImageBTN.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MAIN.resx">
       <DependentUpon>MAIN.cs</DependentUpon>
     </EmbeddedResource>
