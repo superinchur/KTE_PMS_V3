@@ -273,3 +273,4 @@ __pycache__/
 *.resources
 *.exe
 *.pdb
+*.dll
