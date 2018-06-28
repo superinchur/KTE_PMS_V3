@@ -22,7 +22,8 @@ namespace KTE_PMS
         public int Mode_Discharging { get; set; }
         public int Mode_Reset { get; set; }
 
-
+        public bool PCS_ACK { get; set; }
+        public bool Authority_PMS { get; set; }
 
         public int GRID_R_Voltage { get; set; }
         public int GRID_S_Voltage { get; set; }

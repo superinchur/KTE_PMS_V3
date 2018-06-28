@@ -300,6 +300,7 @@
             this.btn_PCS_STOP.Size = new System.Drawing.Size(85, 72);
             this.btn_PCS_STOP.TabIndex = 19;
             this.btn_PCS_STOP.UseVisualStyleBackColor = true;
+            this.btn_PCS_STOP.Click += new System.EventHandler(this.btn_PCS_STOP_Click);
             // 
             // btn_Monitor_OFF
             // 

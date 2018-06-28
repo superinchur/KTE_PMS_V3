@@ -36,7 +36,6 @@ namespace KTE_PMS.MIMIC
             if (Repository.Instance.samsung_bcs.Mode_Charging == 1)
             {
                 lb_System_Status.Text = "CHARGING";
-                
             }
             else if (Repository.Instance.samsung_bcs.Mode_Discharging == 1)
             {
@@ -78,6 +77,7 @@ namespace KTE_PMS.MIMIC
             {
                 lb_Common_Alarm_Status.Text = "NORMAL";
             }
+
 
             if (Repository.Instance.GnEPS_PCS.Mode_Standby == 1)
             {
@@ -162,7 +162,38 @@ namespace KTE_PMS.MIMIC
             }
 
             // 버튼 색상 정하기.
+            // Local Remote 상태를 보고 결정하기
+            if (Repository.Instance.GnEPS_PCS.Authority_PMS)
+            {
+                btn_Control_uPMS.Image = null;
+                btn_Control_LPMS.Image = ImageResize.ResizeImage(Properties.Resources.RUN_003, btn_Control_LPMS.Width, btn_Control_LPMS.Height);
 
+                btn_Charging.Enabled = true;
+                btn_Discharging.Enabled = true;
+                btn_Grid_ON.Enabled = true;
+                btn_Grid_OFF.Enabled = true;
+                btn_IDLE.Enabled = true;
+                btn_Manual_Mode.Enabled = true;
+                btn_Scheduling_Mode.Enabled = true;
+                tb_Power_Set.Enabled = true;
+
+
+            }
+            else
+            {
+                btn_Control_uPMS.Image = ImageResize.ResizeImage(Properties.Resources.RUN_003, btn_Control_uPMS.Width, btn_Control_uPMS.Height);
+                btn_Control_LPMS.Image = null;
+
+                btn_Charging.Enabled = false;
+                btn_Discharging.Enabled = false;
+                btn_Grid_ON.Enabled = false;
+                btn_Grid_OFF.Enabled = false;
+                btn_IDLE.Enabled = false;
+                btn_Manual_Mode.Enabled = false;
+                btn_Scheduling_Mode.Enabled = false;
+                tb_Power_Set.Enabled = false;
+
+            }
             
             index++;
             if (index == 5)
@@ -310,13 +341,17 @@ namespace KTE_PMS.MIMIC
         {
             try
             {
-                double a = Convert.ToSingle(tb_Power_Set.Text);
-                if (a > 50)
+                if (MessageBox.Show("해당 설정을 적용하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    a = 50;
-                    MessageBox.Show("Power를 50kW 이상 설정할 수 없습니다");
+
+                    double a = Convert.ToSingle(tb_Power_Set.Text);
+                    if (a > 50)
+                    {
+                        a = 50;
+                        MessageBox.Show("Power를 50kW 이상 설정할 수 없습니다");
+                    }
+                    Repository.Instance.remote_power = Convert.ToUInt16(a * 10);
                 }
-                Repository.Instance.remote_power = Convert.ToUInt16(a * 10);
             }
             catch (Exception ex)
             {
@@ -340,5 +375,17 @@ namespace KTE_PMS.MIMIC
         {
             
         }
+
+        private void btn_Control_LPMS_Click(object sender, EventArgs e)
+        {
+            Repository.Instance.GnEPS_PCS.Authority_PMS = true;
+        }
+
+        private void btn_Control_uPMS_Click(object sender, EventArgs e)
+        {
+            Repository.Instance.GnEPS_PCS.Authority_PMS = false;
+        }
+
+
     }
 }

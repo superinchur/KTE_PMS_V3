@@ -2,7 +2,6 @@
 using ModbusTCP;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 
 namespace KTE_PMS.MIMIC
@@ -66,7 +65,7 @@ namespace KTE_PMS.MIMIC
             timer.Enabled = true;
             timer.Start();
 
-       }
+        }
 
         private void timer_Tick(object sender, EventArgs e)
         {
@@ -82,7 +81,7 @@ namespace KTE_PMS.MIMIC
                 if (Repository.Instance.current_pcs_mode == 2)
                 {
                     //Manual Mode
-                
+
                 }
                 else if (Repository.Instance.current_pcs_mode == 3)
                 {
@@ -119,14 +118,14 @@ namespace KTE_PMS.MIMIC
                         // nothing to do
                         // 만약 충전신호나 방전신호가 가고있다면 0으로 바꿔준다.
 
-                        if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.Charging_Start_SOC)
+                        if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.Charging_Limit_Voltage)
                         {
                             if (!(Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
                             {
                                 Repository.Instance.pmdviewer.Control_Charge();
                             }
                         }
-                        else if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.Discharging_Start_SOC)
+                        else if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.Discharging_Limit_Voltage)
                         {
                             if (!(Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
                             {
@@ -147,24 +146,24 @@ namespace KTE_PMS.MIMIC
             }
             /* 변경이 있을때만 보내도록 하자  */
 
-            if (flag_WriteHeartBitBuffers_isChanged )
+            if (flag_WriteHeartBitBuffers_isChanged)
             {
                 WriteHeartBit();
                 flag_WriteHeartBitBuffers_isChanged = false;
             }
 
-            if (flag_WriteSOCBuffers_isChanged )
-            { 
+            if (flag_WriteSOCBuffers_isChanged)
+            {
                 WriteSOC();
                 flag_WriteSOCBuffers_isChanged = false;
             }
-            if (flag_WriteVoltageBuffers_isChanged )
-            { 
+            if (flag_WriteVoltageBuffers_isChanged)
+            {
                 WriteVoltage();
                 flag_WriteVoltageBuffers_isChanged = false;
             }
-            if (flag_WriteCurrentBuffers_isChanged )
-            { 
+            if (flag_WriteCurrentBuffers_isChanged)
+            {
                 WriteCurrent();
                 flag_WriteCurrentBuffers_isChanged = false;
             }
@@ -172,25 +171,25 @@ namespace KTE_PMS.MIMIC
         }
 
         private void Connect_to_PMD()
-    {
-        try
         {
-            // Create new modbus master and add event functions
-            string ip_address = "17.91.30.10";
-            ushort port_number = 502;
-            master = new Master(ip_address, port_number);
+            try
+            {
+                // Create new modbus master and add event functions
+                string ip_address = "17.91.30.10";
+                ushort port_number = 502;
+                master = new Master(ip_address, port_number);
 
-            // Setting response data and exception
-            master.OnResponseData += new Master.ResponseData(MBmaster_OnResponseData);
-            master.OnException += new Master.ExceptionData(MBmaster_OnException);
-            
+                // Setting response data and exception
+                master.OnResponseData += new Master.ResponseData(MBmaster_OnResponseData);
+                master.OnException += new Master.ExceptionData(MBmaster_OnException);
+
+            }
+            catch (SystemException error)
+            {
+                //MessageBox.Show(error.Message + "다시 접속해 주세요");
+                System.Diagnostics.Debug.WriteLine(error.Message + "다시 접속해 주세요");
+            }
         }
-        catch (SystemException error)
-        {
-            //MessageBox.Show(error.Message + "다시 접속해 주세요");
-            System.Diagnostics.Debug.WriteLine(error.Message + "다시 접속해 주세요");
-        }
-    }
 
         public void ReadFromPCS()
         {
@@ -203,200 +202,221 @@ namespace KTE_PMS.MIMIC
 
         }
 
-     public void WriteHeartBit()
-    {
-        byte unit = Convert.ToByte(1);
-        ushort StartAddress = ReadStartAdr(5);
-
-        master.WriteSingleRegister(8, unit, StartAddress, WriteHeartBitBuffers);
-
-    }
-    public void WriteVoltage()
-    {
-        byte unit = Convert.ToByte(1);
-        ushort StartAddress = ReadStartAdr(3);
-
-        master.WriteSingleRegister(8, unit, StartAddress, WriteVoltageBuffers);
-
-    }
-    public void WriteCurrent()
-    {
-        byte unit = Convert.ToByte(1);
-        ushort StartAddress = ReadStartAdr(4);
-
-        master.WriteSingleRegister(8, unit, StartAddress, WriteCurrentBuffers);
-
-    }
-    public void WriteSOC()
-    {
-        byte unit = Convert.ToByte(1);
-        ushort StartAddress = ReadStartAdr(2);
-
-        master.WriteSingleRegister(8, unit, StartAddress, WriteSOCBuffers);
-
-    }
-    public void Control_INV_Control_MODE(int value)
-    {
-        byte unit = Convert.ToByte(1);
-        ushort StartAddress = ReadStartAdr(0);
-
-        byte[] buffer = new byte[2];
-        buffer[0] = Convert.ToByte(value / 256);
-        buffer[1] = Convert.ToByte(value % 256);
-
-        try
+        public void WriteHeartBit()
         {
-            master.WriteSingleRegister(8, unit, StartAddress, buffer);
+            byte unit = Convert.ToByte(1);
+            ushort StartAddress = ReadStartAdr(5);
+
+            master.WriteSingleRegister(8, unit, StartAddress, WriteHeartBitBuffers);
+
         }
-        catch (Exception exc)
+        public void WriteVoltage()
         {
-            Console.WriteLine(exc.Message);
+            byte unit = Convert.ToByte(1);
+            ushort StartAddress = ReadStartAdr(3);
+
+            master.WriteSingleRegister(8, unit, StartAddress, WriteVoltageBuffers);
+
         }
-
-}
-public void Control_Power_Active_Set()
-    {
-
-        byte unit = Convert.ToByte(1);
-        ushort StartAddress = ReadStartAdr(1);
-
-        //ushort power = Convert.ToUInt16(Regex.Replace("10", @"\D", ""));
-        ushort power = Repository.Instance.remote_power;
-        if (power > 500)
+        public void WriteCurrent()
         {
-            power = 500;
+            byte unit = Convert.ToByte(1);
+            ushort StartAddress = ReadStartAdr(4);
+
+            master.WriteSingleRegister(8, unit, StartAddress, WriteCurrentBuffers);
+
         }
-
-        byte[] buffer = new byte[2];
-        buffer[0] = Convert.ToByte(power / 256);
-        buffer[1] = Convert.ToByte(power % 256);
-
-        try
+        public void WriteSOC()
         {
-            master.WriteSingleRegister(8, unit, StartAddress, buffer);
+            byte unit = Convert.ToByte(1);
+            ushort StartAddress = ReadStartAdr(2);
+
+            master.WriteSingleRegister(8, unit, StartAddress, WriteSOCBuffers);
+
         }
-        catch (Exception exc)
+        public void Control_INV_Control_MODE(int value)
         {
-            Console.WriteLine(exc.Message);
+            byte unit = Convert.ToByte(1);
+            ushort StartAddress = ReadStartAdr(0);
+
+            byte[] buffer = new byte[2];
+
+
+            // 20180628 
+            //Reset 신호와 Remote Local 신호를 구분하기 위해서 
+            // Value에 제어 값과 And를 해서 보내도록 한다
+            int final_control = new int();
+
+            if (Repository.Instance.GnEPS_PCS.PCS_ACK)
+            {
+                final_control = value + 256;
+            }
+            if (Repository.Instance.GnEPS_PCS.Authority_PMS)
+            {
+                // Authority_PMS가 1인 경우에는 LEMS에서 제어를 하고
+                // Authority_PMS가 0인 경우에는 u_PMS에서 제어를 한다.
+                final_control = value + 512;
+            }
+            buffer[0] = Convert.ToByte(final_control / 256);
+            buffer[1] = Convert.ToByte(final_control % 256);
+
+            try
+            {
+                // ID = 8, Unit = 1, StartAddress = 0
+                master.WriteSingleRegister(8, unit, StartAddress, buffer);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
-        
-    }
-
-    public void Control_Charge()
-    {
-        Control_Power_Active_Set();
-        Control_INV_Control_MODE(69);
-    }
-    public void Control_Discharge()
-    {
-        Control_Power_Active_Set();
-        Control_INV_Control_MODE(133);
-    }
-    public void Control_Idle()
-    {
-        Control_Power_Active_Set();
-        Control_INV_Control_MODE(1);
-    }
-
-
-    // ------------------------------------------------------------------------
-    // Event for response data
-    // ------------------------------------------------------------------------
-    private void MBmaster_OnResponseData(ushort ID, byte unit, byte function, byte[] values)
-    {
-
-        // ------------------------------------------------------------------
-
-        // Seperate calling threads
-        if (this.InvokeRequired)
+        public void Control_Power_Active_Set()
         {
-            this.BeginInvoke(new Master.ResponseData(MBmaster_OnResponseData), new object[] { ID, unit, function, values });
-            return;
+
+            byte unit = Convert.ToByte(1);
+            ushort StartAddress = ReadStartAdr(1);
+
+
+            ushort power = Repository.Instance.remote_power;
+            if (power > 500)
+            {
+                power = 500;
+            }
+
+            byte[] buffer = new byte[2];
+            buffer[0] = Convert.ToByte(power / 256);
+            buffer[1] = Convert.ToByte(power % 256);
+
+            try
+            {
+                master.WriteSingleRegister(8, unit, StartAddress, buffer);
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+            }
+
         }
+
+        // 180628 Reset과 Control 신호의 Add를 위해서 Control_INV_Control_Mode를 변경해야할 필요성이 있음
+
+        public void Control_Charge()
+        {
+
+            Control_Power_Active_Set();
+            Control_INV_Control_MODE(69);
+        }
+        public void Control_Discharge()
+        {
+            Control_Power_Active_Set();
+            Control_INV_Control_MODE(133);
+        }
+        public void Control_Idle()
+        {
+            Control_Power_Active_Set();
+            Control_INV_Control_MODE(1);
+        }
+
+
+        // ------------------------------------------------------------------------
+        // Event for response data
+        // ------------------------------------------------------------------------
+        private void MBmaster_OnResponseData(ushort ID, byte unit, byte function, byte[] values)
+        {
+
+            // ------------------------------------------------------------------
+
+            // Seperate calling threads
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new Master.ResponseData(MBmaster_OnResponseData), new object[] { ID, unit, function, values });
+                return;
+            }
 
             // PCS Timeout을 체크하기 위해서 필요한 항목
 
             tLastRecv = DateTime.Now;
 
-        // ------------------------------------------------------------------------
-        // Identify requested data
+            // ------------------------------------------------------------------------
+            // Identify requested data
             switch (ID)
-        {
-            case 1:
-                // ---------------------------------------------------------
-                // 40000 ~ 40049
-                // ---------------------------------------------------------
-                //BSC1 = values;
+            {
+                case 1:
+                    // ---------------------------------------------------------
+                    // 40000 ~ 40049
+                    // ---------------------------------------------------------
+                    //BSC1 = values;
 
-                break;
-            case 2:
-                //grpData.Text = "Read discrete inputs";
-                //data = values;
+                    break;
+                case 2:
+                    //grpData.Text = "Read discrete inputs";
+                    //data = values;
 
-                //값을 받아와야함
+                    //값을 받아와야함
 
 
-                break;
-            case 3:
-                //grpData.Text = "Read holding register";
-                data = values;
+                    break;
+                case 3:
+                    //grpData.Text = "Read holding register";
+                    data = values;
 
-                break;
-            case 4:
-                //grpData.Text = "Read input register";
-                data = values;
-                Repository.Instance.Get_PCS(data);
-                Notify();
-                break;
+                    break;
+                case 4:
+                    //grpData.Text = "Read input register";
+                    data = values;
+                    Repository.Instance.Get_PCS(data);
+                    Notify();
+                    break;
+
+            }
 
         }
 
-    }
-
-    // ------------------------------------------------------------------------
-    // Modbus TCP slave exception
-    // ------------------------------------------------------------------------
-    private void MBmaster_OnException(ushort id, byte unit, byte function, byte exception)
-    {
-        string exc = "Modbus says error: ";
-        switch (exception)
+        // ------------------------------------------------------------------------
+        // Modbus TCP slave exception
+        // ------------------------------------------------------------------------
+        private void MBmaster_OnException(ushort id, byte unit, byte function, byte exception)
         {
-            case Master.excIllegalFunction: exc += "Illegal function!"; break;
-            case Master.excIllegalDataAdr: exc += "Illegal data adress!"; break;
-            case Master.excIllegalDataVal: exc += "Illegal data value!"; break;
-            case Master.excSlaveDeviceFailure: exc += "Slave device failure!"; break;
-            case Master.excAck: exc += "Acknoledge!"; break;
-            case Master.excGatePathUnavailable: exc += "Gateway path unavailbale!"; break;
-            case Master.excExceptionTimeout: exc += "Slave timed out!"; break;
-            case Master.excExceptionConnectionLost: exc += "Connection is lost!"; break;
-            case Master.excExceptionNotConnected: exc += "Not connected!"; break;
+            string exc = "Modbus says error: ";
+            switch (exception)
+            {
+                case Master.excIllegalFunction: exc += "Illegal function!"; break;
+                case Master.excIllegalDataAdr: exc += "Illegal data adress!"; break;
+                case Master.excIllegalDataVal: exc += "Illegal data value!"; break;
+                case Master.excSlaveDeviceFailure: exc += "Slave device failure!"; break;
+                case Master.excAck: exc += "Acknoledge!"; break;
+                case Master.excGatePathUnavailable: exc += "Gateway path unavailbale!"; break;
+                case Master.excExceptionTimeout: exc += "Slave timed out!"; break;
+                case Master.excExceptionConnectionLost: exc += "Connection is lost!"; break;
+                case Master.excExceptionNotConnected: exc += "Not connected!"; break;
+            }
+
+            //MessageBox.Show(exc, "Modbus slave exception");
+            System.Diagnostics.Debug.WriteLine(exc);
         }
 
-        //MessageBox.Show(exc, "Modbus slave exception");
-        System.Diagnostics.Debug.WriteLine(exc);
-    }
-
-    private ushort ReadStartAdr(UInt16 StartAddress)
-    {
-        return StartAddress;
-    }
-
-    public List<IUpdate> observers = new List<IUpdate>();
-    public void AddObserver(IUpdate observer)
-    {
-        observers.Add(observer);
-    }
-    public void RemoveObserver(IUpdate observer)
-    {
-        observers.Remove(observer);
-    }
-    public void Notify()
-    {
-        foreach (IUpdate observer in observers)
+        private ushort ReadStartAdr(UInt16 StartAddress)
         {
-            observer.ObserverUpdate();
+            return StartAddress;
         }
-    }
+
+        public List<IUpdate> observers = new List<IUpdate>();
+        public void AddObserver(IUpdate observer)
+        {
+            observers.Add(observer);
+        }
+        public void RemoveObserver(IUpdate observer)
+        {
+            observers.Remove(observer);
+        }
+        public void Notify()
+        {
+            foreach (IUpdate observer in observers)
+            {
+                observer.ObserverUpdate();
+            }
+        }
 
         public int Connected()
         {
@@ -419,6 +439,6 @@ public void Control_Power_Active_Set()
                 return 0;
             }
         }
-}
+    }
 
 }
