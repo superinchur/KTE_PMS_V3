@@ -220,16 +220,14 @@ namespace KTE_PMS
 
                 string key;
 
+
                 if (nStatus == 0)
                 {
                     // 해제
                     FAULT_STATUS[nFileNo, nBit, 0] = nStatus.ToString();
                     FAULT_STATUS[nFileNo, nBit, 1] = string.Empty;
-                    string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), string.Format("{0} [0x{1:X2}] ", nFileNo, nBit), DeviceName, szFaultText, "NORMAL");
-                    qRecvFault.Enqueue(szFault);
 
                     // Ack Bit 여부를 확인하고, Ack면 해제, Ack가 아니라면 UnAcked Normal을 띄워줘야함.
-
                     key = nFileNo + "_" + nBit;
                     
                     // 값을 받아온다.
@@ -257,11 +255,16 @@ namespace KTE_PMS
                 }
                 else
                 {
-                    // 발생
+                    // 180628
+                    // ACK시 PCS로 Fault Reset을 하기 위한 Alarm
+                    // ALARM이 새로 발생하면 PCS_ACK는 다시 False로 한다.
+                    Repository.Instance.GnEPS_PCS.PCS_ACK = false;
+                    /////////////////////////////////////////////////////
+
+                    //
                     FAULT_STATUS[nFileNo, nBit, 0] = nStatus.ToString();
                     FAULT_STATUS[nFileNo, nBit, 1] = tCurrent.ToString("yyyy-MM-dd HH:mm:ss");
                     string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), string.Format("{0} [0x{1:X2}] ", nFileNo, nBit), DeviceName, szFaultText, "UNACK");
-                    qRecvFault.Enqueue(szFault);
                     Repository.Instance.dbConnector.Insert_Alarm_to_Database(szFault);
 
                     htCurrentFault[szFaultCode] = szFault;
@@ -277,6 +280,7 @@ namespace KTE_PMS
         public void ALARM_ACK()
         {
             string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
             foreach (var key in Repository.Instance.TagManager.htCurrentFault.Keys.ToList())
             {
                 // 값을 받아온다.
@@ -302,22 +306,17 @@ namespace KTE_PMS
                     Repository.Instance.dbConnector.Insert_Alarm_to_Database(szFault);
                 }
             }
-        }
-        private void 경보전시()
-        {
-            if (qRecvFault.Count > 0)
+
+            
+            // ALARM Ack 시 PCS_ACK를 한다.
+            // 해당 ACK는 Reset 모든 Alarm이 Clear 될 경우 해제된다.
+            if (Repository.Instance.TagManager.htCurrentFault.Count == 0)
             {
-                while (qRecvFault.Count > 0)
-                {
-                    string szFaultData = qRecvFault.Dequeue();
-                    string[] szFault = szFaultData.Split('|');
-
-                    //qRecvFault.
-
-                }
+                Repository.Instance.GnEPS_PCS.PCS_ACK = true;
             }
+            
+            
         }
-
         private void Read_AlarmData(ref cTag[] tt)
         {
             #region FILE의 입력을 받아서 ALARM 처리 하는 방법 

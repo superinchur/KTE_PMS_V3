@@ -8,6 +8,7 @@ namespace KTE_PMS
 {
     public sealed class Repository : SingleTonBase<Repository>
     {
+        #region Variable Initialize
         //----------------------------------
         // Modbus TCP Controller - Master
         //----------------------------------
@@ -50,8 +51,8 @@ namespace KTE_PMS
 
         public float Charging_Stop_SOC { get; set; }
         public float Discharging_Stop_SOC { get; set; }
-        public float Discharging_Start_SOC { get; set; }
-        public float Charging_Start_SOC { get; set; }
+        public float Discharging_Limit_Voltage { get; set; }
+        public float Charging_Limit_Voltage { get; set; }
 
         public bool flag_Charging_Time { get; set; }
         public bool flag_DisCharging_Time { get; set; }
@@ -71,21 +72,78 @@ namespace KTE_PMS
         public string password;
         public string first_password;
 
+        
+        #endregion 
 
         // ---------------------------------------------------------
         // 생성자
         // ---------------------------------------------------------
         private Repository() //단일체로 구현하기 위해 private으로 접근 지정
         {
-            GnEPS_PCS = new sPCS();
-            pmd = new sPMD();
+            // 20180628
+            // 해당 SW에서 사용하는 항목은 GnEPS PCS, pCS 그리고 삼성 BCS가 있다.
+            // 각각의 장비에서 받아온 데이터값들을 저장 할 Structure 선언하는 항목들.
+            GnEPS_PCS = new sPCS();         // GnEPS_PCS
+            pmd = new sPMD();               // GnEPS_PCS
+            samsung_bcs = new sSamsungBCS(); // Samsung BCS
 
-            samsung_bcs = new sSamsungBCS();
-
+            // 20180628 
+            // BMSViewer 할당
+            // BMS Viewer는 BMS 통신과 관련된 모든 행위를 하는 Class이다.
+            // 선언하는 순간, BMS와 통신을 하고 Structure samsung_bcs에 데이터를 집어 넣는다.
             bmsviewer = new MIMIC.BMSViewer();
+
+            // 20180628 
+            // PMDViewer 할당
+            // PMD Viewer는 PCS 통신과 관련된 모든 행위를 하는 Class이다.
+            // 선언하는 순간, PCS와 통신을 하고 Structure GnEPS_PCS에 데이터를 집어 넣는다.
             pmdviewer = new MIMIC.PMDViewer();
 
-            //modbus_rtuviewer = new Modbus_Setup();
+            // 20180628
+            // Mimic Panel들을 Initialize 하는 항목
+            Initialize_Mimic();
+
+            // 20180628 
+            // 현재 시작 시 Password의 값은 0000이다. 변경된 DB값을 유지하기 위해서는 
+            // File이나 DB에 password를 저장하고, 이를 읽어오도록 한다.
+            password = "0000";
+
+            // 20180628 Observer 할당
+            // BMS값을 받아올 경우 갱신이 되어야 할 항목들,과
+            // PMS 값을 받아올 경우 갱신이 되어야 할 항목들을 OBserver에 넣는다.
+            Allocate_Observer_to_Mimic();
+
+            // 20180628 Semaphore 할당
+            // 현재 Semaphore를 사용할지, 사용하지 않을지에 대해서 고민중임
+            // TODO : Semaphore 처리
+            Initialize_Semaphore();
+
+            // 20180628 Parameter Setting 초기화
+            // Parameter Setting에서 사용하는 값들을 초기화 하기 위한 항목이다
+            // 현재 강제적으로 데이터를 넣고있으나, 설정한 값들의 보존을 위해서는 File이나 DB로 저장하도록 변경해야 한다.
+            // TODO : Parameter Settings
+            Initialize_Parameter_Settings();
+
+            //-----------------------------
+            // 20180628
+            // Class TagManager 생성
+            // TagManager는 Alarm 관련 항목들을 맡아서 처리하는 Class이다.
+            // 현재는 알람을 단순하게 처리하지만, 나중에 ALARM 에 전시할 항목이 늘어날 경우
+            //-----------------------------
+            try
+            {
+                TagManager = new TagManager(this);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Abort");
+                throw e;
+            }
+
+        }
+
+        private void Initialize_Mimic()
+        {
             p_main = new MIMIC.MainViewer();
             p_alarm = new MIMIC.AlarmViewer();
             p_history = new MIMIC.HistoryViewer();
@@ -98,17 +156,45 @@ namespace KTE_PMS
             p_mimic = new MIMIC.MimicViewer();
             p_trend = new TrendViewer();
             p_setting = new MIMIC.Setting_PageViewer();
+        }
 
-            password = "0000";
+        private void Initialize_Parameter_Settings()
+        {
+            Charging_StartTime = new TimeSpan(08, 00, 00);
+            Charging_EndTime = new TimeSpan(12, 00, 00);
+            Discharging_StartTime = new TimeSpan(16, 00, 00);
+            Discharging_EndTime = new TimeSpan(20, 00, 00);
 
+            power = new sPower();
+            power_day = new sPower();
+            power_month = new sPower();
+            power_year = new sPower();
+
+            Charging_Stop_SOC = 80.0F;
+            Discharging_Stop_SOC = 30.0F;
+            Discharging_Limit_Voltage = 85.0F;
+            Charging_Limit_Voltage = 30.0F;
+        }
+
+        private void Initialize_Semaphore()
+        {
+            bms_resourcePool = new Semaphore(0, bms_maximumThreads);
+            bms_resourcePool.Release();
+
+            pcs_resourcePool = new Semaphore(0, pcs_maximumThreads);
+            pcs_resourcePool.Release();
+            dbConnector = new DBConnector();
+        }
+
+        private void Allocate_Observer_to_Mimic()
+        {
             observers = p_measure;
             bmsviewer.AddObserver(observers);
             observers = p_measure_BMS_Rack;
             bmsviewer.AddObserver(observers);
-
-
             observers = p_mimic;
             bmsviewer.AddObserver(observers);
+
             observers = p_mimic;
             pmdviewer.AddObserver(observers);
 
@@ -123,57 +209,6 @@ namespace KTE_PMS
 
             observers = p_measure_PCS;
             pmdviewer.AddObserver(observers);
-
-            bms_resourcePool = new Semaphore(0, bms_maximumThreads);
-            bms_resourcePool.Release();
-
-            pcs_resourcePool = new Semaphore(0, pcs_maximumThreads);
-            pcs_resourcePool.Release();
-            dbConnector = new DBConnector();
-
-            Charging_StartTime = new TimeSpan( 08, 00, 00);
-            Charging_EndTime = new TimeSpan( 12, 00, 00); 
-            Discharging_StartTime = new TimeSpan( 16, 00, 00);
-            Discharging_EndTime = new TimeSpan( 20, 00, 00);
-
-            power = new sPower();
-            power_day = new sPower();
-            power_month = new sPower();
-            power_year = new sPower();
-
-            Charging_Stop_SOC = 80.0F;           
-            Discharging_Stop_SOC = 30.0F;
-            Discharging_Start_SOC = 85.0F;
-            Charging_Start_SOC = 30.0F;
-
-            //-----------------------------
-            // // TagManager 생성
-            //-----------------------------
-            try
-            {
-                TagManager = new TagManager(this);
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Abort");
-                throw e;
-            }
-
-        }
-
-        // ---------------------------------------------------------
-        // 소멸자
-        // ---------------------------------------------------------
-        ~Repository()
-        {
-            // 
-
-            if (modbus_rtuviewer != null)
-            {
-                modbus_rtuviewer.Dispose();
-            }
-
         }
 
         // ---------------------------------------------------------
@@ -407,18 +442,18 @@ namespace KTE_PMS
             samsung_bcs.Service_SOC = ByteConverterToUInt16(data, 28) * 0.1;
 
             samsung_bcs.System_Alarm_Status = ByteConverterToUInt16(data, 30);
-            Insert_Rack(ref samsung_bcs.Rack1, data, 1);
-            Insert_Rack(ref samsung_bcs.Rack2, data, 2);
+            //Insert_Rack(ref samsung_bcs.Rack1, data, 1);
+            //Insert_Rack(ref samsung_bcs.Rack2, data, 2);
             dbConnector.Insert_Value_to_Database();
             TagManager.BMS_Fault_처리_프로시져();
             //bms_resourcePool.Release();
 
         }
 
-        private void Insert_Rack(ref Samsung_BMS_Rack Rack, byte[] data, int num_of_Rack)
+        public void Insert_Rack(ref Samsung_BMS_Rack Rack, byte[] data, int num_of_Rack)
         {
 
-            int offset = (num_of_Rack-1) * 60;
+            int offset = (num_of_Rack-1) * 60 - 40;
 
             Rack.Rack_Voltage = ByteConverterToUInt16(data, 40+ offset) * 0.1;
             Rack.String1_Rack_Voltage = ByteConverterToUInt16(data, 41+ offset) * 0.1;

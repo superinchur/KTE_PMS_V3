@@ -64,7 +64,7 @@ namespace KTE_PMS.MIMIC
             Connect_to_BSC();
 
             timer.Enabled = true;
-            timer.Interval = 2000;
+            timer.Interval = 1000;
             timer.Start();
 
         }
@@ -73,13 +73,34 @@ namespace KTE_PMS.MIMIC
         {
 
         }
-        public void ReadFromBSC()
+        public void ReadFromBSC(ushort ID)
         {
             //MBmaster.ReadHoldingRegister((ushort)0, (Byte)3, (ushort)40000, (Byte)3);
-            ushort ID = 1;
+            //ushort ID = 1;
             byte unit = Convert.ToByte(0);
-            ushort StartAddress = ReadStartAdr(0);
-            byte Length = Convert.ToByte(150);
+
+            ushort temp_startaddr = new ushort();
+            ushort temp_length = new ushort();
+
+            if (ID == 1)
+            {
+                temp_startaddr = 0;
+                temp_length = 40;
+            }
+            else if (ID == 2)
+            {
+                temp_startaddr = 40;
+                temp_length = 50;
+            }
+            else if (ID == 3)
+            {
+                temp_startaddr = 100;
+                temp_length = 50;
+            }
+
+
+            ushort StartAddress = ReadStartAdr(temp_startaddr);
+            byte Length = Convert.ToByte(temp_length);
 
             MBmaster.ReadInputRegister(ID, unit, StartAddress, Length);
             
@@ -151,7 +172,16 @@ namespace KTE_PMS.MIMIC
                     tLastRecv = DateTime.Now;
                     Notify();
                     break;
-
+                case 2:
+                    Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack1, values, 1);
+                    tLastRecv = DateTime.Now;
+                    Notify();
+                    break;
+                case 3:
+                    Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack1, values, 2);
+                    tLastRecv = DateTime.Now;
+                    Notify();
+                    break;
                 case 8:
                     //grpData.Text = "Write multiple register";
                     break;
@@ -333,8 +363,6 @@ namespace KTE_PMS.MIMIC
             {
                 if (Repository.Instance.TagManager.FAULT_STATUS[48, 10, 0] != "0")
                     Repository.Instance.TagManager.경보발생및해제(0, 48, 10);
-
-
                 return 1;
             }
             else
@@ -345,13 +373,7 @@ namespace KTE_PMS.MIMIC
 
                 //MBmaster.Dispose();
                 //Connect_to_BSC();
-
-                if (Properties.Settings.Default.DEBUG )
-                {
-                    MessageBox.Show("재접속 시도합니다");
-                }
-
-
+                //if (Properties.Settings.Default.DEBUG ) Console.WriteLine("재접속 시도합니다");
 
                 return 0;
             }
@@ -369,7 +391,9 @@ namespace KTE_PMS.MIMIC
             // Read From BSC
             // BSC와 연결되어있다면 Read 시도, 그렇지 않다면 재접속 시도.
             //-----------------------------------------------------------
-            ReadFromBSC();
+            
+            ReadFromBSC(Convert.ToUInt16(((DateTime.Now.Second % 3) + 1)));
+            
         }
     }
 }

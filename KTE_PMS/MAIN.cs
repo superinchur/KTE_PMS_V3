@@ -407,5 +407,15 @@ namespace KTE_PMS
         {
             Repository.Instance.dbConnector.Insert_Power_Hour();
         }
+
+        private void btn_PCS_STOP_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("긴급정지 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // PCS Mode 설정
+                Repository.Instance.current_pcs_mode = 1;
+                Repository.Instance.pmdviewer.Control_Idle();
+            }
+        }
     }
 }

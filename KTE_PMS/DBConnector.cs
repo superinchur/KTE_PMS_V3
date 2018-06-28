@@ -42,12 +42,39 @@ namespace KTE_PMS
             return ds;
 
         }
+        public void Export_Data()
+        {
+            try
+            {
+                string directory = System.Windows.Forms.Application.StartupPath;
+                string filename = "\\DB_Data_" + DateTime.Now.ToString("yyyyMMddHHmmss")+ ".csv";
+                //string directory = "";
+                //string filename = "DB_Data_" + DateTime.Now.ToString("yyyyMMddHHmmss")+ ".csv";
+
+                String sql = "SELECT * INTO OUTFILE '" + directory + filename + "' "
+                                 + "fields terminated by '\t' "
+                                 + "lines terminated by '\r\n' "
+                                 + "FROM power_data_hour";
+                sql = sql.Replace("\\", "\\\\");
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+            
+
+        }
         public DataSet Get_Product(string strstartTime,string strendTime)
         {
             String sql = "SELECT * FROM alarm_data WHERE DATETIME BETWEEN '" + strstartTime + "' and '" + strendTime + "' ORDER BY DATETIME desc";
 
             DataSet ds = new DataSet();
             MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
+
 
             adpt.Fill(ds);
             return ds;
@@ -66,6 +93,27 @@ namespace KTE_PMS
                 voltage = Repository.Instance.samsung_bcs.System_Voltage;
                 current = Repository.Instance.samsung_bcs.System_Current;
                 power = Repository.Instance.samsung_bcs.System_Power;
+
+                String sql = "INSERT INTO trend_data (DATETIME, VOLTAGE, CURRENT, POWER) " + "VALUES ('"
+                    + strDateTime + "','"
+                    + voltage.ToString() + "','"
+                    + current.ToString() + "','"
+                    + power.ToString() + "')";
+
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void Insert_Value_to_Database(double voltage, double current, double power)
+        {
+            try
+            {
+                string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                 String sql = "INSERT INTO trend_data (DATETIME, VOLTAGE, CURRENT, POWER) " + "VALUES ('"
                     + strDateTime + "','"

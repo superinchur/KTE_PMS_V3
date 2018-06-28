@@ -139,16 +139,6 @@ namespace KTE_PMS.MIMIC
                     {
                         Repository.Instance.Discharging_Stop_SOC = Convert.ToSingle(masktedTextBox.Text);
                     }
-                    else if (masktedTextBox.Name == "tb_Charging_Start_SOC")
-                    {
-                        Repository.Instance.Charging_Start_SOC = Convert.ToSingle(masktedTextBox.Text);
-                    }
-                    else if (masktedTextBox.Name == "tb_Discharging_Start_SOC")
-                    {
-                        Repository.Instance.Discharging_Start_SOC = Convert.ToSingle(masktedTextBox.Text);
-                    }
-
-
                 }
             }
             catch (Exception exc)
@@ -158,12 +148,49 @@ namespace KTE_PMS.MIMIC
             }
         }
 
+        private void Voltage_TextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                MaskedTextBox masktedTextBox = (MaskedTextBox)sender;
+
+                masktedTextBox.Text = masktedTextBox.Text.Replace("_", string.Empty);
+
+                if (Convert.ToDouble(masktedTextBox.Text) > 1000)
+                {
+                    MessageBox.Show("전압은 1000V을 초과할 수 없습니다. 입력이 불가합니다");
+                    masktedTextBox.Text = "1000.0V";
+                }
+                else if (Convert.ToDouble(masktedTextBox.Text) < 0)
+                {
+                    MessageBox.Show("전압은 음수가 될 수 없습니다. 입력이 불가합니다");
+                    masktedTextBox.Text = "000.0";
+                }
+                else
+                {
+                    if (masktedTextBox.Name == "tb_Charging_Limit_Voltage")
+                    {
+                        Repository.Instance.Charging_Limit_Voltage = Convert.ToSingle(masktedTextBox.Text);
+                    }
+                    else if (masktedTextBox.Name == "tb_Discharging_Limit_Voltage")
+                    {
+                        Repository.Instance.Discharging_Limit_Voltage = Convert.ToSingle(masktedTextBox.Text);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+
         private void Setting_PageViewer_Load(object sender, EventArgs e)
         {
             tb_Charging_Stop_SOC.Text = String.Format("{0:000.0}", Repository.Instance.Charging_Stop_SOC);
             tb_Discharging_Stop_SOC.Text = String.Format("{0:000.0}", Repository.Instance.Discharging_Stop_SOC);
-            tb_Charging_Start_SOC.Text = String.Format("{0:000.0}", Repository.Instance.Discharging_Start_SOC);
-            tb_Discharging_Start_SOC.Text = String.Format("{0:000.0}", Repository.Instance.Charging_Start_SOC);
+            tb_Charging_Limit_Voltage.Text = String.Format("{0:000.0}", Repository.Instance.Discharging_Limit_Voltage);
+            tb_Discharging_Limit_Voltage.Text = String.Format("{0:000.0}", Repository.Instance.Charging_Limit_Voltage);
 
 
             tb_Charging_Period_Start.Text = Repository.Instance.Charging_StartTime.Hours.ToString("D2") + "시" + Repository.Instance.Charging_StartTime.Minutes.ToString("D2") + "분";
@@ -183,7 +210,7 @@ namespace KTE_PMS.MIMIC
         {
             try
             {
-                if (MessageBox.Show("적용 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("해당 설정을 적용 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     TimeSpan current = DateTime.Now.TimeOfDay;
                     TimeSpan StartTime1 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
@@ -206,8 +233,8 @@ namespace KTE_PMS.MIMIC
                     Repository.Instance.Charging_Stop_SOC = Convert_From_MaskedTextBox_To_Single(tb_Charging_Stop_SOC);
 
                     Repository.Instance.Discharging_Stop_SOC = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Stop_SOC);
-                    Repository.Instance.Charging_Start_SOC = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Start_SOC);
-                    Repository.Instance.Discharging_Start_SOC = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Start_SOC);
+                    Repository.Instance.Charging_Limit_Voltage = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Limit_Voltage);
+                    Repository.Instance.Discharging_Limit_Voltage = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Limit_Voltage);
 
                     Repository.Instance.Charging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
                     Repository.Instance.Charging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_End);

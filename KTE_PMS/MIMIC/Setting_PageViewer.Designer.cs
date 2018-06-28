@@ -45,8 +45,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tb_Charging_Stop_SOC = new System.Windows.Forms.MaskedTextBox();
             this.tb_Discharging_Stop_SOC = new System.Windows.Forms.MaskedTextBox();
-            this.tb_Charging_Start_SOC = new System.Windows.Forms.MaskedTextBox();
-            this.tb_Discharging_Start_SOC = new System.Windows.Forms.MaskedTextBox();
+            this.tb_Charging_Limit_Voltage = new System.Windows.Forms.MaskedTextBox();
+            this.tb_Discharging_Limit_Voltage = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -135,9 +135,9 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(97, 209);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 19);
+            this.label4.Size = new System.Drawing.Size(119, 19);
             this.label4.TabIndex = 23;
-            this.label4.Text = "충전 시작 SOC";
+            this.label4.Text = "충전 전압 제한 값";
             // 
             // label7
             // 
@@ -147,9 +147,9 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(97, 240);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 19);
+            this.label7.Size = new System.Drawing.Size(119, 19);
             this.label7.TabIndex = 25;
-            this.label7.Text = "방전 시작 SOC";
+            this.label7.Text = "방전 전압 제한 값";
             // 
             // label8
             // 
@@ -257,36 +257,36 @@
             this.tb_Discharging_Stop_SOC.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
             this.tb_Discharging_Stop_SOC.Leave += new System.EventHandler(this.SOC_TextBox_TextChanged);
             // 
-            // tb_Charging_Start_SOC
+            // tb_Charging_Limit_Voltage
             // 
-            this.tb_Charging_Start_SOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
-            this.tb_Charging_Start_SOC.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_Charging_Start_SOC.Location = new System.Drawing.Point(319, 206);
-            this.tb_Charging_Start_SOC.Mask = "999.9";
-            this.tb_Charging_Start_SOC.Name = "tb_Charging_Start_SOC";
-            this.tb_Charging_Start_SOC.Size = new System.Drawing.Size(59, 26);
-            this.tb_Charging_Start_SOC.TabIndex = 104;
-            this.tb_Charging_Start_SOC.TabStop = false;
-            this.tb_Charging_Start_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_Charging_Start_SOC.ValidatingType = typeof(int);
-            this.tb_Charging_Start_SOC.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
-            this.tb_Charging_Start_SOC.Leave += new System.EventHandler(this.SOC_TextBox_TextChanged);
+            this.tb_Charging_Limit_Voltage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
+            this.tb_Charging_Limit_Voltage.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Charging_Limit_Voltage.Location = new System.Drawing.Point(319, 206);
+            this.tb_Charging_Limit_Voltage.Mask = "999.9";
+            this.tb_Charging_Limit_Voltage.Name = "tb_Charging_Limit_Voltage";
+            this.tb_Charging_Limit_Voltage.Size = new System.Drawing.Size(59, 26);
+            this.tb_Charging_Limit_Voltage.TabIndex = 104;
+            this.tb_Charging_Limit_Voltage.TabStop = false;
+            this.tb_Charging_Limit_Voltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Charging_Limit_Voltage.ValidatingType = typeof(int);
+            this.tb_Charging_Limit_Voltage.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
+            this.tb_Charging_Limit_Voltage.Leave += new System.EventHandler(this.Voltage_TextBox_TextChanged);
             // 
-            // tb_Discharging_Start_SOC
+            // tb_Discharging_Limit_Voltage
             // 
-            this.tb_Discharging_Start_SOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
-            this.tb_Discharging_Start_SOC.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Discharging_Start_SOC.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_Discharging_Start_SOC.Location = new System.Drawing.Point(319, 239);
-            this.tb_Discharging_Start_SOC.Mask = "999.9";
-            this.tb_Discharging_Start_SOC.Name = "tb_Discharging_Start_SOC";
-            this.tb_Discharging_Start_SOC.Size = new System.Drawing.Size(59, 19);
-            this.tb_Discharging_Start_SOC.TabIndex = 105;
-            this.tb_Discharging_Start_SOC.TabStop = false;
-            this.tb_Discharging_Start_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tb_Discharging_Start_SOC.ValidatingType = typeof(int);
-            this.tb_Discharging_Start_SOC.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
-            this.tb_Discharging_Start_SOC.Leave += new System.EventHandler(this.SOC_TextBox_TextChanged);
+            this.tb_Discharging_Limit_Voltage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
+            this.tb_Discharging_Limit_Voltage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_Discharging_Limit_Voltage.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Discharging_Limit_Voltage.Location = new System.Drawing.Point(319, 239);
+            this.tb_Discharging_Limit_Voltage.Mask = "999.9";
+            this.tb_Discharging_Limit_Voltage.Name = "tb_Discharging_Limit_Voltage";
+            this.tb_Discharging_Limit_Voltage.Size = new System.Drawing.Size(59, 19);
+            this.tb_Discharging_Limit_Voltage.TabIndex = 105;
+            this.tb_Discharging_Limit_Voltage.TabStop = false;
+            this.tb_Discharging_Limit_Voltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Discharging_Limit_Voltage.ValidatingType = typeof(int);
+            this.tb_Discharging_Limit_Voltage.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.SOC_TextBox_MaskInputRejected);
+            this.tb_Discharging_Limit_Voltage.Leave += new System.EventHandler(this.Voltage_TextBox_TextChanged);
             // 
             // label6
             // 
@@ -320,9 +320,9 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(376, 209);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(23, 19);
+            this.label12.Size = new System.Drawing.Size(19, 19);
             this.label12.TabIndex = 111;
-            this.label12.Text = "%";
+            this.label12.Text = "V";
             // 
             // label13
             // 
@@ -332,9 +332,9 @@
             this.label13.ForeColor = System.Drawing.Color.Black;
             this.label13.Location = new System.Drawing.Point(376, 240);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(23, 19);
+            this.label13.Size = new System.Drawing.Size(19, 19);
             this.label13.TabIndex = 112;
-            this.label13.Text = "%";
+            this.label13.Text = "V";
             // 
             // btn_Apply
             // 
@@ -362,8 +362,8 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.tb_Discharging_Start_SOC);
-            this.Controls.Add(this.tb_Charging_Start_SOC);
+            this.Controls.Add(this.tb_Discharging_Limit_Voltage);
+            this.Controls.Add(this.tb_Charging_Limit_Voltage);
             this.Controls.Add(this.tb_Discharging_Stop_SOC);
             this.Controls.Add(this.tb_Charging_Stop_SOC);
             this.Controls.Add(this.label11);
@@ -406,8 +406,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.MaskedTextBox tb_Charging_Stop_SOC;
         private System.Windows.Forms.MaskedTextBox tb_Discharging_Stop_SOC;
-        private System.Windows.Forms.MaskedTextBox tb_Charging_Start_SOC;
-        private System.Windows.Forms.MaskedTextBox tb_Discharging_Start_SOC;
+        private System.Windows.Forms.MaskedTextBox tb_Charging_Limit_Voltage;
+        private System.Windows.Forms.MaskedTextBox tb_Discharging_Limit_Voltage;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;

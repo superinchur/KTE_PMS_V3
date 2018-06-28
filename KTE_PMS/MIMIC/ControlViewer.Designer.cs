@@ -53,6 +53,10 @@ namespace KTE_PMS.MIMIC
             this.label10 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.btn_Control_uPMS = new System.Windows.Forms.Button();
+            this.btn_Control_LPMS = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ControlTimer
@@ -64,7 +68,7 @@ namespace KTE_PMS.MIMIC
             // 
             this.btn_Grid_OFF.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Grid_OFF.BackgroundImage")));
             this.btn_Grid_OFF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Grid_OFF.Location = new System.Drawing.Point(667, 121);
+            this.btn_Grid_OFF.Location = new System.Drawing.Point(663, 161);
             this.btn_Grid_OFF.Name = "btn_Grid_OFF";
             this.btn_Grid_OFF.Size = new System.Drawing.Size(51, 51);
             this.btn_Grid_OFF.TabIndex = 25;
@@ -77,7 +81,7 @@ namespace KTE_PMS.MIMIC
             // 
             this.btn_Grid_ON.BackgroundImage = global::KTE_PMS.Properties.Resources.RUN_003_1;
             this.btn_Grid_ON.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Grid_ON.Location = new System.Drawing.Point(567, 121);
+            this.btn_Grid_ON.Location = new System.Drawing.Point(563, 161);
             this.btn_Grid_ON.Name = "btn_Grid_ON";
             this.btn_Grid_ON.Size = new System.Drawing.Size(51, 51);
             this.btn_Grid_ON.TabIndex = 24;
@@ -223,7 +227,7 @@ namespace KTE_PMS.MIMIC
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(562, 100);
+            this.label11.Location = new System.Drawing.Point(562, 142);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 17);
             this.label11.TabIndex = 88;
@@ -234,7 +238,7 @@ namespace KTE_PMS.MIMIC
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(660, 100);
+            this.label12.Location = new System.Drawing.Point(660, 142);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(70, 18);
             this.label12.TabIndex = 89;
@@ -245,7 +249,7 @@ namespace KTE_PMS.MIMIC
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(578, 302);
+            this.label13.Location = new System.Drawing.Point(568, 297);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(30, 18);
             this.label13.TabIndex = 91;
@@ -256,7 +260,7 @@ namespace KTE_PMS.MIMIC
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(633, 302);
+            this.label14.Location = new System.Drawing.Point(628, 297);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(67, 18);
             this.label14.TabIndex = 93;
@@ -266,7 +270,7 @@ namespace KTE_PMS.MIMIC
             // 
             this.btn_Charging.BackgroundImage = global::KTE_PMS.Properties.Resources.RUN_003_1;
             this.btn_Charging.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Charging.Location = new System.Drawing.Point(644, 323);
+            this.btn_Charging.Location = new System.Drawing.Point(639, 318);
             this.btn_Charging.Name = "btn_Charging";
             this.btn_Charging.Size = new System.Drawing.Size(51, 51);
             this.btn_Charging.TabIndex = 92;
@@ -279,7 +283,7 @@ namespace KTE_PMS.MIMIC
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(706, 302);
+            this.label15.Location = new System.Drawing.Point(701, 297);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(86, 18);
             this.label15.TabIndex = 95;
@@ -289,7 +293,7 @@ namespace KTE_PMS.MIMIC
             // 
             this.btn_Discharging.BackgroundImage = global::KTE_PMS.Properties.Resources.RUN_003_1;
             this.btn_Discharging.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Discharging.Location = new System.Drawing.Point(722, 323);
+            this.btn_Discharging.Location = new System.Drawing.Point(717, 318);
             this.btn_Discharging.Name = "btn_Discharging";
             this.btn_Discharging.Size = new System.Drawing.Size(51, 51);
             this.btn_Discharging.TabIndex = 94;
@@ -301,7 +305,7 @@ namespace KTE_PMS.MIMIC
             // 
             this.btn_IDLE.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_IDLE.BackgroundImage")));
             this.btn_IDLE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_IDLE.Location = new System.Drawing.Point(567, 323);
+            this.btn_IDLE.Location = new System.Drawing.Point(560, 318);
             this.btn_IDLE.Name = "btn_IDLE";
             this.btn_IDLE.Size = new System.Drawing.Size(51, 51);
             this.btn_IDLE.TabIndex = 96;
@@ -336,7 +340,7 @@ namespace KTE_PMS.MIMIC
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(799, 302);
+            this.label4.Location = new System.Drawing.Point(794, 297);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 18);
             this.label4.TabIndex = 100;
@@ -346,7 +350,7 @@ namespace KTE_PMS.MIMIC
             // 
             this.tb_Power_Set.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.tb_Power_Set.Font = new System.Drawing.Font("나눔바른고딕", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_Power_Set.Location = new System.Drawing.Point(789, 331);
+            this.tb_Power_Set.Location = new System.Drawing.Point(784, 326);
             this.tb_Power_Set.Mask = "99.9";
             this.tb_Power_Set.Name = "tb_Power_Set";
             this.tb_Power_Set.Size = new System.Drawing.Size(101, 48);
@@ -364,7 +368,7 @@ namespace KTE_PMS.MIMIC
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(891, 347);
+            this.label7.Location = new System.Drawing.Point(886, 342);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 27);
             this.label7.TabIndex = 102;
@@ -374,7 +378,7 @@ namespace KTE_PMS.MIMIC
             // 
             this.btn_Manual_Mode.BackgroundImage = global::KTE_PMS.Properties.Resources.RUN_003_1;
             this.btn_Manual_Mode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Manual_Mode.Location = new System.Drawing.Point(567, 239);
+            this.btn_Manual_Mode.Location = new System.Drawing.Point(563, 246);
             this.btn_Manual_Mode.Name = "btn_Manual_Mode";
             this.btn_Manual_Mode.Size = new System.Drawing.Size(51, 51);
             this.btn_Manual_Mode.TabIndex = 103;
@@ -386,7 +390,7 @@ namespace KTE_PMS.MIMIC
             // 
             this.btn_Scheduling_Mode.BackgroundImage = global::KTE_PMS.Properties.Resources.RUN_003_1;
             this.btn_Scheduling_Mode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Scheduling_Mode.Location = new System.Drawing.Point(667, 239);
+            this.btn_Scheduling_Mode.Location = new System.Drawing.Point(663, 246);
             this.btn_Scheduling_Mode.Name = "btn_Scheduling_Mode";
             this.btn_Scheduling_Mode.Size = new System.Drawing.Size(51, 51);
             this.btn_Scheduling_Mode.TabIndex = 104;
@@ -399,7 +403,7 @@ namespace KTE_PMS.MIMIC
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(545, 218);
+            this.label9.Location = new System.Drawing.Point(539, 225);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(98, 18);
             this.label9.TabIndex = 105;
@@ -410,7 +414,7 @@ namespace KTE_PMS.MIMIC
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(649, 218);
+            this.label10.Location = new System.Drawing.Point(631, 225);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(122, 18);
             this.label10.TabIndex = 106;
@@ -438,6 +442,52 @@ namespace KTE_PMS.MIMIC
             this.label17.TabIndex = 108;
             this.label17.Text = "PCS";
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(665, 67);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(49, 18);
+            this.label18.TabIndex = 112;
+            this.label18.Text = "uPMS";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(565, 67);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(49, 18);
+            this.label19.TabIndex = 111;
+            this.label19.Text = "LPMS";
+            // 
+            // btn_Control_uPMS
+            // 
+            this.btn_Control_uPMS.BackgroundImage = global::KTE_PMS.Properties.Resources.RUN_003_1;
+            this.btn_Control_uPMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Control_uPMS.Location = new System.Drawing.Point(663, 88);
+            this.btn_Control_uPMS.Name = "btn_Control_uPMS";
+            this.btn_Control_uPMS.Size = new System.Drawing.Size(51, 51);
+            this.btn_Control_uPMS.TabIndex = 110;
+            this.btn_Control_uPMS.TabStop = false;
+            this.btn_Control_uPMS.UseVisualStyleBackColor = true;
+            this.btn_Control_uPMS.Click += new System.EventHandler(this.btn_Control_uPMS_Click);
+            // 
+            // btn_Control_LPMS
+            // 
+            this.btn_Control_LPMS.BackgroundImage = global::KTE_PMS.Properties.Resources.RUN_003_1;
+            this.btn_Control_LPMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Control_LPMS.Location = new System.Drawing.Point(563, 88);
+            this.btn_Control_LPMS.Name = "btn_Control_LPMS";
+            this.btn_Control_LPMS.Size = new System.Drawing.Size(51, 51);
+            this.btn_Control_LPMS.TabIndex = 109;
+            this.btn_Control_LPMS.TabStop = false;
+            this.btn_Control_LPMS.UseVisualStyleBackColor = true;
+            this.btn_Control_LPMS.Click += new System.EventHandler(this.btn_Control_LPMS_Click);
+            // 
             // ControlViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -445,6 +495,10 @@ namespace KTE_PMS.MIMIC
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.btn_Control_uPMS);
+            this.Controls.Add(this.btn_Control_LPMS);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label10);
@@ -557,5 +611,9 @@ namespace KTE_PMS.MIMIC
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btn_Control_uPMS;
+        private System.Windows.Forms.Button btn_Control_LPMS;
     }
 }
