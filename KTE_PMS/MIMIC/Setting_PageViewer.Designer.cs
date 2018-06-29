@@ -52,6 +52,14 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btn_Apply = new System.Windows.Forms.Button();
+            this.btn_DateTime_Setup = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_Language_Setup = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btn_Comm_Setup = new System.Windows.Forms.Button();
+            this.lb_Power_Setup = new System.Windows.Forms.Label();
+            this.btn_Power_Setup = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Access_To_Operating_System
@@ -350,6 +358,102 @@
             this.btn_Apply.UseVisualStyleBackColor = true;
             this.btn_Apply.Click += new System.EventHandler(this.btn_Apply_Click);
             // 
+            // btn_DateTime_Setup
+            // 
+            this.btn_DateTime_Setup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_DateTime_Setup.BackgroundImage")));
+            this.btn_DateTime_Setup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_DateTime_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_DateTime_Setup.Location = new System.Drawing.Point(528, 354);
+            this.btn_DateTime_Setup.Name = "btn_DateTime_Setup";
+            this.btn_DateTime_Setup.Size = new System.Drawing.Size(90, 40);
+            this.btn_DateTime_Setup.TabIndex = 114;
+            this.btn_DateTime_Setup.UseVisualStyleBackColor = true;
+            this.btn_DateTime_Setup.Click += new System.EventHandler(this.btn_DateTime_Setup_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(435, 364);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 19);
+            this.label1.TabIndex = 115;
+            this.label1.Text = "날짜 및 시간";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(627, 364);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 19);
+            this.label3.TabIndex = 117;
+            this.label3.Text = "언어";
+            // 
+            // btn_Language_Setup
+            // 
+            this.btn_Language_Setup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Language_Setup.BackgroundImage")));
+            this.btn_Language_Setup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Language_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Language_Setup.Location = new System.Drawing.Point(680, 354);
+            this.btn_Language_Setup.Name = "btn_Language_Setup";
+            this.btn_Language_Setup.Size = new System.Drawing.Size(90, 40);
+            this.btn_Language_Setup.TabIndex = 116;
+            this.btn_Language_Setup.UseVisualStyleBackColor = true;
+            this.btn_Language_Setup.Click += new System.EventHandler(this.btn_Language_Setup_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(775, 364);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 19);
+            this.label9.TabIndex = 119;
+            this.label9.Text = "통신";
+            // 
+            // btn_Comm_Setup
+            // 
+            this.btn_Comm_Setup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Comm_Setup.BackgroundImage")));
+            this.btn_Comm_Setup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Comm_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Comm_Setup.Location = new System.Drawing.Point(852, 354);
+            this.btn_Comm_Setup.Name = "btn_Comm_Setup";
+            this.btn_Comm_Setup.Size = new System.Drawing.Size(90, 40);
+            this.btn_Comm_Setup.TabIndex = 118;
+            this.btn_Comm_Setup.UseVisualStyleBackColor = true;
+            this.btn_Comm_Setup.Click += new System.EventHandler(this.btn_Comm_Setup_Click);
+            // 
+            // lb_Power_Setup
+            // 
+            this.lb_Power_Setup.AutoSize = true;
+            this.lb_Power_Setup.BackColor = System.Drawing.Color.Transparent;
+            this.lb_Power_Setup.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_Power_Setup.ForeColor = System.Drawing.Color.Black;
+            this.lb_Power_Setup.Location = new System.Drawing.Point(775, 410);
+            this.lb_Power_Setup.Name = "lb_Power_Setup";
+            this.lb_Power_Setup.Size = new System.Drawing.Size(65, 19);
+            this.lb_Power_Setup.TabIndex = 121;
+            this.lb_Power_Setup.Text = "전원설정";
+            // 
+            // btn_Power_Setup
+            // 
+            this.btn_Power_Setup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Power_Setup.BackgroundImage")));
+            this.btn_Power_Setup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Power_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Power_Setup.Location = new System.Drawing.Point(852, 400);
+            this.btn_Power_Setup.Name = "btn_Power_Setup";
+            this.btn_Power_Setup.Size = new System.Drawing.Size(90, 40);
+            this.btn_Power_Setup.TabIndex = 120;
+            this.btn_Power_Setup.UseVisualStyleBackColor = true;
+            this.btn_Power_Setup.Click += new System.EventHandler(this.btn_Power_Setup_Click);
+            // 
             // Setting_PageViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -357,6 +461,14 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.lb_Power_Setup);
+            this.Controls.Add(this.btn_Power_Setup);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.btn_Comm_Setup);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btn_Language_Setup);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_DateTime_Setup);
             this.Controls.Add(this.btn_Apply);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -413,5 +525,13 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btn_Apply;
+        private System.Windows.Forms.Button btn_DateTime_Setup;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_Language_Setup;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btn_Comm_Setup;
+        private System.Windows.Forms.Label lb_Power_Setup;
+        private System.Windows.Forms.Button btn_Power_Setup;
     }
 }

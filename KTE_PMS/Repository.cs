@@ -72,7 +72,7 @@ namespace KTE_PMS
         public string password;
         public string first_password;
 
-        
+        public int[] scheduler;
         #endregion 
 
         // ---------------------------------------------------------
@@ -122,6 +122,7 @@ namespace KTE_PMS
             // Parameter Setting에서 사용하는 값들을 초기화 하기 위한 항목이다
             // 현재 강제적으로 데이터를 넣고있으나, 설정한 값들의 보존을 위해서는 File이나 DB로 저장하도록 변경해야 한다.
             // TODO : Parameter Settings
+            scheduler = new int[24];
             Initialize_Parameter_Settings();
 
             //-----------------------------
@@ -139,6 +140,7 @@ namespace KTE_PMS
                 MessageBox.Show(e.Message, "Abort");
                 throw e;
             }
+
 
         }
 
@@ -174,6 +176,8 @@ namespace KTE_PMS
             Discharging_Stop_SOC = 30.0F;
             Discharging_Limit_Voltage = 85.0F;
             Charging_Limit_Voltage = 30.0F;
+
+            
         }
 
         private void Initialize_Semaphore()

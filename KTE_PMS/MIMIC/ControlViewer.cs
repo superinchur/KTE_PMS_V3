@@ -1,5 +1,6 @@
 ﻿using KTE_PMS.CLASS;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace KTE_PMS.MIMIC
@@ -386,6 +387,46 @@ namespace KTE_PMS.MIMIC
             Repository.Instance.GnEPS_PCS.Authority_PMS = false;
         }
 
+        private void ControlViewer_Load(object sender, EventArgs e)
+        {
+            Repository.Instance.p_setting.Set_Current_PCS_Operating_Mode(Repository.Instance.Charging_StartTime, Repository.Instance.Charging_EndTime, Repository.Instance.Discharging_StartTime, Repository.Instance.Discharging_EndTime);
+            Repository.Instance.p_setting.Set_Scheduler_Setting(Repository.Instance.Charging_StartTime, Repository.Instance.Charging_EndTime, Repository.Instance.Discharging_StartTime, Repository.Instance.Discharging_EndTime);
+            Set_Scheduler_Color();
 
+        }
+
+        private void Set_Scheduler_Color()
+        {
+            foreach (Control gb in this.Controls)
+            {
+                if (gb_scheduler is GroupBox)
+                {
+                    foreach (Control btn in gb.Controls)
+                    {
+                        if (btn is Button)
+                        {
+                            string[] parse = btn.Name.Split('_');
+
+                            int index = Convert.ToInt16(parse[2]);
+
+                            if (Repository.Instance.scheduler[index] == 1)
+                            {
+                                btn.BackColor = Color.Red;
+                            }
+                            else if (Repository.Instance.scheduler[index] == 2)
+                            {
+                                btn.BackColor = Color.Blue;
+                            }
+                            else
+                            {
+                                btn.BackColor = Color.Gray;
+
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
     }
 }

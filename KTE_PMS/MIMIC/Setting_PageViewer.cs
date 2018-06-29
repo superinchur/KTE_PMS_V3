@@ -10,8 +10,6 @@ namespace KTE_PMS.MIMIC
         public Setting_PageViewer()
         {
             InitializeComponent();
-
-        
         }
 
 
@@ -212,6 +210,7 @@ namespace KTE_PMS.MIMIC
             {
                 if (MessageBox.Show("해당 설정을 적용 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    Set_Current_PCS_Operating_Mode();
                     TimeSpan current = DateTime.Now.TimeOfDay;
                     TimeSpan StartTime1 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
                     TimeSpan EndTime1 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_End);
@@ -219,12 +218,19 @@ namespace KTE_PMS.MIMIC
                     TimeSpan StartTime2 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
                     TimeSpan EndTime2 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
 
+                    Repository.Instance.Charging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
+                    Repository.Instance.Charging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_End);
+                    Repository.Instance.Discharging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
+                    Repository.Instance.Discharging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
+
+                    Set_Scheduler_Setting(StartTime1, EndTime1, StartTime2, EndTime2);
+
                     if ((StartTime1 < StartTime2) && (StartTime2 < EndTime1))
                     {
                         MessageBox.Show("방전 시간과 충전 시간이 겹칩니다. 다시 설정하여 주십시오");
                         return;
                     }
-                    else if ((StartTime1 < EndTime2) && (EndTime2 < EndTime1)) 
+                    else if ((StartTime1 < EndTime2) && (EndTime2 < EndTime1))
                     {
                         MessageBox.Show("방전 시간과 충전 시간이 겹칩니다. 다시 설정하여 주십시오");
                         return;
@@ -241,37 +247,7 @@ namespace KTE_PMS.MIMIC
                     Repository.Instance.Discharging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
                     Repository.Instance.Discharging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
 
-
-                    // Scheduling Mode
-                    // 현재시간이 방전모드인지, 충전모드인지를 먼저 확인한다.
-                    if (StartTime1 > EndTime1 && (StartTime1 <= current || current < EndTime1))
-                    {
-                        //충전시간이다
-                        Repository.Instance.flag_Charging_Time = true;
-                        Repository.Instance.flag_DisCharging_Time = false;
-                    }
-                    else if (StartTime1 < EndTime1 && ( StartTime1 <= current && current < EndTime1))
-                    {
-                        // 충전시간이다
-                        Repository.Instance.flag_Charging_Time = true;
-                        Repository.Instance.flag_DisCharging_Time = false;
-                    }
-                    else if (StartTime2 > EndTime2 && ( StartTime2 <= current || current < EndTime2) )
-                    {
-                        Repository.Instance.flag_Charging_Time = false;
-                        Repository.Instance.flag_DisCharging_Time = true;
-                    }
-                    else if (StartTime2 < EndTime2 && (StartTime2 <= current && current < EndTime2) )
-                    {
-                        Repository.Instance.flag_Charging_Time = false;
-                        Repository.Instance.flag_DisCharging_Time = true;
-                    }
-                    else
-                    {
-                        Repository.Instance.flag_Charging_Time = false;
-                        Repository.Instance.flag_DisCharging_Time = false;
-                    }
-
+                    Set_Current_PCS_Operating_Mode(StartTime1, EndTime1, StartTime2, EndTime2);
                 }
             }
 
@@ -281,6 +257,78 @@ namespace KTE_PMS.MIMIC
 
             }
         }
+
+        public void Set_Current_PCS_Operating_Mode(TimeSpan StartTime1, TimeSpan EndTime1, TimeSpan StartTime2, TimeSpan EndTime2)
+        {
+            TimeSpan current = DateTime.Now.TimeOfDay;
+            // Scheduling Mode
+            // 현재시간이 방전모드인지, 충전모드인지를 먼저 확인한다.
+            if (StartTime1 > EndTime1 && (StartTime1 <= current || current < EndTime1))
+            {
+                //충전시간이다
+                Repository.Instance.flag_Charging_Time = true;
+                Repository.Instance.flag_DisCharging_Time = false;
+            }
+            else if (StartTime1 < EndTime1 && (StartTime1 <= current && current < EndTime1))
+            {
+                // 충전시간이다
+                Repository.Instance.flag_Charging_Time = true;
+                Repository.Instance.flag_DisCharging_Time = false;
+            }
+            else if (StartTime2 > EndTime2 && (StartTime2 <= current || current < EndTime2))
+            {
+                Repository.Instance.flag_Charging_Time = false;
+                Repository.Instance.flag_DisCharging_Time = true;
+            }
+            else if (StartTime2 < EndTime2 && (StartTime2 <= current && current < EndTime2))
+            {
+                Repository.Instance.flag_Charging_Time = false;
+                Repository.Instance.flag_DisCharging_Time = true;
+            }
+            else
+            {
+                Repository.Instance.flag_Charging_Time = false;
+                Repository.Instance.flag_DisCharging_Time = false;
+            }
+        }
+
+        public void Set_Scheduler_Setting(TimeSpan StartTime1, TimeSpan EndTime1, TimeSpan StartTime2, TimeSpan EndTime2)
+        {
+            for (int i = 0; i < 24; i++)
+            {
+                TimeSpan tempTime = new TimeSpan(i, 0, 0);
+
+                if (StartTime1 > EndTime1 && (StartTime1 <= tempTime || tempTime < EndTime1))
+                {
+                    //충전시간이다
+                    Repository.Instance.scheduler[i] = 1;
+                }
+                else if (StartTime1 < EndTime1 && (StartTime1 <= tempTime && tempTime < EndTime1))
+                {
+                    // 충전시간이다
+                    Repository.Instance.scheduler[i] = 1;
+                }
+                else if (StartTime2 > EndTime2 && (StartTime2 <= tempTime || tempTime < EndTime2))
+                {
+                    Repository.Instance.scheduler[i] = 2;
+                }
+                else if (StartTime2 < EndTime2 && (StartTime2 <= tempTime && tempTime < EndTime2))
+                {
+                    Repository.Instance.scheduler[i] = 2;
+                }
+                else
+                {
+                    Repository.Instance.scheduler[i] = 0;
+                }
+
+            }
+        }
+
+        private void Set_Current_PCS_Operating_Mode()
+        {
+            
+        }
+
         private float Convert_From_MaskedTextBox_To_Single(MaskedTextBox maskedTextBox)
         {
             string temp;
@@ -303,6 +351,28 @@ namespace KTE_PMS.MIMIC
                 MessageBox.Show("올바르지 않은 데이터가 들어갔습니다, 다시 확인해주시길 바랍니다");
             }
             return time;
+        }
+
+        private void btn_DateTime_Setup_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("rundll32.exe", "shell32.dll,Control_RunDLL TimeDate.cpl");
+        }
+
+
+
+        private void btn_Comm_Setup_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("rundll32.exe", "shell32.dll,Control_RunDLL ncpa.cpl");
+        }
+
+        private void btn_Power_Setup_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("rundll32.exe", "shell32.dll,Control_RunDLL powercfg.cpl");
+        }
+
+        private void btn_Language_Setup_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("rundll32.exe", "shell32.dll,Control_RunDLL intl.cpl");
         }
     }
 }

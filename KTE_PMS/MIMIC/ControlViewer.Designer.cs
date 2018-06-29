@@ -17,9 +17,8 @@ namespace KTE_PMS.MIMIC
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlViewer));
-            this.ControlTimer = new System.Windows.Forms.Timer(this.components);
+            this.ControlTimer = new System.Windows.Forms.Timer();
             this.btn_Grid_OFF = new System.Windows.Forms.Button();
             this.btn_Grid_ON = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -57,6 +56,34 @@ namespace KTE_PMS.MIMIC
             this.label19 = new System.Windows.Forms.Label();
             this.btn_Control_uPMS = new System.Windows.Forms.Button();
             this.btn_Control_LPMS = new System.Windows.Forms.Button();
+            this.btn_t_0 = new System.Windows.Forms.Button();
+            this.btn_t_1 = new System.Windows.Forms.Button();
+            this.btn_t_2 = new System.Windows.Forms.Button();
+            this.btn_t_3 = new System.Windows.Forms.Button();
+            this.btn_t_7 = new System.Windows.Forms.Button();
+            this.btn_t_6 = new System.Windows.Forms.Button();
+            this.btn_t_5 = new System.Windows.Forms.Button();
+            this.btn_t_4 = new System.Windows.Forms.Button();
+            this.btn_t_11 = new System.Windows.Forms.Button();
+            this.btn_t_10 = new System.Windows.Forms.Button();
+            this.btn_t_9 = new System.Windows.Forms.Button();
+            this.btn_t_8 = new System.Windows.Forms.Button();
+            this.btn_t_23 = new System.Windows.Forms.Button();
+            this.btn_t_22 = new System.Windows.Forms.Button();
+            this.btn_t_21 = new System.Windows.Forms.Button();
+            this.btn_t_20 = new System.Windows.Forms.Button();
+            this.btn_t_19 = new System.Windows.Forms.Button();
+            this.btn_t_18 = new System.Windows.Forms.Button();
+            this.btn_t_17 = new System.Windows.Forms.Button();
+            this.btn_t_16 = new System.Windows.Forms.Button();
+            this.btn_t_15 = new System.Windows.Forms.Button();
+            this.btn_t_14 = new System.Windows.Forms.Button();
+            this.btn_t_13 = new System.Windows.Forms.Button();
+            this.btn_t_12 = new System.Windows.Forms.Button();
+            this.gb_scheduler = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.gb_scheduler.SuspendLayout();
             this.SuspendLayout();
             // 
             // ControlTimer
@@ -488,6 +515,279 @@ namespace KTE_PMS.MIMIC
             this.btn_Control_LPMS.UseVisualStyleBackColor = true;
             this.btn_Control_LPMS.Click += new System.EventHandler(this.btn_Control_LPMS_Click);
             // 
+            // btn_t_0
+            // 
+            this.btn_t_0.Location = new System.Drawing.Point(37, 13);
+            this.btn_t_0.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_0.Name = "btn_t_0";
+            this.btn_t_0.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_0.TabIndex = 113;
+            this.btn_t_0.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_1
+            // 
+            this.btn_t_1.Location = new System.Drawing.Point(54, 13);
+            this.btn_t_1.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_1.Name = "btn_t_1";
+            this.btn_t_1.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_1.TabIndex = 114;
+            this.btn_t_1.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_2
+            // 
+            this.btn_t_2.Location = new System.Drawing.Point(71, 13);
+            this.btn_t_2.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_2.Name = "btn_t_2";
+            this.btn_t_2.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_2.TabIndex = 115;
+            this.btn_t_2.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_3
+            // 
+            this.btn_t_3.Location = new System.Drawing.Point(88, 13);
+            this.btn_t_3.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_3.Name = "btn_t_3";
+            this.btn_t_3.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_3.TabIndex = 116;
+            this.btn_t_3.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_7
+            // 
+            this.btn_t_7.Location = new System.Drawing.Point(156, 13);
+            this.btn_t_7.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_7.Name = "btn_t_7";
+            this.btn_t_7.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_7.TabIndex = 120;
+            this.btn_t_7.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_6
+            // 
+            this.btn_t_6.Location = new System.Drawing.Point(139, 13);
+            this.btn_t_6.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_6.Name = "btn_t_6";
+            this.btn_t_6.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_6.TabIndex = 119;
+            this.btn_t_6.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_5
+            // 
+            this.btn_t_5.Location = new System.Drawing.Point(122, 13);
+            this.btn_t_5.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_5.Name = "btn_t_5";
+            this.btn_t_5.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_5.TabIndex = 118;
+            this.btn_t_5.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_4
+            // 
+            this.btn_t_4.Location = new System.Drawing.Point(105, 13);
+            this.btn_t_4.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_4.Name = "btn_t_4";
+            this.btn_t_4.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_4.TabIndex = 117;
+            this.btn_t_4.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_11
+            // 
+            this.btn_t_11.Location = new System.Drawing.Point(224, 13);
+            this.btn_t_11.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_11.Name = "btn_t_11";
+            this.btn_t_11.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_11.TabIndex = 124;
+            this.btn_t_11.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_10
+            // 
+            this.btn_t_10.Location = new System.Drawing.Point(207, 13);
+            this.btn_t_10.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_10.Name = "btn_t_10";
+            this.btn_t_10.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_10.TabIndex = 123;
+            this.btn_t_10.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_9
+            // 
+            this.btn_t_9.Location = new System.Drawing.Point(190, 13);
+            this.btn_t_9.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_9.Name = "btn_t_9";
+            this.btn_t_9.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_9.TabIndex = 122;
+            this.btn_t_9.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_8
+            // 
+            this.btn_t_8.Location = new System.Drawing.Point(173, 13);
+            this.btn_t_8.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_8.Name = "btn_t_8";
+            this.btn_t_8.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_8.TabIndex = 121;
+            this.btn_t_8.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_23
+            // 
+            this.btn_t_23.Location = new System.Drawing.Point(223, 38);
+            this.btn_t_23.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_23.Name = "btn_t_23";
+            this.btn_t_23.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_23.TabIndex = 136;
+            this.btn_t_23.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_22
+            // 
+            this.btn_t_22.Location = new System.Drawing.Point(206, 38);
+            this.btn_t_22.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_22.Name = "btn_t_22";
+            this.btn_t_22.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_22.TabIndex = 135;
+            this.btn_t_22.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_21
+            // 
+            this.btn_t_21.Location = new System.Drawing.Point(189, 38);
+            this.btn_t_21.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_21.Name = "btn_t_21";
+            this.btn_t_21.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_21.TabIndex = 134;
+            this.btn_t_21.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_20
+            // 
+            this.btn_t_20.Location = new System.Drawing.Point(172, 38);
+            this.btn_t_20.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_20.Name = "btn_t_20";
+            this.btn_t_20.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_20.TabIndex = 133;
+            this.btn_t_20.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_19
+            // 
+            this.btn_t_19.Location = new System.Drawing.Point(155, 38);
+            this.btn_t_19.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_19.Name = "btn_t_19";
+            this.btn_t_19.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_19.TabIndex = 132;
+            this.btn_t_19.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_18
+            // 
+            this.btn_t_18.Location = new System.Drawing.Point(138, 38);
+            this.btn_t_18.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_18.Name = "btn_t_18";
+            this.btn_t_18.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_18.TabIndex = 131;
+            this.btn_t_18.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_17
+            // 
+            this.btn_t_17.Location = new System.Drawing.Point(121, 38);
+            this.btn_t_17.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_17.Name = "btn_t_17";
+            this.btn_t_17.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_17.TabIndex = 130;
+            this.btn_t_17.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_16
+            // 
+            this.btn_t_16.Location = new System.Drawing.Point(104, 38);
+            this.btn_t_16.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_16.Name = "btn_t_16";
+            this.btn_t_16.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_16.TabIndex = 129;
+            this.btn_t_16.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_15
+            // 
+            this.btn_t_15.Location = new System.Drawing.Point(87, 38);
+            this.btn_t_15.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_15.Name = "btn_t_15";
+            this.btn_t_15.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_15.TabIndex = 128;
+            this.btn_t_15.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_14
+            // 
+            this.btn_t_14.Location = new System.Drawing.Point(70, 38);
+            this.btn_t_14.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_14.Name = "btn_t_14";
+            this.btn_t_14.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_14.TabIndex = 127;
+            this.btn_t_14.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_13
+            // 
+            this.btn_t_13.Location = new System.Drawing.Point(53, 38);
+            this.btn_t_13.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_13.Name = "btn_t_13";
+            this.btn_t_13.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_13.TabIndex = 126;
+            this.btn_t_13.UseVisualStyleBackColor = true;
+            // 
+            // btn_t_12
+            // 
+            this.btn_t_12.Location = new System.Drawing.Point(36, 38);
+            this.btn_t_12.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_t_12.Name = "btn_t_12";
+            this.btn_t_12.Size = new System.Drawing.Size(16, 25);
+            this.btn_t_12.TabIndex = 125;
+            this.btn_t_12.UseVisualStyleBackColor = true;
+            // 
+            // gb_scheduler
+            // 
+            this.gb_scheduler.Controls.Add(this.label20);
+            this.gb_scheduler.Controls.Add(this.label21);
+            this.gb_scheduler.Controls.Add(this.btn_t_11);
+            this.gb_scheduler.Controls.Add(this.btn_t_23);
+            this.gb_scheduler.Controls.Add(this.btn_t_0);
+            this.gb_scheduler.Controls.Add(this.btn_t_22);
+            this.gb_scheduler.Controls.Add(this.btn_t_1);
+            this.gb_scheduler.Controls.Add(this.btn_t_21);
+            this.gb_scheduler.Controls.Add(this.btn_t_2);
+            this.gb_scheduler.Controls.Add(this.btn_t_20);
+            this.gb_scheduler.Controls.Add(this.btn_t_3);
+            this.gb_scheduler.Controls.Add(this.btn_t_19);
+            this.gb_scheduler.Controls.Add(this.btn_t_4);
+            this.gb_scheduler.Controls.Add(this.btn_t_18);
+            this.gb_scheduler.Controls.Add(this.btn_t_5);
+            this.gb_scheduler.Controls.Add(this.btn_t_17);
+            this.gb_scheduler.Controls.Add(this.btn_t_6);
+            this.gb_scheduler.Controls.Add(this.btn_t_16);
+            this.gb_scheduler.Controls.Add(this.btn_t_7);
+            this.gb_scheduler.Controls.Add(this.btn_t_15);
+            this.gb_scheduler.Controls.Add(this.btn_t_8);
+            this.gb_scheduler.Controls.Add(this.btn_t_14);
+            this.gb_scheduler.Controls.Add(this.btn_t_9);
+            this.gb_scheduler.Controls.Add(this.btn_t_13);
+            this.gb_scheduler.Controls.Add(this.btn_t_10);
+            this.gb_scheduler.Controls.Add(this.btn_t_12);
+            this.gb_scheduler.Location = new System.Drawing.Point(77, 171);
+            this.gb_scheduler.Name = "gb_scheduler";
+            this.gb_scheduler.Size = new System.Drawing.Size(240, 70);
+            this.gb_scheduler.TabIndex = 137;
+            this.gb_scheduler.TabStop = false;
+            this.gb_scheduler.Text = "Scheduler";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(7, 19);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(29, 14);
+            this.label21.TabIndex = 139;
+            this.label21.Text = "오전";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(7, 44);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(29, 14);
+            this.label20.TabIndex = 140;
+            this.label20.Text = "오후";
+            // 
             // ControlViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -495,6 +795,7 @@ namespace KTE_PMS.MIMIC
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.gb_scheduler);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.btn_Control_uPMS);
@@ -535,6 +836,9 @@ namespace KTE_PMS.MIMIC
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ControlViewer";
+            this.Load += new System.EventHandler(this.ControlViewer_Load);
+            this.gb_scheduler.ResumeLayout(false);
+            this.gb_scheduler.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -615,5 +919,32 @@ namespace KTE_PMS.MIMIC
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btn_Control_uPMS;
         private System.Windows.Forms.Button btn_Control_LPMS;
+        private System.Windows.Forms.Button btn_t_0;
+        private System.Windows.Forms.Button btn_t_1;
+        private System.Windows.Forms.Button btn_t_2;
+        private System.Windows.Forms.Button btn_t_3;
+        private System.Windows.Forms.Button btn_t_7;
+        private System.Windows.Forms.Button btn_t_6;
+        private System.Windows.Forms.Button btn_t_5;
+        private System.Windows.Forms.Button btn_t_4;
+        private System.Windows.Forms.Button btn_t_11;
+        private System.Windows.Forms.Button btn_t_10;
+        private System.Windows.Forms.Button btn_t_9;
+        private System.Windows.Forms.Button btn_t_8;
+        private System.Windows.Forms.Button btn_t_23;
+        private System.Windows.Forms.Button btn_t_22;
+        private System.Windows.Forms.Button btn_t_21;
+        private System.Windows.Forms.Button btn_t_20;
+        private System.Windows.Forms.Button btn_t_19;
+        private System.Windows.Forms.Button btn_t_18;
+        private System.Windows.Forms.Button btn_t_17;
+        private System.Windows.Forms.Button btn_t_16;
+        private System.Windows.Forms.Button btn_t_15;
+        private System.Windows.Forms.Button btn_t_14;
+        private System.Windows.Forms.Button btn_t_13;
+        private System.Windows.Forms.Button btn_t_12;
+        private System.Windows.Forms.GroupBox gb_scheduler;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
     }
 }
