@@ -15,13 +15,13 @@ namespace KTE_PMS.MIMIC
 
         private void Measure_Load(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = Repository.Instance.Tag_Data_Table;
         }
 
         delegate void CrossThreadSafetySetText(Control ctl, String text);
 
         private void CSafeSetText(Control ctl, String text)
         {
-
             /*
              * InvokeRequired 속성 (Control.InvokeRequired, MSDN)
              *   짧게 말해서, 이 컨트롤이 만들어진 스레드와 현재의 스레드가 달라서
@@ -38,6 +38,9 @@ namespace KTE_PMS.MIMIC
 
         public void ObserverUpdate()
         {
+
+            #region Temp
+            /*
             int Module;
             int Cell;
 
@@ -105,7 +108,8 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(lb22, Repository.Instance.samsung_bcs.Rack1.Rack_Switch_Control_Info.ToString());
             CSafeSetText(lb23, Repository.Instance.samsung_bcs.Rack1.Rack_Switch_Sensor_Info.ToString());
             CSafeSetText(lb24, Repository.Instance.samsung_bcs.Rack1.Rack_External_Sensor_Info.ToString());
-
+            */
+            #endregion
         }
 
 

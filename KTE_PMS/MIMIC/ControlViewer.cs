@@ -278,21 +278,7 @@ namespace KTE_PMS.MIMIC
 
         private void tb_Power_Set_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                double a = Convert.ToSingle(tb_Power_Set.Text);
-                if (a > 50)
-                {
-                    a = 50;
-                    MessageBox.Show("Power를 50kW 이상 설정할 수 없습니다");
-                }
-                Repository.Instance.remote_power = Convert.ToUInt16(a * 10);
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show(ex.Message);
-                Console.WriteLine(ex.Message);
-            }
+            Check_Active_Power_Input();
         }
 
         private void tb_Power_Set_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -340,19 +326,30 @@ namespace KTE_PMS.MIMIC
 
         private void tb_Power_Set_Leave(object sender, EventArgs e)
         {
+            if (MessageBox.Show("해당 설정을 적용하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Check_Active_Power_Input();
+            }
+        }
+        // ----------------------------------------------
+        // 2018-07-10 
+        // Parameter로 설정된 Active_Power값을 검사하고
+        // 적당할 값일 경우 데이터를 변수안에 집어넣는 함수이다
+        // Check_Active_Power_Input
+        // ----------------------------------------------
+        private void Check_Active_Power_Input()
+        {
             try
             {
-                if (MessageBox.Show("해당 설정을 적용하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-
                     double a = Convert.ToSingle(tb_Power_Set.Text);
-                    if (a > 50)
+
+
+                    if (a > Repository.Instance.p_setting.Limit_Active_Power)
                     {
-                        a = 50;
-                        MessageBox.Show("Power를 50kW 이상 설정할 수 없습니다");
+                        a = Repository.Instance.p_setting.Limit_Active_Power;
+                        MessageBox.Show("Power를 " + Repository.Instance.p_setting.Limit_Active_Power + "kW 이상 설정할 수 없습니다");
                     }
                     Repository.Instance.remote_power = Convert.ToUInt16(a * 10);
-                }
             }
             catch (Exception ex)
             {
@@ -360,6 +357,10 @@ namespace KTE_PMS.MIMIC
             }
         }
 
+        // -----------------------------------------------
+        // KeyChar이 Enter가 들어오면 Enable의 Positive Edge를
+        // 만들어줌으로 써, Focus를 잃게 만든다
+        // -----------------------------------------------
         private void tb_Power_Set_KeyPress(object sender, KeyPressEventArgs e)
         {
             switch (e.KeyChar)
@@ -369,7 +370,6 @@ namespace KTE_PMS.MIMIC
                     tb_Power_Set.Enabled = true;
                     break;
             }
-           
         }
 
         private void tb_Power_Set_Validated(object sender, EventArgs e)
@@ -379,24 +379,31 @@ namespace KTE_PMS.MIMIC
 
         private void btn_Control_LPMS_Click(object sender, EventArgs e)
         {
-            Repository.Instance.GnEPS_PCS.Authority_PMS = true;
+            if (MessageBox.Show("LEMS 제어모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Repository.Instance.GnEPS_PCS.Authority_PMS = true;
+            }
         }
 
         private void btn_Control_uPMS_Click(object sender, EventArgs e)
         {
-            Repository.Instance.GnEPS_PCS.Authority_PMS = false;
+            if (MessageBox.Show("uPMS 제어모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            { 
+                Repository.Instance.GnEPS_PCS.Authority_PMS = false;
+            }
         }
 
         private void ControlViewer_Load(object sender, EventArgs e)
         {
-            Repository.Instance.p_setting.Set_Current_PCS_Operating_Mode(Repository.Instance.Charging_StartTime, Repository.Instance.Charging_EndTime, Repository.Instance.Discharging_StartTime, Repository.Instance.Discharging_EndTime);
-            Repository.Instance.p_setting.Set_Scheduler_Setting(Repository.Instance.Charging_StartTime, Repository.Instance.Charging_EndTime, Repository.Instance.Discharging_StartTime, Repository.Instance.Discharging_EndTime);
+            Repository.Instance.p_setting.Set_Current_PCS_Operating_Mode(Repository.Instance.p_setting.Charging_StartTime, Repository.Instance.p_setting.Charging_EndTime, Repository.Instance.p_setting.Discharging_StartTime, Repository.Instance.p_setting.Discharging_EndTime);
+            Repository.Instance.p_setting.Set_Scheduler_Setting(Repository.Instance.p_setting.Charging_StartTime, Repository.Instance.p_setting.Charging_EndTime, Repository.Instance.p_setting.Discharging_StartTime, Repository.Instance.p_setting.Discharging_EndTime);
             Set_Scheduler_Color();
 
         }
 
-        private void Set_Scheduler_Color()
+        public void Set_Scheduler_Color()
         {
+            
             foreach (Control gb in this.Controls)
             {
                 if (gb_scheduler is GroupBox)

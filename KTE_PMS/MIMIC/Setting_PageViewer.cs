@@ -7,11 +7,56 @@ namespace KTE_PMS.MIMIC
 {
     public partial class Setting_PageViewer : Viewer
     {
+
+
+        public TimeSpan Charging_StartTime { get; set; }
+        public TimeSpan Charging_EndTime { get; set; }
+        public TimeSpan Discharging_StartTime { get; set; }
+        public TimeSpan Discharging_EndTime { get; set; }
+
+        public sPower power { get; set; }
+        public sPower power_day { get; set; }
+        public sPower power_month { get; set; }
+        public sPower power_year { get; set; }
+
+        public float total_power { get; set; }
+
+        public float Charging_Stop_SOC { get; set; }
+        public float Discharging_Stop_SOC { get; set; }
+        public float Discharging_Limit_Voltage { get; set; }
+        public float Charging_Limit_Voltage { get; set; }
+
+        public float Limit_Active_Power { get; set; }
+        public bool flag_Charging_Time { get; set; }
+        public bool flag_DisCharging_Time { get; set; }
+
         public Setting_PageViewer()
         {
             InitializeComponent();
+
+            Initialize_Parameter_Settings();
         }
 
+        private void Initialize_Parameter_Settings()
+        {
+            Charging_StartTime = new TimeSpan(08, 00, 00);
+            Charging_EndTime = new TimeSpan(12, 00, 00);
+            Discharging_StartTime = new TimeSpan(16, 00, 00);
+            Discharging_EndTime = new TimeSpan(20, 00, 00);
+
+            power = new sPower();
+            power_day = new sPower();
+            power_month = new sPower();
+            power_year = new sPower();
+
+            Charging_Stop_SOC = 80.0F;
+            Discharging_Stop_SOC = 30.0F;
+            Discharging_Limit_Voltage = 85.0F;
+            Charging_Limit_Voltage = 30.0F;
+
+            Limit_Active_Power = 50.0F;
+
+        }
 
         private void btn_Access_To_Operating_System_Click(object sender, EventArgs e)
         {
@@ -131,11 +176,11 @@ namespace KTE_PMS.MIMIC
                 {
                     if (masktedTextBox.Name == "tb_Charging_Stop_SOC")
                     {
-                        Repository.Instance.Charging_Stop_SOC = Convert.ToSingle(masktedTextBox.Text);
+                        Charging_Stop_SOC = Convert.ToSingle(masktedTextBox.Text);
                     }
                     else if (masktedTextBox.Name == "tb_Discharging_Stop_SOC")
                     {
-                        Repository.Instance.Discharging_Stop_SOC = Convert.ToSingle(masktedTextBox.Text);
+                        Discharging_Stop_SOC = Convert.ToSingle(masktedTextBox.Text);
                     }
                 }
             }
@@ -168,11 +213,11 @@ namespace KTE_PMS.MIMIC
                 {
                     if (masktedTextBox.Name == "tb_Charging_Limit_Voltage")
                     {
-                        Repository.Instance.Charging_Limit_Voltage = Convert.ToSingle(masktedTextBox.Text);
+                        Charging_Limit_Voltage = Convert.ToSingle(masktedTextBox.Text);
                     }
                     else if (masktedTextBox.Name == "tb_Discharging_Limit_Voltage")
                     {
-                        Repository.Instance.Discharging_Limit_Voltage = Convert.ToSingle(masktedTextBox.Text);
+                        Discharging_Limit_Voltage = Convert.ToSingle(masktedTextBox.Text);
                     }
                 }
             }
@@ -185,16 +230,16 @@ namespace KTE_PMS.MIMIC
 
         private void Setting_PageViewer_Load(object sender, EventArgs e)
         {
-            tb_Charging_Stop_SOC.Text = String.Format("{0:000.0}", Repository.Instance.Charging_Stop_SOC);
-            tb_Discharging_Stop_SOC.Text = String.Format("{0:000.0}", Repository.Instance.Discharging_Stop_SOC);
-            tb_Charging_Limit_Voltage.Text = String.Format("{0:000.0}", Repository.Instance.Discharging_Limit_Voltage);
-            tb_Discharging_Limit_Voltage.Text = String.Format("{0:000.0}", Repository.Instance.Charging_Limit_Voltage);
+            tb_Charging_Stop_SOC.Text = String.Format("{0:000.0}", Charging_Stop_SOC);
+            tb_Discharging_Stop_SOC.Text = String.Format("{0:000.0}", Discharging_Stop_SOC);
+            tb_Charging_Limit_Voltage.Text = String.Format("{0:000.0}", Discharging_Limit_Voltage);
+            tb_Discharging_Limit_Voltage.Text = String.Format("{0:000.0}", Charging_Limit_Voltage);
 
 
-            tb_Charging_Period_Start.Text = Repository.Instance.Charging_StartTime.Hours.ToString("D2") + "시" + Repository.Instance.Charging_StartTime.Minutes.ToString("D2") + "분";
-            tb_Charging_Period_End.Text = Repository.Instance.Charging_EndTime.Hours.ToString("D2") + "시" + Repository.Instance.Charging_EndTime.Minutes.ToString("D2") + "분";
-            tb_Discharging_Period_Start.Text = Repository.Instance.Discharging_StartTime.Hours.ToString("D2") + "시" + Repository.Instance.Discharging_StartTime.Minutes.ToString("D2") + "분";
-            tb_Discharging_Period_End.Text = Repository.Instance.Discharging_EndTime.Hours.ToString("D2") + "시" + Repository.Instance.Discharging_EndTime.Minutes.ToString("D2") + "분";
+            tb_Charging_Period_Start.Text = Charging_StartTime.Hours.ToString("D2") + "시" + Charging_StartTime.Minutes.ToString("D2") + "분";
+            tb_Charging_Period_End.Text = Charging_EndTime.Hours.ToString("D2") + "시" + Charging_EndTime.Minutes.ToString("D2") + "분";
+            tb_Discharging_Period_Start.Text = Discharging_StartTime.Hours.ToString("D2") + "시" + Discharging_StartTime.Minutes.ToString("D2") + "분";
+            tb_Discharging_Period_End.Text = Discharging_EndTime.Hours.ToString("D2") + "시" + Discharging_EndTime.Minutes.ToString("D2") + "분";
 
         }
 
@@ -218,10 +263,10 @@ namespace KTE_PMS.MIMIC
                     TimeSpan StartTime2 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
                     TimeSpan EndTime2 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
 
-                    Repository.Instance.Charging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
-                    Repository.Instance.Charging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_End);
-                    Repository.Instance.Discharging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
-                    Repository.Instance.Discharging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
+                    Charging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
+                    Charging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_End);
+                    Discharging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
+                    Discharging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
 
                     Set_Scheduler_Setting(StartTime1, EndTime1, StartTime2, EndTime2);
 
@@ -236,16 +281,16 @@ namespace KTE_PMS.MIMIC
                         return;
                     }
 
-                    Repository.Instance.Charging_Stop_SOC = Convert_From_MaskedTextBox_To_Single(tb_Charging_Stop_SOC);
+                    Charging_Stop_SOC = Convert_From_MaskedTextBox_To_Single(tb_Charging_Stop_SOC);
 
-                    Repository.Instance.Discharging_Stop_SOC = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Stop_SOC);
-                    Repository.Instance.Charging_Limit_Voltage = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Limit_Voltage);
-                    Repository.Instance.Discharging_Limit_Voltage = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Limit_Voltage);
+                    Discharging_Stop_SOC = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Stop_SOC);
+                    Charging_Limit_Voltage = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Limit_Voltage);
+                    Discharging_Limit_Voltage = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Limit_Voltage);
 
-                    Repository.Instance.Charging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
-                    Repository.Instance.Charging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_End);
-                    Repository.Instance.Discharging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
-                    Repository.Instance.Discharging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
+                    Charging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
+                    Charging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_End);
+                    Discharging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
+                    Discharging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
 
                     Set_Current_PCS_Operating_Mode(StartTime1, EndTime1, StartTime2, EndTime2);
                 }
@@ -266,29 +311,29 @@ namespace KTE_PMS.MIMIC
             if (StartTime1 > EndTime1 && (StartTime1 <= current || current < EndTime1))
             {
                 //충전시간이다
-                Repository.Instance.flag_Charging_Time = true;
-                Repository.Instance.flag_DisCharging_Time = false;
+                flag_Charging_Time = true;
+                flag_DisCharging_Time = false;
             }
             else if (StartTime1 < EndTime1 && (StartTime1 <= current && current < EndTime1))
             {
                 // 충전시간이다
-                Repository.Instance.flag_Charging_Time = true;
-                Repository.Instance.flag_DisCharging_Time = false;
+                flag_Charging_Time = true;
+                flag_DisCharging_Time = false;
             }
             else if (StartTime2 > EndTime2 && (StartTime2 <= current || current < EndTime2))
             {
-                Repository.Instance.flag_Charging_Time = false;
-                Repository.Instance.flag_DisCharging_Time = true;
+                flag_Charging_Time = false;
+                flag_DisCharging_Time = true;
             }
             else if (StartTime2 < EndTime2 && (StartTime2 <= current && current < EndTime2))
             {
-                Repository.Instance.flag_Charging_Time = false;
-                Repository.Instance.flag_DisCharging_Time = true;
+                flag_Charging_Time = false;
+                flag_DisCharging_Time = true;
             }
             else
             {
-                Repository.Instance.flag_Charging_Time = false;
-                Repository.Instance.flag_DisCharging_Time = false;
+                flag_Charging_Time = false;
+                flag_DisCharging_Time = false;
             }
         }
 
@@ -373,6 +418,16 @@ namespace KTE_PMS.MIMIC
         private void btn_Language_Setup_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("rundll32.exe", "shell32.dll,Control_RunDLL intl.cpl");
+        }
+
+        private void tb_Power_Prices_Click(object sender, EventArgs e)
+        {
+            Calculate_Power_Prices a = new Calculate_Power_Prices();
+            a.ShowDialog();
+        }
+        public void SetPowerPrices(float total_prices)
+        {
+            tb_Power_Prices.Text = total_prices.ToString();
         }
     }
 }

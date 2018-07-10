@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="tag_data" targetNamespace="http://tempuri.org/TAG_DATA.xsd" xmlns:mstns="http://tempuri.org/TAG_DATA.xsd" xmlns="http://tempuri.org/TAG_DATA.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="tag_data" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="tag_data" msprop:Generator_UserDSName="tag_data">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Tag_Parameter" msprop:Generator_TableClassName="Tag_ParameterDataTable" msprop:Generator_TableVarName="tableTag_Parameter" msprop:Generator_TablePropName="Tag_Parameter" msprop:Generator_RowDeletingName="Tag_ParameterRowDeleting" msprop:Generator_RowChangingName="Tag_ParameterRowChanging" msprop:Generator_RowEvHandlerName="Tag_ParameterRowChangeEventHandler" msprop:Generator_RowDeletedName="Tag_ParameterRowDeleted" msprop:Generator_UserTableName="Tag_Parameter" msprop:Generator_RowChangedName="Tag_ParameterRowChanged" msprop:Generator_RowEvArgName="Tag_ParameterRowChangeEvent" msprop:Generator_RowClassName="Tag_ParameterRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" />
+              <xs:element name="GroupNo" msprop:Generator_ColumnVarNameInTable="columnGroupNo" msprop:Generator_ColumnPropNameInRow="GroupNo" msprop:Generator_ColumnPropNameInTable="GroupNoColumn" msprop:Generator_UserColumnName="GroupNo" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnPropNameInTable="ValueColumn" msprop:Generator_UserColumnName="Value" type="xs:string" minOccurs="0" />
+              <xs:element name="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" msprop:Generator_UserColumnName="Unit" type="xs:string" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" type="xs:string" minOccurs="0" />
+              <xs:element name="SensorType" msprop:Generator_ColumnVarNameInTable="columnSensorType" msprop:Generator_ColumnPropNameInRow="SensorType" msprop:Generator_ColumnPropNameInTable="SensorTypeColumn" msprop:Generator_UserColumnName="SensorType" type="xs:string" minOccurs="0" />
+              <xs:element name="AlarmGroup" msprop:Generator_ColumnVarNameInTable="columnAlarmGroup" msprop:Generator_ColumnPropNameInRow="AlarmGroup" msprop:Generator_ColumnPropNameInTable="AlarmGroupColumn" msprop:Generator_UserColumnName="AlarmGroup" type="xs:string" minOccurs="0" />
+              <xs:element name="InputCH" msprop:Generator_ColumnVarNameInTable="columnInputCH" msprop:Generator_ColumnPropNameInRow="InputCH" msprop:Generator_ColumnPropNameInTable="InputCHColumn" msprop:Generator_UserColumnName="InputCH" type="xs:string" minOccurs="0" />
+              <xs:element name="InhibitID" msprop:Generator_ColumnVarNameInTable="columnInhibitID" msprop:Generator_ColumnPropNameInRow="InhibitID" msprop:Generator_ColumnPropNameInTable="InhibitIDColumn" msprop:Generator_UserColumnName="InhibitID" type="xs:string" minOccurs="0" />
+              <xs:element name="OutputCH" msprop:Generator_ColumnVarNameInTable="columnOutputCH" msprop:Generator_ColumnPropNameInRow="OutputCH" msprop:Generator_ColumnPropNameInTable="OutputCHColumn" msprop:Generator_UserColumnName="OutputCH" type="xs:string" minOccurs="0" />
+              <xs:element name="EauGroup" msprop:Generator_ColumnVarNameInTable="columnEauGroup" msprop:Generator_ColumnPropNameInRow="EauGroup" msprop:Generator_ColumnPropNameInTable="EauGroupColumn" msprop:Generator_UserColumnName="EauGroup" type="xs:string" minOccurs="0" />
+              <xs:element name="RangeMin" msprop:Generator_ColumnVarNameInTable="columnRangeMin" msprop:Generator_ColumnPropNameInRow="RangeMin" msprop:Generator_ColumnPropNameInTable="RangeMinColumn" msprop:Generator_UserColumnName="RangeMin" type="xs:string" minOccurs="0" />
+              <xs:element name="RangeMax" msprop:Generator_ColumnVarNameInTable="columnRangeMax" msprop:Generator_ColumnPropNameInRow="RangeMax" msprop:Generator_ColumnPropNameInTable="RangeMaxColumn" msprop:Generator_UserColumnName="RangeMax" type="xs:string" minOccurs="0" />
+              <xs:element name="LowAlarm" msprop:Generator_ColumnVarNameInTable="columnLowAlarm" msprop:Generator_ColumnPropNameInRow="LowAlarm" msprop:Generator_ColumnPropNameInTable="LowAlarmColumn" msprop:Generator_UserColumnName="LowAlarm" type="xs:string" minOccurs="0" />
+              <xs:element name="HighAlarm" msprop:Generator_ColumnVarNameInTable="columnHighAlarm" msprop:Generator_ColumnPropNameInRow="HighAlarm" msprop:Generator_ColumnPropNameInTable="HighAlarmColumn" msprop:Generator_UserColumnName="HighAlarm" type="xs:string" minOccurs="0" />
+              <xs:element name="Offset" msprop:Generator_ColumnVarNameInTable="columnOffset" msprop:Generator_ColumnPropNameInRow="Offset" msprop:Generator_ColumnPropNameInTable="OffsetColumn" msprop:Generator_UserColumnName="Offset" type="xs:string" minOccurs="0" />
+              <xs:element name="Span" msprop:Generator_ColumnVarNameInTable="columnSpan" msprop:Generator_ColumnPropNameInRow="Span" msprop:Generator_ColumnPropNameInTable="SpanColumn" msprop:Generator_UserColumnName="Span" type="xs:string" minOccurs="0" />
+              <xs:element name="OnDelay" msprop:Generator_ColumnVarNameInTable="columnOnDelay" msprop:Generator_ColumnPropNameInRow="OnDelay" msprop:Generator_ColumnPropNameInTable="OnDelayColumn" msprop:Generator_UserColumnName="OnDelay" type="xs:string" minOccurs="0" />
+              <xs:element name="OffDelay" msprop:Generator_ColumnVarNameInTable="columnOffDelay" msprop:Generator_ColumnPropNameInRow="OffDelay" msprop:Generator_ColumnPropNameInTable="OffDelayColumn" msprop:Generator_UserColumnName="OffDelay" type="xs:string" minOccurs="0" />
+              <xs:element name="Control" msprop:Generator_ColumnVarNameInTable="columnControl" msprop:Generator_ColumnPropNameInRow="Control" msprop:Generator_ColumnPropNameInTable="ControlColumn" msprop:Generator_UserColumnName="Control" type="xs:string" minOccurs="0" />
+              <xs:element name="Enable" msprop:Generator_ColumnVarNameInTable="columnEnable" msprop:Generator_ColumnPropNameInRow="Enable" msprop:Generator_ColumnPropNameInTable="EnableColumn" msprop:Generator_UserColumnName="Enable" type="xs:string" minOccurs="0" />
+              <xs:element name="AlarmLevel" msprop:Generator_ColumnVarNameInTable="columnAlarmLevel" msprop:Generator_ColumnPropNameInRow="AlarmLevel" msprop:Generator_ColumnPropNameInTable="AlarmLevelColumn" msprop:Generator_UserColumnName="AlarmLevel" type="xs:string" minOccurs="0" />
+              <xs:element name="VDR" msprop:Generator_ColumnVarNameInTable="columnVDR" msprop:Generator_ColumnPropNameInRow="VDR" msprop:Generator_ColumnPropNameInTable="VDRColumn" msprop:Generator_UserColumnName="VDR" type="xs:string" minOccurs="0" />
+              <xs:element name="LOLO" msprop:Generator_ColumnVarNameInTable="columnLOLO" msprop:Generator_ColumnPropNameInRow="LOLO" msprop:Generator_ColumnPropNameInTable="LOLOColumn" msprop:Generator_UserColumnName="LOLO" type="xs:string" minOccurs="0" />
+              <xs:element name="Low" msprop:Generator_ColumnVarNameInTable="columnLow" msprop:Generator_ColumnPropNameInRow="Low" msprop:Generator_ColumnPropNameInTable="LowColumn" msprop:Generator_UserColumnName="Low" type="xs:string" minOccurs="0" />
+              <xs:element name="High" msprop:Generator_ColumnVarNameInTable="columnHigh" msprop:Generator_ColumnPropNameInRow="High" msprop:Generator_ColumnPropNameInTable="HighColumn" msprop:Generator_UserColumnName="High" type="xs:string" minOccurs="0" />
+              <xs:element name="AlarmPrinter" msprop:Generator_ColumnVarNameInTable="columnAlarmPrinter" msprop:Generator_ColumnPropNameInRow="AlarmPrinter" msprop:Generator_ColumnPropNameInTable="AlarmPrinterColumn" msprop:Generator_UserColumnName="AlarmPrinter" type="xs:string" minOccurs="0" />
+              <xs:element name="LOLOAlarm" msprop:Generator_ColumnVarNameInTable="columnLOLOAlarm" msprop:Generator_ColumnPropNameInRow="LOLOAlarm" msprop:Generator_ColumnPropNameInTable="LOLOAlarmColumn" msprop:Generator_UserColumnName="LOLOAlarm" type="xs:string" minOccurs="0" />
+              <xs:element name="HIHIAlarm" msprop:Generator_ColumnVarNameInTable="columnHIHIAlarm" msprop:Generator_ColumnPropNameInRow="HIHIAlarm" msprop:Generator_ColumnPropNameInTable="HIHIAlarmColumn" msprop:Generator_UserColumnName="HIHIAlarm" type="xs:string" minOccurs="0" />
+              <xs:element name="OnDelay2" msprop:Generator_ColumnVarNameInTable="columnOnDelay2" msprop:Generator_ColumnPropNameInRow="OnDelay2" msprop:Generator_ColumnPropNameInTable="OnDelay2Column" msprop:Generator_UserColumnName="OnDelay2" type="xs:string" minOccurs="0" />
+              <xs:element name="OffDelay2" msprop:Generator_ColumnVarNameInTable="columnOffDelay2" msprop:Generator_ColumnPropNameInRow="OffDelay2" msprop:Generator_ColumnPropNameInTable="OffDelay2Column" msprop:Generator_UserColumnName="OffDelay2" type="xs:string" minOccurs="0" />
+              <xs:element name="MeanID" msprop:Generator_ColumnVarNameInTable="columnMeanID" msprop:Generator_ColumnPropNameInRow="MeanID" msprop:Generator_ColumnPropNameInTable="MeanIDColumn" msprop:Generator_UserColumnName="MeanID" type="xs:string" minOccurs="0" />
+              <xs:element name="InputID" msprop:Generator_ColumnVarNameInTable="columnInputID" msprop:Generator_ColumnPropNameInRow="InputID" msprop:Generator_ColumnPropNameInTable="InputIDColumn" msprop:Generator_UserColumnName="InputID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Tag_Parameter" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

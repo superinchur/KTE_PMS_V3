@@ -1,6 +1,7 @@
 ﻿using KTE_PMS.Observer;
 using KTE_PMS.Singleton;
 using System;
+using System.Data;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -22,6 +23,7 @@ namespace KTE_PMS
         public MIMIC.MeasureViewer2 p_measure_BMS_Rack { set; get; }
         public MIMIC.MeasureViewer3 p_measure_PCS_Fault { set; get; }
         public MIMIC.MeasureViewer4 p_measure_PCS { set; get; }
+        public MIMIC.MeasureViewerV2 p_measure_PCSV2 { set; get; }
         public MIMIC.MimicViewer p_mimic = null;
         public MIMIC.Setting_PageViewer p_setting = null;
         public TrendViewer p_trend = null;
@@ -39,23 +41,6 @@ namespace KTE_PMS
         public DBConnector dbConnector;
         IUpdate observers;
 
-        public TimeSpan Charging_StartTime { get; set; }
-        public TimeSpan Charging_EndTime { get; set; }
-        public TimeSpan Discharging_StartTime { get; set; }
-        public TimeSpan Discharging_EndTime { get; set; }
-
-        public sPower power { get; set; }
-        public sPower power_day { get; set; }
-        public sPower power_month { get; set; }
-        public sPower power_year { get; set; }
-
-        public float Charging_Stop_SOC { get; set; }
-        public float Discharging_Stop_SOC { get; set; }
-        public float Discharging_Limit_Voltage { get; set; }
-        public float Charging_Limit_Voltage { get; set; }
-
-        public bool flag_Charging_Time { get; set; }
-        public bool flag_DisCharging_Time { get; set; }
 
         public ushort remote_power;
         public ushort current_pcs_mode;
@@ -73,6 +58,9 @@ namespace KTE_PMS
         public string first_password;
 
         public int[] scheduler;
+
+        public DataTable Tag_Data_Table = new DataTable();
+
         #endregion 
 
         // ---------------------------------------------------------
@@ -123,7 +111,7 @@ namespace KTE_PMS
             // 현재 강제적으로 데이터를 넣고있으나, 설정한 값들의 보존을 위해서는 File이나 DB로 저장하도록 변경해야 한다.
             // TODO : Parameter Settings
             scheduler = new int[24];
-            Initialize_Parameter_Settings();
+
 
             //-----------------------------
             // 20180628
@@ -134,12 +122,15 @@ namespace KTE_PMS
             try
             {
                 TagManager = new TagManager(this);
+                
+
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Abort");
                 throw e;
             }
+
 
 
         }
@@ -155,30 +146,13 @@ namespace KTE_PMS
             p_measure_PCS_Fault = new MIMIC.MeasureViewer3();
             p_measure_PCS = new MIMIC.MeasureViewer4();
 
+            p_measure_PCSV2 = new MIMIC.MeasureViewerV2();
+
             p_mimic = new MIMIC.MimicViewer();
             p_trend = new TrendViewer();
             p_setting = new MIMIC.Setting_PageViewer();
         }
 
-        private void Initialize_Parameter_Settings()
-        {
-            Charging_StartTime = new TimeSpan(08, 00, 00);
-            Charging_EndTime = new TimeSpan(12, 00, 00);
-            Discharging_StartTime = new TimeSpan(16, 00, 00);
-            Discharging_EndTime = new TimeSpan(20, 00, 00);
-
-            power = new sPower();
-            power_day = new sPower();
-            power_month = new sPower();
-            power_year = new sPower();
-
-            Charging_Stop_SOC = 80.0F;
-            Discharging_Stop_SOC = 30.0F;
-            Discharging_Limit_Voltage = 85.0F;
-            Charging_Limit_Voltage = 30.0F;
-
-            
-        }
 
         private void Initialize_Semaphore()
         {
@@ -282,7 +256,6 @@ namespace KTE_PMS
             //PMD_DI_Status
         }
 
-
         #region GnEPS PCS의 데이터 획득
         public void Get_PCS(byte[] data)
         {
@@ -306,7 +279,7 @@ namespace KTE_PMS
             GnEPS_PCS.GRID_S_Current = ByteConverterToInt16(data, 4);
             GnEPS_PCS.GRID_T_Current = ByteConverterToInt16(data, 5);
             GnEPS_PCS.GRID_Power = ByteConverterToInt16(data, 6);
-            power.setPCSPower(GnEPS_PCS.GRID_Power);
+            p_setting.power.setPCSPower(GnEPS_PCS.GRID_Power);
 
             GnEPS_PCS.GRID_Frequency = ByteConverterToUInt16(data, 7) * 0.1;
             GnEPS_PCS.isTemperatureWarning = ByteConverterToUInt16(data, 8);
@@ -340,6 +313,7 @@ namespace KTE_PMS
             GnEPS_PCS.Mode_Charging = (GnEPS_PCS.Control_MODE >> 6) & 0x01;
             GnEPS_PCS.Mode_Discharging = (GnEPS_PCS.Control_MODE >> 7) & 0x01;
             GnEPS_PCS.Mode_Reset = (GnEPS_PCS.Control_MODE >> 8) & 0x01;
+            GnEPS_PCS.Mode_ACKED = (GnEPS_PCS.Control_MODE >> 10) & 0x01;
 
             GnEPS_PCS.Fault_System_CB_Status = ByteConverterToInt16(data, 32);
             GnEPS_PCS.Inverter_Current_Reference = ByteConverterToInt16(data, 33);
@@ -353,6 +327,13 @@ namespace KTE_PMS
 
             //pcs_resourcePool.Release();
 
+            //-----------------------------------------------
+            // 20180709 DataTable안에 데이터를 넣는 로직.
+            // 43~80은 Battery System의 항목이기에 ID 필터링 이후 값을 넣도록 한다.
+            // 그리고 InputCH는 동일하다.
+            //-----------------------------------------------
+            Insert_To_DataTable(data, 1, 42, 0);
+
         }
         #endregion
         public void Get_BSC(byte[] data)
@@ -362,51 +343,53 @@ namespace KTE_PMS
             byte[] temp_byte = new byte[2];
 
             samsung_bcs.Protocol_Version = ByteConverterToUInt16(data, 0);
-
-
             samsung_bcs.System_Voltage = ByteConverterToUInt16(data, 1) * 0.1;
             samsung_bcs.System_Current = ByteConverterToInt16(data, 2);
             samsung_bcs.System_Power = samsung_bcs.System_Voltage * samsung_bcs.System_Current / 1000;
 
+
+
+            //t_dr[0]["Value"] = ByteConverterToUInt16(data, 1) * 0.1;      
+
             // Charging과 DisCHarging을 나누기 위해서 만듬
-            power.setBMSPower(samsung_bcs.System_Power);
+            p_setting.power.setBMSPower(samsung_bcs.System_Power);
 
             if (!(samsung_bcs.System_SOC == ByteConverterToUInt16(data, 3) * 0.1))
             {
-                Repository.Instance.pmdviewer.flag_WriteSOCBuffers_isChanged = true;
+                pmdviewer.flag_WriteSOCBuffers_isChanged = true;
                 samsung_bcs.System_SOC = ByteConverterToUInt16(data, 3) * 0.1;
             }
 
 
             if (!(samsung_bcs.System_SOH == ByteConverterToUInt16(data, 4) * 0.1))
             {
-                Repository.Instance.pmdviewer.flag_WriteSOCBuffers_isChanged = true;
+                pmdviewer.flag_WriteSOCBuffers_isChanged = true;
                 samsung_bcs.System_SOH = ByteConverterToUInt16(data, 4) * 0.1;
             }
 
             if (!(samsung_bcs.System_Mode == ByteConverterToUInt16(data, 5)))
             {
-                Repository.Instance.pmdviewer.flag_WriteSOCBuffers_isChanged = true;
+                pmdviewer.flag_WriteSOCBuffers_isChanged = true;
                 samsung_bcs.System_Mode = ByteConverterToUInt16(data, 5);
             }
 
 
 
             // SOC
-            Repository.Instance.pmdviewer.WriteSOCBuffers[0] = data[6];
-            Repository.Instance.pmdviewer.WriteSOCBuffers[1] = data[7];
+            pmdviewer.WriteSOCBuffers[0] = data[6];
+            pmdviewer.WriteSOCBuffers[1] = data[7];
 
             // 전압
-            Repository.Instance.pmdviewer.WriteVoltageBuffers[0] = data[2];
-            Repository.Instance.pmdviewer.WriteVoltageBuffers[1] = data[3];
+            pmdviewer.WriteVoltageBuffers[0] = data[2];
+            pmdviewer.WriteVoltageBuffers[1] = data[3];
 
             // 전류
-            Repository.Instance.pmdviewer.WriteCurrentBuffers[0] = data[4];
-            Repository.Instance.pmdviewer.WriteCurrentBuffers[1] = data[5];
+            pmdviewer.WriteCurrentBuffers[0] = data[4];
+            pmdviewer.WriteCurrentBuffers[1] = data[5];
 
             // Heartbit
-            Repository.Instance.pmdviewer.WriteHeartBitBuffers[0] = data[50];
-            Repository.Instance.pmdviewer.WriteHeartBitBuffers[1] = data[51];
+            pmdviewer.WriteHeartBitBuffers[0] = data[50];
+            pmdviewer.WriteHeartBitBuffers[1] = data[51];
 
 
 
@@ -446,18 +429,40 @@ namespace KTE_PMS
             samsung_bcs.Service_SOC = ByteConverterToUInt16(data, 28) * 0.1;
 
             samsung_bcs.System_Alarm_Status = ByteConverterToUInt16(data, 30);
-            //Insert_Rack(ref samsung_bcs.Rack1, data, 1);
-            //Insert_Rack(ref samsung_bcs.Rack2, data, 2);
             dbConnector.Insert_Value_to_Database();
             TagManager.BMS_Fault_처리_프로시져();
-            //bms_resourcePool.Release();
 
+            //bms_resourcePool.Release();
+            Insert_To_DataTable(data,43,80, 0 );
+        }
+
+        private void Insert_To_DataTable(byte[] data, int start, int end , int offset)
+        {
+
+            //-----------------------------------------------
+            //20180709 DataTable안에 데이터를 넣는 로직.
+            // 43~80은 Battery System의 항목이기에 ID 필터링 이후 값을 넣도록 한다.
+            // 그리고 InputCH는 동일하다.
+            //-----------------------------------------------
+            DataRow[] t_dr = Tag_Data_Table.Select();
+            foreach (DataRow dr in t_dr)
+            {
+
+                int temp_InputCH = (Convert.ToUInt16(dr["InputCH"])) - offset;
+                int temp_ID = Convert.ToInt16(dr["ID"]);
+
+                if (temp_ID >= start && temp_ID <= end)
+                {
+                    dr["Value"] = ByteConverterToUInt16(data, temp_InputCH);
+                }
+
+            }
         }
 
         public void Insert_Rack(ref Samsung_BMS_Rack Rack, byte[] data, int num_of_Rack)
         {
 
-            int offset = (num_of_Rack-1) * 60 - 40;
+            int offset = num_of_Rack * 60 - 40;
 
             Rack.Rack_Voltage = ByteConverterToUInt16(data, 40+ offset) * 0.1;
             Rack.String1_Rack_Voltage = ByteConverterToUInt16(data, 41+ offset) * 0.1;
@@ -504,6 +509,16 @@ namespace KTE_PMS
             Rack.Rack_Switch_Sensor_Info = ByteConverterToUInt16(data, 85 + offset);
             Rack.Rack_External_Sensor_Info = ByteConverterToUInt16(data, 86 + offset);
             Rack.Module_Comm_Fault_Position = (ByteConverterToUInt16(data, 86 + offset) >> 8) & 0xFF;
+
+            if (num_of_Rack == 1)
+            {
+                Insert_To_DataTable(data, 81, 114, offset);
+            }
+            else if (num_of_Rack == 2)
+            {
+                Insert_To_DataTable(data, 115, 148, offset);
+            }
+            
         }
 
         private ushort ByteConverterToUInt16(byte[] data, int offset)

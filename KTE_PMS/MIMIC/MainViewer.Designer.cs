@@ -79,6 +79,10 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
+            this.btn_ChargingMode = new System.Windows.Forms.Button();
+            this.btn_DisChargingMode = new System.Windows.Forms.Button();
+            this.btn_CustomMode = new System.Windows.Forms.Button();
+            this.btn_PeakCutMode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Battery_to_PCS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PCS_to_Grid)).BeginInit();
             this.SuspendLayout();
@@ -658,6 +662,46 @@
             this.label34.TabIndex = 72;
             this.label34.Text = "충전";
             // 
+            // btn_ChargingMode
+            // 
+            this.btn_ChargingMode.Location = new System.Drawing.Point(390, 356);
+            this.btn_ChargingMode.Name = "btn_ChargingMode";
+            this.btn_ChargingMode.Size = new System.Drawing.Size(116, 23);
+            this.btn_ChargingMode.TabIndex = 74;
+            this.btn_ChargingMode.Text = "충전모드";
+            this.btn_ChargingMode.UseVisualStyleBackColor = true;
+            this.btn_ChargingMode.Click += new System.EventHandler(this.btn_ChargingMode_Click);
+            // 
+            // btn_DisChargingMode
+            // 
+            this.btn_DisChargingMode.Location = new System.Drawing.Point(512, 356);
+            this.btn_DisChargingMode.Name = "btn_DisChargingMode";
+            this.btn_DisChargingMode.Size = new System.Drawing.Size(116, 23);
+            this.btn_DisChargingMode.TabIndex = 75;
+            this.btn_DisChargingMode.Text = "방전모드";
+            this.btn_DisChargingMode.UseVisualStyleBackColor = true;
+            this.btn_DisChargingMode.Click += new System.EventHandler(this.btn_DisChargingMode_Click);
+            // 
+            // btn_CustomMode
+            // 
+            this.btn_CustomMode.Location = new System.Drawing.Point(512, 330);
+            this.btn_CustomMode.Name = "btn_CustomMode";
+            this.btn_CustomMode.Size = new System.Drawing.Size(116, 23);
+            this.btn_CustomMode.TabIndex = 77;
+            this.btn_CustomMode.Text = "사용자정의모드";
+            this.btn_CustomMode.UseVisualStyleBackColor = true;
+            this.btn_CustomMode.Click += new System.EventHandler(this.btn_CustomMode_Click);
+            // 
+            // btn_PeakCutMode
+            // 
+            this.btn_PeakCutMode.Location = new System.Drawing.Point(390, 330);
+            this.btn_PeakCutMode.Name = "btn_PeakCutMode";
+            this.btn_PeakCutMode.Size = new System.Drawing.Size(116, 23);
+            this.btn_PeakCutMode.TabIndex = 76;
+            this.btn_PeakCutMode.Text = "피크저감모드";
+            this.btn_PeakCutMode.UseVisualStyleBackColor = true;
+            this.btn_PeakCutMode.Click += new System.EventHandler(this.btn_PeakCutMode_Click);
+            // 
             // MainViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -665,6 +709,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.btn_CustomMode);
+            this.Controls.Add(this.btn_PeakCutMode);
+            this.Controls.Add(this.btn_DisChargingMode);
+            this.Controls.Add(this.btn_ChargingMode);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.label34);
             this.Controls.Add(this.label32);
@@ -772,5 +820,9 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button btn_ChargingMode;
+        private System.Windows.Forms.Button btn_DisChargingMode;
+        private System.Windows.Forms.Button btn_CustomMode;
+        private System.Windows.Forms.Button btn_PeakCutMode;
     }
 }

@@ -138,6 +138,12 @@
       <DependentUpon>BMSViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="cTag.cs" />
+    <Compile Include="MIMIC\Calculate_Power_Prices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MIMIC\Calculate_Power_Prices.Designer.cs">
+      <DependentUpon>Calculate_Power_Prices.cs</DependentUpon>
+    </Compile>
     <Compile Include="MIMIC\ControlViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -252,6 +258,11 @@
     <Compile Include="MIMIC\PMDViewer.Designer.cs">
       <DependentUpon>PMDViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="TAG_DATA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TAG_DATA.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MIMIC\BMSViewer.resx">
       <DependentUpon>BMSViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MIMIC\Calculate_Power_Prices.resx">
+      <DependentUpon>Calculate_Power_Prices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MIMIC\ControlViewer.resx">
       <DependentUpon>ControlViewer.cs</DependentUpon>
@@ -356,6 +370,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TAG_DATA.xsc">
+      <DependentUpon>TAG_DATA.xsd</DependentUpon>
+    </None>
+    <None Include="TAG_DATA.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TAG_DATA.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TAG_DATA.xss">
+      <DependentUpon>TAG_DATA.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

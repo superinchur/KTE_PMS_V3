@@ -1,6 +1,9 @@
 ﻿using KTE_PMS.MIMIC;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -8,11 +11,13 @@ namespace KTE_PMS
 {
     public class TagManager
     {
-        private const int TSize = 3;
+        private const int TSize = 148;
 
-        Repository repository;
         public cTag[] tt;
         public Dictionary<string, cTag> dictionary = new Dictionary<string, cTag>();
+
+        DataTable dt = new DataTable();
+
         string directory;
 
         public Dictionary<string, string> htCurrentFault = new Dictionary<string, string>();
@@ -54,14 +59,14 @@ namespace KTE_PMS
             // cTag에 저장하기
             // 항상 동작하면서 cTag에 있는 값을 해당되는 통신방식에 맞게 값을 읽어오고 주기적으로 쓴다  
             // ----------------------------------------------------------------------------------------
-            repository = rep;
 
+            //cTag 초기화
             tt = new cTag[TSize];
             for (int i = 0; i < TSize; i++)
             {
                 tt[i] = new cTag();
             }
-
+            #region FAULT_STATUS_초기화
             for (int nFileNo = 14; nFileNo <= 21; nFileNo++)
             {
                 for (int nBit = 0; nBit <= 15; nBit++)
@@ -78,9 +83,9 @@ namespace KTE_PMS
                         FAULT_STATUS[nFileNo, nBit, 0] = "0";
                 }
             }
+            #endregion
 
-
-            Read_AlarmData(ref tt);
+            //Read_AlarmData(ref tt);
         }
 
         public string GetFaultText(int nFileNo, int nBit)
@@ -281,17 +286,17 @@ namespace KTE_PMS
         {
             string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-            foreach (var key in Repository.Instance.TagManager.htCurrentFault.Keys.ToList())
+            foreach (var key in htCurrentFault.Keys.ToList())
             {
                 // 값을 받아온다.
                 //string szFault = pDir.Value + "";
-                string szFault = Repository.Instance.TagManager.htCurrentFault[key] + "";
+                string szFault = htCurrentFault[key] + "";
                 // Unacked이면 Acked로, Unacekd Normal이면 삭제.
                 string[] current_IO = szFault.Split('|');
 
                 if (current_IO[4] == "UNACK NORMAL")
                 {
-                    Repository.Instance.TagManager.htCurrentFault.Remove(key);
+                    htCurrentFault.Remove(key);
 
                     szFault = szFault.Replace(current_IO[0], strDateTime);
                     szFault = szFault.Replace("UNACK NORMAL", "NORMAL");
@@ -301,8 +306,8 @@ namespace KTE_PMS
                 {
                     szFault = szFault.Replace(current_IO[0], strDateTime);
                     szFault = szFault.Replace("UNACK", "ACK");
-                    Repository.Instance.TagManager.htCurrentFault.Remove(key);
-                    Repository.Instance.TagManager.htCurrentFault.Add(key, szFault);
+                    htCurrentFault.Remove(key);
+                    htCurrentFault.Add(key, szFault);
                     Repository.Instance.dbConnector.Insert_Alarm_to_Database(szFault);
                 }
             }
@@ -310,30 +315,141 @@ namespace KTE_PMS
             
             // ALARM Ack 시 PCS_ACK를 한다.
             // 해당 ACK는 Reset 모든 Alarm이 Clear 될 경우 해제된다.
+            if (htCurrentFault.Count == 0)
+            {
+                Repository.Instance.GnEPS_PCS.PCS_ACK = true;
+            }
+
+            DateTime tCurrent = DateTime.Now;
+            string szEvent = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), "SYS", "LEMS", "ALARM ACK IS OCCURED BY USER", "EVENT");
+            Repository.Instance.dbConnector.Insert_Alarm_to_Database(szEvent);
+        }
+        public void ALARM_ACK(int count)
+        {
+            string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            int i = 0;
+
+            foreach (var key in htCurrentFault.Keys.ToList())
+            {
+                // 값을 받아온다.
+                //string szFault = pDir.Value + "";
+                string szFault = Repository.Instance.TagManager.htCurrentFault[key] + "";
+                // Unacked이면 Acked로, Unacekd Normal이면 삭제.
+                string[] current_IO = szFault.Split('|');
+
+                if (current_IO[4] == "UNACK NORMAL")
+                {
+                    htCurrentFault.Remove(key);
+
+                    szFault = szFault.Replace(current_IO[0], strDateTime);
+                    szFault = szFault.Replace("UNACK NORMAL", "NORMAL");
+                    Repository.Instance.dbConnector.Insert_Alarm_to_Database(szFault);
+                }
+                else if (current_IO[4] == "UNACK")
+                {
+                    szFault = szFault.Replace(current_IO[0], strDateTime);
+                    szFault = szFault.Replace("UNACK", "ACK");
+                    htCurrentFault.Remove(key);
+                    htCurrentFault.Add(key, szFault);
+                    Repository.Instance.dbConnector.Insert_Alarm_to_Database(szFault);
+                }
+                i++;
+                if (i > count) break;
+            }
+
+
+            // ALARM Ack 시 PCS_ACK를 한다.
+            // 해당 ACK는 Reset 모든 Alarm이 Clear 될 경우 해제된다.
             if (Repository.Instance.TagManager.htCurrentFault.Count == 0)
             {
                 Repository.Instance.GnEPS_PCS.PCS_ACK = true;
             }
-            
-            
+
+            DateTime tCurrent = DateTime.Now;
+            string szEvent = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), "SYS", "LEMS", "ALARM ACK IS OCCURED BY USER", "EVENT");
+            Repository.Instance.dbConnector.Insert_Alarm_to_Database(szEvent);
+
         }
-        private void Read_AlarmData(ref cTag[] tt)
+        public void Alarm_Display(ref DataGridView dataGridView1)
+        {
+            dataGridView1.Rows.Clear();
+            ArrayList alFault = new ArrayList();
+            foreach (KeyValuePair<String, String> pDir in Repository.Instance.TagManager.htCurrentFault)
+            {
+                string szFault = pDir.Value + "";
+                if (szFault != "")
+                    alFault.Add(pDir.Value);
+            }
+
+            alFault.Sort();
+            string[] row0 = new string[5];
+
+            foreach (string szFaultData in alFault)
+            {
+                string[] szFault = szFaultData.Split('|');
+
+                row0[0] = szFault[0];
+                row0[1] = szFault[1];
+                row0[2] = szFault[2];
+                row0[3] = szFault[3];
+                row0[4] = szFault[4];
+
+                // row0[4] 는 ACK, UNACK, UNACK_NORMAL로 구성됨
+
+                dataGridView1.Rows.Add(row0);
+                
+            }
+        }
+        public void Alarm_Display(ref DataGridView dataGridView1, int count)
+        {
+            dataGridView1.Rows.Clear();
+            ArrayList alFault = new ArrayList();
+            int i = 0;
+            foreach (KeyValuePair<String, String> pDir in Repository.Instance.TagManager.htCurrentFault)
+            {
+                string szFault = pDir.Value + "";
+                if (szFault != "")
+                    alFault.Add(pDir.Value);
+            }
+
+            alFault.Sort();
+            string[] row0 = new string[5];
+
+            foreach (string szFaultData in alFault)
+            {
+                string[] szFault = szFaultData.Split('|');
+
+                row0[0] = szFault[0];
+                row0[1] = szFault[1];
+                row0[2] = szFault[2];
+                row0[3] = szFault[3];
+                row0[4] = szFault[4];
+
+                // row0[4] 는 ACK, UNACK, UNACK_NORMAL로 구성됨
+
+                dataGridView1.Rows.Add(row0);
+                i++;
+                if (i == count) break;
+
+            }
+        }
+
+        public void Read_AlarmData(ref cTag[] tt)
         {
             #region FILE의 입력을 받아서 ALARM 처리 하는 방법 
-            /*
+            string filename = "\\TAGLIST.csv";
             try
             {
                 FileStream fs = File.OpenRead(directory + filename);
 
                 StreamReader r = new StreamReader(fs, System.Text.Encoding.Default);
+                // 문자 스트림 변환
+                r.BaseStream.Seek(0, SeekOrigin.Begin);
+
+                // Skip First Line //
+                string temp = r.ReadLine();
                 foreach (cTag i in tt)
                 {
-                    // 문자 스트림 변환
-                    r.BaseStream.Seek(0, SeekOrigin.Begin);
-
-                    // Skip First Line //
-                    string temp = r.ReadLine();
-
                     // 만약 끝이 아니라면
                     if (r.Peek() > -1)
                     {
@@ -345,9 +461,8 @@ namespace KTE_PMS
 
                         // Assign 한 값을 Dictionary에 넣는다.
                         // 현재는 Index로 구분하지만 나중에는 TagName으로 구분할 예정으로 수정 필요함
-                        dictionary.Add(i.Index, i);
-
-                        //i.Address = Convert.ToString(100);
+                        // DataTable로 넣는걸로 하자.
+                        //dictionary.Add(i.Index, i);
 
                     }
                     else
@@ -364,7 +479,6 @@ namespace KTE_PMS
                 MessageBox.Show(e.Message, "Abort");
                 throw e;
             }
-            */
             #endregion
         }
 
@@ -374,12 +488,37 @@ namespace KTE_PMS
 
             try
             {
+                
+                DataRow dr;
+                dr = Repository.Instance.Tag_Data_Table.NewRow();
+                dr["ID"] = split[0];
+                dr["GroupNo"] = split[1];
+                dr["Description"] = split[2];
+                dr["Unit"] = split[4];
+                dr["InputCH"] = split[8];
+                dr["RangeMin"] = split[12];
+                dr["RangeMax"] = split[13];
+
+                Repository.Instance.Tag_Data_Table.Rows.Add(dr);
+                
+
                 i.AlrOffValue = false;
                 i.Index = split[0];
+                i.grno = split[1];
                 i.Description = split[2];
-                i.Unit = split[3];
-                i.Min = Convert.ToSingle(split[12]);
-                i.Max = Convert.ToSingle(split[13]);
+                i.Unit = split[4];
+
+                // 예외처리를 해줘야함
+                if (split[7] == "")
+                {
+                    split[7] = "0";
+                }
+                i.resolution = Convert.ToSingle(split[7]);
+                i.Address = split[8];
+                i.bit_address = split[9];
+                
+                //i.Min = Convert.ToSingle(split[12]);
+                //i.Max = Convert.ToSingle(split[13]);
                 /*
                 i.LoLimit = Convert.ToSingle(split[14]);
                 i.HiLimit = Convert.ToSingle(split[15]);
@@ -401,6 +540,7 @@ namespace KTE_PMS
 
         public void Run()
         {
+            /*
             try
             {
                 foreach (cTag i in tt)
@@ -417,6 +557,7 @@ namespace KTE_PMS
                 string message;
                 message = string.Format("Incorrect exception for {0}", e.Message);
             }
+            */
         }
     }
 }

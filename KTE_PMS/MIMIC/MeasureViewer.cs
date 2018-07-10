@@ -119,7 +119,14 @@ namespace KTE_PMS.MIMIC
         {
             Panel p = (Panel)Parent;
             p.Controls.Clear();
-            p.Controls.Add(Repository.Instance.p_measure_PCS_Fault );
+            p.Controls.Add(Repository.Instance.p_measure_PCS_Fault);
+        }
+
+        private void button1_MouseClick(object sender, MouseEventArgs e)
+        {
+            Panel p = (Panel)Parent;
+            p.Controls.Clear();
+            p.Controls.Add(Repository.Instance.p_measure_PCSV2);
         }
     }
 }

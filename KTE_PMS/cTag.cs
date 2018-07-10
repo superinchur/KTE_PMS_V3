@@ -5,7 +5,12 @@ namespace KTE_PMS.MIMIC
 {
     public class cTag
     {
+        public string grno {set; get; }
+        public float resolution { set; get; }
+
         public string Address { set; get; }
+        public string bit_address { set; get; }
+
         public Boolean AlrAckValue { set; get; }
         public string AlrDisable { set; get; }
         public Boolean AlrOffValue { set; get; }

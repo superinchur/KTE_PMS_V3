@@ -151,7 +151,6 @@ namespace KTE_PMS.MIMIC
         {
 
             // ------------------------------------------------------------------
-
             // Seperate calling threads
             if (this.InvokeRequired)
             {
@@ -178,7 +177,7 @@ namespace KTE_PMS.MIMIC
                     Notify();
                     break;
                 case 3:
-                    Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack1, values, 2);
+                    Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack2, values, 2);
                     tLastRecv = DateTime.Now;
                     Notify();
                     break;
