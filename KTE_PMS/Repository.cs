@@ -447,13 +447,44 @@ namespace KTE_PMS
             DataRow[] t_dr = Tag_Data_Table.Select();
             foreach (DataRow dr in t_dr)
             {
-
-                int temp_InputCH = (Convert.ToUInt16(dr["InputCH"])) - offset;
-                int temp_ID = Convert.ToInt16(dr["ID"]);
-
-                if (temp_ID >= start && temp_ID <= end)
+                try
                 {
-                    dr["Value"] = ByteConverterToUInt16(data, temp_InputCH);
+                    if (dr["InputCH"].ToString() == "")
+                    {
+                        // Nothing to do
+                    }
+                    else
+                    {
+                        int temp_InputCH = (Convert.ToUInt16(dr["InputCH"])) - offset;
+                        int temp_ID = Convert.ToInt16(dr["ID"]);
+                        int temp_value = new int();
+
+                        float temp_resolution = new float();
+
+                        if (temp_ID >= start && temp_ID <= end)
+                        {
+                            //1.  Resolution 처리를 해야함
+                            if (dr["Resolution"].ToString() == "")
+                            {
+                                // nothing to do
+                                temp_resolution = 1;
+                            }
+                            else
+                            {
+                                temp_resolution = Convert.ToSingle(dr["Resolution"]);
+                            }
+                            //2. 부호 처리를 해야함
+                            //3. Bit값일 경우에는 Bit를 처리해야함.
+
+                            temp_value = ByteConverterToUInt16(data, temp_InputCH);
+                            dr["Value"] = Convert.ToString(temp_value * temp_resolution);
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
                 }
 
             }
@@ -462,8 +493,8 @@ namespace KTE_PMS
         public void Insert_Rack(ref Samsung_BMS_Rack Rack, byte[] data, int num_of_Rack)
         {
 
-            int offset = num_of_Rack * 60 - 40;
-
+            //int offset = num_of_Rack * 60 - 40;
+            int offset = -40;
             Rack.Rack_Voltage = ByteConverterToUInt16(data, 40+ offset) * 0.1;
             Rack.String1_Rack_Voltage = ByteConverterToUInt16(data, 41+ offset) * 0.1;
             Rack.String2_Rack_Voltage = ByteConverterToUInt16(data, 42+ offset) * 0.1;
@@ -512,11 +543,11 @@ namespace KTE_PMS
 
             if (num_of_Rack == 1)
             {
-                Insert_To_DataTable(data, 81, 114, offset);
+                Insert_To_DataTable(data, 81, 114, 40);
             }
             else if (num_of_Rack == 2)
             {
-                Insert_To_DataTable(data, 115, 148, offset);
+                Insert_To_DataTable(data, 115, 148, 100);
             }
             
         }

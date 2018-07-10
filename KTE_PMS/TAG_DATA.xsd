@@ -12,7 +12,7 @@
   <xs:element name="tag_data" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="tag_data" msprop:Generator_UserDSName="tag_data">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Tag_Parameter" msprop:Generator_TableClassName="Tag_ParameterDataTable" msprop:Generator_TableVarName="tableTag_Parameter" msprop:Generator_TablePropName="Tag_Parameter" msprop:Generator_RowDeletingName="Tag_ParameterRowDeleting" msprop:Generator_RowChangingName="Tag_ParameterRowChanging" msprop:Generator_RowEvHandlerName="Tag_ParameterRowChangeEventHandler" msprop:Generator_RowDeletedName="Tag_ParameterRowDeleted" msprop:Generator_UserTableName="Tag_Parameter" msprop:Generator_RowChangedName="Tag_ParameterRowChanged" msprop:Generator_RowEvArgName="Tag_ParameterRowChangeEvent" msprop:Generator_RowClassName="Tag_ParameterRow">
+        <xs:element name="Tag_Parameter" msprop:Generator_TableClassName="Tag_ParameterDataTable" msprop:Generator_TableVarName="tableTag_Parameter" msprop:Generator_RowChangedName="Tag_ParameterRowChanged" msprop:Generator_TablePropName="Tag_Parameter" msprop:Generator_RowDeletingName="Tag_ParameterRowDeleting" msprop:Generator_RowChangingName="Tag_ParameterRowChanging" msprop:Generator_RowEvHandlerName="Tag_ParameterRowChangeEventHandler" msprop:Generator_RowDeletedName="Tag_ParameterRowDeleted" msprop:Generator_RowClassName="Tag_ParameterRow" msprop:Generator_UserTableName="Tag_Parameter" msprop:Generator_RowEvArgName="Tag_ParameterRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" />
@@ -49,6 +49,8 @@
               <xs:element name="OffDelay2" msprop:Generator_ColumnVarNameInTable="columnOffDelay2" msprop:Generator_ColumnPropNameInRow="OffDelay2" msprop:Generator_ColumnPropNameInTable="OffDelay2Column" msprop:Generator_UserColumnName="OffDelay2" type="xs:string" minOccurs="0" />
               <xs:element name="MeanID" msprop:Generator_ColumnVarNameInTable="columnMeanID" msprop:Generator_ColumnPropNameInRow="MeanID" msprop:Generator_ColumnPropNameInTable="MeanIDColumn" msprop:Generator_UserColumnName="MeanID" type="xs:string" minOccurs="0" />
               <xs:element name="InputID" msprop:Generator_ColumnVarNameInTable="columnInputID" msprop:Generator_ColumnPropNameInRow="InputID" msprop:Generator_ColumnPropNameInTable="InputIDColumn" msprop:Generator_UserColumnName="InputID" type="xs:string" minOccurs="0" />
+              <xs:element name="Resolution" msprop:Generator_ColumnVarNameInTable="columnResolution" msprop:Generator_ColumnPropNameInRow="Resolution" msprop:Generator_ColumnPropNameInTable="ResolutionColumn" msprop:Generator_UserColumnName="Resolution" type="xs:string" minOccurs="0" />
+              <xs:element name="Address_bit" msprop:Generator_ColumnVarNameInTable="columnAddress_bit" msprop:Generator_ColumnPropNameInRow="Address_bit" msprop:Generator_ColumnPropNameInTable="Address_bitColumn" msprop:Generator_UserColumnName="Address_bit" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

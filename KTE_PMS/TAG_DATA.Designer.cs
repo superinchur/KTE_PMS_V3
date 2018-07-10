@@ -347,6 +347,10 @@ namespace KTE_PMS {
             
             private global::System.Data.DataColumn columnInputID;
             
+            private global::System.Data.DataColumn columnResolution;
+            
+            private global::System.Data.DataColumn columnAddress_bit;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public Tag_ParameterDataTable() {
@@ -654,6 +658,22 @@ namespace KTE_PMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ResolutionColumn {
+                get {
+                    return this.columnResolution;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Address_bitColumn {
+                get {
+                    return this.columnAddress_bit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -723,7 +743,9 @@ namespace KTE_PMS {
                         string OnDelay2, 
                         string OffDelay2, 
                         string MeanID, 
-                        string InputID) {
+                        string InputID, 
+                        string Resolution, 
+                        string Address_bit) {
                 Tag_ParameterRow rowTag_ParameterRow = ((Tag_ParameterRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -759,7 +781,9 @@ namespace KTE_PMS {
                         OnDelay2,
                         OffDelay2,
                         MeanID,
-                        InputID};
+                        InputID,
+                        Resolution,
+                        Address_bit};
                 rowTag_ParameterRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTag_ParameterRow);
                 return rowTag_ParameterRow;
@@ -823,6 +847,8 @@ namespace KTE_PMS {
                 this.columnOffDelay2 = base.Columns["OffDelay2"];
                 this.columnMeanID = base.Columns["MeanID"];
                 this.columnInputID = base.Columns["InputID"];
+                this.columnResolution = base.Columns["Resolution"];
+                this.columnAddress_bit = base.Columns["Address_bit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -896,6 +922,10 @@ namespace KTE_PMS {
                 base.Columns.Add(this.columnMeanID);
                 this.columnInputID = new global::System.Data.DataColumn("InputID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInputID);
+                this.columnResolution = new global::System.Data.DataColumn("Resolution", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnResolution);
+                this.columnAddress_bit = new global::System.Data.DataColumn("Address_bit", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAddress_bit);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AllowDBNull = false;
@@ -1581,6 +1611,38 @@ namespace KTE_PMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Resolution {
+                get {
+                    try {
+                        return ((string)(this[this.tableTag_Parameter.ResolutionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("\'Tag_Parameter\' 테이블의 \'Resolution\' 열의 값이 DBNull입니다.", e);
+                    }
+                }
+                set {
+                    this[this.tableTag_Parameter.ResolutionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Address_bit {
+                get {
+                    try {
+                        return ((string)(this[this.tableTag_Parameter.Address_bitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("\'Tag_Parameter\' 테이블의 \'Address_bit\' 열의 값이 DBNull입니다.", e);
+                    }
+                }
+                set {
+                    this[this.tableTag_Parameter.Address_bitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsGroupNoNull() {
                 return this.IsNull(this.tableTag_Parameter.GroupNoColumn);
             }
@@ -1973,6 +2035,30 @@ namespace KTE_PMS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetInputIDNull() {
                 this[this.tableTag_Parameter.InputIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsResolutionNull() {
+                return this.IsNull(this.tableTag_Parameter.ResolutionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetResolutionNull() {
+                this[this.tableTag_Parameter.ResolutionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsAddress_bitNull() {
+                return this.IsNull(this.tableTag_Parameter.Address_bitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetAddress_bitNull() {
+                this[this.tableTag_Parameter.Address_bitColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -495,7 +495,9 @@ namespace KTE_PMS
                 dr["GroupNo"] = split[1];
                 dr["Description"] = split[2];
                 dr["Unit"] = split[4];
+                dr["Resolution"] = split[7];
                 dr["InputCH"] = split[8];
+                dr["Address_bit"] = split[9];
                 dr["RangeMin"] = split[12];
                 dr["RangeMax"] = split[13];
 
