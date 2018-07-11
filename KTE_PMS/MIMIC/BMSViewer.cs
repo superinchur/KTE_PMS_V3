@@ -3,7 +3,9 @@ using ModbusTCP;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
+
 
 namespace KTE_PMS.MIMIC
 {
@@ -19,6 +21,9 @@ namespace KTE_PMS.MIMIC
         public byte[] BSC1 { get; set; }
         public byte[] BSC2 { get; set; }
 
+
+
+
         DateTime tLastRecv;
         public byte[] WriteValueBuffers { get; set; }
 
@@ -33,8 +38,6 @@ namespace KTE_PMS.MIMIC
             if (Properties.Settings.Default.DEBUG) return;
             
             MBmaster = new Master();
-
-
 
             BSC_Controller_Data = new Byte[14];
 
@@ -59,7 +62,7 @@ namespace KTE_PMS.MIMIC
             // Modbus TCP - BMS 통신 시도 //
             //-----------------------------
             // 1. File에서 설정값 읽어오기
-            Read_BSC_Configuration();
+            //Read_BSC_Configuration();
             // 2. 연결하기
             Connect_to_BSC();
 
@@ -144,12 +147,14 @@ namespace KTE_PMS.MIMIC
             MBmaster.WriteSingleRegister(ID, unit, StartAddress, WriteValueBuffers);
 
         }
+
+
+
         // ------------------------------------------------------------------------
         // Event for response data
         // ------------------------------------------------------------------------
         private void MBmaster_OnResponseData(ushort ID, byte unit, byte function, byte[] values)
         {
-
             // ------------------------------------------------------------------
             // Seperate calling threads
             if (this.InvokeRequired)
@@ -167,17 +172,24 @@ namespace KTE_PMS.MIMIC
                     // ---------------------------------------------------------
                     // 30000~30100
                     // ---------------------------------------------------------
-                    Repository.Instance.Get_BSC(values);
+
+                    Thread t1 = new Thread(new ParameterizedThreadStart(ThreadProc1));
+                    t1.Start(values);
                     tLastRecv = DateTime.Now;
                     Notify();
                     break;
                 case 2:
-                    Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack1, values, 1);
+                    Thread t2 = new Thread(new ParameterizedThreadStart(ThreadProc2));
+                    t2.Start(values);
+
+                    //Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack1, values, 1);
                     tLastRecv = DateTime.Now;
                     Notify();
                     break;
                 case 3:
-                    Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack2, values, 2);
+                    Thread t3 = new Thread(new ParameterizedThreadStart(ThreadProc3));
+                    t3.Start(values);
+                    
                     tLastRecv = DateTime.Now;
                     Notify();
                     break;
@@ -189,6 +201,20 @@ namespace KTE_PMS.MIMIC
 
 
         }
+
+        public static void ThreadProc1(object values)
+        {
+            Repository.Instance.Get_BSC((byte[])values);
+        }
+        public static void ThreadProc2(object values)
+        {
+            Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack1, (byte[])values, 1);
+        }
+        public static void ThreadProc3(object values)
+        {
+            Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack2, (byte[])values, 2);
+        }
+
 
         // ------------------------------------------------------------------------
         // Modbus TCP slave exception

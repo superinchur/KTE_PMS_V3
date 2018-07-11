@@ -381,5 +381,10 @@ namespace KTE_PMS
             //Repository.Instance.Reset();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Repository.Instance.pmd_dispose();
+        }
     }
 }

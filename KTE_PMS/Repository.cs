@@ -467,22 +467,25 @@ namespace KTE_PMS
                     {
                         int temp_InputCH = (Convert.ToUInt16(dr["InputCH"])) - offset;
                         int temp_ID = Convert.ToInt16(dr["ID"]);
-                        int temp_value = new int();
-                        float temp_resolution = new float();
 
                         if (temp_ID >= start && temp_ID <= end)
                         {
+                            int temp_value = new int();
+                            float temp_resolution = new float();
                             //1. Singed일 경우 Signed로 먼저 처리를 해야함
-                            if (dr["Address_Bit"].ToString() == string.Empty)
+                            if (dr["Signed"].ToString() == string.Empty)
                             {
                                 //Unsigned Int로 Conversion
                                 temp_value = ByteConverterToUInt16(data, temp_InputCH);
+
                             }
                             else
                             {
                                 //Signed Int로 Conversion
-                                temp_value = ByteConverterToInt16(data, temp_InputCH);
+                                temp_value = Convert.ToInt32(ByteConverterToInt16(data, temp_InputCH));
+                                //temp_value = ByteConverterToInt16(data, temp_InputCH);
                             }
+                            
                             //2.  Resolution 처리를 해야함 //2. 부호 처리를 해야함
                             if (dr["Resolution"].ToString() == string.Empty)
                             {
@@ -502,7 +505,7 @@ namespace KTE_PMS
                             else
                             {
                                 // Bit 값 일 경우
-                                temp_value = temp_value & Convert.ToInt16(dr["Address_Bit"]);
+                                temp_value = temp_value & Convert.ToInt32(dr["Address_Bit"]);
                                 dr["Value"] = Convert.ToString(temp_value * temp_resolution);
                             }
                         }
