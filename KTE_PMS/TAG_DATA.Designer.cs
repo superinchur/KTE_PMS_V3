@@ -351,6 +351,8 @@ namespace KTE_PMS {
             
             private global::System.Data.DataColumn columnAddress_bit;
             
+            private global::System.Data.DataColumn columnSigned;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public Tag_ParameterDataTable() {
@@ -674,6 +676,14 @@ namespace KTE_PMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn SignedColumn {
+                get {
+                    return this.columnSigned;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -745,7 +755,8 @@ namespace KTE_PMS {
                         string MeanID, 
                         string InputID, 
                         string Resolution, 
-                        string Address_bit) {
+                        string Address_bit, 
+                        string Signed) {
                 Tag_ParameterRow rowTag_ParameterRow = ((Tag_ParameterRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -783,7 +794,8 @@ namespace KTE_PMS {
                         MeanID,
                         InputID,
                         Resolution,
-                        Address_bit};
+                        Address_bit,
+                        Signed};
                 rowTag_ParameterRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTag_ParameterRow);
                 return rowTag_ParameterRow;
@@ -849,6 +861,7 @@ namespace KTE_PMS {
                 this.columnInputID = base.Columns["InputID"];
                 this.columnResolution = base.Columns["Resolution"];
                 this.columnAddress_bit = base.Columns["Address_bit"];
+                this.columnSigned = base.Columns["Signed"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -926,6 +939,8 @@ namespace KTE_PMS {
                 base.Columns.Add(this.columnResolution);
                 this.columnAddress_bit = new global::System.Data.DataColumn("Address_bit", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAddress_bit);
+                this.columnSigned = new global::System.Data.DataColumn("Signed", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSigned);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AllowDBNull = false;
@@ -1643,6 +1658,22 @@ namespace KTE_PMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Signed {
+                get {
+                    try {
+                        return ((string)(this[this.tableTag_Parameter.SignedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("\'Tag_Parameter\' 테이블의 \'Signed\' 열의 값이 DBNull입니다.", e);
+                    }
+                }
+                set {
+                    this[this.tableTag_Parameter.SignedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsGroupNoNull() {
                 return this.IsNull(this.tableTag_Parameter.GroupNoColumn);
             }
@@ -2059,6 +2090,18 @@ namespace KTE_PMS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetAddress_bitNull() {
                 this[this.tableTag_Parameter.Address_bitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsSignedNull() {
+                return this.IsNull(this.tableTag_Parameter.SignedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetSignedNull() {
+                this[this.tableTag_Parameter.SignedColumn] = global::System.Convert.DBNull;
             }
         }
         

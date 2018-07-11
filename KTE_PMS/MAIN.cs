@@ -372,5 +372,14 @@ namespace KTE_PMS
                 Repository.Instance.pmdviewer.Control_Idle();
             }
         }
+
+        private void btn_Reconnect_Click(object sender, EventArgs e)
+        {
+            Repository.Instance.bms_dispose();
+
+            //Repository.Instance.Dispose();
+            //Repository.Instance.Reset();
+
+        }
     }
 }

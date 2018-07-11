@@ -50,6 +50,7 @@ namespace KTE_PMS
         public string[,,] BMS_FAULT_STATUS = new string[256, 17, 3];
 
 
+
         public TagManager(Repository rep)
         {
             directory = Application.StartupPath;
@@ -87,6 +88,8 @@ namespace KTE_PMS
 
             //Read_AlarmData(ref tt);
         }
+
+       
 
         public string GetFaultText(int nFileNo, int nBit)
         {
@@ -498,8 +501,9 @@ namespace KTE_PMS
                 dr["Resolution"] = split[7];
                 dr["InputCH"] = split[8];
                 dr["Address_bit"] = split[9];
-                dr["RangeMin"] = split[12];
-                dr["RangeMax"] = split[13];
+                dr["Signed"] = split[10];
+                dr["RangeMin"] = split[13];
+                dr["RangeMax"] = split[14];
 
                 Repository.Instance.Tag_Data_Table.Rows.Add(dr);
                 

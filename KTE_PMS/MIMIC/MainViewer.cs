@@ -211,7 +211,7 @@ namespace KTE_PMS.MIMIC
 
         private void btn_ChargingMode_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("사용자 정의 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("충전 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Repository.Instance.p_setting.Charging_StartTime = new TimeSpan(00, 00, 00);
                 Repository.Instance.p_setting.Charging_EndTime = new TimeSpan(24, 00, 00);
@@ -229,17 +229,29 @@ namespace KTE_PMS.MIMIC
 
         private void btn_DisChargingMode_Click(object sender, EventArgs e)
         {
-            Repository.Instance.p_setting.Charging_StartTime = new TimeSpan(00, 00, 00);
-            Repository.Instance.p_setting.Charging_EndTime = new TimeSpan(00, 00, 00);
-            Repository.Instance.p_setting.Discharging_StartTime = new TimeSpan(00, 00, 00);
-            Repository.Instance.p_setting.Discharging_EndTime = new TimeSpan(24, 00, 00);
+            if (MessageBox.Show("방전 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Repository.Instance.p_setting.Charging_StartTime = new TimeSpan(00, 00, 00);
+                Repository.Instance.p_setting.Charging_EndTime = new TimeSpan(00, 00, 00);
+                Repository.Instance.p_setting.Discharging_StartTime = new TimeSpan(00, 00, 00);
+                Repository.Instance.p_setting.Discharging_EndTime = new TimeSpan(24, 00, 00);
 
-            Repository.Instance.p_setting.Set_Scheduler_Setting(
-                Repository.Instance.p_setting.Charging_StartTime,
-                Repository.Instance.p_setting.Charging_EndTime,
-                Repository.Instance.p_setting.Discharging_StartTime,
-                Repository.Instance.p_setting.Discharging_EndTime);
-            Repository.Instance.p_control.Set_Scheduler_Color();
+                Repository.Instance.p_setting.Set_Scheduler_Setting(
+                    Repository.Instance.p_setting.Charging_StartTime,
+                    Repository.Instance.p_setting.Charging_EndTime,
+                    Repository.Instance.p_setting.Discharging_StartTime,
+                    Repository.Instance.p_setting.Discharging_EndTime);
+                Repository.Instance.p_control.Set_Scheduler_Color();
+            }
         }
+
+        private void btn_ReCreate_Click(object sender, EventArgs e)
+        {
+            //Repository.Instance.RESE
+
+            Repository.Instance.Dispose();
+        }
+
+
     }
 }

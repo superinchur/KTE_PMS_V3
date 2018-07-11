@@ -59,7 +59,7 @@ namespace KTE_PMS.MIMIC
             // Modbus TCP - BMS 통신 시도 //
             //-----------------------------
             // 1. File에서 설정값 읽어오기
-            //Read_BSC_Configuration();
+            Read_BSC_Configuration();
             // 2. 연결하기
             Connect_to_BSC();
 
@@ -256,7 +256,7 @@ namespace KTE_PMS.MIMIC
 
         private void Read_BSC_Configuration()
         {
-            string directory = System.Windows.Forms.Application.StartupPath;
+            string directory = Application.StartupPath;
             string filename = "\\Configs.dat";
             // ----------------------------------------------------------------------------------------
             // 파일을 읽어서 List에 넣기
@@ -318,6 +318,8 @@ namespace KTE_PMS.MIMIC
                         temp = r.ReadLine();
                         split = System.Text.RegularExpressions.Regex.Split(temp, "=");
                         txtPort.Text = split[1].ToString().Trim();
+
+                        //TimeInterval;
                         break;
                     }
 

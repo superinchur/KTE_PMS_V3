@@ -82,20 +82,20 @@ namespace KTE_PMS.MIMIC
 
                 StreamWriter sw = new StreamWriter(directory + fn);
 
-                sw.WriteLine("// PCS Setting\r\n");
-                sw.WriteLine("ID = 1\r\n");
-                sw.WriteLine("port = COM1\r\n");
-                sw.WriteLine("baudrate = 9600\r\n");
-                sw.WriteLine("parity = ODD\r\n");
-                sw.WriteLine("stopbit = 1bit\r\n");
-                sw.WriteLine("readtimeout = 1000\r\n");
-                sw.WriteLine("writetimeout = 1000\r\n");
-                sw.WriteLine("// BSC Setting\r\n");
-                sw.WriteLine("type = Samsung\r\n");
-                sw.WriteLine("ip_address = 172.31.110.33\r\n");
-                sw.WriteLine("port = 504)\r\n");
-                sw.WriteLine("//PMD Setting\\\rn;");
-                sw.WriteLine("ID = 1\r\n");
+                sw.WriteLine("// PCS Setting");
+                sw.WriteLine("ID = 1");
+                sw.WriteLine("port = COM1");
+                sw.WriteLine("baudrate = 9600");
+                sw.WriteLine("parity = ODD");
+                sw.WriteLine("stopbit = 1bit");
+                sw.WriteLine("readtimeout = 1000");
+                sw.WriteLine("writetimeout = 1000");
+                sw.WriteLine("// BSC Setting");
+                sw.WriteLine("type = Samsung");
+                sw.WriteLine("ip_address = 172.31.110.33");
+                sw.WriteLine("port = 504");
+                sw.WriteLine("//PMD Setting;");
+                sw.WriteLine("ID = 1");
                 sw.WriteLine("ip_address = 172.31.110.33");
                 sw.WriteLine("port = 1004");
 
@@ -117,6 +117,33 @@ namespace KTE_PMS.MIMIC
             //Import 할 데이터들을 정하자?
             // 사실 생각해보면 Import는 의미가 없는데?
             // 어차피 읽어오는 것을 데이터 파일에서 읽어온다면 Import의 의미가 없다. Export의 의미는 있음
+            // 
+            string filename = "\\TAGLIST.csv";
+            try
+            {
+                //FileStream fs = File.OpenRead(directory + filename);
+                FileStream fs = File.OpenRead("c:\\TEST.txt");
+
+                StreamReader r = new StreamReader(fs, System.Text.Encoding.Default);
+                // 문자 스트림 변환
+                r.BaseStream.Seek(0, SeekOrigin.Begin);
+
+                // Skip First Line //
+                string temp = r.ReadLine();
+                while (r.Peek() > -1)
+                {
+                        temp = r.ReadLine();
+
+
+                }
+                r.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Abort");
+            }
+            
+
         }
 
         private void btn_Password_Change_Click(object sender, EventArgs e)

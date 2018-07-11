@@ -83,6 +83,7 @@
             this.btn_DisChargingMode = new System.Windows.Forms.Button();
             this.btn_CustomMode = new System.Windows.Forms.Button();
             this.btn_PeakCutMode = new System.Windows.Forms.Button();
+            this.btn_ReCreate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Battery_to_PCS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PCS_to_Grid)).BeginInit();
             this.SuspendLayout();
@@ -702,6 +703,16 @@
             this.btn_PeakCutMode.UseVisualStyleBackColor = true;
             this.btn_PeakCutMode.Click += new System.EventHandler(this.btn_PeakCutMode_Click);
             // 
+            // btn_ReCreate
+            // 
+            this.btn_ReCreate.Location = new System.Drawing.Point(684, 385);
+            this.btn_ReCreate.Name = "btn_ReCreate";
+            this.btn_ReCreate.Size = new System.Drawing.Size(116, 23);
+            this.btn_ReCreate.TabIndex = 78;
+            this.btn_ReCreate.Text = "Dispose";
+            this.btn_ReCreate.UseVisualStyleBackColor = true;
+            this.btn_ReCreate.Click += new System.EventHandler(this.btn_ReCreate_Click);
+            // 
             // MainViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -709,6 +720,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.btn_ReCreate);
             this.Controls.Add(this.btn_CustomMode);
             this.Controls.Add(this.btn_PeakCutMode);
             this.Controls.Add(this.btn_DisChargingMode);
@@ -824,5 +836,6 @@
         private System.Windows.Forms.Button btn_DisChargingMode;
         private System.Windows.Forms.Button btn_CustomMode;
         private System.Windows.Forms.Button btn_PeakCutMode;
+        private System.Windows.Forms.Button btn_ReCreate;
     }
 }

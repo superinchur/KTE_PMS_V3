@@ -21,6 +21,12 @@ namespace KTE_PMS.Singleton
                 }
                 return _instance;
             }
+
+
+        }
+        public void Reset()
+        {
+            _instance = null;
         }
 
     }

@@ -511,6 +511,7 @@
             this.tb_Power_Prices.TabIndex = 125;
             this.tb_Power_Prices.Text = "280";
             this.tb_Power_Prices.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tb_Power_Prices.Click += new System.EventHandler(this.tb_Power_Prices_Click);
             // 
             // label16
             // 

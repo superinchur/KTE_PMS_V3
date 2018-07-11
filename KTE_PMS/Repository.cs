@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace KTE_PMS
 {
-    public sealed class Repository : SingleTonBase<Repository>
+    public sealed class Repository : SingleTonBase<Repository>, IDisposable
     {
         #region Variable Initialize
         //----------------------------------
@@ -30,7 +30,7 @@ namespace KTE_PMS
         //----------------------------------
         // Modbus RTU Controller - Master
         //----------------------------------
-        public Modbus_Setup modbus_rtuviewer;
+        //public Modbus_Setup modbus_rtuviewer;
 
         public sPCS GnEPS_PCS;
         public sPMD pmd;
@@ -122,7 +122,7 @@ namespace KTE_PMS
             try
             {
                 TagManager = new TagManager(this);
-                
+
 
             }
             catch (Exception e)
@@ -166,19 +166,14 @@ namespace KTE_PMS
 
         private void Allocate_Observer_to_Mimic()
         {
-            observers = p_measure;
-            bmsviewer.AddObserver(observers);
-            observers = p_measure_BMS_Rack;
-            bmsviewer.AddObserver(observers);
-            observers = p_mimic;
-            bmsviewer.AddObserver(observers);
+            Allocate_Observer_to_bms_mimic();
+            Allocate_Observer_to_pmd_mimic();
+        }
 
+        private void Allocate_Observer_to_pmd_mimic()
+        {
             observers = p_mimic;
             pmdviewer.AddObserver(observers);
-
-            observers = p_main;
-            bmsviewer.AddObserver(observers);
-
             observers = p_main;
             pmdviewer.AddObserver(observers);
 
@@ -187,6 +182,19 @@ namespace KTE_PMS
 
             observers = p_measure_PCS;
             pmdviewer.AddObserver(observers);
+        }
+
+        private void Allocate_Observer_to_bms_mimic()
+        {
+            observers = p_measure;
+            bmsviewer.AddObserver(observers);
+
+            observers = p_measure_BMS_Rack;
+            bmsviewer.AddObserver(observers);
+            observers = p_mimic;
+            bmsviewer.AddObserver(observers);
+            observers = p_main;
+            bmsviewer.AddObserver(observers);
         }
 
         // ---------------------------------------------------------
@@ -335,6 +343,8 @@ namespace KTE_PMS
             Insert_To_DataTable(data, 1, 42, 0);
 
         }
+
+
         #endregion
         public void Get_BSC(byte[] data)
         {
@@ -433,10 +443,10 @@ namespace KTE_PMS
             TagManager.BMS_Fault_처리_프로시져();
 
             //bms_resourcePool.Release();
-            Insert_To_DataTable(data,43,80, 0 );
+            Insert_To_DataTable(data, 43, 80, 0);
         }
 
-        private void Insert_To_DataTable(byte[] data, int start, int end , int offset)
+        private void Insert_To_DataTable(byte[] data, int start, int end, int offset)
         {
 
             //-----------------------------------------------
@@ -449,7 +459,7 @@ namespace KTE_PMS
             {
                 try
                 {
-                    if (dr["InputCH"].ToString() == "")
+                    if (dr["InputCH"].ToString() == string.Empty)
                     {
                         // Nothing to do
                     }
@@ -458,13 +468,23 @@ namespace KTE_PMS
                         int temp_InputCH = (Convert.ToUInt16(dr["InputCH"])) - offset;
                         int temp_ID = Convert.ToInt16(dr["ID"]);
                         int temp_value = new int();
-
                         float temp_resolution = new float();
 
                         if (temp_ID >= start && temp_ID <= end)
                         {
-                            //1.  Resolution 처리를 해야함
-                            if (dr["Resolution"].ToString() == "")
+                            //1. Singed일 경우 Signed로 먼저 처리를 해야함
+                            if (dr["Address_Bit"].ToString() == string.Empty)
+                            {
+                                //Unsigned Int로 Conversion
+                                temp_value = ByteConverterToUInt16(data, temp_InputCH);
+                            }
+                            else
+                            {
+                                //Signed Int로 Conversion
+                                temp_value = ByteConverterToInt16(data, temp_InputCH);
+                            }
+                            //2.  Resolution 처리를 해야함 //2. 부호 처리를 해야함
+                            if (dr["Resolution"].ToString() == string.Empty)
                             {
                                 // nothing to do
                                 temp_resolution = 1;
@@ -473,14 +493,20 @@ namespace KTE_PMS
                             {
                                 temp_resolution = Convert.ToSingle(dr["Resolution"]);
                             }
-                            //2. 부호 처리를 해야함
                             //3. Bit값일 경우에는 Bit를 처리해야함.
-
-                            temp_value = ByteConverterToUInt16(data, temp_InputCH);
-                            dr["Value"] = Convert.ToString(temp_value * temp_resolution);
+                            if (dr["Address_Bit"].ToString() == string.Empty)
+                            {
+                                // Bit 값이 아닐 경우
+                                dr["Value"] = Convert.ToString(temp_value * temp_resolution);
+                            }
+                            else
+                            {
+                                // Bit 값 일 경우
+                                temp_value = temp_value & Convert.ToInt16(dr["Address_Bit"]);
+                                dr["Value"] = Convert.ToString(temp_value * temp_resolution);
+                            }
                         }
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -495,9 +521,9 @@ namespace KTE_PMS
 
             //int offset = num_of_Rack * 60 - 40;
             int offset = -40;
-            Rack.Rack_Voltage = ByteConverterToUInt16(data, 40+ offset) * 0.1;
-            Rack.String1_Rack_Voltage = ByteConverterToUInt16(data, 41+ offset) * 0.1;
-            Rack.String2_Rack_Voltage = ByteConverterToUInt16(data, 42+ offset) * 0.1;
+            Rack.Rack_Voltage = ByteConverterToUInt16(data, 40 + offset) * 0.1;
+            Rack.String1_Rack_Voltage = ByteConverterToUInt16(data, 41 + offset) * 0.1;
+            Rack.String2_Rack_Voltage = ByteConverterToUInt16(data, 42 + offset) * 0.1;
             Rack.String1_Cell_Summation_Voltage = ByteConverterToUInt16(data, 43 + offset) * 0.1;
             Rack.String2_Cell_Summation_Voltage = ByteConverterToUInt16(data, 44 + offset) * 0.1;
 
@@ -543,13 +569,25 @@ namespace KTE_PMS
 
             if (num_of_Rack == 1)
             {
-                Insert_To_DataTable(data, 81, 114, 40);
+                // ---------------------------------------------------
+                // 2018-07-11 
+                // Parameter 1, 2(Start, End)
+                // Taglist에 보면 ID 81부터 122는 Rack1의 데이터이다.
+                // Parameter 3(offset) : 40은 Address의 Rack 1의 Offset이다
+                // ---------------------------------------------------
+                Insert_To_DataTable(data, 81, 122, 40);
             }
             else if (num_of_Rack == 2)
             {
-                Insert_To_DataTable(data, 115, 148, 100);
+                // ---------------------------------------------------
+                // 2018-07-11 
+                // Parameter 1, 2(Start, End)
+                // BMS Taglist에 보면 ID 123부터 164는 Rack2의 데이터이다.
+                // Parameter 3(offset) : 100은 Address의 Rack 2의 Offset이다
+                // ---------------------------------------------------
+                Insert_To_DataTable(data, 123, 164, 100);
             }
-            
+
         }
 
         private ushort ByteConverterToUInt16(byte[] data, int offset)
@@ -563,7 +601,6 @@ namespace KTE_PMS
 
         private byte[] swapbyte(byte[] word, int offset)
         {
-            //BSC_Controller_Data[0]  =   BSC1[0] * 256 + data[1];
             byte[] data = new Byte[2];
 
             data[0] = word[offset + 1];
@@ -571,6 +608,84 @@ namespace KTE_PMS
 
             return data;
         }
+
+        #region IDisposable Support
+        private bool disposedValue = false; // 중복 호출을 검색하려면
+
+        void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    // TODO: 관리되는 상태(관리되는 개체)를 삭제합니다.
+                    bmsviewer.Dispose();
+                    pmdviewer.Dispose();
+                    p_main.Dispose();
+                    p_alarm.Dispose();
+                    p_history.Dispose();
+                    p_control.Dispose();
+                    p_measure.Dispose();
+                    p_measure_BMS_Rack.Dispose();
+                    p_measure_PCS_Fault.Dispose();
+                    p_measure_PCS.Dispose();
+                    p_measure_PCSV2.Dispose();
+                    p_mimic.Dispose();
+                    p_setting.Dispose();
+                    p_trend.Dispose();
+                    bms_resourcePool.Dispose();
+                    pcs_resourcePool.Dispose();
+                    Tag_Data_Table.Dispose();
+                }
+
+                // TODO: 관리되지 않는 리소스(관리되지 않는 개체)를 해제하고 아래의 종료자를 재정의합니다.
+                // TODO: 큰 필드를 null로 설정합니다.
+                //TagManager.Dispose();
+                //GnEPS_PCS.Dispose();
+                /*
+                modbus_rtuviewer.Dispose();
+                
+                pmd.Dispose();
+                bsc.Dispose();
+                samsung_bcs.Dispose();
+                
+                dbConnector.Dispose();
+                observers.Dispose();
+                */
+
+                disposedValue = true;
+            }
+        }
+
+        // TODO: 위의 Dispose(bool disposing)에 관리되지 않는 리소스를 해제하는 코드가 포함되어 있는 경우에만 종료자를 재정의합니다.
+        // ~Repository() {
+        //   // 이 코드를 변경하지 마세요. 위의 Dispose(bool disposing)에 정리 코드를 입력하세요.
+        //   Dispose(false);
+        // }
+
+        // 삭제 가능한 패턴을 올바르게 구현하기 위해 추가된 코드입니다.
+        public void Dispose()
+        {
+            // 이 코드를 변경하지 마세요. 위의 Dispose(bool disposing)에 정리 코드를 입력하세요.
+            Dispose(true);
+            // TODO: 위의 종료자가 재정의된 경우 다음 코드 줄의 주석 처리를 제거합니다.
+            GC.SuppressFinalize(this);
+        }
+        public void bms_dispose()
+        {
+            bmsviewer.Dispose();
+            bmsviewer = new MIMIC.BMSViewer();
+
+            Allocate_Observer_to_bms_mimic();
+        }
+        public void pmd_dispose()
+        {
+            pmdviewer.Dispose();
+            pmdviewer = new MIMIC.PMDViewer();
+
+            Allocate_Observer_to_pmd_mimic();
+        }
+        #endregion
 
     }
 }

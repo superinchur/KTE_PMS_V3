@@ -215,25 +215,39 @@ namespace KTE_PMS.MIMIC
 
         private void NEXT_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.FirstDisplayedScrollingRowIndex + max_row_size >= dataGridView1.RowCount - 1)
+            try
             {
-                dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.RowCount - 1;
+                if (dataGridView1.FirstDisplayedScrollingRowIndex + max_row_size >= dataGridView1.RowCount - 1)
+                {
+                    dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.RowCount - 1;
+                }
+                else
+                {
+                    dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.FirstDisplayedScrollingRowIndex + max_row_size;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.FirstDisplayedScrollingRowIndex + max_row_size;
+                Console.WriteLine(ex.Message);
             }
-        }
+}
 
         private void PREV_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.FirstDisplayedScrollingRowIndex - max_row_size <= 0)
+            try
             {
-                dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+                if (dataGridView1.FirstDisplayedScrollingRowIndex - max_row_size <= 0)
+                {
+                    dataGridView1.FirstDisplayedScrollingRowIndex = 0;
+                }
+                else
+                {
+                    dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.FirstDisplayedScrollingRowIndex - max_row_size;           
+                }
             }
-            else
+            catch (Exception ex)
             {
-                dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.FirstDisplayedScrollingRowIndex - max_row_size;
+                Console.WriteLine(ex.Message);
             }
         }
 
