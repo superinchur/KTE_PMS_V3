@@ -42,39 +42,12 @@ namespace KTE_PMS
         }
         private void btn_Monitor_OFF_MouseClick(object sender, MouseEventArgs e)
         {
-
             SendMessage(this.Handle.ToInt32(), WM_SYSCOMMAND, SC_MONITORPOWER, MONITOR_OFF);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // 일다안~~~ Unacked 인놈을 다 Ack로 변경해야한다.
-            int i = 0;
-
-            foreach (var key in Repository.Instance.TagManager.htCurrentFault.Keys.ToList())
-            {
-                // 값을 받아온다.
-                //string szFault = pDir.Value + "";
-                string szFault = Repository.Instance.TagManager.htCurrentFault[key] + string.Empty;
-                // Unacked이면 Acked로, Unacekd Normal이면 삭제.
-                string[] current_IO = szFault.Split('|');
-
-                if (current_IO[4] == "UNACK NORMAL")
-                {
-                    Repository.Instance.TagManager.htCurrentFault.Remove(key);
-                }
-                else if (current_IO[4] == "UNACK")
-                {
-                    szFault = szFault.Replace("UNACK", "ACK");
-                    Repository.Instance.TagManager.htCurrentFault.Remove(key);
-                    Repository.Instance.TagManager.htCurrentFault.Add(key, szFault);
-
-                }
-
-                // 총 3회만 수행한다.
-                i++;
-                if (i > 3) break;
-            }
+            Repository.Instance.TagManager.ALARM_ACK(3);
         }
 
         private void Cell_Color_Painting()
@@ -157,6 +130,17 @@ namespace KTE_PMS
             prev_day = DateTime.Now.Day;
             prev_month = DateTime.Now.Month;
             prev_year = DateTime.Now.Year;
+
+            //-----------------------------
+            // 20180709
+            // DataTable안에다가 Tag관련 정보를 CSV에서 받아서 넣는다.
+            // TagManager는 Alarm 관련 항목
+            //-----------------------------
+            tag_data tag_data = new tag_data();
+            Repository.Instance.Tag_Data_Table = tag_data.Tables[0];
+
+            Repository.Instance.TagManager.Read_AlarmData(ref Repository.Instance.TagManager.tt);
+
 
         }
         private void NAVI_ALARM_Click(object sender, EventArgs e)
@@ -370,37 +354,8 @@ namespace KTE_PMS
 
         public void LoadCurrentFault()
         {
-            int i = 0;
-            dataGridView1.Rows.Clear();
-            ArrayList alFault = new ArrayList();
-
-            foreach (KeyValuePair<String, String> pDir in Repository.Instance.TagManager.htCurrentFault)
-            {
-                string szFault = pDir.Value + string.Empty;
-                if (szFault != string.Empty)
-                    alFault.Add(pDir.Value);
-            }
-
-            alFault.Sort();
-            string[] row0 = new string[5];
-
-            foreach (string szFaultData in alFault)
-            {
-                string[] szFault = szFaultData.Split('|');
-
-                //일은 제외하고 시간만 표시할까?
-                row0[0] = szFault[0];
-                row0[1] = szFault[1];
-                row0[2] = szFault[2];
-                row0[3] = szFault[3];
-                row0[4] = szFault[4];
-
-                // row0[4] 는 ACK, UNACK, UNACK_NORMAL로 구성됨
-
-                dataGridView1.Rows.Add(row0);
-                i++;
-                if (i == 3) break;
-            }
+            Repository.Instance.TagManager.Alarm_Display(ref dataGridView1, 3);
+            
         }
 
         private void lb_alarm_count_Click(object sender, EventArgs e)

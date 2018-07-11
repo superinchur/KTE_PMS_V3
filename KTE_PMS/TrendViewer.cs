@@ -270,8 +270,10 @@ namespace KTE_PMS
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
-            Repository.Instance.dbConnector.Export_Data();
+            if (DialogResult.Yes == System.Windows.Forms.MessageBox.Show("Are you sure to export trending data?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            {
+                Repository.Instance.dbConnector.Export_Data();
+            }
 
         }
 

@@ -52,17 +52,33 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btn_Apply = new System.Windows.Forms.Button();
+            this.btn_DateTime_Setup = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_Language_Setup = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btn_Comm_Setup = new System.Windows.Forms.Button();
+            this.lb_Power_Setup = new System.Windows.Forms.Label();
+            this.btn_Power_Setup = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tb_Power_Prices = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tb_Active_Power_Maximum = new System.Windows.Forms.MaskedTextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Access_To_Operating_System
             // 
             this.btn_Access_To_Operating_System.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Access_To_Operating_System.BackgroundImage")));
             this.btn_Access_To_Operating_System.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Access_To_Operating_System.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Access_To_Operating_System.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_Access_To_Operating_System.Location = new System.Drawing.Point(747, 298);
             this.btn_Access_To_Operating_System.Name = "btn_Access_To_Operating_System";
             this.btn_Access_To_Operating_System.Size = new System.Drawing.Size(90, 40);
             this.btn_Access_To_Operating_System.TabIndex = 6;
+            this.btn_Access_To_Operating_System.Text = "적용";
             this.btn_Access_To_Operating_System.UseVisualStyleBackColor = true;
             this.btn_Access_To_Operating_System.Click += new System.EventHandler(this.btn_Access_To_Operating_System_Click);
             // 
@@ -70,11 +86,13 @@
             // 
             this.btn_Password_Change.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Password_Change.BackgroundImage")));
             this.btn_Password_Change.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Password_Change.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Password_Change.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_Password_Change.Location = new System.Drawing.Point(747, 238);
             this.btn_Password_Change.Name = "btn_Password_Change";
             this.btn_Password_Change.Size = new System.Drawing.Size(90, 40);
             this.btn_Password_Change.TabIndex = 8;
+            this.btn_Password_Change.Text = "적용";
             this.btn_Password_Change.UseVisualStyleBackColor = true;
             this.btn_Password_Change.Click += new System.EventHandler(this.btn_Password_Change_Click);
             // 
@@ -82,11 +100,13 @@
             // 
             this.btn_Export_Data.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Export_Data.BackgroundImage")));
             this.btn_Export_Data.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Export_Data.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Export_Data.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_Export_Data.Location = new System.Drawing.Point(747, 182);
             this.btn_Export_Data.Name = "btn_Export_Data";
             this.btn_Export_Data.Size = new System.Drawing.Size(90, 40);
             this.btn_Export_Data.TabIndex = 9;
+            this.btn_Export_Data.Text = "적용";
             this.btn_Export_Data.UseVisualStyleBackColor = true;
             this.btn_Export_Data.Click += new System.EventHandler(this.btn_Export_Data_Click);
             // 
@@ -94,11 +114,13 @@
             // 
             this.btn_Import_Data.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Import_Data.BackgroundImage")));
             this.btn_Import_Data.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Import_Data.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Import_Data.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_Import_Data.Location = new System.Drawing.Point(747, 125);
             this.btn_Import_Data.Name = "btn_Import_Data";
             this.btn_Import_Data.Size = new System.Drawing.Size(90, 40);
             this.btn_Import_Data.TabIndex = 10;
+            this.btn_Import_Data.Text = "적용";
             this.btn_Import_Data.UseVisualStyleBackColor = true;
             this.btn_Import_Data.Click += new System.EventHandler(this.btn_Import_Data_Click);
             // 
@@ -340,15 +362,194 @@
             // 
             this.btn_Apply.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Apply.BackgroundImage")));
             this.btn_Apply.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Apply.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_Apply.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Apply.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Apply.Location = new System.Drawing.Point(312, 341);
+            this.btn_Apply.Location = new System.Drawing.Point(312, 390);
             this.btn_Apply.Name = "btn_Apply";
             this.btn_Apply.Size = new System.Drawing.Size(90, 40);
             this.btn_Apply.TabIndex = 113;
             this.btn_Apply.Text = "적용";
             this.btn_Apply.UseVisualStyleBackColor = true;
             this.btn_Apply.Click += new System.EventHandler(this.btn_Apply_Click);
+            // 
+            // btn_DateTime_Setup
+            // 
+            this.btn_DateTime_Setup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_DateTime_Setup.BackgroundImage")));
+            this.btn_DateTime_Setup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_DateTime_Setup.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_DateTime_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_DateTime_Setup.Location = new System.Drawing.Point(558, 390);
+            this.btn_DateTime_Setup.Name = "btn_DateTime_Setup";
+            this.btn_DateTime_Setup.Size = new System.Drawing.Size(90, 40);
+            this.btn_DateTime_Setup.TabIndex = 114;
+            this.btn_DateTime_Setup.Text = "적용";
+            this.btn_DateTime_Setup.UseVisualStyleBackColor = true;
+            this.btn_DateTime_Setup.Click += new System.EventHandler(this.btn_DateTime_Setup_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(465, 400);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 19);
+            this.label1.TabIndex = 115;
+            this.label1.Text = "날짜 및 시간";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(505, 354);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 19);
+            this.label3.TabIndex = 117;
+            this.label3.Text = "언어";
+            // 
+            // btn_Language_Setup
+            // 
+            this.btn_Language_Setup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Language_Setup.BackgroundImage")));
+            this.btn_Language_Setup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Language_Setup.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_Language_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Language_Setup.Location = new System.Drawing.Point(558, 344);
+            this.btn_Language_Setup.Name = "btn_Language_Setup";
+            this.btn_Language_Setup.Size = new System.Drawing.Size(90, 40);
+            this.btn_Language_Setup.TabIndex = 116;
+            this.btn_Language_Setup.Text = "적용";
+            this.btn_Language_Setup.UseVisualStyleBackColor = true;
+            this.btn_Language_Setup.Click += new System.EventHandler(this.btn_Language_Setup_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(670, 354);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 19);
+            this.label9.TabIndex = 119;
+            this.label9.Text = "통신";
+            // 
+            // btn_Comm_Setup
+            // 
+            this.btn_Comm_Setup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Comm_Setup.BackgroundImage")));
+            this.btn_Comm_Setup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Comm_Setup.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_Comm_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Comm_Setup.Location = new System.Drawing.Point(747, 344);
+            this.btn_Comm_Setup.Name = "btn_Comm_Setup";
+            this.btn_Comm_Setup.Size = new System.Drawing.Size(90, 40);
+            this.btn_Comm_Setup.TabIndex = 118;
+            this.btn_Comm_Setup.Text = "적용";
+            this.btn_Comm_Setup.UseVisualStyleBackColor = true;
+            this.btn_Comm_Setup.Click += new System.EventHandler(this.btn_Comm_Setup_Click);
+            // 
+            // lb_Power_Setup
+            // 
+            this.lb_Power_Setup.AutoSize = true;
+            this.lb_Power_Setup.BackColor = System.Drawing.Color.Transparent;
+            this.lb_Power_Setup.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_Power_Setup.ForeColor = System.Drawing.Color.Black;
+            this.lb_Power_Setup.Location = new System.Drawing.Point(670, 400);
+            this.lb_Power_Setup.Name = "lb_Power_Setup";
+            this.lb_Power_Setup.Size = new System.Drawing.Size(65, 19);
+            this.lb_Power_Setup.TabIndex = 121;
+            this.lb_Power_Setup.Text = "전원설정";
+            // 
+            // btn_Power_Setup
+            // 
+            this.btn_Power_Setup.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Power_Setup.BackgroundImage")));
+            this.btn_Power_Setup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Power_Setup.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_Power_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Power_Setup.Location = new System.Drawing.Point(747, 390);
+            this.btn_Power_Setup.Name = "btn_Power_Setup";
+            this.btn_Power_Setup.Size = new System.Drawing.Size(90, 40);
+            this.btn_Power_Setup.TabIndex = 120;
+            this.btn_Power_Setup.Text = "적용";
+            this.btn_Power_Setup.UseVisualStyleBackColor = true;
+            this.btn_Power_Setup.Click += new System.EventHandler(this.btn_Power_Setup_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(96, 335);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(97, 19);
+            this.label14.TabIndex = 122;
+            this.label14.Text = "전력가격 설정";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(341, 334);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(61, 19);
+            this.label15.TabIndex = 124;
+            this.label15.Text = "원 / kW";
+            // 
+            // tb_Power_Prices
+            // 
+            this.tb_Power_Prices.BackColor = System.Drawing.Color.Transparent;
+            this.tb_Power_Prices.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Power_Prices.ForeColor = System.Drawing.Color.Black;
+            this.tb_Power_Prices.Location = new System.Drawing.Point(249, 334);
+            this.tb_Power_Prices.Name = "tb_Power_Prices";
+            this.tb_Power_Prices.Size = new System.Drawing.Size(97, 19);
+            this.tb_Power_Prices.TabIndex = 125;
+            this.tb_Power_Prices.Text = "280";
+            this.tb_Power_Prices.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(375, 365);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(32, 19);
+            this.label16.TabIndex = 128;
+            this.label16.Text = "kW";
+            // 
+            // tb_Active_Power_Maximum
+            // 
+            this.tb_Active_Power_Maximum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
+            this.tb_Active_Power_Maximum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_Active_Power_Maximum.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Active_Power_Maximum.Location = new System.Drawing.Point(318, 364);
+            this.tb_Active_Power_Maximum.Mask = "999.9";
+            this.tb_Active_Power_Maximum.Name = "tb_Active_Power_Maximum";
+            this.tb_Active_Power_Maximum.Size = new System.Drawing.Size(59, 19);
+            this.tb_Active_Power_Maximum.TabIndex = 127;
+            this.tb_Active_Power_Maximum.TabStop = false;
+            this.tb_Active_Power_Maximum.Text = "0500";
+            this.tb_Active_Power_Maximum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tb_Active_Power_Maximum.ValidatingType = typeof(int);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(96, 365);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(153, 19);
+            this.label17.TabIndex = 126;
+            this.label17.Text = "유효전력설정값 최대치";
             // 
             // Setting_PageViewer
             // 
@@ -357,6 +558,20 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.tb_Active_Power_Maximum);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.tb_Power_Prices);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.lb_Power_Setup);
+            this.Controls.Add(this.btn_Power_Setup);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.btn_Comm_Setup);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btn_Language_Setup);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_DateTime_Setup);
             this.Controls.Add(this.btn_Apply);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -413,5 +628,19 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btn_Apply;
+        private System.Windows.Forms.Button btn_DateTime_Setup;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_Language_Setup;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btn_Comm_Setup;
+        private System.Windows.Forms.Label lb_Power_Setup;
+        private System.Windows.Forms.Button btn_Power_Setup;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label tb_Power_Prices;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.MaskedTextBox tb_Active_Power_Maximum;
+        private System.Windows.Forms.Label label17;
     }
 }

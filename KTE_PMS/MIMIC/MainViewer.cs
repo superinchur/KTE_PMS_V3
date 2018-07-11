@@ -1,12 +1,7 @@
-﻿using DevExpress.XtraGauges.Win;
-using KTE_PMS.Observer;
+﻿using KTE_PMS.Observer;
 using System;
-using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
-using DevExpress.XtraGauges.Win.Gauges.Digital;
-using System.Collections;
-using System.Text.RegularExpressions;
+
 
 namespace KTE_PMS.MIMIC
 {
@@ -142,21 +137,21 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(lb6, Grid_Current.ToString());
             CSafeSetText(lb7, Repository.Instance.GnEPS_PCS.GRID_Power.ToString());
             CSafeSetText(lb8, Repository.Instance.GnEPS_PCS.GRID_Frequency.ToString());
+            
+            CSafeSetText(lb9, Repository.Instance.p_setting.power_day.BMS_CHARGE_POWER.ToString()); // 배터리 일별 충전
+            CSafeSetText(lb12, Repository.Instance.p_setting.power_day.BMS_DISCHARGE_POWER.ToString()); // 배터리 일별 방전
+            CSafeSetText(lb15, Repository.Instance.p_setting.power_day.PCS_CHARGE_POWER.ToString()); // PCS 일별 충전
+            CSafeSetText(lb18, Repository.Instance.p_setting.power_day.PCS_DISCHARGE_POWER.ToString()); // PCS 일별 방전
 
-            CSafeSetText(lb9, Repository.Instance.power_day.BMS_CHARGE_POWER.ToString()); // 배터리 일별 충전
-            CSafeSetText(lb12, Repository.Instance.power_day.BMS_DISCHARGE_POWER.ToString()); // 배터리 일별 방전
-            CSafeSetText(lb15, Repository.Instance.power_day.PCS_CHARGE_POWER.ToString()); // PCS 일별 충전
-            CSafeSetText(lb18, Repository.Instance.power_day.PCS_DISCHARGE_POWER.ToString()); // PCS 일별 방전
+            CSafeSetText(lb10, Repository.Instance.p_setting.power_month.BMS_CHARGE_POWER.ToString()); // 배터리 월별 충전
+            CSafeSetText(lb13, Repository.Instance.p_setting.power_month.BMS_DISCHARGE_POWER.ToString()); // 배터리 월별 방전
+            CSafeSetText(lb16, Repository.Instance.p_setting.power_month.PCS_CHARGE_POWER.ToString()); // PCS 일별 월전
+            CSafeSetText(lb19, Repository.Instance.p_setting.power_month.PCS_DISCHARGE_POWER.ToString()); // PCS 월별 방전
 
-            CSafeSetText(lb10, Repository.Instance.power_month.BMS_CHARGE_POWER.ToString()); // 배터리 월별 충전
-            CSafeSetText(lb13, Repository.Instance.power_month.BMS_DISCHARGE_POWER.ToString()); // 배터리 월별 방전
-            CSafeSetText(lb16, Repository.Instance.power_month.PCS_CHARGE_POWER.ToString()); // PCS 일별 월전
-            CSafeSetText(lb19, Repository.Instance.power_month.PCS_DISCHARGE_POWER.ToString()); // PCS 월별 방전
-
-            CSafeSetText(lb11, Repository.Instance.power_year.BMS_CHARGE_POWER.ToString()); // 배터리 년별 충전
-            CSafeSetText(lb14, Repository.Instance.power_year.BMS_DISCHARGE_POWER.ToString()); // 배터리 년별 방전
-            CSafeSetText(lb17, Repository.Instance.power_year.PCS_CHARGE_POWER.ToString()); // PCS 년별 충전
-            CSafeSetText(lb20, Repository.Instance.power_year.PCS_DISCHARGE_POWER.ToString()); // PCS 년별 방전
+            CSafeSetText(lb11, Repository.Instance.p_setting.power_year.BMS_CHARGE_POWER.ToString()); // 배터리 년별 충전
+            CSafeSetText(lb14, Repository.Instance.p_setting.power_year.BMS_DISCHARGE_POWER.ToString()); // 배터리 년별 방전
+            CSafeSetText(lb17, Repository.Instance.p_setting.power_year.PCS_CHARGE_POWER.ToString()); // PCS 년별 충전
+            CSafeSetText(lb20, Repository.Instance.p_setting.power_year.PCS_DISCHARGE_POWER.ToString()); // PCS 년별 방전
 
 
         }
@@ -164,6 +159,87 @@ namespace KTE_PMS.MIMIC
         private void MainViewer_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_PeakCutMode_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("피크저감 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // -------------------------------------------------------------------------------------
+                // 180710
+                // 현재 피크저감 모드는 어떤 식으로 할지 명확하게 정의가 안되어서 주석처리를 해놨음
+                // -------------------------------------------------------------------------------------
+                /*
+                Repository.Instance.p_setting.Charging_StartTime = new TimeSpan(08, 00, 00);
+                Repository.Instance.p_setting.Charging_EndTime = new TimeSpan(12, 00, 00);
+                Repository.Instance.p_setting.Discharging_StartTime = new TimeSpan(16, 00, 00);
+                Repository.Instance.p_setting.Discharging_EndTime = new TimeSpan(20, 00, 00);
+                */
+                Repository.Instance.p_setting.Set_Scheduler_Setting
+                (
+                Repository.Instance.p_setting.Charging_StartTime,
+                Repository.Instance.p_setting.Charging_EndTime,
+                Repository.Instance.p_setting.Discharging_StartTime,
+                Repository.Instance.p_setting.Discharging_EndTime
+                );
+                Repository.Instance.p_control.Set_Scheduler_Color();
+            }
+        }
+
+        private void btn_CustomMode_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("사용자 정의 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // -------------------------------------------------------------------------------------
+                // 180710
+                // 현재 사용자 정의 모드는 어떤 식으로 할지 명확하게 정의가 안되어서 주석처리를 해놨음
+                // -------------------------------------------------------------------------------------
+                /*
+                Repository.Instance.p_setting.Charging_StartTime = new TimeSpan(08, 00, 00);
+                Repository.Instance.p_setting.Charging_EndTime = new TimeSpan(12, 00, 00);
+                Repository.Instance.p_setting.Discharging_StartTime = new TimeSpan(16, 00, 00);
+                Repository.Instance.p_setting.Discharging_EndTime = new TimeSpan(20, 00, 00);
+                */
+                Repository.Instance.p_setting.Set_Scheduler_Setting(
+                Repository.Instance.p_setting.Charging_StartTime,
+                Repository.Instance.p_setting.Charging_EndTime,
+                Repository.Instance.p_setting.Discharging_StartTime,
+                Repository.Instance.p_setting.Discharging_EndTime);
+                Repository.Instance.p_control.Set_Scheduler_Color();
+            }
+        }
+
+        private void btn_ChargingMode_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("사용자 정의 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Repository.Instance.p_setting.Charging_StartTime = new TimeSpan(00, 00, 00);
+                Repository.Instance.p_setting.Charging_EndTime = new TimeSpan(24, 00, 00);
+                Repository.Instance.p_setting.Discharging_StartTime = new TimeSpan(00, 00, 00);
+                Repository.Instance.p_setting.Discharging_EndTime = new TimeSpan(00, 00, 00);
+
+                Repository.Instance.p_setting.Set_Scheduler_Setting(
+                    Repository.Instance.p_setting.Charging_StartTime,
+                    Repository.Instance.p_setting.Charging_EndTime,
+                    Repository.Instance.p_setting.Discharging_StartTime,
+                    Repository.Instance.p_setting.Discharging_EndTime);
+                Repository.Instance.p_control.Set_Scheduler_Color();
+            }
+        }
+
+        private void btn_DisChargingMode_Click(object sender, EventArgs e)
+        {
+            Repository.Instance.p_setting.Charging_StartTime = new TimeSpan(00, 00, 00);
+            Repository.Instance.p_setting.Charging_EndTime = new TimeSpan(00, 00, 00);
+            Repository.Instance.p_setting.Discharging_StartTime = new TimeSpan(00, 00, 00);
+            Repository.Instance.p_setting.Discharging_EndTime = new TimeSpan(24, 00, 00);
+
+            Repository.Instance.p_setting.Set_Scheduler_Setting(
+                Repository.Instance.p_setting.Charging_StartTime,
+                Repository.Instance.p_setting.Charging_EndTime,
+                Repository.Instance.p_setting.Discharging_StartTime,
+                Repository.Instance.p_setting.Discharging_EndTime);
+            Repository.Instance.p_control.Set_Scheduler_Color();
         }
     }
 }

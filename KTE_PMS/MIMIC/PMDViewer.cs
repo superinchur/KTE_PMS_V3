@@ -91,23 +91,23 @@ namespace KTE_PMS.MIMIC
 
                     // Charging시간이 아니더라도 Charging 조건은 가장 우선시해야한다.
 
-                    if (Repository.Instance.flag_Charging_Time)
+                    if (Repository.Instance.p_setting.flag_Charging_Time)
                     {
                         // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.  
                         if (!(Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
                         {
-                            if (Repository.Instance.samsung_bcs.System_SOC < Repository.Instance.Charging_Stop_SOC)
+                            if (Repository.Instance.samsung_bcs.System_SOC < Repository.Instance.p_setting.Charging_Stop_SOC)
                             {
                                 Repository.Instance.pmdviewer.Control_Charge();
                             }
                         }
                     }
-                    else if (Repository.Instance.flag_DisCharging_Time)
+                    else if (Repository.Instance.p_setting.flag_DisCharging_Time)
                     {
                         // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.
                         if (!(Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
                         {
-                            if (Repository.Instance.samsung_bcs.System_SOC > Repository.Instance.Discharging_Stop_SOC)
+                            if (Repository.Instance.samsung_bcs.System_SOC > Repository.Instance.p_setting.Discharging_Stop_SOC)
                             {
                                 Repository.Instance.pmdviewer.Control_Discharge();
                             }
@@ -118,14 +118,14 @@ namespace KTE_PMS.MIMIC
                         // nothing to do
                         // 만약 충전신호나 방전신호가 가고있다면 0으로 바꿔준다.
 
-                        if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.Charging_Limit_Voltage)
+                        if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.p_setting.Charging_Limit_Voltage)
                         {
                             if (!(Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
                             {
                                 Repository.Instance.pmdviewer.Control_Charge();
                             }
                         }
-                        else if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.Discharging_Limit_Voltage)
+                        else if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.p_setting.Discharging_Limit_Voltage)
                         {
                             if (!(Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
                             {

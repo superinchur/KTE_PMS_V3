@@ -33,35 +33,11 @@ namespace KTE_PMS.MIMIC
 
         public void LoadCurrentFault()
         {
-            dataGridView1.Rows.Clear();
-            ArrayList alFault = new ArrayList();
-
-            foreach (KeyValuePair<String, String> pDir in Repository.Instance.TagManager.htCurrentFault)
-            {
-                string szFault = pDir.Value + "";
-                if (szFault != "")
-                    alFault.Add(pDir.Value);
-            }
-
-            alFault.Sort();
-            string[] row0 = new string[5];
-
-            foreach (string szFaultData in alFault)
-            {
-                string[] szFault = szFaultData.Split('|');
-
-                row0[0] = szFault[0];
-                row0[1] = szFault[1];
-                row0[2] = szFault[2];
-                row0[3] = szFault[3];
-                row0[4] = szFault[4];
-  
-                // row0[4] 는 ACK, UNACK, UNACK_NORMAL로 구성됨
-
-                dataGridView1.Rows.Add(row0);
-            }
+            Repository.Instance.TagManager.Alarm_Display(ref dataGridView1, 0);
+            
         }
 
+        
 
         private void Flashing_Row()
         {

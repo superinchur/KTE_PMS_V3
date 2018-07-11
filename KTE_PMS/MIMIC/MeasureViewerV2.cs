@@ -11,6 +11,8 @@ namespace KTE_PMS.MIMIC
         public MeasureViewerV2()
         {
             InitializeComponent();
+            
+
         }
 
         delegate void CrossThreadSafetySetText(Control ctl, String text);
@@ -42,6 +44,11 @@ namespace KTE_PMS.MIMIC
 
         private void button4_Click(object sender, EventArgs e)
         {
+        }
+
+        private void MeasureViewerV2_Load(object sender, EventArgs e)
+        {
+            gridControl1.DataSource = Repository.Instance.Tag_Data_Table;
         }
     }
 }

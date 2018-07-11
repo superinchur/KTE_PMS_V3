@@ -38,7 +38,7 @@ namespace KTE_PMS.MIMIC
 
             BSC_Controller_Data = new Byte[14];
 
-            BSC1 = new Byte[50];
+            BSC1 = new Byte[60];
             // For test. IP 설정창을 그린 후 해당 내용으로 교체할 예정임
             // Samsung Battery로 변경함
             if (Properties.Settings.Default.DEBUG)
@@ -90,12 +90,12 @@ namespace KTE_PMS.MIMIC
             else if (ID == 2)
             {
                 temp_startaddr = 40;
-                temp_length = 50;
+                temp_length = 51;
             }
             else if (ID == 3)
             {
                 temp_startaddr = 100;
-                temp_length = 50;
+                temp_length = 51;
             }
 
 
@@ -151,7 +151,6 @@ namespace KTE_PMS.MIMIC
         {
 
             // ------------------------------------------------------------------
-
             // Seperate calling threads
             if (this.InvokeRequired)
             {
@@ -178,7 +177,7 @@ namespace KTE_PMS.MIMIC
                     Notify();
                     break;
                 case 3:
-                    Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack1, values, 2);
+                    Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack2, values, 2);
                     tLastRecv = DateTime.Now;
                     Notify();
                     break;

@@ -202,10 +202,10 @@ namespace KTE_PMS
 
                 String sql = "INSERT INTO power_data_minute (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
                     + strDateTime + "','"
-                    + Repository.Instance.power.PCS_CHARGE_POWER + "','"
-                    + Repository.Instance.power.PCS_DISCHARGE_POWER + "','"
-                    + Repository.Instance.power.BMS_CHARGE_POWER + "','"
-                    + Repository.Instance.power.BMS_DISCHARGE_POWER + "')";
+                    + Repository.Instance.p_setting.power.PCS_CHARGE_POWER + "','"
+                    + Repository.Instance.p_setting.power.PCS_DISCHARGE_POWER + "','"
+                    + Repository.Instance.p_setting.power.BMS_CHARGE_POWER + "','"
+                    + Repository.Instance.p_setting.power.BMS_DISCHARGE_POWER + "')";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
@@ -381,7 +381,7 @@ namespace KTE_PMS
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(ds);
 
-                Repository.Instance.power_day = GetPowerFromDatabase(ds);
+                Repository.Instance.p_setting.power_day = GetPowerFromDatabase(ds);
 
                 //
                 str_start = DateTime.Now.ToString("yyyy-mm-01 00:00:00");
@@ -395,7 +395,7 @@ namespace KTE_PMS
                 adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(ds);
 
-                Repository.Instance.power_month = Repository.Instance.power_day + GetPowerFromDatabase(ds);
+                Repository.Instance.p_setting.power_month = Repository.Instance.p_setting.power_day + GetPowerFromDatabase(ds);
 
                 //
                 str_start = DateTime.Now.ToString("yyyy-01-01 00:00:00");
@@ -409,7 +409,7 @@ namespace KTE_PMS
                 adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(ds);
 
-                Repository.Instance.power_year = Repository.Instance.power_month + GetPowerFromDatabase(ds);
+                Repository.Instance.p_setting.power_year = Repository.Instance.p_setting.power_month + GetPowerFromDatabase(ds);
 
             }
             catch (Exception ex)
