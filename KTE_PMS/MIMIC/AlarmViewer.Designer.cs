@@ -34,13 +34,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlarmViewer));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlarmViewer));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DATETIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CLASS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEVICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PREV = new System.Windows.Forms.Button();
             this.NEXT = new System.Windows.Forms.Button();
             this.btnACK = new System.Windows.Forms.Button();
@@ -48,11 +53,6 @@
             this.btn_TO_HISTORY = new System.Windows.Forms.Button();
             this.btn_TO_ALARM = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.DATETIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CLASS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DEVICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,7 +89,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView1.Location = new System.Drawing.Point(65, 68);
+            this.dataGridView1.Location = new System.Drawing.Point(68, 47);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -113,12 +113,67 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(835, 372);
+            this.dataGridView1.Size = new System.Drawing.Size(835, 378);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.TabStop = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            // 
+            // DATETIME
+            // 
+            this.DATETIME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DATETIME.DefaultCellStyle = dataGridViewCellStyle3;
+            this.DATETIME.HeaderText = "TIME";
+            this.DATETIME.MinimumWidth = 100;
+            this.DATETIME.Name = "DATETIME";
+            this.DATETIME.ReadOnly = true;
+            this.DATETIME.Width = 180;
+            // 
+            // CLASS
+            // 
+            this.CLASS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.CLASS.DefaultCellStyle = dataGridViewCellStyle4;
+            this.CLASS.HeaderText = "CLASS";
+            this.CLASS.MinimumWidth = 50;
+            this.CLASS.Name = "CLASS";
+            this.CLASS.ReadOnly = true;
+            // 
+            // DEVICE
+            // 
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.DEVICE.DefaultCellStyle = dataGridViewCellStyle5;
+            this.DEVICE.HeaderText = "DEVICE";
+            this.DEVICE.MinimumWidth = 80;
+            this.DEVICE.Name = "DEVICE";
+            this.DEVICE.ReadOnly = true;
+            this.DEVICE.Width = 80;
+            // 
+            // DESCRIPTION
+            // 
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.DESCRIPTION.DefaultCellStyle = dataGridViewCellStyle6;
+            this.DESCRIPTION.HeaderText = "DESCRIPTION";
+            this.DESCRIPTION.MinimumWidth = 200;
+            this.DESCRIPTION.Name = "DESCRIPTION";
+            this.DESCRIPTION.ReadOnly = true;
+            this.DESCRIPTION.Width = 270;
+            // 
+            // IO
+            // 
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.IO.DefaultCellStyle = dataGridViewCellStyle7;
+            this.IO.HeaderText = "IO";
+            this.IO.MinimumWidth = 100;
+            this.IO.Name = "IO";
+            this.IO.ReadOnly = true;
+            this.IO.Width = 170;
             // 
             // PREV
             // 
@@ -181,65 +236,9 @@
             this.btn_TO_ALARM.UseVisualStyleBackColor = true;
             this.btn_TO_ALARM.Click += new System.EventHandler(this.btn_TO_ALARM_Click);
             // 
-            // DATETIME
-            // 
-            this.DATETIME.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DATETIME.DefaultCellStyle = dataGridViewCellStyle3;
-            this.DATETIME.HeaderText = "TIME";
-            this.DATETIME.MinimumWidth = 100;
-            this.DATETIME.Name = "DATETIME";
-            this.DATETIME.ReadOnly = true;
-            this.DATETIME.Width = 180;
-            // 
-            // CLASS
-            // 
-            this.CLASS.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.CLASS.DefaultCellStyle = dataGridViewCellStyle4;
-            this.CLASS.HeaderText = "CLASS";
-            this.CLASS.MinimumWidth = 50;
-            this.CLASS.Name = "CLASS";
-            this.CLASS.ReadOnly = true;
-            // 
-            // DEVICE
-            // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.DEVICE.DefaultCellStyle = dataGridViewCellStyle5;
-            this.DEVICE.HeaderText = "DEVICE";
-            this.DEVICE.MinimumWidth = 80;
-            this.DEVICE.Name = "DEVICE";
-            this.DEVICE.ReadOnly = true;
-            this.DEVICE.Width = 80;
-            // 
-            // DESCRIPTION
-            // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.DESCRIPTION.DefaultCellStyle = dataGridViewCellStyle6;
-            this.DESCRIPTION.HeaderText = "DESCRIPTION";
-            this.DESCRIPTION.MinimumWidth = 200;
-            this.DESCRIPTION.Name = "DESCRIPTION";
-            this.DESCRIPTION.ReadOnly = true;
-            this.DESCRIPTION.Width = 270;
-            // 
-            // IO
-            // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.IO.DefaultCellStyle = dataGridViewCellStyle7;
-            this.IO.HeaderText = "IO";
-            this.IO.MinimumWidth = 100;
-            this.IO.Name = "IO";
-            this.IO.ReadOnly = true;
-            this.IO.Width = 170;
-            // 
             // AlarmViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -251,6 +250,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "AlarmViewer";
+            this.Size = new System.Drawing.Size(960, 434);
             this.Load += new System.EventHandler(this.AlarmViewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

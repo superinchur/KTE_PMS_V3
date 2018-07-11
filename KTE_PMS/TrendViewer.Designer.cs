@@ -163,7 +163,7 @@
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(664, 416);
+            this.maskedTextBox1.Location = new System.Drawing.Point(664, 413);
             this.maskedTextBox1.Mask = "0000년90월90일 90시90분";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(148, 21);
@@ -173,7 +173,7 @@
             // 
             // maskedTextBox2
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(15, 414);
+            this.maskedTextBox2.Location = new System.Drawing.Point(15, 411);
             this.maskedTextBox2.Mask = "0000년90월90일 90시90분";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(148, 21);
@@ -309,8 +309,7 @@
             // 
             // TrendViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.button1);
@@ -325,7 +324,7 @@
             this.Controls.Add(this.chartControl1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "TrendViewer";
-            this.Size = new System.Drawing.Size(964, 454);
+            this.Size = new System.Drawing.Size(960, 434);
             this.Load += new System.EventHandler(this.TrendViewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trend_dataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(textAnnotation1)).EndInit();

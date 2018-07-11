@@ -34,10 +34,9 @@
             // 
             // Viewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Name = "Viewer";
-            this.Size = new System.Drawing.Size(960, 450);
+            this.Size = new System.Drawing.Size(960, 434);
             this.ResumeLayout(false);
 
         }

@@ -103,13 +103,12 @@
             this.dataGridView1.Location = new System.Drawing.Point(38, 16);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(729, 421);
+            this.dataGridView1.Size = new System.Drawing.Size(729, 415);
             this.dataGridView1.TabIndex = 135;
             // 
             // MeasureViewer2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.dataGridView1);
@@ -120,6 +119,7 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "MeasureViewer2";
+            this.Size = new System.Drawing.Size(960, 434);
             this.Load += new System.EventHandler(this.Measure_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

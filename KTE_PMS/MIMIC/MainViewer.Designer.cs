@@ -94,7 +94,7 @@
             this.lb1.BackColor = System.Drawing.Color.Transparent;
             this.lb1.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb1.ForeColor = System.Drawing.Color.Black;
-            this.lb1.Location = new System.Drawing.Point(195, 189);
+            this.lb1.Location = new System.Drawing.Point(195, 181);
             this.lb1.Name = "lb1";
             this.lb1.Size = new System.Drawing.Size(51, 17);
             this.lb1.TabIndex = 15;
@@ -272,7 +272,7 @@
             this.lb10.BackColor = System.Drawing.Color.Transparent;
             this.lb10.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb10.ForeColor = System.Drawing.Color.Black;
-            this.lb10.Location = new System.Drawing.Point(130, 314);
+            this.lb10.Location = new System.Drawing.Point(130, 306);
             this.lb10.Name = "lb10";
             this.lb10.Size = new System.Drawing.Size(51, 17);
             this.lb10.TabIndex = 38;
@@ -665,7 +665,7 @@
             // 
             // btn_ChargingMode
             // 
-            this.btn_ChargingMode.Location = new System.Drawing.Point(390, 356);
+            this.btn_ChargingMode.Location = new System.Drawing.Point(354, 318);
             this.btn_ChargingMode.Name = "btn_ChargingMode";
             this.btn_ChargingMode.Size = new System.Drawing.Size(116, 23);
             this.btn_ChargingMode.TabIndex = 74;
@@ -675,7 +675,7 @@
             // 
             // btn_DisChargingMode
             // 
-            this.btn_DisChargingMode.Location = new System.Drawing.Point(512, 356);
+            this.btn_DisChargingMode.Location = new System.Drawing.Point(476, 318);
             this.btn_DisChargingMode.Name = "btn_DisChargingMode";
             this.btn_DisChargingMode.Size = new System.Drawing.Size(116, 23);
             this.btn_DisChargingMode.TabIndex = 75;
@@ -685,7 +685,7 @@
             // 
             // btn_CustomMode
             // 
-            this.btn_CustomMode.Location = new System.Drawing.Point(512, 330);
+            this.btn_CustomMode.Location = new System.Drawing.Point(476, 292);
             this.btn_CustomMode.Name = "btn_CustomMode";
             this.btn_CustomMode.Size = new System.Drawing.Size(116, 23);
             this.btn_CustomMode.TabIndex = 77;
@@ -695,7 +695,7 @@
             // 
             // btn_PeakCutMode
             // 
-            this.btn_PeakCutMode.Location = new System.Drawing.Point(390, 330);
+            this.btn_PeakCutMode.Location = new System.Drawing.Point(354, 292);
             this.btn_PeakCutMode.Name = "btn_PeakCutMode";
             this.btn_PeakCutMode.Size = new System.Drawing.Size(116, 23);
             this.btn_PeakCutMode.TabIndex = 76;
@@ -705,7 +705,7 @@
             // 
             // btn_ReCreate
             // 
-            this.btn_ReCreate.Location = new System.Drawing.Point(684, 385);
+            this.btn_ReCreate.Location = new System.Drawing.Point(512, 347);
             this.btn_ReCreate.Name = "btn_ReCreate";
             this.btn_ReCreate.Size = new System.Drawing.Size(116, 23);
             this.btn_ReCreate.TabIndex = 78;
@@ -715,8 +715,8 @@
             // 
             // MainViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -773,6 +773,7 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "MainViewer";
+            this.Size = new System.Drawing.Size(960, 434);
             this.Load += new System.EventHandler(this.MainViewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_Battery_to_PCS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PCS_to_Grid)).EndInit();

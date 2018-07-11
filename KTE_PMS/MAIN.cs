@@ -305,7 +305,7 @@ namespace KTE_PMS
             if (prev_minute != today.Minute)
             {
                 // 저장된 데이터를 DB에 저장한다.
-                //Todo :  저장된 데이터를 DB에 저장한다.
+                
                 Repository.Instance.dbConnector.Insert_Power();
                 // 처리 완료 후, prev값을 새로 갱신
                 prev_minute = today.Minute;
@@ -313,7 +313,6 @@ namespace KTE_PMS
             if (prev_hour != today.Hour)
             {
                 // 저장된 데이터를 DB에 저장한다.
-                //Todo :  저장된 데이터를 DB에 저장한다.
                 Repository.Instance.dbConnector.Insert_Power_Hour();
 
                 prev_hour = today.Hour;

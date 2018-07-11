@@ -17,8 +17,9 @@ namespace KTE_PMS.MIMIC
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlViewer));
-            this.ControlTimer = new System.Windows.Forms.Timer();
+            this.ControlTimer = new System.Windows.Forms.Timer(this.components);
             this.btn_Grid_OFF = new System.Windows.Forms.Button();
             this.btn_Grid_ON = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -81,8 +82,8 @@ namespace KTE_PMS.MIMIC
             this.btn_t_13 = new System.Windows.Forms.Button();
             this.btn_t_12 = new System.Windows.Forms.Button();
             this.gb_scheduler = new System.Windows.Forms.GroupBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.gb_scheduler.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -766,17 +767,6 @@ namespace KTE_PMS.MIMIC
             this.gb_scheduler.TabStop = false;
             this.gb_scheduler.Text = "Scheduler";
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(7, 19);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(29, 14);
-            this.label21.TabIndex = 139;
-            this.label21.Text = "오전";
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -788,10 +778,20 @@ namespace KTE_PMS.MIMIC
             this.label20.TabIndex = 140;
             this.label20.Text = "오후";
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(7, 19);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(29, 14);
+            this.label21.TabIndex = 139;
+            this.label21.Text = "오전";
+            // 
             // ControlViewer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -836,6 +836,7 @@ namespace KTE_PMS.MIMIC
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ControlViewer";
+            this.Size = new System.Drawing.Size(960, 434);
             this.Load += new System.EventHandler(this.ControlViewer_Load);
             this.gb_scheduler.ResumeLayout(false);
             this.gb_scheduler.PerformLayout();

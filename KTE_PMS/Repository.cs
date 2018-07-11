@@ -103,13 +103,13 @@ namespace KTE_PMS
 
             // 20180628 Semaphore 할당
             // 현재 Semaphore를 사용할지, 사용하지 않을지에 대해서 고민중임
-            // TODO : Semaphore 처리
+            // Semaphore 처리
             Initialize_Semaphore();
 
             // 20180628 Parameter Setting 초기화
             // Parameter Setting에서 사용하는 값들을 초기화 하기 위한 항목이다
             // 현재 강제적으로 데이터를 넣고있으나, 설정한 값들의 보존을 위해서는 File이나 DB로 저장하도록 변경해야 한다.
-            // TODO : Parameter Settings
+            // Parameter Settings
             scheduler = new int[24];
 
 
@@ -621,7 +621,7 @@ namespace KTE_PMS
             {
                 if (disposing)
                 {
-                    // TODO: 관리되는 상태(관리되는 개체)를 삭제합니다.
+                    // 관리되는 상태(관리되는 개체)를 삭제합니다.
                     bmsviewer.Dispose();
                     pmdviewer.Dispose();
                     p_main.Dispose();
@@ -641,8 +641,8 @@ namespace KTE_PMS
                     Tag_Data_Table.Dispose();
                 }
 
-                // TODO: 관리되지 않는 리소스(관리되지 않는 개체)를 해제하고 아래의 종료자를 재정의합니다.
-                // TODO: 큰 필드를 null로 설정합니다.
+                // 관리되지 않는 리소스(관리되지 않는 개체)를 해제하고 아래의 종료자를 재정의합니다.
+                // 큰 필드를 null로 설정합니다.
                 //TagManager.Dispose();
                 //GnEPS_PCS.Dispose();
                 /*
@@ -660,7 +660,7 @@ namespace KTE_PMS
             }
         }
 
-        // TODO: 위의 Dispose(bool disposing)에 관리되지 않는 리소스를 해제하는 코드가 포함되어 있는 경우에만 종료자를 재정의합니다.
+        // 위의 Dispose(bool disposing)에 관리되지 않는 리소스를 해제하는 코드가 포함되어 있는 경우에만 종료자를 재정의합니다.
         // ~Repository() {
         //   // 이 코드를 변경하지 마세요. 위의 Dispose(bool disposing)에 정리 코드를 입력하세요.
         //   Dispose(false);
@@ -671,7 +671,7 @@ namespace KTE_PMS
         {
             // 이 코드를 변경하지 마세요. 위의 Dispose(bool disposing)에 정리 코드를 입력하세요.
             Dispose(true);
-            // TODO: 위의 종료자가 재정의된 경우 다음 코드 줄의 주석 처리를 제거합니다.
+            // 위의 종료자가 재정의된 경우 다음 코드 줄의 주석 처리를 제거합니다.
             GC.SuppressFinalize(this);
         }
         public void bms_dispose()

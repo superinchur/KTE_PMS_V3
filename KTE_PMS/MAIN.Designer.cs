@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KTE_PMS));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -65,11 +66,11 @@
             // panel1
             // 
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(0, 115);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.panel1.Location = new System.Drawing.Point(0, 59);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
             this.panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel1.Size = new System.Drawing.Size(1200, 638);
+            this.panel1.Size = new System.Drawing.Size(960, 434);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -77,11 +78,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
-            this.label6.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(32, 74);
+            this.label6.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Location = new System.Drawing.Point(93, 26);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(197, 28);
+            this.label6.Size = new System.Drawing.Size(127, 17);
             this.label6.TabIndex = 15;
             this.label6.Tag = "TEST1";
             this.label6.Text = "2018-03-20 11:35:26";
@@ -92,10 +93,10 @@
             this.NAVI_CONTROL.BackgroundImage = global::KTE_PMS.Properties.Resources.control_off;
             this.NAVI_CONTROL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_CONTROL.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_CONTROL.Location = new System.Drawing.Point(342, 758);
-            this.NAVI_CONTROL.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.NAVI_CONTROL.Location = new System.Drawing.Point(687, 493);
+            this.NAVI_CONTROL.Margin = new System.Windows.Forms.Padding(0);
             this.NAVI_CONTROL.Name = "NAVI_CONTROL";
-            this.NAVI_CONTROL.Size = new System.Drawing.Size(169, 128);
+            this.NAVI_CONTROL.Size = new System.Drawing.Size(139, 91);
             this.NAVI_CONTROL.TabIndex = 6;
             this.NAVI_CONTROL.UseVisualStyleBackColor = true;
             this.NAVI_CONTROL.Click += new System.EventHandler(this.NAVI_CONTROL_Click);
@@ -110,26 +111,25 @@
             this.NAVI_SETTING.BackgroundImage = global::KTE_PMS.Properties.Resources.setting_off;
             this.NAVI_SETTING.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_SETTING.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_SETTING.Location = new System.Drawing.Point(1029, 758);
-            this.NAVI_SETTING.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.NAVI_SETTING.Location = new System.Drawing.Point(825, 493);
+            this.NAVI_SETTING.Margin = new System.Windows.Forms.Padding(0);
             this.NAVI_SETTING.Name = "NAVI_SETTING";
-            this.NAVI_SETTING.Size = new System.Drawing.Size(169, 128);
+            this.NAVI_SETTING.Size = new System.Drawing.Size(139, 91);
             this.NAVI_SETTING.TabIndex = 7;
             this.NAVI_SETTING.UseVisualStyleBackColor = true;
             this.NAVI_SETTING.Click += new System.EventHandler(this.NAVI_SETTING_Click);
             // 
             // NAVI_MEASURE
             // 
-            this.NAVI_MEASURE.BackgroundImage = global::KTE_PMS.Properties.Resources.measure_off_1;
+            this.NAVI_MEASURE.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("NAVI_MEASURE.BackgroundImage")));
             this.NAVI_MEASURE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_MEASURE.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_MEASURE.Location = new System.Drawing.Point(685, 758);
-            this.NAVI_MEASURE.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.NAVI_MEASURE.Location = new System.Drawing.Point(549, 493);
+            this.NAVI_MEASURE.Margin = new System.Windows.Forms.Padding(0);
             this.NAVI_MEASURE.Name = "NAVI_MEASURE";
             this.NAVI_MEASURE.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.NAVI_MEASURE.Size = new System.Drawing.Size(169, 128);
+            this.NAVI_MEASURE.Size = new System.Drawing.Size(139, 91);
             this.NAVI_MEASURE.TabIndex = 5;
-            this.NAVI_MEASURE.Text = "Measure";
             this.NAVI_MEASURE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.NAVI_MEASURE.UseVisualStyleBackColor = true;
             this.NAVI_MEASURE.Click += new System.EventHandler(this.NAVI_MEASURE_Click);
@@ -139,10 +139,10 @@
             this.NAVI_MIMIC.BackgroundImage = global::KTE_PMS.Properties.Resources.mimic_off;
             this.NAVI_MIMIC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_MIMIC.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_MIMIC.Location = new System.Drawing.Point(514, 758);
-            this.NAVI_MIMIC.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.NAVI_MIMIC.Location = new System.Drawing.Point(411, 493);
+            this.NAVI_MIMIC.Margin = new System.Windows.Forms.Padding(0);
             this.NAVI_MIMIC.Name = "NAVI_MIMIC";
-            this.NAVI_MIMIC.Size = new System.Drawing.Size(169, 128);
+            this.NAVI_MIMIC.Size = new System.Drawing.Size(139, 91);
             this.NAVI_MIMIC.TabIndex = 4;
             this.NAVI_MIMIC.UseVisualStyleBackColor = true;
             this.NAVI_MIMIC.Click += new System.EventHandler(this.NAVI_MIMIC_Click);
@@ -152,10 +152,10 @@
             this.NAVI_TREND.BackgroundImage = global::KTE_PMS.Properties.Resources.trend_off;
             this.NAVI_TREND.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_TREND.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_TREND.Location = new System.Drawing.Point(856, 758);
-            this.NAVI_TREND.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.NAVI_TREND.Location = new System.Drawing.Point(273, 493);
+            this.NAVI_TREND.Margin = new System.Windows.Forms.Padding(0);
             this.NAVI_TREND.Name = "NAVI_TREND";
-            this.NAVI_TREND.Size = new System.Drawing.Size(169, 128);
+            this.NAVI_TREND.Size = new System.Drawing.Size(139, 91);
             this.NAVI_TREND.TabIndex = 3;
             this.NAVI_TREND.UseVisualStyleBackColor = true;
             this.NAVI_TREND.Click += new System.EventHandler(this.NAVI_TREND_Click);
@@ -165,10 +165,10 @@
             this.NAVI_ALARM.BackgroundImage = global::KTE_PMS.Properties.Resources.alarm_off;
             this.NAVI_ALARM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_ALARM.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_ALARM.Location = new System.Drawing.Point(171, 758);
-            this.NAVI_ALARM.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.NAVI_ALARM.Location = new System.Drawing.Point(135, 493);
+            this.NAVI_ALARM.Margin = new System.Windows.Forms.Padding(0);
             this.NAVI_ALARM.Name = "NAVI_ALARM";
-            this.NAVI_ALARM.Size = new System.Drawing.Size(169, 128);
+            this.NAVI_ALARM.Size = new System.Drawing.Size(139, 91);
             this.NAVI_ALARM.TabIndex = 2;
             this.NAVI_ALARM.UseVisualStyleBackColor = true;
             this.NAVI_ALARM.Click += new System.EventHandler(this.NAVI_ALARM_Click);
@@ -179,20 +179,19 @@
             this.NAVI_MAIN.BackgroundImage = global::KTE_PMS.Properties.Resources.main_off;
             this.NAVI_MAIN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NAVI_MAIN.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.NAVI_MAIN.Location = new System.Drawing.Point(0, 758);
-            this.NAVI_MAIN.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.NAVI_MAIN.Location = new System.Drawing.Point(-3, 493);
+            this.NAVI_MAIN.Margin = new System.Windows.Forms.Padding(0);
             this.NAVI_MAIN.Name = "NAVI_MAIN";
-            this.NAVI_MAIN.Size = new System.Drawing.Size(169, 128);
+            this.NAVI_MAIN.Size = new System.Drawing.Size(139, 91);
             this.NAVI_MAIN.TabIndex = 1;
             this.NAVI_MAIN.UseVisualStyleBackColor = true;
             this.NAVI_MAIN.Click += new System.EventHandler(this.NAVI_MAIN_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(135, 40);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(764, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 29);
+            this.button1.Size = new System.Drawing.Size(54, 49);
             this.button1.TabIndex = 17;
             this.button1.Text = "ACK";
             this.button1.UseVisualStyleBackColor = true;
@@ -218,8 +217,7 @@
             this.DESCRIPTION,
             this.IO});
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView1.Location = new System.Drawing.Point(279, 11);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(236, 4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -234,7 +232,7 @@
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(600, 86);
+            this.dataGridView1.Size = new System.Drawing.Size(467, 49);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.TabStop = false;
             // 
@@ -299,10 +297,9 @@
             // 
             this.btn_PCS_STOP.BackgroundImage = global::KTE_PMS.Properties.Resources.PCS_STOP_on;
             this.btn_PCS_STOP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_PCS_STOP.Location = new System.Drawing.Point(941, 11);
-            this.btn_PCS_STOP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_PCS_STOP.Location = new System.Drawing.Point(905, 6);
             this.btn_PCS_STOP.Name = "btn_PCS_STOP";
-            this.btn_PCS_STOP.Size = new System.Drawing.Size(106, 90);
+            this.btn_PCS_STOP.Size = new System.Drawing.Size(54, 49);
             this.btn_PCS_STOP.TabIndex = 19;
             this.btn_PCS_STOP.UseVisualStyleBackColor = true;
             this.btn_PCS_STOP.Click += new System.EventHandler(this.btn_PCS_STOP_Click);
@@ -311,10 +308,9 @@
             // 
             this.btn_Monitor_OFF.BackgroundImage = global::KTE_PMS.Properties.Resources.Monitor_off_on;
             this.btn_Monitor_OFF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Monitor_OFF.Location = new System.Drawing.Point(1062, 11);
-            this.btn_Monitor_OFF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Monitor_OFF.Location = new System.Drawing.Point(836, 4);
             this.btn_Monitor_OFF.Name = "btn_Monitor_OFF";
-            this.btn_Monitor_OFF.Size = new System.Drawing.Size(106, 90);
+            this.btn_Monitor_OFF.Size = new System.Drawing.Size(54, 49);
             this.btn_Monitor_OFF.TabIndex = 20;
             this.btn_Monitor_OFF.UseVisualStyleBackColor = true;
             this.btn_Monitor_OFF.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_Monitor_OFF_MouseClick);
@@ -324,10 +320,9 @@
             this.lb_Current_PCS_MODE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lb_Current_PCS_MODE.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_Current_PCS_MODE.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lb_Current_PCS_MODE.Location = new System.Drawing.Point(136, 11);
-            this.lb_Current_PCS_MODE.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_Current_PCS_MODE.Location = new System.Drawing.Point(704, 6);
             this.lb_Current_PCS_MODE.Name = "lb_Current_PCS_MODE";
-            this.lb_Current_PCS_MODE.Size = new System.Drawing.Size(124, 25);
+            this.lb_Current_PCS_MODE.Size = new System.Drawing.Size(54, 47);
             this.lb_Current_PCS_MODE.TabIndex = 36;
             this.lb_Current_PCS_MODE.Text = "배터리 충전 중";
             this.lb_Current_PCS_MODE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -338,10 +333,10 @@
             this.lb_alarm_count.AutoSize = true;
             this.lb_alarm_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.lb_alarm_count.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lb_alarm_count.Location = new System.Drawing.Point(885, 71);
+            this.lb_alarm_count.Location = new System.Drawing.Point(187, 4);
             this.lb_alarm_count.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_alarm_count.Name = "lb_alarm_count";
-            this.lb_alarm_count.Size = new System.Drawing.Size(43, 28);
+            this.lb_alarm_count.Size = new System.Drawing.Size(35, 21);
             this.lb_alarm_count.TabIndex = 37;
             this.lb_alarm_count.Tag = "";
             this.lb_alarm_count.Text = "4개";
@@ -349,10 +344,9 @@
             // 
             // btn_Reconnect
             // 
-            this.btn_Reconnect.Location = new System.Drawing.Point(886, 11);
-            this.btn_Reconnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Reconnect.Location = new System.Drawing.Point(100, 4);
             this.btn_Reconnect.Name = "btn_Reconnect";
-            this.btn_Reconnect.Size = new System.Drawing.Size(48, 29);
+            this.btn_Reconnect.Size = new System.Drawing.Size(38, 23);
             this.btn_Reconnect.TabIndex = 80;
             this.btn_Reconnect.Text = "Reconnect";
             this.btn_Reconnect.UseVisualStyleBackColor = true;
@@ -360,10 +354,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(885, 38);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(144, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(48, 29);
+            this.button2.Size = new System.Drawing.Size(38, 23);
             this.button2.TabIndex = 81;
             this.button2.Text = "Reconnect";
             this.button2.UseVisualStyleBackColor = true;
@@ -371,30 +364,32 @@
             // 
             // KTE_PMS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Stretch;
-            this.BackgroundImageStore = global::KTE_PMS.Properties.Resources.main_버튼7개;
-            this.ClientSize = new System.Drawing.Size(1202, 885);
+            this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
+            this.ClientSize = new System.Drawing.Size(962, 580);
+            this.ControlBox = false;
+            this.Controls.Add(this.NAVI_SETTING);
+            this.Controls.Add(this.btn_PCS_STOP);
+            this.Controls.Add(this.NAVI_CONTROL);
+            this.Controls.Add(this.NAVI_MEASURE);
+            this.Controls.Add(this.NAVI_TREND);
+            this.Controls.Add(this.NAVI_MIMIC);
+            this.Controls.Add(this.NAVI_ALARM);
+            this.Controls.Add(this.btn_Monitor_OFF);
+            this.Controls.Add(this.NAVI_MAIN);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_Reconnect);
             this.Controls.Add(this.lb_alarm_count);
             this.Controls.Add(this.lb_Current_PCS_MODE);
-            this.Controls.Add(this.NAVI_ALARM);
-            this.Controls.Add(this.btn_Monitor_OFF);
-            this.Controls.Add(this.btn_PCS_STOP);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.NAVI_SETTING);
-            this.Controls.Add(this.NAVI_MIMIC);
-            this.Controls.Add(this.NAVI_TREND);
-            this.Controls.Add(this.NAVI_MAIN);
-            this.Controls.Add(this.NAVI_MEASURE);
-            this.Controls.Add(this.NAVI_CONTROL);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.MaximizeBox = false;
             this.Name = "KTE_PMS";
             this.ShowIcon = false;
             this.Text = "KTE_PMS";
