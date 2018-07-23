@@ -1,6 +1,7 @@
 ﻿using DevExpress.Utils;
 using DevExpress.XtraCharts;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -15,19 +16,20 @@ namespace KTE_PMS
         {
             InitializeComponent();
 
-            
-
             XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
             XYDiagram diagram1 = (XYDiagram)chartControl2.Diagram;
             XYDiagram diagram2 = (XYDiagram)chartControl3.Diagram;
+            XYDiagram diagram3 = (XYDiagram)chartControl4.Diagram;
 
             diagram.AxisX.Label.TextPattern = "{A: yy/MM/dd hh:mm}";
             diagram1.AxisX.Label.TextPattern = "{A: yy/MM/dd hh:mm}";
             diagram2.AxisX.Label.TextPattern = "{A: yy/MM/dd hh:mm}";
+            diagram3.AxisX.Label.TextPattern = "{A: yy/MM/dd hh:mm}";
 
             diagram.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Continuous;
             diagram1.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Continuous;
             diagram2.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Continuous;
+            diagram3.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Continuous;
 
             sqlDataSource1.Fill();
 
@@ -43,6 +45,7 @@ namespace KTE_PMS
         {
             sqlDataSource1.Fill();
             chartControl1.RefreshData();
+            
 
             if (Properties.Settings.Default.DEBUG)
             {
@@ -64,6 +67,7 @@ namespace KTE_PMS
             SetDiagramTimeRange((XYDiagram)chartControl1.Diagram, 0);
             SetDiagramTimeRange((XYDiagram)chartControl2.Diagram, 0);
             SetDiagramTimeRange((XYDiagram)chartControl3.Diagram, 0);
+            SetDiagramTimeRange((XYDiagram)chartControl4.Diagram, 0);
         }
 
         private void maskedTextBox2_MaskInputRejected(object sender, System.Windows.Forms.MaskInputRejectedEventArgs e)
@@ -143,24 +147,145 @@ namespace KTE_PMS
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox a = (CheckBox)sender;
+            CheckBox a1 = checkBox1;
+            CheckBox a2 = checkBox2;
+            CheckBox a3 = checkBox3;
+            CheckBox a4 = checkBox4;
+
+            int num_of_trend = new int();
+
             XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
             XYDiagram diagram1 = (XYDiagram)chartControl2.Diagram;
             XYDiagram diagram2 = (XYDiagram)chartControl3.Diagram;
 
-            if (a.Checked)
+            List<ChartControl> list = new List<ChartControl>();
+
+            
+            if (a1.Checked)
             {
-                diagram.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Automatic;
-                diagram1.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Automatic;
-                diagram2.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Automatic;
+                chartControl1.Visible = true;
+                list.Add(chartControl1);
+                num_of_trend++;
             }
             else
             {
-                diagram.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Manual;
-                diagram1.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Manual;
-                diagram2.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Manual;
+                chartControl1.Visible = false;
             }
 
+            if (a2.Checked)
+            {
+                chartControl2.Visible = true;
+                list.Add(chartControl2);
+                num_of_trend++;
+            }
+            else
+            {
+                chartControl2.Visible = false;
+            }
+
+            if (a3.Checked)
+            {
+                chartControl3.Visible = true;
+                list.Add(chartControl3);
+                num_of_trend++;
+            }
+            else
+            {
+                chartControl3.Visible = false;
+            }
+            if (a4.Checked)
+            {
+                chartControl4.Visible = true;
+                list.Add(chartControl4);
+                num_of_trend++;
+            }
+            else
+            {
+                chartControl4.Visible = false;
+            }
+
+            const int trend_Width = 744;
+            const int trend_Height4 = 86;
+            const int trend_Height3 = 115;
+            const int trend_Height2 = 170;
+            const int trend_Height1 = 351;
+            const int location_X = 43;
+            const int location_Y1 = 61;
+            const int location_Y2 = 154;
+            const int location_Y3 = 241;
+            const int location_Y4 = 333;
+
+
+            
+            switch (num_of_trend)
+            {
+
+                case 4:
+                    // 
+                    for (int i = 0; i < num_of_trend; i++)
+                    {
+                        list[i].Width = trend_Width;
+                        list[i].Height = trend_Height4;
+                    }
+
+                    list[0].Left = location_X;
+                    list[0].Top = location_Y1;
+
+                    list[1].Left = location_X;
+                    list[1].Top = location_Y2;
+
+                    list[2].Left = location_X;
+                    list[2].Top = location_Y3;
+
+                    list[3].Left = location_X;
+                    list[3].Top = location_Y4;
+
+                    break;
+
+                case 3:
+                    // 
+                    for (int i = 0; i < num_of_trend; i++)
+                    {
+                        list[i].Width = trend_Width;
+                        list[i].Height = trend_Height3;
+                    }
+
+
+                    list[0].Left = location_X;
+                    list[0].Top = location_Y1;
+
+                    list[1].Left = location_X;
+                    list[1].Top = 182;
+
+                    list[2].Left = location_X;
+                    list[2].Top = 302;
+                    break;
+                case 2:
+                    for (int i = 0; i < num_of_trend; i++)
+                    {
+                        list[i].Width = trend_Width;
+                        list[i].Height = trend_Height2;
+                    }
+
+                    list[0].Left = location_X;
+                    list[0].Top = location_Y1;
+
+                    list[1].Left = location_X;
+                    list[1].Top = location_Y3;
+                    break;
+
+                case 1:
+                    for (int i = 0; i < num_of_trend; i++)
+                    {
+                        list[i].Width = trend_Width;
+                        list[i].Height = trend_Height1;
+                    }
+                    list[0].Left = location_X;
+                    list[0].Top = location_Y1;
+                    break;
+
+
+            }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -252,6 +377,7 @@ namespace KTE_PMS
             SetDiagramTimeRange((XYDiagram)chartControl1.Diagram, 10);
             SetDiagramTimeRange((XYDiagram)chartControl2.Diagram, 10);
             SetDiagramTimeRange((XYDiagram)chartControl3.Diagram, 10);
+            SetDiagramTimeRange((XYDiagram)chartControl4.Diagram, 10);
         }
 
         private void button4_Click_1(object sender, EventArgs e)
@@ -259,6 +385,7 @@ namespace KTE_PMS
             SetDiagramTimeRange((XYDiagram)chartControl1.Diagram, 60);
             SetDiagramTimeRange((XYDiagram)chartControl2.Diagram, 60);
             SetDiagramTimeRange((XYDiagram)chartControl3.Diagram, 60);
+            SetDiagramTimeRange((XYDiagram)chartControl4.Diagram, 60);
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -266,6 +393,7 @@ namespace KTE_PMS
             SetDiagramTimeRange((XYDiagram)chartControl1.Diagram, 1440);
             SetDiagramTimeRange((XYDiagram)chartControl2.Diagram, 1440);
             SetDiagramTimeRange((XYDiagram)chartControl3.Diagram, 1440);
+            SetDiagramTimeRange((XYDiagram)chartControl4.Diagram, 1440);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -278,6 +406,21 @@ namespace KTE_PMS
         }
 
         private void TrendViewer_Load(object sender, EventArgs e)
+        {
+            checkBox1_CheckedChanged(sender, e);
+        }
+
+        private void chartControl2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chartControl3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chartControl4_Click(object sender, EventArgs e)
         {
 
         }

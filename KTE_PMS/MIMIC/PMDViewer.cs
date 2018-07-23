@@ -2,6 +2,8 @@
 using ModbusTCP;
 using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace KTE_PMS.MIMIC
@@ -28,6 +30,7 @@ namespace KTE_PMS.MIMIC
 
 
         private byte[] data;
+        private int timeoff;
 
         DateTime tLastRecv;
         public PMDViewer()
@@ -37,6 +40,8 @@ namespace KTE_PMS.MIMIC
             tLastRecv = new DateTime();
             tLastRecv = DateTime.Now;
 
+            timeoff = 10;
+            
             if (Properties.Settings.Default.DEBUG) return;
 
             master = new Master();
@@ -46,6 +51,16 @@ namespace KTE_PMS.MIMIC
             WriteVoltageBuffers = new byte[2];
             WriteCurrentBuffers = new byte[2];
 
+           
+
+            timer.Interval = 1000;
+            timer.Enabled = true;
+            timer.Start();
+
+        }
+
+        private void MBmaster_Connect()
+        {
             // For test. IP 설정창을 그린 후 해당 내용으로 교체할 예정임
             txtIP1.Text = "17";
             txtIP2.Text = "91";
@@ -60,18 +75,26 @@ namespace KTE_PMS.MIMIC
             //Read_PMD_Configuration();
             // 2. 연결하기
             Connect_to_PMD();
-
-            timer.Interval = 1500;
-            timer.Enabled = true;
-            timer.Start();
-
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
+            if (master.connected)
+            {
+                // Mode에 따라서 동작하도록 코드 수정
+                PMS_Scheduling_Operation();
+            }
+            else
+            {
+                Thread t1 = new Thread(new ThreadStart(MBmaster_Connect));
+                t1.Start();
 
-            // Mode에 따라서 동작하도록 코드 수정
+            }
+            timer.Interval = timeoff * 1000;
+        }
 
+        private void PMS_Scheduling_Operation()
+        {
             if (DateTime.Now.Second % 2 == 1)
             {
                 ReadFromPCS();
@@ -91,7 +114,7 @@ namespace KTE_PMS.MIMIC
 
                     // Charging시간이 아니더라도 Charging 조건은 가장 우선시해야한다.
 
-                    if (Repository.Instance.p_setting.flag_Charging_Time)
+                    if (Repository.Instance.flag_Charging_Time)
                     {
                         // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.  
                         if (!(Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
@@ -102,7 +125,7 @@ namespace KTE_PMS.MIMIC
                             }
                         }
                     }
-                    else if (Repository.Instance.p_setting.flag_DisCharging_Time)
+                    else if (Repository.Instance.flag_DisCharging_Time)
                     {
                         // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.
                         if (!(Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
@@ -114,25 +137,8 @@ namespace KTE_PMS.MIMIC
                         }
                     }
                     else
-                    {
-                        // nothing to do
-                        // 만약 충전신호나 방전신호가 가고있다면 0으로 바꿔준다.
-
-                        if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.p_setting.Charging_Limit_Voltage)
-                        {
-                            if (!(Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
-                            {
-                                Repository.Instance.pmdviewer.Control_Charge();
-                            }
-                        }
-                        else if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.p_setting.Discharging_Limit_Voltage)
-                        {
-                            if (!(Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
-                            {
-                                Repository.Instance.pmdviewer.Control_Discharge();
-                            }
-                        }
-                        else if ((Repository.Instance.GnEPS_PCS.Mode_Discharging == 1) || (Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
+                    { 
+                        if ((Repository.Instance.GnEPS_PCS.Mode_Discharging == 1) || (Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
                         {
                             Repository.Instance.pmdviewer.Control_Idle();
                         }
@@ -167,7 +173,6 @@ namespace KTE_PMS.MIMIC
                 WriteCurrent();
                 flag_WriteCurrentBuffers_isChanged = false;
             }
-
         }
 
         private void Connect_to_PMD()
@@ -175,7 +180,7 @@ namespace KTE_PMS.MIMIC
             try
             {
                 // Create new modbus master and add event functions
-                string ip_address = "17.91.30.11";
+                string ip_address = "17.91.30.10";
                 ushort port_number = 502;
                 master = new Master(ip_address, port_number);
 
@@ -183,11 +188,24 @@ namespace KTE_PMS.MIMIC
                 master.OnResponseData += new Master.ResponseData(MBmaster_OnResponseData);
                 master.OnException += new Master.ExceptionData(MBmaster_OnException);
 
+                timeoff = 1;
+            }
+            catch (SocketException error)
+            {
+                Console.WriteLine(timeoff.ToString() + "    :    " + error.Message + "다시 접속해 주세요");
+                if (timeoff < 65536)
+                {
+                    timeoff = timeoff << 1;
+                }
+
             }
             catch (SystemException error)
             {
-                //MessageBox.Show(error.Message + "다시 접속해 주세요");
-                Console.WriteLine(error.Message + "다시 접속해 주세요");
+                Console.WriteLine(timeoff.ToString() + "    :    " + error.Message + "다시 접속해 주세요");
+                if (timeoff < 65536)
+                {
+                    timeoff = timeoff << 1;
+                }
             }
         }
 

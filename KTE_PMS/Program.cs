@@ -16,7 +16,7 @@ namespace KTE_PMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new KTE_PMS());
+            Application.Run(new LEMS());
         }
     }
 }

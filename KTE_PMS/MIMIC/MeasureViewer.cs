@@ -1,4 +1,5 @@
-﻿using KTE_PMS.Observer;
+﻿using KTE_PMS.CLASS;
+using KTE_PMS.Observer;
 using System;
 using System.Windows.Forms;
 
@@ -37,11 +38,37 @@ namespace KTE_PMS.MIMIC
         public void ObserverUpdate()
         {
             ObserverUpdate_BMS_System();
+            Display_Battery_SOC();
 
-            
+
             CSafeSetText(lb1, Repository.Instance.samsung_bcs.System_Voltage.ToString() + " " + "V");
             CSafeSetText(lb3, Repository.Instance.samsung_bcs.System_SOC.ToString() + " " + "%");
             CSafeSetText(lb5, Repository.Instance.samsung_bcs.Rack1.Rack_Voltage.ToString() + " " + "V");
+        }
+
+        private void Display_Battery_SOC()
+        {
+            double soc = Repository.Instance.samsung_bcs.System_SOC;
+            if (soc < 20)
+            {
+                pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[0], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
+            }
+            else if (soc >= 20 && soc < 40)
+            {
+                pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[1], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
+            }
+            else if (soc >= 40 && soc < 60)
+            {
+                pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[2], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
+            }
+            else if (soc >= 60 && soc < 80)
+            {
+                pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[3], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
+            }
+            else if (soc >= 80)
+            {
+                pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[4], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
+            }
         }
 
         private void ObserverUpdate_BMS_System()
@@ -72,7 +99,7 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(lb14, Repository.Instance.samsung_bcs.System_Min_Temp.ToString() + " " + "°C");
 
 
-            CSafeSetText(lb24, Repository.Instance.samsung_bcs.Discharge_Current_Limit_of_Rack.ToString() + " " + "A");
+            CSafeSetText(lb24, Repository.Instance.samsung_bcs.Discharge_Current_Limit.ToString() + " " + "A");
             CSafeSetText(lb25, Repository.Instance.samsung_bcs.Charge_Current_Limit.ToString() + " " + "A");
 
             CSafeSetText(lb26, Repository.Instance.samsung_bcs.Watchdog_Response.ToString());

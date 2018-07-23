@@ -15,11 +15,11 @@ namespace KTE_PMS
         //----------------------------------
         public MIMIC.BMSViewer bmsviewer;
         public MIMIC.PMDViewer pmdviewer;
-        public MIMIC.MainViewer p_main = null;
+        public MainViewer p_main = null;
         public MIMIC.AlarmViewer p_alarm = null;
         public MIMIC.HistoryViewer p_history = null;
         public MIMIC.ControlViewer p_control = null;
-        public MIMIC.MeasureViewer p_measure { set; get; }
+        public MIMIC.MeasureViewer3 p_measure { set; get; }
         public MIMIC.MeasureViewer2 p_measure_BMS_Rack { set; get; }
         public MIMIC.MeasureViewer3 p_measure_PCS_Fault { set; get; }
         public MIMIC.MeasureViewer4 p_measure_PCS { set; get; }
@@ -38,9 +38,14 @@ namespace KTE_PMS
         public sSamsungBCS samsung_bcs;
 
         public TagManager TagManager { get; set; }
+        // 20180628 Parameter Setting 초기화
+        // Parameter Setting에서 사용하는 값들을 초기화 하기 위한 항목이다
+        // 현재 강제적으로 데이터를 넣고있으나, 설정한 값들의 보존을 위해서는 File이나 DB로 저장하도록 변경해야 한다.
+        // Parameter Settings
+        public int[] Scheduler = new int[24];
+
         public DBConnector dbConnector;
         IUpdate observers;
-
 
         public ushort remote_power;
         public ushort current_pcs_mode;
@@ -57,9 +62,16 @@ namespace KTE_PMS
         public string password;
         public string first_password;
 
-        public int[] scheduler;
+        public bool flag_Charging_Time { get; set; }
+        public bool flag_DisCharging_Time { get; set; }
 
         public DataTable Tag_Data_Table = new DataTable();
+
+        public TimeSpan Charging_StartTime { get; set; }
+        public TimeSpan Charging_EndTime { get; set; }
+        public TimeSpan Discharging_StartTime { get; set; }
+        public TimeSpan Discharging_EndTime { get; set; }
+
 
         #endregion 
 
@@ -90,11 +102,9 @@ namespace KTE_PMS
             // 20180628
             // Mimic Panel들을 Initialize 하는 항목
             Initialize_Mimic();
+            // 변수들을 Initialize 하는 항목
+            Initialize_Value();
 
-            // 20180628 
-            // 현재 시작 시 Password의 값은 0000이다. 변경된 DB값을 유지하기 위해서는 
-            // File이나 DB에 password를 저장하고, 이를 읽어오도록 한다.
-            password = "0000";
 
             // 20180628 Observer 할당
             // BMS값을 받아올 경우 갱신이 되어야 할 항목들,과
@@ -103,14 +113,9 @@ namespace KTE_PMS
 
             // 20180628 Semaphore 할당
             // 현재 Semaphore를 사용할지, 사용하지 않을지에 대해서 고민중임
-            // TODO : Semaphore 처리
-            Initialize_Semaphore();
+            // Semaphore 처리
+            //Initialize_Semaphore();
 
-            // 20180628 Parameter Setting 초기화
-            // Parameter Setting에서 사용하는 값들을 초기화 하기 위한 항목이다
-            // 현재 강제적으로 데이터를 넣고있으나, 설정한 값들의 보존을 위해서는 File이나 DB로 저장하도록 변경해야 한다.
-            // TODO : Parameter Settings
-            scheduler = new int[24];
 
 
             //-----------------------------
@@ -122,7 +127,7 @@ namespace KTE_PMS
             try
             {
                 TagManager = new TagManager(this);
-
+                dbConnector = new DBConnector();
 
             }
             catch (Exception e)
@@ -135,25 +140,115 @@ namespace KTE_PMS
 
         }
 
+        ~Repository()
+        {
+            Repository.Instance.p_setting.Export_Data(); 
+        }
+        private void Initialize_Value()
+        {
+            // 20180628 
+            // 현재 시작 시 Password의 값은 0000이다. 변경된 DB값을 유지하기 위해서는 
+            // File이나 DB에 password를 저장하고, 이를 읽어오도록 한다.
+            password = "0000";
+
+            
+
+        }
+
+
+        public void Set_Current_PCS_Operating_Mode(TimeSpan StartTime1, TimeSpan EndTime1, TimeSpan StartTime2, TimeSpan EndTime2)
+        {
+            TimeSpan current = DateTime.Now.TimeOfDay;
+            // Scheduling Mode
+            // 현재시간이 방전모드인지, 충전모드인지를 먼저 확인한다.
+            if (StartTime1 > EndTime1 && (StartTime1 <= current || current < EndTime1))
+            {
+                //충전시간이다
+                flag_Charging_Time = true;
+                flag_DisCharging_Time = false;
+            }
+            else if (StartTime1 < EndTime1 && (StartTime1 <= current && current < EndTime1))
+            {
+                // 충전시간이다
+                flag_Charging_Time = true;
+                flag_DisCharging_Time = false;
+            }
+            else if (StartTime2 > EndTime2 && (StartTime2 <= current || current < EndTime2))
+            {
+                flag_Charging_Time = false;
+                flag_DisCharging_Time = true;
+            }
+            else if (StartTime2 < EndTime2 && (StartTime2 <= current && current < EndTime2))
+            {
+                flag_Charging_Time = false;
+                flag_DisCharging_Time = true;
+            }
+            else
+            {
+                flag_Charging_Time = false;
+                flag_DisCharging_Time = false;
+            }
+        }
+
+
+        private void Set_Current_PCS_Operating_Mode()
+        {
+
+        }
+
         private void Initialize_Mimic()
         {
-            p_main = new MIMIC.MainViewer();
+            p_main = new MainViewer();
             p_alarm = new MIMIC.AlarmViewer();
             p_history = new MIMIC.HistoryViewer();
             p_control = new MIMIC.ControlViewer();
-            p_measure = new MIMIC.MeasureViewer();
+
+            //p_measure = new MIMIC.MeasureViewer();
+            p_measure = new MIMIC.MeasureViewer3();
+            /*
             p_measure_BMS_Rack = new MIMIC.MeasureViewer2();
             p_measure_PCS_Fault = new MIMIC.MeasureViewer3();
             p_measure_PCS = new MIMIC.MeasureViewer4();
 
             p_measure_PCSV2 = new MIMIC.MeasureViewerV2();
-
+            */
             p_mimic = new MIMIC.MimicViewer();
             p_trend = new TrendViewer();
             p_setting = new MIMIC.Setting_PageViewer();
         }
 
 
+        public void Set_Scheduler_Setting(TimeSpan StartTime1, TimeSpan EndTime1, TimeSpan StartTime2, TimeSpan EndTime2)
+        {
+            for (int i = 0; i < 24; i++)
+            {
+                int[] scheduler = Repository.Instance.Scheduler;
+                TimeSpan tempTime = new TimeSpan(i, 0, 0);
+
+                if (StartTime1 > EndTime1 && (StartTime1 <= tempTime || tempTime < EndTime1))
+                {
+                    //충전시간이다
+                    scheduler[i] = 1;
+                }
+                else if (StartTime1 < EndTime1 && (StartTime1 <= tempTime && tempTime < EndTime1))
+                {
+                    // 충전시간이다
+                    scheduler[i] = 1;
+                }
+                else if (StartTime2 > EndTime2 && (StartTime2 <= tempTime || tempTime < EndTime2))
+                {
+                    scheduler[i] = 2;
+                }
+                else if (StartTime2 < EndTime2 && (StartTime2 <= tempTime && tempTime < EndTime2))
+                {
+                    scheduler[i] = 2;
+                }
+                else
+                {
+                    scheduler[i] = 0;
+                }
+            }
+        }
         private void Initialize_Semaphore()
         {
             bms_resourcePool = new Semaphore(0, bms_maximumThreads);
@@ -161,7 +256,7 @@ namespace KTE_PMS
 
             pcs_resourcePool = new Semaphore(0, pcs_maximumThreads);
             pcs_resourcePool.Release();
-            dbConnector = new DBConnector();
+
         }
 
         private void Allocate_Observer_to_Mimic()
@@ -428,7 +523,7 @@ namespace KTE_PMS
             samsung_bcs.Alarm_Summary2 = ByteConverterToUInt16(data, 20);
             samsung_bcs.Alarm_Summary1 = ByteConverterToUInt16(data, 21);
 
-            samsung_bcs.Discharge_Current_Limit_of_Rack = ByteConverterToUInt16(data, 22) * 0.1;
+            samsung_bcs.Discharge_Current_Limit = ByteConverterToUInt16(data, 22) * 0.1;
             samsung_bcs.Charge_Current_Limit = ByteConverterToUInt16(data, 23) * 0.1;
             samsung_bcs.Watchdog_Response = ByteConverterToInt16(data, 24);
 
@@ -485,7 +580,7 @@ namespace KTE_PMS
                                 temp_value = Convert.ToInt32(ByteConverterToInt16(data, temp_InputCH));
                                 //temp_value = ByteConverterToInt16(data, temp_InputCH);
                             }
-                            
+
                             //2.  Resolution 처리를 해야함 //2. 부호 처리를 해야함
                             if (dr["Resolution"].ToString() == string.Empty)
                             {
@@ -621,7 +716,7 @@ namespace KTE_PMS
             {
                 if (disposing)
                 {
-                    // TODO: 관리되는 상태(관리되는 개체)를 삭제합니다.
+                    // 관리되는 상태(관리되는 개체)를 삭제합니다.
                     bmsviewer.Dispose();
                     pmdviewer.Dispose();
                     p_main.Dispose();
@@ -641,8 +736,8 @@ namespace KTE_PMS
                     Tag_Data_Table.Dispose();
                 }
 
-                // TODO: 관리되지 않는 리소스(관리되지 않는 개체)를 해제하고 아래의 종료자를 재정의합니다.
-                // TODO: 큰 필드를 null로 설정합니다.
+                // 관리되지 않는 리소스(관리되지 않는 개체)를 해제하고 아래의 종료자를 재정의합니다.
+                // 큰 필드를 null로 설정합니다.
                 //TagManager.Dispose();
                 //GnEPS_PCS.Dispose();
                 /*
@@ -660,7 +755,7 @@ namespace KTE_PMS
             }
         }
 
-        // TODO: 위의 Dispose(bool disposing)에 관리되지 않는 리소스를 해제하는 코드가 포함되어 있는 경우에만 종료자를 재정의합니다.
+        // 위의 Dispose(bool disposing)에 관리되지 않는 리소스를 해제하는 코드가 포함되어 있는 경우에만 종료자를 재정의합니다.
         // ~Repository() {
         //   // 이 코드를 변경하지 마세요. 위의 Dispose(bool disposing)에 정리 코드를 입력하세요.
         //   Dispose(false);
@@ -671,7 +766,7 @@ namespace KTE_PMS
         {
             // 이 코드를 변경하지 마세요. 위의 Dispose(bool disposing)에 정리 코드를 입력하세요.
             Dispose(true);
-            // TODO: 위의 종료자가 재정의된 경우 다음 코드 줄의 주석 처리를 제거합니다.
+            // 위의 종료자가 재정의된 경우 다음 코드 줄의 주석 처리를 제거합니다.
             GC.SuppressFinalize(this);
         }
         public void bms_dispose()

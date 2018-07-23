@@ -16,6 +16,8 @@ namespace KTE_PMS.MIMIC
         private void Measure_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = Repository.Instance.Tag_Data_Table;
+            dataGridView2.DataSource = Repository.Instance.Tag_Data_Table;
+            
         }
 
         delegate void CrossThreadSafetySetText(Control ctl, String text);
@@ -139,6 +141,11 @@ namespace KTE_PMS.MIMIC
             Panel p = (Panel)Parent;
             p.Controls.Clear();
             p.Controls.Add(Repository.Instance.p_measure_PCS_Fault);
+        }
+
+        private void gridView1_RowCellDefaultAlignment(object sender, DevExpress.XtraGrid.Views.Base.RowCellAlignmentEventArgs e)
+        {
+
         }
     }
 }

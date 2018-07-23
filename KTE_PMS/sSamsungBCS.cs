@@ -45,7 +45,7 @@
         public ushort Alarm_Summary2 { get; set; } // 20
         public ushort Alarm_Summary1 { get; set; } // 21
 
-        public double Discharge_Current_Limit_of_Rack { get; set; } // 22
+        public double Discharge_Current_Limit { get; set; } // 22
         public double Charge_Current_Limit { get; set; } // 23
         public short Watchdog_Response { get; set; } // 24
         public ushort System_Heartbit { get; set; } // 25

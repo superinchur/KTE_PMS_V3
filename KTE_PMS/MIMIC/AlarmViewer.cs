@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KTE_PMS.CLASS;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -282,5 +283,77 @@ namespace KTE_PMS.MIMIC
         {
 
         }
+
+        #region 버튼_Image처리관련함수들
+        private void btn_TO_ALARM_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.alarm_on1, button.Width, button.Height);
+        }
+
+        private void btn_TO_ALARM_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void btn_TO_HISTORY_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.history_on, button.Width, button.Height);
+        }
+
+        private void btn_TO_HISTORY_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void PREV_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.왼화살표_on, button.Width, button.Height);
+        }
+
+        private void PREV_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void NEXT_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.오른화살표_on, button.Width, button.Height);
+        }
+
+        private void NEXT_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void btnACK_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.ack_on, button.Width, button.Height);
+        }
+
+        private void btnACK_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+        #endregion
     }
 }

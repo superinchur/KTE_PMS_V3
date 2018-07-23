@@ -3,6 +3,7 @@ using ModbusTCP;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Sockets;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -21,7 +22,7 @@ namespace KTE_PMS.MIMIC
         public byte[] BSC1 { get; set; }
         public byte[] BSC2 { get; set; }
 
-
+        private int timeoff { get; set; }
 
 
         DateTime tLastRecv;
@@ -36,13 +37,22 @@ namespace KTE_PMS.MIMIC
             tLastRecv = DateTime.Now;
 
 
-            if (Properties.Settings.Default.DEBUG) return;
--
-            MBmaster = new Master();
+
 
             BSC_Controller_Data = new Byte[14];
-
             BSC1 = new Byte[60];
+            timeoff = 10;
+            MBmaster = new Master();
+
+            timer.Enabled = true;
+            timer.Interval = 1000;
+            timer.Start();
+
+        }
+
+        private void MBmaster_Connect()
+        {
+
             // For test. IP 설정창을 그린 후 해당 내용으로 교체할 예정임
             // Samsung Battery로 변경함
             if (Properties.Settings.Default.DEBUG)
@@ -66,11 +76,6 @@ namespace KTE_PMS.MIMIC
             //Read_BSC_Configuration();
             // 2. 연결하기
             Connect_to_BSC();
-
-            timer.Enabled = true;
-            timer.Interval = 1000;
-            timer.Start();
-
         }
 
         private void txtIP1_TextChanged(object sender, EventArgs e)
@@ -235,8 +240,7 @@ namespace KTE_PMS.MIMIC
                 case Master.excExceptionConnectionLost: exc += "Connection is lost!"; break;
                 case Master.excExceptionNotConnected: exc += "Not connected!"; break;
             }
-            System.Diagnostics.Debug.WriteLine(exc);
-            //MessageBox.Show(exc, "Modbus slave exception");
+            Console.WriteLine(exc);           
         }
         public void Connect_to_BSC()
         {
@@ -252,14 +256,27 @@ namespace KTE_PMS.MIMIC
                 // Setting response data and exception
                 MBmaster.OnResponseData += new Master.ResponseData(MBmaster_OnResponseData);
                 MBmaster.OnException += new Master.ExceptionData(MBmaster_OnException);
-
+                timeoff = 1;
+                
                 //flag_BSC_Connection = 1;
+            }
+
+            catch (SocketException error)
+            {
+                Console.WriteLine(timeoff.ToString() + "    :    " + error.Message + "다시 접속해 주세요");
+                if (timeoff < 65536)
+                {
+                    timeoff = timeoff << 1;
+                }
+                
             }
             catch (SystemException error)
             {
-                MessageBox.Show(error.Message + "다시 접속해 주세요");
-                System.Diagnostics.Debug.WriteLine(error.Message + "다시 접속해 주세요");
-                //flag_BSC_Connection = 0;
+                Console.WriteLine(error.Message + "다시 접속해 주세요");
+                if (timeoff < 65536)
+                {
+                    timeoff = timeoff << 1;
+                }
             }
         }
 
@@ -418,9 +435,30 @@ namespace KTE_PMS.MIMIC
             //-----------------------------------------------------------
             // Read From BSC
             // BSC와 연결되어있다면 Read 시도, 그렇지 않다면 재접속 시도.
-            //-----------------------------------------------------------
-            
-            ReadFromBSC(Convert.ToUInt16(((DateTime.Now.Second % 3) + 1)));
+            if (Properties.Settings.Default.DEBUG) return;
+
+            if (MBmaster.connected)
+            {
+                //-----------------------------------------------------------
+                try
+                {
+                    ReadFromBSC(Convert.ToUInt16(((DateTime.Now.Second % 3) + 1)));
+                    timer.Interval = timeoff * 1000;
+
+                }
+
+                catch (SystemException system_ex)
+                {
+                    Console.WriteLine(timeoff.ToString() + " : " + system_ex.Message);
+                }
+            }         
+            else
+            {
+                Thread t1 = new Thread(new ThreadStart(MBmaster_Connect));
+                t1.Start();
+                timer.Interval = timeoff * 1000;
+            }
+
             
         }
     }

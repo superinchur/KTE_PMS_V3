@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace KTE_PMS
 {
 
-    public partial class KTE_PMS : DevExpress.XtraEditors.XtraForm
+    public partial class LEMS : DevExpress.XtraEditors.XtraForm
     {
         const int MONITOR_OFF = 2;
         const int MONITOR_ON = -1;
@@ -33,12 +33,17 @@ namespace KTE_PMS
         int prev_month;
         int prev_year;
 
-        public KTE_PMS()
+        public LEMS()
         {
             InitializeComponent();
 
             CLOCK_TIMER.Enabled = true;
             CLOCK_TIMER.Interval = 1000;
+            Repository.Instance.p_setting.Import_Data();
+        }
+        ~LEMS()
+        {
+
         }
         private void btn_Monitor_OFF_MouseClick(object sender, MouseEventArgs e)
         {
@@ -102,7 +107,11 @@ namespace KTE_PMS
 
         private void Display_Current_Time()
         {
-            label6.Text = DateTime.Now.ToString();
+            label6.Text = DateTime.Now.Date.ToString();
+
+            DateTime.Now.ToLocalTime().ToString();
+                
+
         }
 
         private void Flashing_Row()
@@ -192,7 +201,7 @@ namespace KTE_PMS
 
             // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
             Button button = (Button)sender;
-            button.Image = ImageResize.ResizeImage(Properties.Resources.measure_on_1, button.Width, button.Height);
+            button.Image = ImageResize.ResizeImage(Properties.Resources.measure_on , button.Width, button.Height);
 
             panel1.Controls.Clear();
             panel1.Controls.Add(Repository.Instance.p_measure);
@@ -282,6 +291,8 @@ namespace KTE_PMS
             Display_Current_PCS_Mode();
             Display_Current_Alarm_Count();
 
+            Display_Current_Communication_Status();
+
             Flashing_Row();// TOP에 위치한 Alarm의 Flashing을 하기위해서 있는 항목 // 최적화 필요성 있음
             LoadCurrentFault();  // TOP에 위치한 Alarm을 표시하기위해서 있는 항목 // 최적화 필요성 있음
             Cell_Color_Painting(); // TOP에 위치한 Alarm List의 색상을 표시하기위해서 있는 항목 // 최적화 필요성 있음
@@ -289,6 +300,59 @@ namespace KTE_PMS
 
 
         }
+
+        private void Display_Current_Communication_Status()
+        {
+
+
+
+            if (Repository.Instance.bmsviewer.Connected() > 0)
+            {
+                Status_LEMS_BMS.Image = Properties.Resources.통신연결;
+            }
+            else
+            {
+                Status_LEMS_BMS.Image = Properties.Resources.통신연결_끊김;
+
+            }
+
+            //TODO : 현재 uPMS - BMS간의 연결확인은 하지 않고 있으므로 일단은 LEMS와 BMS간의 통신 연결로 두자.
+            // 추후 수정해야함
+            if (Repository.Instance.bmsviewer.Connected() > 0)
+            {
+                Status_PMS_BMS.Image = Properties.Resources.통신연결;
+            }
+            else
+            {
+                Status_PMS_BMS.Image = Properties.Resources.통신연결_끊김;
+
+            }
+
+            if (Repository.Instance.pmdviewer.Connected() > 0)
+            {
+                // uPMS - PCS의 상태는 uPMS로 부터 받아오므로 PMS와의 연결이 끊어진다면 상황을 파악할 수 없다
+                // 그러므로 통신연결이 정상적으로 이뤄질때만 PCS 값을 이용해서 체크한다.
+                Status_LEMS_PMS.Image = Properties.Resources.통신연결;
+                int PCS_alarm = Repository.Instance.GnEPS_PCS.PCS_GRID_Status +
+                Repository.Instance.GnEPS_PCS.PCS_Fault_Status;
+
+                if (PCS_alarm > 0)
+                {
+                    Status_PMS_PCS.Image = Properties.Resources.통신연결_끊김;
+
+                }
+                else
+                {
+                    Status_PMS_PCS.Image = Properties.Resources.통신연결;
+                }
+            }
+            else
+            {
+                Status_LEMS_PMS.Image = Properties.Resources.통신연결_끊김;
+                Status_PMS_PCS.Image = Properties.Resources.통신연결_끊김;
+            }
+        }
+
         private void Calculate_Power()
         {
 
@@ -305,7 +369,7 @@ namespace KTE_PMS
             if (prev_minute != today.Minute)
             {
                 // 저장된 데이터를 DB에 저장한다.
-                //Todo :  저장된 데이터를 DB에 저장한다.
+                
                 Repository.Instance.dbConnector.Insert_Power();
                 // 처리 완료 후, prev값을 새로 갱신
                 prev_minute = today.Minute;
@@ -313,7 +377,6 @@ namespace KTE_PMS
             if (prev_hour != today.Hour)
             {
                 // 저장된 데이터를 DB에 저장한다.
-                //Todo :  저장된 데이터를 DB에 저장한다.
                 Repository.Instance.dbConnector.Insert_Power_Hour();
 
                 prev_hour = today.Hour;
@@ -385,6 +448,34 @@ namespace KTE_PMS
         private void button2_Click(object sender, EventArgs e)
         {
             Repository.Instance.pmd_dispose();
+        }
+
+        private void btn_Monitor_OFF_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.monitoroff_on, button.Width, button.Height);
+        }
+
+        private void btn_Monitor_OFF_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void btn_PCS_STOP_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.PCS_STOP_off, button.Width, button.Height);
+        }
+
+        private void btn_PCS_STOP_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
         }
     }
 }
