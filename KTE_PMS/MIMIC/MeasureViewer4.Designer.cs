@@ -82,9 +82,9 @@
             this.lb2.BackColor = System.Drawing.Color.Transparent;
             this.lb2.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb2.Location = new System.Drawing.Point(304, 63);
+            this.lb2.Location = new System.Drawing.Point(304, 64);
             this.lb2.Name = "lb2";
-            this.lb2.Size = new System.Drawing.Size(96, 32);
+            this.lb2.Size = new System.Drawing.Size(96, 26);
             this.lb2.TabIndex = 87;
             this.lb2.Text = "12.34 ";
             this.lb2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -94,9 +94,9 @@
             this.lb17.BackColor = System.Drawing.Color.Transparent;
             this.lb17.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb17.Location = new System.Drawing.Point(667, 157);
+            this.lb17.Location = new System.Drawing.Point(667, 155);
             this.lb17.Name = "lb17";
-            this.lb17.Size = new System.Drawing.Size(96, 32);
+            this.lb17.Size = new System.Drawing.Size(96, 26);
             this.lb17.TabIndex = 93;
             this.lb17.Text = "12.34 ";
             this.lb17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -106,9 +106,9 @@
             this.lb16.BackColor = System.Drawing.Color.Transparent;
             this.lb16.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb16.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb16.Location = new System.Drawing.Point(667, 125);
+            this.lb16.Location = new System.Drawing.Point(667, 124);
             this.lb16.Name = "lb16";
-            this.lb16.Size = new System.Drawing.Size(96, 32);
+            this.lb16.Size = new System.Drawing.Size(96, 26);
             this.lb16.TabIndex = 92;
             this.lb16.Text = "12.34 ";
             this.lb16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -118,9 +118,9 @@
             this.lb15.BackColor = System.Drawing.Color.Transparent;
             this.lb15.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb15.Location = new System.Drawing.Point(667, 94);
+            this.lb15.Location = new System.Drawing.Point(667, 95);
             this.lb15.Name = "lb15";
-            this.lb15.Size = new System.Drawing.Size(96, 32);
+            this.lb15.Size = new System.Drawing.Size(96, 26);
             this.lb15.TabIndex = 91;
             this.lb15.Text = "12.34 ";
             this.lb15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -130,9 +130,9 @@
             this.lb14.BackColor = System.Drawing.Color.Transparent;
             this.lb14.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb14.Location = new System.Drawing.Point(667, 63);
+            this.lb14.Location = new System.Drawing.Point(667, 64);
             this.lb14.Name = "lb14";
-            this.lb14.Size = new System.Drawing.Size(96, 32);
+            this.lb14.Size = new System.Drawing.Size(96, 26);
             this.lb14.TabIndex = 90;
             this.lb14.Text = "12.34 ";
             this.lb14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -142,9 +142,9 @@
             this.lb13.BackColor = System.Drawing.Color.Transparent;
             this.lb13.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb13.Location = new System.Drawing.Point(667, 32);
+            this.lb13.Location = new System.Drawing.Point(667, 33);
             this.lb13.Name = "lb13";
-            this.lb13.Size = new System.Drawing.Size(96, 32);
+            this.lb13.Size = new System.Drawing.Size(96, 26);
             this.lb13.TabIndex = 89;
             this.lb13.Text = "12.34 ";
             this.lb13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -154,60 +154,57 @@
             this.lb4.BackColor = System.Drawing.Color.Transparent;
             this.lb4.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb4.Location = new System.Drawing.Point(304, 125);
+            this.lb4.Location = new System.Drawing.Point(304, 124);
             this.lb4.Name = "lb4";
-            this.lb4.Size = new System.Drawing.Size(96, 32);
+            this.lb4.Size = new System.Drawing.Size(96, 26);
             this.lb4.TabIndex = 88;
             this.lb4.Text = "12.34 ";
             this.lb4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label34
             // 
-            this.label34.AutoSize = true;
             this.label34.BackColor = System.Drawing.Color.Transparent;
             this.label34.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label34.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label34.Location = new System.Drawing.Point(95, 353);
+            this.label34.Location = new System.Drawing.Point(99, 336);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(128, 17);
+            this.label34.Size = new System.Drawing.Size(200, 26);
             this.label34.TabIndex = 78;
             this.label34.Text = "LOAD S상 Current";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label35
             // 
-            this.label35.AutoSize = true;
             this.label35.BackColor = System.Drawing.Color.Transparent;
             this.label35.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label35.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label35.Location = new System.Drawing.Point(95, 322);
+            this.label35.Location = new System.Drawing.Point(99, 306);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(128, 17);
+            this.label35.Size = new System.Drawing.Size(200, 26);
             this.label35.TabIndex = 77;
             this.label35.Text = "LOAD R상 Current";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label49
             // 
-            this.label49.AutoSize = true;
             this.label49.BackColor = System.Drawing.Color.Transparent;
             this.label49.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label49.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label49.Location = new System.Drawing.Point(95, 71);
+            this.label49.Location = new System.Drawing.Point(99, 64);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(124, 17);
+            this.label49.Size = new System.Drawing.Size(200, 26);
             this.label49.TabIndex = 75;
             this.label49.Text = "GRID S상 Voltage";
-            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lb1
             // 
             this.lb1.BackColor = System.Drawing.Color.Transparent;
             this.lb1.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb1.Location = new System.Drawing.Point(304, 31);
+            this.lb1.Location = new System.Drawing.Point(304, 33);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(96, 32);
+            this.lb1.Size = new System.Drawing.Size(96, 26);
             this.lb1.TabIndex = 14;
             this.lb1.Text = "12.34 ";
             this.lb1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -217,9 +214,9 @@
             this.lb11.BackColor = System.Drawing.Color.Transparent;
             this.lb11.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb11.Location = new System.Drawing.Point(304, 345);
+            this.lb11.Location = new System.Drawing.Point(304, 336);
             this.lb11.Name = "lb11";
-            this.lb11.Size = new System.Drawing.Size(96, 32);
+            this.lb11.Size = new System.Drawing.Size(96, 26);
             this.lb11.TabIndex = 24;
             this.lb11.Text = "12.34 ";
             this.lb11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -229,9 +226,9 @@
             this.lb10.BackColor = System.Drawing.Color.Transparent;
             this.lb10.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb10.Location = new System.Drawing.Point(304, 314);
+            this.lb10.Location = new System.Drawing.Point(304, 306);
             this.lb10.Name = "lb10";
-            this.lb10.Size = new System.Drawing.Size(96, 32);
+            this.lb10.Size = new System.Drawing.Size(96, 26);
             this.lb10.TabIndex = 23;
             this.lb10.Text = "12.34 ";
             this.lb10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -241,9 +238,9 @@
             this.lb9.BackColor = System.Drawing.Color.Transparent;
             this.lb9.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb9.Location = new System.Drawing.Point(304, 283);
+            this.lb9.Location = new System.Drawing.Point(304, 277);
             this.lb9.Name = "lb9";
-            this.lb9.Size = new System.Drawing.Size(96, 32);
+            this.lb9.Size = new System.Drawing.Size(96, 26);
             this.lb9.TabIndex = 22;
             this.lb9.Text = "12.34 ";
             this.lb9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -253,9 +250,9 @@
             this.lb6.BackColor = System.Drawing.Color.Transparent;
             this.lb6.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb6.Location = new System.Drawing.Point(304, 188);
+            this.lb6.Location = new System.Drawing.Point(304, 186);
             this.lb6.Name = "lb6";
-            this.lb6.Size = new System.Drawing.Size(96, 32);
+            this.lb6.Size = new System.Drawing.Size(96, 26);
             this.lb6.TabIndex = 21;
             this.lb6.Text = "12.34 ";
             this.lb6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -265,9 +262,9 @@
             this.lb21.BackColor = System.Drawing.Color.Transparent;
             this.lb21.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb21.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb21.Location = new System.Drawing.Point(667, 283);
+            this.lb21.Location = new System.Drawing.Point(667, 277);
             this.lb21.Name = "lb21";
-            this.lb21.Size = new System.Drawing.Size(96, 32);
+            this.lb21.Size = new System.Drawing.Size(96, 26);
             this.lb21.TabIndex = 20;
             this.lb21.Text = "12.34 ";
             this.lb21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -277,9 +274,9 @@
             this.lb20.BackColor = System.Drawing.Color.Transparent;
             this.lb20.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb20.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb20.Location = new System.Drawing.Point(667, 251);
+            this.lb20.Location = new System.Drawing.Point(667, 246);
             this.lb20.Name = "lb20";
-            this.lb20.Size = new System.Drawing.Size(96, 32);
+            this.lb20.Size = new System.Drawing.Size(96, 26);
             this.lb20.TabIndex = 19;
             this.lb20.Text = "12.34 ";
             this.lb20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -289,9 +286,9 @@
             this.lb8.BackColor = System.Drawing.Color.Transparent;
             this.lb8.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb8.Location = new System.Drawing.Point(304, 251);
+            this.lb8.Location = new System.Drawing.Point(304, 246);
             this.lb8.Name = "lb8";
-            this.lb8.Size = new System.Drawing.Size(96, 32);
+            this.lb8.Size = new System.Drawing.Size(96, 26);
             this.lb8.TabIndex = 18;
             this.lb8.Text = "12.34 ";
             this.lb8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -301,9 +298,9 @@
             this.lb7.BackColor = System.Drawing.Color.Transparent;
             this.lb7.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb7.Location = new System.Drawing.Point(304, 220);
+            this.lb7.Location = new System.Drawing.Point(304, 215);
             this.lb7.Name = "lb7";
-            this.lb7.Size = new System.Drawing.Size(96, 32);
+            this.lb7.Size = new System.Drawing.Size(96, 26);
             this.lb7.TabIndex = 17;
             this.lb7.Text = "12.34 ";
             this.lb7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -313,9 +310,9 @@
             this.lb5.BackColor = System.Drawing.Color.Transparent;
             this.lb5.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb5.Location = new System.Drawing.Point(304, 157);
+            this.lb5.Location = new System.Drawing.Point(304, 155);
             this.lb5.Name = "lb5";
-            this.lb5.Size = new System.Drawing.Size(96, 32);
+            this.lb5.Size = new System.Drawing.Size(96, 26);
             this.lb5.TabIndex = 16;
             this.lb5.Text = "12.34 ";
             this.lb5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -325,51 +322,48 @@
             this.lb3.BackColor = System.Drawing.Color.Transparent;
             this.lb3.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb3.Location = new System.Drawing.Point(304, 94);
+            this.lb3.Location = new System.Drawing.Point(304, 95);
             this.lb3.Name = "lb3";
-            this.lb3.Size = new System.Drawing.Size(96, 32);
+            this.lb3.Size = new System.Drawing.Size(96, 26);
             this.lb3.TabIndex = 15;
             this.lb3.Text = "12.34 ";
             this.lb3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(95, 291);
+            this.label7.Location = new System.Drawing.Point(99, 277);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(150, 17);
+            this.label7.Size = new System.Drawing.Size(200, 26);
             this.label7.TabIndex = 10;
             this.label7.Text = "함체 내부 온도 이상 유무";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(461, 291);
+            this.label9.Location = new System.Drawing.Point(465, 277);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 17);
+            this.label9.Size = new System.Drawing.Size(200, 26);
             this.label9.TabIndex = 8;
             this.label9.Text = "배터리측 전류";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(95, 40);
+            this.label1.Location = new System.Drawing.Point(99, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 17);
+            this.label1.Size = new System.Drawing.Size(200, 26);
             this.label1.TabIndex = 2;
             this.label1.Text = "GRID R상 Voltage";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btn_Move_To_BMS_System
             // 
@@ -406,9 +400,9 @@
             this.lb18.BackColor = System.Drawing.Color.Transparent;
             this.lb18.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb18.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb18.Location = new System.Drawing.Point(667, 188);
+            this.lb18.Location = new System.Drawing.Point(667, 186);
             this.lb18.Name = "lb18";
-            this.lb18.Size = new System.Drawing.Size(96, 32);
+            this.lb18.Size = new System.Drawing.Size(96, 26);
             this.lb18.TabIndex = 106;
             this.lb18.Text = "12.34 ";
             this.lb18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -418,177 +412,165 @@
             this.lb19.BackColor = System.Drawing.Color.Transparent;
             this.lb19.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb19.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb19.Location = new System.Drawing.Point(667, 220);
+            this.lb19.Location = new System.Drawing.Point(667, 215);
             this.lb19.Name = "lb19";
-            this.lb19.Size = new System.Drawing.Size(96, 32);
+            this.lb19.Size = new System.Drawing.Size(96, 26);
             this.lb19.TabIndex = 107;
             this.lb19.Text = "12.34 ";
             this.lb19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(461, 40);
+            this.label2.Location = new System.Drawing.Point(465, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 17);
+            this.label2.Size = new System.Drawing.Size(200, 26);
             this.label2.TabIndex = 115;
             this.label2.Text = "LOAD Power";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label17.Location = new System.Drawing.Point(95, 384);
+            this.label17.Location = new System.Drawing.Point(99, 366);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(128, 17);
+            this.label17.Size = new System.Drawing.Size(200, 26);
             this.label17.TabIndex = 114;
             this.label17.Text = "LOAD T상 Current";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label18.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label18.Location = new System.Drawing.Point(95, 133);
+            this.label18.Location = new System.Drawing.Point(99, 124);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(124, 17);
+            this.label18.Size = new System.Drawing.Size(200, 26);
             this.label18.TabIndex = 113;
             this.label18.Text = "GRID R상 Current";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label19.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label19.Location = new System.Drawing.Point(95, 102);
+            this.label19.Location = new System.Drawing.Point(99, 95);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(124, 17);
+            this.label19.Size = new System.Drawing.Size(200, 26);
             this.label19.TabIndex = 112;
             this.label19.Text = "GRID T상 Voltage";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(461, 259);
+            this.label3.Location = new System.Drawing.Point(465, 246);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 17);
+            this.label3.Size = new System.Drawing.Size(200, 26);
             this.label3.TabIndex = 123;
             this.label3.Text = "배터리측 전압";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(461, 228);
+            this.label4.Location = new System.Drawing.Point(465, 215);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 17);
+            this.label4.Size = new System.Drawing.Size(200, 26);
             this.label4.TabIndex = 122;
             this.label4.Text = "인버터 D축 전류";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(95, 259);
+            this.label5.Location = new System.Drawing.Point(99, 246);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 17);
+            this.label5.Size = new System.Drawing.Size(200, 26);
             this.label5.TabIndex = 121;
             this.label5.Text = "Frequency";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(95, 228);
+            this.label6.Location = new System.Drawing.Point(99, 215);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 17);
+            this.label6.Size = new System.Drawing.Size(200, 26);
             this.label6.TabIndex = 120;
             this.label6.Text = "GRID Power";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(461, 102);
+            this.label8.Location = new System.Drawing.Point(465, 95);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 17);
+            this.label8.Size = new System.Drawing.Size(200, 26);
             this.label8.TabIndex = 119;
             this.label8.Text = "PCS STANDBY";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label13.Location = new System.Drawing.Point(461, 71);
+            this.label13.Location = new System.Drawing.Point(465, 64);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(109, 17);
+            this.label13.Size = new System.Drawing.Size(200, 26);
             this.label13.TabIndex = 118;
             this.label13.Text = "Inverter Power";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label14.Location = new System.Drawing.Point(95, 196);
+            this.label14.Location = new System.Drawing.Point(99, 186);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(124, 17);
+            this.label14.Size = new System.Drawing.Size(200, 26);
             this.label14.TabIndex = 117;
             this.label14.Text = "GRID T상 Current";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label20
             // 
-            this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label20.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label20.Location = new System.Drawing.Point(95, 165);
+            this.label20.Location = new System.Drawing.Point(99, 155);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(124, 17);
+            this.label20.Size = new System.Drawing.Size(200, 26);
             this.label20.TabIndex = 116;
             this.label20.Text = "GRID S상 Current";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lb12
             // 
             this.lb12.BackColor = System.Drawing.Color.Transparent;
             this.lb12.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lb12.Location = new System.Drawing.Point(304, 376);
+            this.lb12.Location = new System.Drawing.Point(304, 366);
             this.lb12.Name = "lb12";
-            this.lb12.Size = new System.Drawing.Size(96, 32);
+            this.lb12.Size = new System.Drawing.Size(96, 26);
             this.lb12.TabIndex = 125;
             this.lb12.Text = "12.34 ";
             this.lb12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -610,42 +592,39 @@
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(461, 165);
+            this.label10.Location = new System.Drawing.Point(465, 155);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(105, 17);
+            this.label10.Size = new System.Drawing.Size(200, 26);
             this.label10.TabIndex = 129;
             this.label10.Text = "인버터 전류 REF";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(461, 133);
+            this.label11.Location = new System.Drawing.Point(465, 124);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(102, 17);
+            this.label11.Size = new System.Drawing.Size(200, 26);
             this.label11.TabIndex = 128;
             this.label11.Text = "Control Mode";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(461, 196);
+            this.label12.Location = new System.Drawing.Point(465, 186);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(103, 17);
+            this.label12.Size = new System.Drawing.Size(200, 26);
             this.label12.TabIndex = 127;
             this.label12.Text = "인버터 Q축 전류";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btn_Move_To_PCS_Fault
             // 
@@ -717,10 +696,8 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "MeasureViewer4";
-            this.Size = new System.Drawing.Size(960, 434);
             this.Load += new System.EventHandler(this.Measure_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

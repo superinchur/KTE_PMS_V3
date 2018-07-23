@@ -1,4 +1,5 @@
 ﻿using DevExpress.CodeParser;
+using KTE_PMS.CLASS;
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -87,7 +88,7 @@ namespace KTE_PMS.MIMIC
 
         private void BTN_CLEAR_Click(object sender, EventArgs e)
         {
-            tb_Password.Text = "";
+            tb_Password.Text = tb_Password.Text.Substring(0, (tb_Password.Text.Length - 1));
         }
        
         private void BTN_ENTER_Click(object sender, EventArgs e)
@@ -146,6 +147,179 @@ namespace KTE_PMS.MIMIC
             }
         }
 
+        #region BTN_Image할당
+        private void BTN7_MouseDown(object sender, MouseEventArgs e)
+        {
+
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources._7_1, button.Width, button.Height);
+
+        }
+
+        private void BTN7_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void BTN8_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources._8_1, button.Width, button.Height);
+
+        }
+
+        private void BTN8_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void BTN9_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources._9_1, button.Width, button.Height);
+
+        }
+
+        private void BTN9_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void BTN4_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources._4_1, button.Width, button.Height);
+        }
+
+        private void BTN4_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void BTN5_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources._5_1, button.Width, button.Height);
+        }
+
+        private void BTN5_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void BTN6_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources._6_1, button.Width, button.Height);
+        }
+
+        private void BTN6_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void BTN1_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources._1_1, button.Width, button.Height);
+        }
+
+        private void BTN1_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void BTN2_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources._2_1, button.Width, button.Height);
+        }
+
+        private void BTN2_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void BTN3_MouseDown(object sender, MouseEventArgs e)
+        {
+                // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+                Button button = (Button)sender;
+                button.Image = ImageResize.ResizeImage(Properties.Resources._3_1, button.Width, button.Height);
+        }
+
+        private void BTN3_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void BTN_CLEAR_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.back_1, button.Width, button.Height);
+        }
+
+        private void BTN_CLEAR_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void BTN0_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources._0_1, button.Width, button.Height);
+        }
+
+        private void BTN0_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void BTN_ENTER_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.ok_1, button.Width, button.Height);
+        }
+
+        private void BTN_ENTER_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+        #endregion
     }
 
 }

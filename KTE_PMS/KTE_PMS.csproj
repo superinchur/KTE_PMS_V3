@@ -7,7 +7,7 @@
     <ProjectGuid>{FE832CAA-034B-423E-96C6-67B894FC8089}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>KTE_PMS</RootNamespace>
-    <AssemblyName>KTE_PMS</AssemblyName>
+    <AssemblyName>LEMS</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -59,6 +59,7 @@
     <Reference Include="DevExpress.CodeParser.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v17.2.Core, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -119,6 +120,12 @@
     <Compile Include="CLASS\cSamsungBMS_Rack.cs" />
     <Compile Include="CLASS\ImageResize.cs" />
     <Compile Include="DBConnector.cs" />
+    <Compile Include="Control\ESS_Scheduler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control\ESS_Scheduler.Designer.cs">
+      <DependentUpon>ESS_Scheduler.cs</DependentUpon>
+    </Compile>
     <Compile Include="MAIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +245,24 @@
       <DependentUpon>mssql_dataset.xsd</DependentUpon>
     </Compile>
     <Compile Include="Observer\IUpdate.cs" />
+    <Compile Include="Popup\Popup_Battery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Popup_Battery.Designer.cs">
+      <DependentUpon>Popup_Battery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Popup_PCS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Popup_PCS.Designer.cs">
+      <DependentUpon>Popup_PCS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Popup_Scheduling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Popup_Scheduling.Designer.cs">
+      <DependentUpon>Popup_Scheduling.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
@@ -275,8 +300,13 @@
     <Compile Include="TrendViewer.Designer.cs">
       <DependentUpon>TrendViewer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Control\ESS_Scheduler.resx">
+      <DependentUpon>ESS_Scheduler.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="MAIN.resx">
       <DependentUpon>MAIN.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MIMIC\AlarmViewer.resx">
       <DependentUpon>AlarmViewer.cs</DependentUpon>
@@ -328,6 +358,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modbus_Setup.resx">
       <DependentUpon>Modbus_Setup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Popup_Battery.resx">
+      <DependentUpon>Popup_Battery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Popup_PCS.resx">
+      <DependentUpon>Popup_PCS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Popup_Scheduling.resx">
+      <DependentUpon>Popup_Scheduling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -386,9 +425,6 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MAIN.PNG" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PCS MONITORING.PNG" />
@@ -521,18 +557,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\kte_ci.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loopin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loopin_1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loopin_night.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\loopin_night_1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\main_day.png" />
@@ -1003,9 +1027,6 @@
     <None Include="Resources\dot_generator_001.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\MIMIC.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\measure_on_1.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -1064,6 +1085,387 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dot_Grid_PCS_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_방전_off1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_사용자정의_off1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_충전_off1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_피크저감_off1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_사용자정의_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_충전_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_피크저감_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_방전_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\스케줄링상태1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\measure_off.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\measure_on.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Measure.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TREND1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOAD_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOAD_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\배터리_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\배터리_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Grid_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Grid_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\제어_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\제어_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LEMS_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uPMS_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lamp_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm_battery_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm_battery_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm_battery_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm_battery_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm_battery_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot_Grid_PCS_0011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot_LOAD_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot_LOAD_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot_LOAD_003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot_LOAD_004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot_LOAD_005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tab_002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tap_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Datagrid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\아이콘_선.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PCS하단.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textbox_기본.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\배터리하단.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\상전류.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\선간전압.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\전력.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MIMIC1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MIMIC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textbox_기본1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\스케줄링상태.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Control1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\배경.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\사용자정의_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\방전_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\충전_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\피크저감_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\확인_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\확인_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\닫기_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\닫기_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\피크저감_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LEMS_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uPMS_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\사용자정의_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\방전_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\충전_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_글만.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_배치.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alarm_Event_배치참조.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main_배치도.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\왼화살표_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\오른화살표_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ack_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\오른화살표_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\왼화살표_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ack_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\적용_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\적용_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\아이콘_선1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Top1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\통신상태.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monitoroff_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monitoroff_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\통신연결.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Top_배치참조.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\통신연결_끊김.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1month_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1month_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setup_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setup_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1day_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1day_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history_off_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history_on_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm_off_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alarm_on_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -59,6 +59,11 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(lbLOAD_POWER, Repository.Instance.GnEPS_PCS.LOAD_Power.ToString());
             CSafeSetText(lbINVERTER_POWER, Repository.Instance.GnEPS_PCS.INVERTER_Power .ToString());
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

@@ -1,17 +1,19 @@
 ﻿using KTE_PMS.Observer;
 using System;
+using System.Data;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace KTE_PMS.MIMIC
 {
     public partial class MeasureViewerV2 : Viewer, IUpdate
     {
+        //DataTable Filter_Tag_Data_Table = new DataTable();
+        DataTable Filter_Tag_Data_Table;
         public MeasureViewerV2()
         {
             InitializeComponent();
-            
+
 
         }
 
@@ -39,8 +41,8 @@ namespace KTE_PMS.MIMIC
 
         }
 
-   
- 
+
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -49,6 +51,37 @@ namespace KTE_PMS.MIMIC
         private void MeasureViewerV2_Load(object sender, EventArgs e)
         {
             gridControl1.DataSource = Repository.Instance.Tag_Data_Table;
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //                string expression = "Description Like 'Rack1'";
+                string expression = tb_Filter.Text.Trim();
+
+                Filter_Tag_Data_Table = Repository.Instance.Tag_Data_Table.AsEnumerable()
+                                            .Where(row => row.Field<String>("Description").Contains(expression))
+                                              .CopyToDataTable();
+                if (expression == String.Empty)
+                {
+                    gridControl1.DataSource = Repository.Instance.Tag_Data_Table;
+                }
+                else
+                {
+                    gridControl1.DataSource = Filter_Tag_Data_Table;
+                }
+
+
+
+                gridControl1.RefreshDataSource();
+                gridControl1.Refresh();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
