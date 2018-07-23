@@ -175,7 +175,7 @@ namespace KTE_PMS.MIMIC
             try
             {
                 // Create new modbus master and add event functions
-                string ip_address = "17.91.30.10";
+                string ip_address = "17.91.30.11";
                 ushort port_number = 502;
                 master = new Master(ip_address, port_number);
 
@@ -187,7 +187,7 @@ namespace KTE_PMS.MIMIC
             catch (SystemException error)
             {
                 //MessageBox.Show(error.Message + "다시 접속해 주세요");
-                System.Diagnostics.Debug.WriteLine(error.Message + "다시 접속해 주세요");
+                Console.WriteLine(error.Message + "다시 접속해 주세요");
             }
         }
 

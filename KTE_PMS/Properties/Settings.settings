@@ -19,7 +19,7 @@
       <Value Profile="(Default)">Data Source=IPMS-PC\WINCC;Initial Catalog=master;Integrated Security=True</Value>
     </Setting>
     <Setting Name="DEBUG" Type="System.Boolean" Scope="Application">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

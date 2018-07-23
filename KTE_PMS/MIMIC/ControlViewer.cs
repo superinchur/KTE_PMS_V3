@@ -169,8 +169,8 @@ namespace KTE_PMS.MIMIC
                 btn_Control_uPMS.Image = null;
                 btn_Control_LPMS.Image = ImageResize.ResizeImage(Properties.Resources.RUN_003, btn_Control_LPMS.Width, btn_Control_LPMS.Height);
 
-                btn_Charging.Enabled = true;
-                btn_Discharging.Enabled = true;
+               // btn_Charging.Enabled = true;
+                //btn_Discharging.Enabled = true;
                 btn_Grid_ON.Enabled = true;
                 btn_Grid_OFF.Enabled = true;
                 btn_IDLE.Enabled = true;
@@ -185,8 +185,8 @@ namespace KTE_PMS.MIMIC
                 btn_Control_uPMS.Image = ImageResize.ResizeImage(Properties.Resources.RUN_003, btn_Control_uPMS.Width, btn_Control_uPMS.Height);
                 btn_Control_LPMS.Image = null;
 
-                btn_Charging.Enabled = false;
-                btn_Discharging.Enabled = false;
+                //btn_Charging.Enabled = false;
+                //btn_Discharging.Enabled = false;
                 btn_Grid_ON.Enabled = false;
                 btn_Grid_OFF.Enabled = false;
                 btn_IDLE.Enabled = false;

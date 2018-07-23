@@ -35,8 +35,9 @@ namespace KTE_PMS.MIMIC
             tLastRecv = new DateTime();
             tLastRecv = DateTime.Now;
 
+
             if (Properties.Settings.Default.DEBUG) return;
-            
+-
             MBmaster = new Master();
 
             BSC_Controller_Data = new Byte[14];
