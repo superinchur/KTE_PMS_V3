@@ -36,14 +36,12 @@ namespace KTE_PMS.MIMIC
             tLastRecv = new DateTime();
             tLastRecv = DateTime.Now;
 
-
-
-
             BSC_Controller_Data = new Byte[14];
             BSC1 = new Byte[60];
             timeoff = 10;
             MBmaster = new Master();
 
+            
             timer.Enabled = true;
             timer.Interval = 1000;
             timer.Start();
@@ -266,7 +264,7 @@ namespace KTE_PMS.MIMIC
                 Console.WriteLine(timeoff.ToString() + "    :    " + error.Message + "다시 접속해 주세요");
                 if (timeoff < 65536)
                 {
-                    timeoff = timeoff << 1;
+                    timeoff = timeoff * 2;
                 }
                 
             }
@@ -275,7 +273,7 @@ namespace KTE_PMS.MIMIC
                 Console.WriteLine(error.Message + "다시 접속해 주세요");
                 if (timeoff < 65536)
                 {
-                    timeoff = timeoff << 1;
+                    timeoff = timeoff * 2;
                 }
             }
         }
@@ -437,7 +435,9 @@ namespace KTE_PMS.MIMIC
             // BSC와 연결되어있다면 Read 시도, 그렇지 않다면 재접속 시도.
             if (Properties.Settings.Default.DEBUG) return;
 
-            if (MBmaster.connected)
+
+            //if (MBmaster.connected)
+            if (true)
             {
                 //-----------------------------------------------------------
                 try
@@ -454,9 +454,13 @@ namespace KTE_PMS.MIMIC
             }         
             else
             {
-                Thread t1 = new Thread(new ThreadStart(MBmaster_Connect));
-                t1.Start();
-                timer.Interval = timeoff * 1000;
+                timer.Enabled = false;
+                //Thread t1 = new Thread(new ThreadStart(MBmaster_Connect));
+                //t1.Start();
+                timer.Interval = timeoff * 10000;
+                timer.Enabled = true;
+
+                //MBmaster_Connect();
             }
 
             

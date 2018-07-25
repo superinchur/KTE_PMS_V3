@@ -193,6 +193,9 @@ namespace KTE_PMS
             panel1.Controls.Clear();
             panel1.Controls.Add(Repository.Instance.p_main);
 
+            Repository.Instance.p_main.timer1.Start();
+
+
         }
         private void NAVI_MEASURE_Click(object sender, EventArgs e)
         {
@@ -286,7 +289,7 @@ namespace KTE_PMS
 
             // 1초마다 Flashing을 하자
             // 1초 Timer에 의해서 수행되는 코드
-
+            
             Display_Current_Time();
             Display_Current_PCS_Mode();
             Display_Current_Alarm_Count();
@@ -297,7 +300,7 @@ namespace KTE_PMS
             LoadCurrentFault();  // TOP에 위치한 Alarm을 표시하기위해서 있는 항목 // 최적화 필요성 있음
             Cell_Color_Painting(); // TOP에 위치한 Alarm List의 색상을 표시하기위해서 있는 항목 // 최적화 필요성 있음
             Calculate_Power(); // 전력량 계산하기
-
+            
 
         }
 

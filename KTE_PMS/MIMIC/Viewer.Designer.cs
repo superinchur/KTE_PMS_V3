@@ -43,6 +43,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Timer Viewer_Timer;
+        protected System.Windows.Forms.Timer Viewer_Timer;
     }
 }

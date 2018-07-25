@@ -19,7 +19,7 @@ namespace KTE_PMS.MIMIC
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlViewer));
-            this.ControlTimer = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lb_Power_Set = new System.Windows.Forms.Label();
             this.tb_Power_Set = new System.Windows.Forms.MaskedTextBox();
             this.btn_LEMS = new System.Windows.Forms.Button();
@@ -38,10 +38,10 @@ namespace KTE_PMS.MIMIC
             this.btn_Confirm_Discharging_Stop_SOC = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // ControlTimer
+            // timer1
             // 
-            this.ControlTimer.Interval = 400;
-            this.ControlTimer.Tick += new System.EventHandler(this.ControlTimer_Tick);
+            this.timer1.Interval = 400;
+            this.timer1.Tick += new System.EventHandler(this.ControlTimer_Tick);
             // 
             // lb_Power_Set
             // 
@@ -58,19 +58,14 @@ namespace KTE_PMS.MIMIC
             // 
             this.tb_Power_Set.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.tb_Power_Set.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Power_Set.Font = new System.Drawing.Font("나눔바른고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Power_Set.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.tb_Power_Set.Location = new System.Drawing.Point(680, 59);
             this.tb_Power_Set.Mask = "99.9";
             this.tb_Power_Set.Name = "tb_Power_Set";
-            this.tb_Power_Set.Size = new System.Drawing.Size(59, 22);
+            this.tb_Power_Set.Size = new System.Drawing.Size(59, 23);
             this.tb_Power_Set.TabIndex = 101;
             this.tb_Power_Set.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_Power_Set.ValidatingType = typeof(int);
-            this.tb_Power_Set.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.tb_Power_Set_MaskInputRejected);
-            this.tb_Power_Set.TextChanged += new System.EventHandler(this.tb_Power_Set_TextChanged);
-            this.tb_Power_Set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_Power_Set_KeyPress);
-            this.tb_Power_Set.Leave += new System.EventHandler(this.tb_Power_Set_Leave);
-            this.tb_Power_Set.Validated += new System.EventHandler(this.tb_Power_Set_Validated);
             // 
             // btn_LEMS
             // 
@@ -220,7 +215,7 @@ namespace KTE_PMS.MIMIC
             this.tb_Charging_Stop_SOC.Location = new System.Drawing.Point(680, 205);
             this.tb_Charging_Stop_SOC.Mask = "999.9";
             this.tb_Charging_Stop_SOC.Name = "tb_Charging_Stop_SOC";
-            this.tb_Charging_Stop_SOC.Size = new System.Drawing.Size(59, 19);
+            this.tb_Charging_Stop_SOC.Size = new System.Drawing.Size(59, 23);
             this.tb_Charging_Stop_SOC.TabIndex = 118;
             this.tb_Charging_Stop_SOC.TabStop = false;
             this.tb_Charging_Stop_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -237,7 +232,7 @@ namespace KTE_PMS.MIMIC
             this.tb_Discharging_Stop_SOC.Location = new System.Drawing.Point(680, 333);
             this.tb_Discharging_Stop_SOC.Mask = "999.9";
             this.tb_Discharging_Stop_SOC.Name = "tb_Discharging_Stop_SOC";
-            this.tb_Discharging_Stop_SOC.Size = new System.Drawing.Size(59, 19);
+            this.tb_Discharging_Stop_SOC.Size = new System.Drawing.Size(59, 23);
             this.tb_Discharging_Stop_SOC.TabIndex = 119;
             this.tb_Discharging_Stop_SOC.TabStop = false;
             this.tb_Discharging_Stop_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -365,7 +360,6 @@ namespace KTE_PMS.MIMIC
 
             return kk;
         }
-        private System.Windows.Forms.Timer ControlTimer;
         private System.Windows.Forms.Label lb_Power_Set;
         private System.Windows.Forms.MaskedTextBox tb_Power_Set;
         private System.Windows.Forms.Button btn_LEMS;
@@ -382,5 +376,6 @@ namespace KTE_PMS.MIMIC
         private System.Windows.Forms.Button btn_Confirm_Charging_Stop_SOC;
         private System.Windows.Forms.Button btn_Confirm_Discharging_Stop_SOC;
         public ESS_Scheduler esS_Scheduler1;
+        public System.Windows.Forms.Timer timer1;
     }
 }

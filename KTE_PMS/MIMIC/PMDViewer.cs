@@ -51,7 +51,8 @@ namespace KTE_PMS.MIMIC
             WriteVoltageBuffers = new byte[2];
             WriteCurrentBuffers = new byte[2];
 
-           
+            Thread t1 = new Thread(new ThreadStart(MBmaster_Connect));
+            t1.Start();
 
             timer.Interval = 1000;
             timer.Enabled = true;
@@ -79,15 +80,17 @@ namespace KTE_PMS.MIMIC
 
         private void timer_Tick(object sender, EventArgs e)
         {
+            PMS_Scheduling_Operation();
+
             if (master.connected)
+            //if(true)
             {
                 // Mode에 따라서 동작하도록 코드 수정
                 PMS_Scheduling_Operation();
             }
             else
             {
-                Thread t1 = new Thread(new ThreadStart(MBmaster_Connect));
-                t1.Start();
+
 
             }
             timer.Interval = timeoff * 1000;

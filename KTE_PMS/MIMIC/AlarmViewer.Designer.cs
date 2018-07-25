@@ -51,7 +51,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btn_TO_HISTORY = new System.Windows.Forms.Button();
             this.btn_TO_ALARM = new System.Windows.Forms.Button();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -233,6 +232,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // btn_TO_HISTORY
@@ -276,7 +276,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
-            this.BackgroundImage = global::KTE_PMS.Properties.Resources.Main_배치도;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.btn_TO_ALARM);
             this.Controls.Add(this.btn_TO_HISTORY);
@@ -297,14 +296,13 @@
         private System.Windows.Forms.Button PREV;
         private System.Windows.Forms.Button NEXT;
         private System.Windows.Forms.Button btnACK;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btn_TO_HISTORY;
         private System.Windows.Forms.Button btn_TO_ALARM;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATETIME;
         private System.Windows.Forms.DataGridViewTextBoxColumn CLASS;
         private System.Windows.Forms.DataGridViewTextBoxColumn DEVICE;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPTION;
         private System.Windows.Forms.DataGridViewTextBoxColumn IO;
+        public System.Windows.Forms.Timer timer1;
     }
 }

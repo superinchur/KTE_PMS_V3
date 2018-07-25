@@ -24,9 +24,9 @@ namespace KTE_PMS.MIMIC
         {
             InitializeComponent();
 
-            ControlTimer.Enabled = true;
-            ControlTimer.Interval = 2000;
-            ControlTimer.Start();
+            timer1.Enabled = true;
+            timer1.Interval = 2000;
+            timer1.Start();
 
 
 
@@ -46,33 +46,11 @@ namespace KTE_PMS.MIMIC
 
 
 
-        private void tb_Power_Set_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void tb_Power_Set_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            if (tb_Power_Set.MaskFull)
-            {
-                tb_Power_Set.Enabled = false;
-                tb_Power_Set.Enabled = true;
-                //MessageBox.Show("모든 사항이 입력되었습니다. 추가입력이 불가합니다");
-            }
-            else if (e.Position == tb_Power_Set.Mask.Length)
-            {
-                MessageBox.Show("마스크 위치를 넘어섰습니다. 입력이 불가합니다");
-            }
-            else
-            {
-                MessageBox.Show("숫자만 입력해야 합니다. 입력이 불가합니다");
-            }
-        }
-
-
-        private void tb_Power_Set_Leave(object sender, EventArgs e)
-        {
 
         }
+
         // ----------------------------------------------
         // 2018-07-10 
         // Parameter로 설정된 Active_Power값을 검사하고
@@ -118,11 +96,6 @@ namespace KTE_PMS.MIMIC
                     tb_Discharging_Stop_SOC.Enabled = true;
                     break;
             }
-        }
-
-        private void tb_Power_Set_Validated(object sender, EventArgs e)
-        {
-
         }
 
 

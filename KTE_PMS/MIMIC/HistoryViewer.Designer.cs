@@ -158,7 +158,7 @@
             this.tb_startTime.Location = new System.Drawing.Point(377, 44);
             this.tb_startTime.Mask = "0000년90월90일 90시90분";
             this.tb_startTime.Name = "tb_startTime";
-            this.tb_startTime.Size = new System.Drawing.Size(148, 21);
+            this.tb_startTime.Size = new System.Drawing.Size(148, 25);
             this.tb_startTime.TabIndex = 13;
             this.tb_startTime.ValidatingType = typeof(System.DateTime);
             this.tb_startTime.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.tb_startTime_MaskInputRejected);
@@ -168,7 +168,7 @@
             this.tb_endTime.Location = new System.Drawing.Point(531, 44);
             this.tb_endTime.Mask = "0000년90월90일 90시90분";
             this.tb_endTime.Name = "tb_endTime";
-            this.tb_endTime.Size = new System.Drawing.Size(148, 21);
+            this.tb_endTime.Size = new System.Drawing.Size(148, 25);
             this.tb_endTime.TabIndex = 12;
             this.tb_endTime.ValidatingType = typeof(System.DateTime);
             this.tb_endTime.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.tb_startTime_MaskInputRejected);
@@ -335,7 +335,6 @@
         private System.Windows.Forms.Button btn_TO_ALARM;
         private System.Windows.Forms.Button btn_TO_HISTORY;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Timer timer1;
         private System.Data.DataSet dataSet1;
         private System.Data.DataTable dataTable1;
         private System.Data.DataTable dataTable2;
@@ -349,5 +348,6 @@
         private System.Windows.Forms.Button btn_Update_Manual;
         private System.Windows.Forms.Button btn_Update_1Month;
         private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Timer timer1;
     }
 }

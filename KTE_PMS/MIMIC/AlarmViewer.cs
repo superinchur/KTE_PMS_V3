@@ -22,7 +22,7 @@ namespace KTE_PMS.MIMIC
             timer1.Enabled = true;
             timer1.Interval = 1000;
             timer1.Start();
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
