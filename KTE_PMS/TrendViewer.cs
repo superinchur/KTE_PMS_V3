@@ -34,7 +34,7 @@ namespace KTE_PMS
             Battery_DataSource.Fill();
 
             timer1.Interval = 1000;      // 1초
-
+            timer1.Enabled = true;
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Start();
 
