@@ -211,9 +211,12 @@ namespace KTE_PMS
             panel1.Controls.Clear();
             panel1.Controls.Add(Repository.Instance.p_main);
 
-            Repository.Instance.p_main.timer1.Start();
 
+        }
 
+        public void Click_Measure()
+        {
+            NAVI_MEASURE_Click((object)NAVI_MIMIC, new EventArgs());
         }
         private void NAVI_MEASURE_Click(object sender, EventArgs e)
         {

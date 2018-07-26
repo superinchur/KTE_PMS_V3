@@ -362,6 +362,7 @@ namespace KTE_PMS
                 new TimeSpan(16, 00, 00),
                 new TimeSpan(20, 00, 00)
                 );
+
                 // MainViewer에 있는 Scheduler를 위한 항목
                 esS_Scheduler1.Color_Update();
 
@@ -472,15 +473,16 @@ namespace KTE_PMS
 
         private void btn_Battery_Control_Click(object sender, EventArgs e)
         {
-            Panel p = (Panel)Parent;
 
-            Parent.Controls.Clear();
-            Parent.Controls.Add(Repository.Instance.p_measure);
+            LEMS a = (LEMS)Parent.Parent;
+
+            a.Click_Measure();
+
         }
         private void btn_PCS_Control_Click(object sender, EventArgs e)
         {
-            Parent.Controls.Clear();
-            Parent.Controls.Add(Repository.Instance.p_measure);
+            LEMS a = (LEMS)Parent.Parent;
+            a.Click_Measure();
         }
 
         #region 버튼이미지_설정_함수

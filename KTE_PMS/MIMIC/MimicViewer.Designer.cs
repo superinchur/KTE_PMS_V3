@@ -107,7 +107,7 @@
             this.lbGRID_R_VOLTAGE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbGRID_R_VOLTAGE.Location = new System.Drawing.Point(233, 47);
             this.lbGRID_R_VOLTAGE.Name = "lbGRID_R_VOLTAGE";
-            this.lbGRID_R_VOLTAGE.Size = new System.Drawing.Size(50, 12);
+            this.lbGRID_R_VOLTAGE.Size = new System.Drawing.Size(60, 12);
             this.lbGRID_R_VOLTAGE.TabIndex = 94;
             this.lbGRID_R_VOLTAGE.Text = "### V";
             this.lbGRID_R_VOLTAGE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -120,7 +120,7 @@
             this.lbGRID_S_VOLTAGE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbGRID_S_VOLTAGE.Location = new System.Drawing.Point(301, 47);
             this.lbGRID_S_VOLTAGE.Name = "lbGRID_S_VOLTAGE";
-            this.lbGRID_S_VOLTAGE.Size = new System.Drawing.Size(50, 12);
+            this.lbGRID_S_VOLTAGE.Size = new System.Drawing.Size(60, 12);
             this.lbGRID_S_VOLTAGE.TabIndex = 96;
             this.lbGRID_S_VOLTAGE.Text = "### V";
             this.lbGRID_S_VOLTAGE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -133,7 +133,7 @@
             this.lbGRID_T_VOLTAGE.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbGRID_T_VOLTAGE.Location = new System.Drawing.Point(369, 47);
             this.lbGRID_T_VOLTAGE.Name = "lbGRID_T_VOLTAGE";
-            this.lbGRID_T_VOLTAGE.Size = new System.Drawing.Size(50, 12);
+            this.lbGRID_T_VOLTAGE.Size = new System.Drawing.Size(60, 12);
             this.lbGRID_T_VOLTAGE.TabIndex = 97;
             this.lbGRID_T_VOLTAGE.Text = "### V";
             this.lbGRID_T_VOLTAGE.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -146,7 +146,7 @@
             this.lbGRID_R_CURRENT.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbGRID_R_CURRENT.Location = new System.Drawing.Point(233, 73);
             this.lbGRID_R_CURRENT.Name = "lbGRID_R_CURRENT";
-            this.lbGRID_R_CURRENT.Size = new System.Drawing.Size(50, 12);
+            this.lbGRID_R_CURRENT.Size = new System.Drawing.Size(60, 12);
             this.lbGRID_R_CURRENT.TabIndex = 109;
             this.lbGRID_R_CURRENT.Text = "## A";
             this.lbGRID_R_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -159,7 +159,7 @@
             this.lbGRID_S_CURRENT.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbGRID_S_CURRENT.Location = new System.Drawing.Point(301, 73);
             this.lbGRID_S_CURRENT.Name = "lbGRID_S_CURRENT";
-            this.lbGRID_S_CURRENT.Size = new System.Drawing.Size(50, 12);
+            this.lbGRID_S_CURRENT.Size = new System.Drawing.Size(60, 12);
             this.lbGRID_S_CURRENT.TabIndex = 110;
             this.lbGRID_S_CURRENT.Text = "## A";
             this.lbGRID_S_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -172,7 +172,7 @@
             this.lbGRID_T_CURRENT.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbGRID_T_CURRENT.Location = new System.Drawing.Point(370, 73);
             this.lbGRID_T_CURRENT.Name = "lbGRID_T_CURRENT";
-            this.lbGRID_T_CURRENT.Size = new System.Drawing.Size(50, 12);
+            this.lbGRID_T_CURRENT.Size = new System.Drawing.Size(60, 12);
             this.lbGRID_T_CURRENT.TabIndex = 111;
             this.lbGRID_T_CURRENT.Text = "## A";
             this.lbGRID_T_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -186,7 +186,7 @@
             this.lbGRID_Frequency.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbGRID_Frequency.Location = new System.Drawing.Point(375, 109);
             this.lbGRID_Frequency.Name = "lbGRID_Frequency";
-            this.lbGRID_Frequency.Size = new System.Drawing.Size(46, 12);
+            this.lbGRID_Frequency.Size = new System.Drawing.Size(60, 12);
             this.lbGRID_Frequency.TabIndex = 105;
             this.lbGRID_Frequency.Text = "## Hz";
             this.lbGRID_Frequency.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -199,7 +199,7 @@
             this.lbGRID_POWER.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbGRID_POWER.Location = new System.Drawing.Point(234, 109);
             this.lbGRID_POWER.Name = "lbGRID_POWER";
-            this.lbGRID_POWER.Size = new System.Drawing.Size(50, 12);
+            this.lbGRID_POWER.Size = new System.Drawing.Size(60, 12);
             this.lbGRID_POWER.TabIndex = 103;
             this.lbGRID_POWER.Text = "## kW";
             this.lbGRID_POWER.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -211,7 +211,7 @@
             this.lbLOAD_POWER.ForeColor = System.Drawing.Color.Black;
             this.lbLOAD_POWER.Location = new System.Drawing.Point(235, 266);
             this.lbLOAD_POWER.Name = "lbLOAD_POWER";
-            this.lbLOAD_POWER.Size = new System.Drawing.Size(50, 12);
+            this.lbLOAD_POWER.Size = new System.Drawing.Size(60, 12);
             this.lbLOAD_POWER.TabIndex = 101;
             this.lbLOAD_POWER.Text = "## kW";
             this.lbLOAD_POWER.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -223,7 +223,7 @@
             this.lbLOAD_R_CURRENT.ForeColor = System.Drawing.Color.Black;
             this.lbLOAD_R_CURRENT.Location = new System.Drawing.Point(234, 229);
             this.lbLOAD_R_CURRENT.Name = "lbLOAD_R_CURRENT";
-            this.lbLOAD_R_CURRENT.Size = new System.Drawing.Size(50, 12);
+            this.lbLOAD_R_CURRENT.Size = new System.Drawing.Size(60, 12);
             this.lbLOAD_R_CURRENT.TabIndex = 94;
             this.lbLOAD_R_CURRENT.Text = "## kW";
             this.lbLOAD_R_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -235,7 +235,7 @@
             this.lbLOAD_S_CURRENT.ForeColor = System.Drawing.Color.Black;
             this.lbLOAD_S_CURRENT.Location = new System.Drawing.Point(302, 229);
             this.lbLOAD_S_CURRENT.Name = "lbLOAD_S_CURRENT";
-            this.lbLOAD_S_CURRENT.Size = new System.Drawing.Size(50, 12);
+            this.lbLOAD_S_CURRENT.Size = new System.Drawing.Size(60, 12);
             this.lbLOAD_S_CURRENT.TabIndex = 96;
             this.lbLOAD_S_CURRENT.Text = "## kW";
             this.lbLOAD_S_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -247,7 +247,7 @@
             this.lbLOAD_T_CURRENT.ForeColor = System.Drawing.Color.Black;
             this.lbLOAD_T_CURRENT.Location = new System.Drawing.Point(371, 229);
             this.lbLOAD_T_CURRENT.Name = "lbLOAD_T_CURRENT";
-            this.lbLOAD_T_CURRENT.Size = new System.Drawing.Size(50, 12);
+            this.lbLOAD_T_CURRENT.Size = new System.Drawing.Size(60, 12);
             this.lbLOAD_T_CURRENT.TabIndex = 97;
             this.lbLOAD_T_CURRENT.Text = "## kW";
             this.lbLOAD_T_CURRENT.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -422,7 +422,7 @@
             this.lb_Battery_SOC.ForeColor = System.Drawing.Color.Black;
             this.lb_Battery_SOC.Location = new System.Drawing.Point(722, 388);
             this.lb_Battery_SOC.Name = "lb_Battery_SOC";
-            this.lb_Battery_SOC.Size = new System.Drawing.Size(50, 12);
+            this.lb_Battery_SOC.Size = new System.Drawing.Size(60, 12);
             this.lb_Battery_SOC.TabIndex = 152;
             this.lb_Battery_SOC.Text = "80.5%";
             this.lb_Battery_SOC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -434,7 +434,7 @@
             this.lb_Battery_SOH.ForeColor = System.Drawing.Color.Black;
             this.lb_Battery_SOH.Location = new System.Drawing.Point(838, 388);
             this.lb_Battery_SOH.Name = "lb_Battery_SOH";
-            this.lb_Battery_SOH.Size = new System.Drawing.Size(50, 12);
+            this.lb_Battery_SOH.Size = new System.Drawing.Size(60, 12);
             this.lb_Battery_SOH.TabIndex = 153;
             this.lb_Battery_SOH.Text = "96.0%";
             this.lb_Battery_SOH.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

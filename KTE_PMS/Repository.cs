@@ -249,6 +249,14 @@ namespace KTE_PMS
                     scheduler[i] = 0;
                 }
             }
+
+            Set_Current_PCS_Operating_Mode
+            (
+            StartTime1,
+            EndTime1,
+            StartTime2,
+            EndTime2
+            );
         }
         private void Initialize_Semaphore()
         {
@@ -285,8 +293,8 @@ namespace KTE_PMS
             observers = p_measure;
             bmsviewer.AddObserver(observers);
 
-            observers = p_measure_BMS_Rack;
-            bmsviewer.AddObserver(observers);
+            //observers = p_measure_BMS_Rack;
+            //bmsviewer.AddObserver(observers);
             observers = p_mimic;
             bmsviewer.AddObserver(observers);
             observers = p_main;

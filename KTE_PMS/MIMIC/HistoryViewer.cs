@@ -26,6 +26,8 @@ namespace KTE_PMS.MIMIC
             tb_endTimePicker.Format = DateTimePickerFormat.Custom;
             tb_endTimePicker.CustomFormat = "yyyy-MM-dd HH:mm:ss";
 
+
+
         }
 
 
@@ -84,7 +86,9 @@ namespace KTE_PMS.MIMIC
                 dataGridView1.Columns[4].Width = 180;
                 dataGridView1.Columns[4].ReadOnly = true;
 
-//                dataGridView1.AutoResizeColumns();
+                //                dataGridView1.AutoResizeColumns();
+
+                
             }
             catch (Exception ex)
             {
@@ -143,6 +147,8 @@ namespace KTE_PMS.MIMIC
 
             Set_TimeTextBox(diff);
             LoadCurrentFault();
+
+            btn_Update_1Day_Click(null, null);
         }
 
         private void Set_TimeTextBox(int diff)

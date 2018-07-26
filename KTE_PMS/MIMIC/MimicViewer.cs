@@ -46,7 +46,10 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(lbGRID_S_CURRENT, Repository.Instance.GnEPS_PCS.GRID_S_Current.ToString() + " A");
             CSafeSetText(lbGRID_T_CURRENT, Repository.Instance.GnEPS_PCS.GRID_T_Current.ToString() + " A");
             CSafeSetText(lbGRID_POWER, Repository.Instance.GnEPS_PCS.GRID_Power.ToString() + " kW");
-            CSafeSetText(lbGRID_Frequency, Repository.Instance.GnEPS_PCS.GRID_Frequency.ToString() + " Hz");
+
+            
+
+            CSafeSetText(lbGRID_Frequency, String.Format("{0:0.0}", Repository.Instance.GnEPS_PCS.GRID_Frequency) + " Hz");
             if (Repository.Instance.GnEPS_PCS.isTemperatureWarning == 1)
             {
                 //CSafeSetText(lbisTemperatureWarning, "WARNING");
@@ -63,10 +66,11 @@ namespace KTE_PMS.MIMIC
             //CSafeSetText(lbINVERTER_POWER, Repository.Instance.GnEPS_PCS.INVERTER_Power .ToString());
 
             CSafeSetText(lb_Battery_Power, Repository.Instance.samsung_bcs.System_Power.ToString() + " kW");
-            CSafeSetText(lb_Battery_Voltage, Repository.Instance.samsung_bcs.System_Voltage.ToString() + " V");
-            CSafeSetText(lb_Battery_Current, Repository.Instance.samsung_bcs.System_Current.ToString() + " A");
-            CSafeSetText(lb_Battery_SOC, Repository.Instance.samsung_bcs.System_SOC.ToString() + " %");
-            CSafeSetText(lb_Battery_SOH, Repository.Instance.samsung_bcs.System_SOH.ToString() + " %");
+            
+            CSafeSetText(lb_Battery_Voltage, String.Format("{0:0.0}", Repository.Instance.samsung_bcs.System_Voltage) + " V");
+            CSafeSetText(lb_Battery_Current, String.Format("{0:0.0}", Repository.Instance.samsung_bcs.System_Current) + " A");
+            CSafeSetText(lb_Battery_SOC, String.Format("{0:0.0}", Repository.Instance.samsung_bcs.System_SOC) + " %");
+            CSafeSetText(lb_Battery_SOH, String.Format("{0:0.0}", Repository.Instance.samsung_bcs.System_SOH) + " %");
 
 
         }

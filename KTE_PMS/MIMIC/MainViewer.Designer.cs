@@ -501,7 +501,7 @@
             this.btn_PeakCutMode.UseVisualStyleBackColor = false;
             this.btn_PeakCutMode.Click += new System.EventHandler(this.btn_PeakCutMode_Click);
             this.btn_PeakCutMode.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_PeakCutMode_MouseDown);
-            this.btn_PeakCutMode.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_PeakCutMode_MouseUp);
+            this.btn_PeakCutMode.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_DisChargingMode_MouseDown);
             // 
             // btn_DisChargingMode
             // 

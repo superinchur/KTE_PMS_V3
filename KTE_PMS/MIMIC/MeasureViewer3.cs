@@ -150,8 +150,6 @@ namespace KTE_PMS.MIMIC
             sSamsungBCS t = Repository.Instance.samsung_bcs;
 
             CSafeSetText(l41_1, t.Rack1.Rack_Voltage.ToString() + " " + "V");
-
-            CSafeSetText(l44_2, t.Rack1.String1_Rack_Voltage.ToString() + " " + "V");
             CSafeSetText(l44_2, t.Rack1.String1_Rack_Voltage.ToString() + " " + "V");
             CSafeSetText(l44_3, t.Rack1.String2_Rack_Voltage.ToString() + " " + "V");
 
@@ -162,6 +160,34 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(l43_1, t.Rack1.Rack_Current_Average.ToString() + " " + "A");
             CSafeSetText(l45_1, t.Rack1.Rack_SOC.ToString() + " " + "%");
             CSafeSetText(l46_1, t.Rack1.Rack_SOH.ToString() + " " + "%");
+            CSafeSetText(l47_1, t.Rack1.Average_Cell_Voltage_Value.ToString() + " " + "mV");
+            CSafeSetText(l48_1, t.Rack1.Average_Cell_Temp_Value.ToString() + " " + "­°C");
+            CSafeSetText(l49_1, t.Rack1.Rack_Discharge_Current_Limit_of_Rack.ToString() + " " + "­A");
+            CSafeSetText(l410_1, t.Rack1.Rack_Charge_Current_Limit_of_Rack.ToString() + " " + "­A");
+            CSafeSetText(l411_1, t.Rack1.Rack_Switch_Control_Info.ToString());
+            CSafeSetText(l412_1, t.Rack1.Rack_Switch_Sensor_Info.ToString());
+            CSafeSetText(l413_1, t.Rack1.Rack_External_Sensor_Info.ToString());
+            CSafeSetText(l414_1, t.Rack1.Module_Comm_Fault_Position.ToString());
+
+            CSafeSetText(l44_2, t.Rack1.String1_Rack_Voltage.ToString() + " " + "V");
+            CSafeSetText(l45_2, t.Rack1.String1_Cell_Summation_Voltage.ToString() + " " + "V");
+            CSafeSetText(l46_2, t.Rack1.String1_Rack_Current.ToString() + " " + "A");
+            CSafeSetText(l47_2, t.Rack1.Max1_Cell_Voltage_Value.ToString() + " " + "V");
+            CSafeSetText(l48_2, t.Rack1.Max1_Cell_Voltage_Position.ToString());
+            CSafeSetText(l49_2, t.Rack1.Min1_Cell_Voltage_Value.ToString() + " " + "V");
+            CSafeSetText(l410_2, t.Rack1.Min1_Cell_Voltage_Position.ToString());
+            CSafeSetText(l411_2, t.Rack1.Max1_Cell_Temp_Value.ToString() + " " + "°C");
+            CSafeSetText(l412_2, t.Rack1.Max1_Cell_Temp_Position.ToString());
+            CSafeSetText(l413_2, t.Rack1.Min1_Cell_Temp_Value.ToString() + " " + "°C");
+            CSafeSetText(l414_2, t.Rack1.Min1_Cell_Temp_Position.ToString());
+
+            CSafeSetText(l44_3, t.Rack1.String2_Rack_Voltage.ToString() + " " + "V");
+            CSafeSetText(l45_3, t.Rack1.String2_Cell_Summation_Voltage.ToString() + " " + "V");
+            CSafeSetText(l46_3, t.Rack1.String2_Rack_Current.ToString() + " " + "A");
+            CSafeSetText(l48_3, t.Rack1.Max1_Cell_Voltage_Position.ToString());
+            CSafeSetText(l410_3, t.Rack1.Min1_Cell_Voltage_Position.ToString());
+            CSafeSetText(l412_3, t.Rack1.Max1_Cell_Temp_Position.ToString());
+            CSafeSetText(l414_3, t.Rack1.Min1_Cell_Temp_Position.ToString());
         }
 
         private void ObserverUpdate_BMS_Rack2()
@@ -172,40 +198,40 @@ namespace KTE_PMS.MIMIC
 
 
 
-            CSafeSetText(l51_1, t.Rack1.Rack_Voltage.ToString() + " " + "V");
-            CSafeSetText(l52_1, t.Rack1.Rack_Current.ToString() + " " + "A");
-            CSafeSetText(l53_1, t.Rack1.Rack_Current_Average.ToString() + " " + "A");
-            CSafeSetText(l54_1, t.Rack1.Rack_Mode.ToString());
-            CSafeSetText(l55_1, t.Rack1.Rack_SOC.ToString() + " " + "%");
-            CSafeSetText(l56_1, t.Rack1.Rack_SOH.ToString() + " " + "%");
-            CSafeSetText(l57_1, t.Rack1.Average_Cell_Voltage_Value.ToString() + " " + "mV");
-            CSafeSetText(l58_1, t.Rack1.Average_Cell_Temp_Value.ToString() + " " + "­°C");
-            CSafeSetText(l59_1, t.Rack1.Rack_Discharge_Current_Limit_of_Rack.ToString() + " " + "­A");
-            CSafeSetText(l510_1, t.Rack1.Rack_Charge_Current_Limit_of_Rack .ToString() + " " + "­A");
-            CSafeSetText(l511_1, t.Rack1.Rack_Switch_Control_Info .ToString());
-            CSafeSetText(l512_1, t.Rack1.Rack_Switch_Sensor_Info.ToString());
-            CSafeSetText(l513_1, t.Rack1.Rack_External_Sensor_Info .ToString());
-            CSafeSetText(l514_1, t.Rack1.Module_Comm_Fault_Position.ToString());
+            CSafeSetText(l51_1, t.Rack2.Rack_Voltage.ToString() + " " + "V");
+            CSafeSetText(l52_1, t.Rack2.Rack_Current.ToString() + " " + "A");
+            CSafeSetText(l53_1, t.Rack2.Rack_Current_Average.ToString() + " " + "A");
+            CSafeSetText(l54_1, t.Rack2.Rack_Mode.ToString());
+            CSafeSetText(l55_1, t.Rack2.Rack_SOC.ToString() + " " + "%");
+            CSafeSetText(l56_1, t.Rack2.Rack_SOH.ToString() + " " + "%");
+            CSafeSetText(l57_1, t.Rack2.Average_Cell_Voltage_Value.ToString() + " " + "mV");
+            CSafeSetText(l58_1, t.Rack2.Average_Cell_Temp_Value.ToString() + " " + "°C");
+            CSafeSetText(l59_1, t.Rack2.Rack_Discharge_Current_Limit_of_Rack.ToString() + " " + "­A");
+            CSafeSetText(l510_1, t.Rack2.Rack_Charge_Current_Limit_of_Rack .ToString() + " " + "­A");
+            CSafeSetText(l511_1, t.Rack2.Rack_Switch_Control_Info .ToString());
+            CSafeSetText(l512_1, t.Rack2.Rack_Switch_Sensor_Info.ToString());
+            CSafeSetText(l513_1, t.Rack2.Rack_External_Sensor_Info .ToString());
+            CSafeSetText(l514_1, t.Rack2.Module_Comm_Fault_Position.ToString());
 
-            CSafeSetText(l54_2, t.Rack1.String1_Rack_Voltage.ToString() + " " + "V");
-            CSafeSetText(l55_2, t.Rack1.String1_Cell_Summation_Voltage .ToString() + " " + "V");
-            CSafeSetText(l56_2, t.Rack1.String1_Rack_Current .ToString() + " " + "A");
-            CSafeSetText(l57_2, t.Rack1.Max1_Cell_Voltage_Value .ToString() + " " + "V");
-            CSafeSetText(l58_2, t.Rack1.Max1_Cell_Voltage_Position .ToString());
-            CSafeSetText(l59_2, t.Rack1.Min1_Cell_Voltage_Value.ToString() + " " + "V");
-            CSafeSetText(l510_2, t.Rack1.Min1_Cell_Voltage_Position.ToString());
-            CSafeSetText(l511_2, t.Rack1.Max1_Cell_Temp_Value .ToString() + " " + "°C");
-            CSafeSetText(l512_2, t.Rack1.Max1_Cell_Temp_Position.ToString());
-            CSafeSetText(l513_2, t.Rack1.Min1_Cell_Temp_Value.ToString() + " " + "°C");
-            CSafeSetText(l514_2, t.Rack1.Min1_Cell_Temp_Position.ToString());
+            CSafeSetText(l54_2, t.Rack2.String1_Rack_Voltage.ToString() + " " + "V");
+            CSafeSetText(l55_2, t.Rack2.String1_Cell_Summation_Voltage .ToString() + " " + "V");
+            CSafeSetText(l56_2, t.Rack2.String1_Rack_Current .ToString() + " " + "A");
+            CSafeSetText(l57_2, t.Rack2.Max1_Cell_Voltage_Value .ToString() + " " + "V");
+            CSafeSetText(l58_2, t.Rack2.Max1_Cell_Voltage_Position .ToString());
+            CSafeSetText(l59_2, t.Rack2.Min1_Cell_Voltage_Value.ToString() + " " + "V");
+            CSafeSetText(l510_2, t.Rack2.Min1_Cell_Voltage_Position.ToString());
+            CSafeSetText(l511_2, t.Rack2.Max1_Cell_Temp_Value .ToString() + " " + "°C");
+            CSafeSetText(l512_2, t.Rack2.Max1_Cell_Temp_Position.ToString());
+            CSafeSetText(l513_2, t.Rack2.Min1_Cell_Temp_Value.ToString() + " " + "°C");
+            CSafeSetText(l514_2, t.Rack2.Min1_Cell_Temp_Position.ToString());
 
-            CSafeSetText(l54_3, t.Rack1.String2_Rack_Voltage.ToString() + " " + "V");
-            CSafeSetText(l55_3, t.Rack1.String2_Cell_Summation_Voltage.ToString() + " " + "V");
-            CSafeSetText(l56_3, t.Rack1.String2_Rack_Current.ToString() + " " + "A");
-            CSafeSetText(l58_3, t.Rack1.Max1_Cell_Voltage_Position.ToString());            
-            CSafeSetText(l510_3, t.Rack1.Min1_Cell_Voltage_Position.ToString());
-            CSafeSetText(l512_3, t.Rack1.Max1_Cell_Temp_Position.ToString());
-            CSafeSetText(l514_3, t.Rack1.Min1_Cell_Temp_Position.ToString());
+            CSafeSetText(l54_3, t.Rack2.String2_Rack_Voltage.ToString() + " " + "V");
+            CSafeSetText(l55_3, t.Rack2.String2_Cell_Summation_Voltage.ToString() + " " + "V");
+            CSafeSetText(l56_3, t.Rack2.String2_Rack_Current.ToString() + " " + "A");
+            CSafeSetText(l58_3, t.Rack2.Max1_Cell_Voltage_Position.ToString());            
+            CSafeSetText(l510_3, t.Rack2.Min1_Cell_Voltage_Position.ToString());
+            CSafeSetText(l512_3, t.Rack2.Max1_Cell_Temp_Position.ToString());
+            CSafeSetText(l514_3, t.Rack2.Min1_Cell_Temp_Position.ToString());
 
 
 
