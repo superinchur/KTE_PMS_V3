@@ -73,6 +73,7 @@ namespace KTE_PMS
         public TimeSpan Discharging_EndTime { get; set; }
 
 
+
         #endregion 
 
         // ---------------------------------------------------------
@@ -272,13 +273,11 @@ namespace KTE_PMS
             observers = p_main;
             pmdviewer.AddObserver(observers);
 
-            /*
-            observers = p_measure_PCS_Fault;
-            pmdviewer.AddObserver(observers);
+            //observers = p_measure_PCS_Fault;
+            //pmdviewer.AddObserver(observers);
 
-            observers = p_measure_PCS;
-            pmdviewer.AddObserver(observers);
-            */
+            //observers = p_measure_PCS;
+            //pmdviewer.AddObserver(observers);
         }
 
         private void Allocate_Observer_to_bms_mimic()
@@ -286,8 +285,8 @@ namespace KTE_PMS
             observers = p_measure;
             bmsviewer.AddObserver(observers);
 
-            //observers = p_measure_BMS_Rack;
-            //bmsviewer.AddObserver(observers);
+            observers = p_measure_BMS_Rack;
+            bmsviewer.AddObserver(observers);
             observers = p_mimic;
             bmsviewer.AddObserver(observers);
             observers = p_main;
@@ -540,7 +539,7 @@ namespace KTE_PMS
             TagManager.BMS_Fault_처리_프로시져();
 
             //bms_resourcePool.Release();
-            //Insert_To_DataTable(data, 43, 80, 0);
+            Insert_To_DataTable(data, 43, 80, 0);
         }
 
         private void Insert_To_DataTable(byte[] data, int start, int end, int offset)

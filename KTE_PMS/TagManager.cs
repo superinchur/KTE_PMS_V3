@@ -15,13 +15,10 @@ namespace KTE_PMS
 
         public cTag[] tt;
         public Dictionary<string, cTag> dictionary = new Dictionary<string, cTag>();
-
-        DataTable dt = new DataTable();
-
+        public Dictionary<string, string> htCurrentFault = new Dictionary<string, string>();
         string directory;
 
-        public Dictionary<string, string> htCurrentFault = new Dictionary<string, string>();
-        Queue<string> qRecvFault = new Queue<string>();
+
 
         public string[,] FAULT_CODE = {{"46_0", "Black out"}, {"46_1", "Over frequency"}, {"46_2", "Under frequency"}, {"46_3", "Over Voltage"},{"46_4", "Under Voltage"},
                                         {"46_5", "Reserved"}, {"46_6", "Reserved"}, {"46_7", "Reserved"}, {"46_8", "Reserved"}, {"46_9", "Reserved"}, {"46_10", "Reserved"}, {"46_11", "Reserved"},
@@ -94,7 +91,8 @@ namespace KTE_PMS
         public string GetFaultText(int nFileNo, int nBit)
         {
             string szReturn = string.Empty;
-
+            
+            // PCS Fault 상황
             if (nFileNo >= 46 || nFileNo <= 48)
             {
                 for (int i = 0; i <= FAULT_CODE.GetLength(0) - 1; i++)
@@ -109,6 +107,8 @@ namespace KTE_PMS
                     }
                 }
             }
+
+            // Battery Fault 상황
             else if (nFileNo >= 14 && nFileNo <= 21)
             {
                 for (int i = 0; i <= Samsung_BMS_FAULT_CODE.GetLength(0) - 1; i++)
@@ -139,11 +139,21 @@ namespace KTE_PMS
                     ushValue = Repository.Instance.GnEPS_PCS.PCS_GRID_Status;
                 else if (nFileNo == 47)
                     ushValue = Repository.Instance.GnEPS_PCS.PCS_Fault_Status;
-
-
-
                 else
                     ushValue = 0;
+
+                // 2018-07-24 
+                // common_alarm을 확인하기 위해서 추가한 항목
+                if (ushValue > 0)
+                {
+                    Repository.Instance.GnEPS_PCS.common_alarm = true;
+                }
+                else
+                {
+                    Repository.Instance.GnEPS_PCS.common_alarm = false;
+                }
+
+                
 
                 for (int nBit = 0; nBit <= 15; nBit++)
                 {
@@ -179,6 +189,18 @@ namespace KTE_PMS
                     ushValue = Repository.Instance.samsung_bcs.Alarm_Summary1;
                 else
                     ushValue = 0;
+
+
+                // 2018-07-24 
+                // common_alarm을 확인하기 위해서 추가한 항목
+                if (ushValue > 0 )
+                {
+                    Repository.Instance.samsung_bcs.common_alarm = true;
+                }
+                else
+                {
+                    Repository.Instance.samsung_bcs.common_alarm = false;
+                }
 
                 for (int nBit = 0; nBit <= 15; nBit++)
                 {

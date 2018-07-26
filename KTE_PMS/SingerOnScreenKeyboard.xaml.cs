@@ -239,8 +239,10 @@ namespace SingerOSK
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+
+                Console.WriteLine(ex.Message);
                 // do nothing - not important for now
                 Console.WriteLine("Could not send key press: {0}", sendString);
             }

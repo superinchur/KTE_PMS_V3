@@ -42,8 +42,6 @@
             this.dataTable3 = new System.Data.DataTable();
             this.dataTable4 = new System.Data.DataTable();
             this.dataTable5 = new System.Data.DataTable();
-            this.tb_startTime = new System.Windows.Forms.MaskedTextBox();
-            this.tb_endTime = new System.Windows.Forms.MaskedTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.btn_Update_1Month = new System.Windows.Forms.Button();
             this.btn_Update_1Day = new System.Windows.Forms.Button();
@@ -51,6 +49,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btn_TO_ALARM = new System.Windows.Forms.Button();
             this.btn_TO_HISTORY = new System.Windows.Forms.Button();
+            this.tb_startTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.tb_endTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
@@ -152,26 +152,6 @@
             // 
             this.dataTable5.MinimumCapacity = 400;
             this.dataTable5.TableName = "IO";
-            // 
-            // tb_startTime
-            // 
-            this.tb_startTime.Location = new System.Drawing.Point(377, 44);
-            this.tb_startTime.Mask = "0000년90월90일 90시90분";
-            this.tb_startTime.Name = "tb_startTime";
-            this.tb_startTime.Size = new System.Drawing.Size(148, 25);
-            this.tb_startTime.TabIndex = 13;
-            this.tb_startTime.ValidatingType = typeof(System.DateTime);
-            this.tb_startTime.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.tb_startTime_MaskInputRejected);
-            // 
-            // tb_endTime
-            // 
-            this.tb_endTime.Location = new System.Drawing.Point(531, 44);
-            this.tb_endTime.Mask = "0000년90월90일 90시90분";
-            this.tb_endTime.Name = "tb_endTime";
-            this.tb_endTime.Size = new System.Drawing.Size(148, 25);
-            this.tb_endTime.TabIndex = 12;
-            this.tb_endTime.ValidatingType = typeof(System.DateTime);
-            this.tb_endTime.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.tb_startTime_MaskInputRejected);
             // 
             // button3
             // 
@@ -302,16 +282,37 @@
             this.btn_TO_HISTORY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_TO_HISTORY_MouseDown);
             this.btn_TO_HISTORY.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_TO_HISTORY_MouseUp);
             // 
+            // tb_startTimePicker
+            // 
+            this.tb_startTimePicker.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_startTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tb_startTimePicker.Location = new System.Drawing.Point(316, 40);
+            this.tb_startTimePicker.Name = "tb_startTimePicker";
+            this.tb_startTimePicker.Size = new System.Drawing.Size(200, 25);
+            this.tb_startTimePicker.TabIndex = 29;
+            this.tb_startTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // tb_endTimePicker
+            // 
+            this.tb_endTimePicker.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_endTimePicker.Location = new System.Drawing.Point(522, 40);
+            this.tb_endTimePicker.MaxDate = new System.DateTime(2048, 12, 31, 0, 0, 0, 0);
+            this.tb_endTimePicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
+            this.tb_endTimePicker.Name = "tb_endTimePicker";
+            this.tb_endTimePicker.Size = new System.Drawing.Size(200, 25);
+            this.tb_endTimePicker.TabIndex = 30;
+            this.tb_endTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
             // HistoryViewer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
+            this.Controls.Add(this.tb_endTimePicker);
+            this.Controls.Add(this.tb_startTimePicker);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btn_Update_1Month);
             this.Controls.Add(this.btn_Update_1Day);
             this.Controls.Add(this.btn_Update_Manual);
-            this.Controls.Add(this.tb_startTime);
-            this.Controls.Add(this.tb_endTime);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_TO_ALARM);
@@ -327,7 +328,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataTable4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable5)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -335,6 +335,7 @@
         private System.Windows.Forms.Button btn_TO_ALARM;
         private System.Windows.Forms.Button btn_TO_HISTORY;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Timer timer1;
         private System.Data.DataSet dataSet1;
         private System.Data.DataTable dataTable1;
         private System.Data.DataTable dataTable2;
@@ -342,12 +343,11 @@
         private System.Data.DataTable dataTable4;
         private System.Data.DataTable dataTable5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MaskedTextBox tb_startTime;
-        private System.Windows.Forms.MaskedTextBox tb_endTime;
         private System.Windows.Forms.Button btn_Update_1Day;
         private System.Windows.Forms.Button btn_Update_Manual;
         private System.Windows.Forms.Button btn_Update_1Month;
         private System.Windows.Forms.Button button3;
-        public System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DateTimePicker tb_startTimePicker;
+        private System.Windows.Forms.DateTimePicker tb_endTimePicker;
     }
 }

@@ -64,12 +64,30 @@
             DevExpress.XtraCharts.XYDiagram xyDiagram4 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.LineSeriesView lineSeriesView4 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.DataAccess.Sql.SelectQuery selectQuery2 = new DevExpress.DataAccess.Sql.SelectQuery();
+            DevExpress.DataAccess.Sql.Column column5 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression5 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Table table2 = new DevExpress.DataAccess.Sql.Table();
+            DevExpress.DataAccess.Sql.Column column6 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression6 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column7 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression7 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column8 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression8 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.SelectQuery selectQuery3 = new DevExpress.DataAccess.Sql.SelectQuery();
+            DevExpress.DataAccess.Sql.Column column9 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression9 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Table table3 = new DevExpress.DataAccess.Sql.Table();
+            DevExpress.DataAccess.Sql.Column column10 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression10 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column11 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression11 = new DevExpress.DataAccess.Sql.ColumnExpression();
+            DevExpress.DataAccess.Sql.Column column12 = new DevExpress.DataAccess.Sql.Column();
+            DevExpress.DataAccess.Sql.ColumnExpression columnExpression12 = new DevExpress.DataAccess.Sql.ColumnExpression();
             this.trend_dataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.Battery_DataSource = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.button5 = new System.Windows.Forms.Button();
@@ -90,6 +108,11 @@
             this.chartControl4 = new DevExpress.XtraCharts.ChartControl();
             this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
             this.chartControl3 = new DevExpress.XtraCharts.ChartControl();
+            this.Grid_DataSource = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.Load_DataSource = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.tb_startTime = new System.Windows.Forms.DateTimePicker();
+            this.tb_endTime = new System.Windows.Forms.DateTimePicker();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trend_dataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(textAnnotation1)).BeginInit();
@@ -111,17 +134,18 @@
             ((System.ComponentModel.ISupportInitialize)(xyDiagram4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // trend_dataBindingSource
             // 
             this.trend_dataBindingSource.DataMember = "trend_data";
-            this.trend_dataBindingSource.DataSource = this.sqlDataSource1;
+            this.trend_dataBindingSource.DataSource = this.Battery_DataSource;
             // 
-            // sqlDataSource1
+            // Battery_DataSource
             // 
-            this.sqlDataSource1.ConnectionName = "localhost_mysql_Connection_v1.0";
-            this.sqlDataSource1.Name = "sqlDataSource1";
+            this.Battery_DataSource.ConnectionName = "localhost_mysql_Connection_v1.0";
+            this.Battery_DataSource.Name = "Battery_DataSource";
             columnExpression1.ColumnName = "DATETIME";
             table1.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"134\" />";
             table1.Name = "trend_data";
@@ -142,9 +166,9 @@
             selectQuery1.Columns.Add(column4);
             selectQuery1.Name = "trend_data";
             selectQuery1.Tables.Add(table1);
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            this.Battery_DataSource.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             selectQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
+            this.Battery_DataSource.ResultSchemaSerializable = resources.GetString("Battery_DataSource.ResultSchemaSerializable");
             // 
             // chartControl1
             // 
@@ -171,7 +195,7 @@
             this.chartControl1.Diagram = xyDiagram1;
             this.chartControl1.Legend.Name = "Default Legend";
             this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl1.Location = new System.Drawing.Point(43, 61);
+            this.chartControl1.Location = new System.Drawing.Point(44, 61);
             this.chartControl1.Name = "chartControl1";
             series1.ArgumentDataMember = "DATETIME";
             series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
@@ -185,36 +209,21 @@
             this.chartControl1.TabIndex = 2;
             this.chartControl1.Visible = false;
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(358, 10);
-            this.maskedTextBox1.Mask = "0000년90월90일 90시90분";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(177, 21);
-            this.maskedTextBox1.TabIndex = 3;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(153, 10);
-            this.maskedTextBox2.Mask = "0000년90월90일 90시90분";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(177, 21);
-            this.maskedTextBox2.TabIndex = 4;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
-            this.maskedTextBox2.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox2_MaskInputRejected);
-            // 
             // button2
             // 
+            this.button2.BackgroundImage = global::KTE_PMS.Properties.Resources.적용_off;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(540, 9);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(76, 23);
+            this.button2.Size = new System.Drawing.Size(87, 23);
             this.button2.TabIndex = 5;
-            this.button2.Text = "직접설정";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.적용);
+            this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button2_MouseDown);
+            this.button2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button2_MouseUp);
             // 
             // button5
             // 
@@ -373,6 +382,7 @@
             this.btn_Battery.Size = new System.Drawing.Size(82, 92);
             this.btn_Battery.TabIndex = 81;
             this.btn_Battery.UseVisualStyleBackColor = false;
+            this.btn_Battery.Click += new System.EventHandler(this.btn_Battery_Click);
             // 
             // btn_Load
             // 
@@ -385,6 +395,7 @@
             this.btn_Load.Size = new System.Drawing.Size(82, 92);
             this.btn_Load.TabIndex = 82;
             this.btn_Load.UseVisualStyleBackColor = false;
+            this.btn_Load.Click += new System.EventHandler(this.btn_Load_Click);
             // 
             // btn_Grid
             // 
@@ -397,6 +408,7 @@
             this.btn_Grid.Size = new System.Drawing.Size(82, 92);
             this.btn_Grid.TabIndex = 83;
             this.btn_Grid.UseVisualStyleBackColor = false;
+            this.btn_Grid.Click += new System.EventHandler(this.btn_Grid_Click);
             // 
             // chartControl4
             // 
@@ -455,8 +467,8 @@
             xyDiagram3.AxisX.DateTimeScaleOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Second;
             xyDiagram3.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram3.AxisX.VisualRange.Auto = false;
-            xyDiagram3.AxisX.VisualRange.MaxValueSerializable = "07/23/2018 10:54:33.000";
-            xyDiagram3.AxisX.VisualRange.MinValueSerializable = "07/23/2018 10:54:24.000";
+            xyDiagram3.AxisX.VisualRange.MaxValueSerializable = "07/26/2018 11:39:51.000";
+            xyDiagram3.AxisX.VisualRange.MinValueSerializable = "07/26/2018 11:39:42.000";
             xyDiagram3.AxisY.VisibleInPanesSerializable = "-1";
             xyDiagram3.AxisY.VisualRange.Auto = false;
             xyDiagram3.AxisY.VisualRange.MaxValueSerializable = "5.742";
@@ -521,11 +533,88 @@
             this.chartControl3.TabIndex = 7;
             this.chartControl3.Click += new System.EventHandler(this.chartControl3_Click);
             // 
+            // Grid_DataSource
+            // 
+            this.Grid_DataSource.ConnectionName = "localhost_mysql_Connection_v1.0";
+            this.Grid_DataSource.Name = "Grid_DataSource";
+            columnExpression5.ColumnName = "DATETIME";
+            table2.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"134\" />";
+            table2.Name = "trend_data";
+            columnExpression5.Table = table2;
+            column5.Expression = columnExpression5;
+            columnExpression6.ColumnName = "VOLTAGE";
+            columnExpression6.Table = table2;
+            column6.Expression = columnExpression6;
+            columnExpression7.ColumnName = "CURRENT";
+            columnExpression7.Table = table2;
+            column7.Expression = columnExpression7;
+            columnExpression8.ColumnName = "POWER";
+            columnExpression8.Table = table2;
+            column8.Expression = columnExpression8;
+            selectQuery2.Columns.Add(column5);
+            selectQuery2.Columns.Add(column6);
+            selectQuery2.Columns.Add(column7);
+            selectQuery2.Columns.Add(column8);
+            selectQuery2.Name = "trend_data";
+            selectQuery2.Tables.Add(table2);
+            this.Grid_DataSource.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            selectQuery2});
+            this.Grid_DataSource.ResultSchemaSerializable = resources.GetString("Grid_DataSource.ResultSchemaSerializable");
+            // 
+            // Load_DataSource
+            // 
+            this.Load_DataSource.ConnectionName = "localhost_mysql_Connection_v1.0";
+            this.Load_DataSource.Name = "Load_DataSource";
+            columnExpression9.ColumnName = "DATETIME";
+            table3.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"134\" />";
+            table3.Name = "trend_data";
+            columnExpression9.Table = table3;
+            column9.Expression = columnExpression9;
+            columnExpression10.ColumnName = "VOLTAGE";
+            columnExpression10.Table = table3;
+            column10.Expression = columnExpression10;
+            columnExpression11.ColumnName = "CURRENT";
+            columnExpression11.Table = table3;
+            column11.Expression = columnExpression11;
+            columnExpression12.ColumnName = "POWER";
+            columnExpression12.Table = table3;
+            column12.Expression = columnExpression12;
+            selectQuery3.Columns.Add(column9);
+            selectQuery3.Columns.Add(column10);
+            selectQuery3.Columns.Add(column11);
+            selectQuery3.Columns.Add(column12);
+            selectQuery3.Name = "trend_data";
+            selectQuery3.Tables.Add(table3);
+            this.Load_DataSource.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            selectQuery3});
+            this.Load_DataSource.ResultSchemaSerializable = resources.GetString("Load_DataSource.ResultSchemaSerializable");
+            // 
+            // tb_startTime
+            // 
+            this.tb_startTime.Location = new System.Drawing.Point(154, 8);
+            this.tb_startTime.Name = "tb_startTime";
+            this.tb_startTime.Size = new System.Drawing.Size(172, 21);
+            this.tb_startTime.TabIndex = 84;
+            // 
+            // tb_endTime
+            // 
+            this.tb_endTime.Location = new System.Drawing.Point(362, 9);
+            this.tb_endTime.Name = "tb_endTime";
+            this.tb_endTime.Size = new System.Drawing.Size(172, 21);
+            this.tb_endTime.TabIndex = 85;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "trend_data";
+            this.bindingSource1.DataSource = this.Battery_DataSource;
+            // 
             // TrendViewer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.tb_endTime);
+            this.Controls.Add(this.tb_startTime);
             this.Controls.Add(this.btn_Grid);
             this.Controls.Add(this.btn_Load);
             this.Controls.Add(this.btn_Battery);
@@ -545,8 +634,6 @@
             this.Controls.Add(this.chartControl3);
             this.Controls.Add(this.chartControl2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.chartControl1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "TrendViewer";
@@ -572,6 +659,7 @@
             ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -580,10 +668,8 @@
         #endregion
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.BindingSource trend_dataBindingSource;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
+        private DevExpress.DataAccess.Sql.SqlDataSource Battery_DataSource;
         private DevExpress.XtraCharts.ChartControl chartControl1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Button button5;
@@ -604,5 +690,10 @@
         private DevExpress.XtraCharts.ChartControl chartControl4;
         private DevExpress.XtraCharts.ChartControl chartControl2;
         private DevExpress.XtraCharts.ChartControl chartControl3;
+        private DevExpress.DataAccess.Sql.SqlDataSource Grid_DataSource;
+        private DevExpress.DataAccess.Sql.SqlDataSource Load_DataSource;
+        private System.Windows.Forms.DateTimePicker tb_startTime;
+        private System.Windows.Forms.DateTimePicker tb_endTime;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

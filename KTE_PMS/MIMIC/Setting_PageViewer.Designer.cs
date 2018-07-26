@@ -50,6 +50,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.tb_Active_Power_Maximum = new System.Windows.Forms.MaskedTextBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Access_To_Operating_System
@@ -111,6 +112,7 @@
             this.btn_Export_Data.Size = new System.Drawing.Size(93, 23);
             this.btn_Export_Data.TabIndex = 9;
             this.btn_Export_Data.UseVisualStyleBackColor = false;
+            this.btn_Export_Data.Visible = false;
             this.btn_Export_Data.Click += new System.EventHandler(this.btn_Export_Data_Click);
             this.btn_Export_Data.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_Apply_MouseDown);
             this.btn_Export_Data.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_Apply_MouseUp);
@@ -132,6 +134,7 @@
             this.btn_Import_Data.Size = new System.Drawing.Size(93, 23);
             this.btn_Import_Data.TabIndex = 10;
             this.btn_Import_Data.UseVisualStyleBackColor = false;
+            this.btn_Import_Data.Visible = false;
             this.btn_Import_Data.Click += new System.EventHandler(this.btn_Import_Data_Click);
             this.btn_Import_Data.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_Apply_MouseDown);
             this.btn_Import_Data.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_Apply_MouseUp);
@@ -409,12 +412,25 @@
             this.label17.Text = "유효전력설정값 최대치";
             this.label17.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(838, 400);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 19);
+            this.label1.TabIndex = 129;
+            this.label1.Text = "LEMS : V 0.01";
+            // 
             // Setting_PageViewer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
-            this.BackgroundImage = global::KTE_PMS.Properties.Resources.setting_배치;
+            this.BackgroundImage = global::KTE_PMS.Properties.Resources.setting_배치1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.tb_Active_Power_Maximum);
             this.Controls.Add(this.label17);
@@ -467,5 +483,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.MaskedTextBox tb_Active_Power_Maximum;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label1;
     }
 }

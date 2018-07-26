@@ -36,12 +36,16 @@ namespace KTE_PMS.MIMIC
             tLastRecv = new DateTime();
             tLastRecv = DateTime.Now;
 
+
+
+
             BSC_Controller_Data = new Byte[14];
             BSC1 = new Byte[60];
             timeoff = 10;
             MBmaster = new Master();
 
             MBmaster_Connect();
+
             timer.Enabled = true;
             timer.Interval = 1000;
             timer.Start();
@@ -179,7 +183,7 @@ namespace KTE_PMS.MIMIC
 
                     Thread t1 = new Thread(new ParameterizedThreadStart(ThreadProc1));
                     t1.Start(values);
-                     tLastRecv = DateTime.Now;
+                    tLastRecv = DateTime.Now;
                     Notify();
                     break;
                 case 2:
@@ -264,7 +268,7 @@ namespace KTE_PMS.MIMIC
                 Console.WriteLine(timeoff.ToString() + "    :    " + error.Message + "다시 접속해 주세요");
                 if (timeoff < 65536)
                 {
-                    timeoff = timeoff * 2;
+                    timeoff = timeoff << 1;
                 }
                 
             }
@@ -273,7 +277,7 @@ namespace KTE_PMS.MIMIC
                 Console.WriteLine(error.Message + "다시 접속해 주세요");
                 if (timeoff < 65536)
                 {
-                    timeoff = timeoff * 2;
+                    timeoff = timeoff << 1;
                 }
             }
         }
@@ -435,7 +439,6 @@ namespace KTE_PMS.MIMIC
             // BSC와 연결되어있다면 Read 시도, 그렇지 않다면 재접속 시도.
             if (Properties.Settings.Default.DEBUG) return;
 
-
             //if (MBmaster.connected)
             if (true)
             {
@@ -454,13 +457,13 @@ namespace KTE_PMS.MIMIC
             }         
             else
             {
-                timer.Enabled = false;
+                // 20180723 자동재접속을 하도록 프로그램을 수정하려고 했으나 실패함
+                // MBmaster.connected의 값을 신뢰할 수가 없음. 그래서 정상적으로 동작하지 않음
+                // 자동 재접속이 아닌 재접속 버튼을 통한 재접속을 하도록 수정
+
                 //Thread t1 = new Thread(new ThreadStart(MBmaster_Connect));
                 //t1.Start();
-                timer.Interval = timeoff * 10000;
-                timer.Enabled = true;
-
-                //MBmaster_Connect();
+                //timer.Interval = timeoff * 1000;
             }
 
             

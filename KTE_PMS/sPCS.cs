@@ -9,6 +9,7 @@ namespace KTE_PMS
         //internal short Fault_Battery_Voltage;
 
         // System Part Control
+        
         public int Stand_Grid_Mode { get; set; }
         public int Diesel_Converter_Run_Stop { get; set; }
         public int Wind_Converter_Run_Stop { get; set; }
@@ -67,6 +68,9 @@ namespace KTE_PMS
 
         public int Battery_Voltage { get; set; }
         public int Battery_Current { get; set; }
+
+
+        public bool common_alarm { get; set;  }
 
         Dictionary<int, string> d;
 

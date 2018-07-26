@@ -120,17 +120,32 @@
   <metadata name="trend_dataBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>242, 7</value>
   </metadata>
-  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="Battery_DataSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>104, 7</value>
   </metadata>
-  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9InRyZW5kX2RhdGEiPjxGaWVsZCBOYW1lPSJEQVRFVElNRSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IlZPTFRBR0UiIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0iQ1VSUkVOVCIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJQT1dFUiIgVHlwZT0iRG91YmxlIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+  <data name="Battery_DataSource.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0iQmF0dGVyeV9EYXRhU291cmNlIj48VmlldyBOYW1lPSJ0cmVuZF9kYXRhIj48RmllbGQgTmFtZT0iREFURVRJTUUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJWT0xUQUdFIiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9IkNVUlJFTlQiIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0iUE9XRVIiIFR5cGU9IkRvdWJsZSIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
   </data>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 7</value>
   </metadata>
   <metadata name="timer2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>434, 7</value>
+  </metadata>
+  <metadata name="Grid_DataSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>521, 7</value>
+  </metadata>
+  <data name="Grid_DataSource.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0iR3JpZF9EYXRhU291cmNlIj48VmlldyBOYW1lPSJ0cmVuZF9kYXRhIj48RmllbGQgTmFtZT0iREFURVRJTUUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJWT0xUQUdFIiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9IkNVUlJFTlQiIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0iUE9XRVIiIFR5cGU9IkRvdWJsZSIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
+  </data>
+  <metadata name="Load_DataSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>659, 7</value>
+  </metadata>
+  <data name="Load_DataSource.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0iTG9hZF9EYXRhU291cmNlIj48VmlldyBOYW1lPSJ0cmVuZF9kYXRhIj48RmllbGQgTmFtZT0iREFURVRJTUUiIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJWT0xUQUdFIiBUeXBlPSJEb3VibGUiIC8+PEZpZWxkIE5hbWU9IkNVUlJFTlQiIFR5cGU9IkRvdWJsZSIgLz48RmllbGQgTmFtZT0iUE9XRVIiIFR5cGU9IkRvdWJsZSIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
+  </data>
+  <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>807, 7</value>
   </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

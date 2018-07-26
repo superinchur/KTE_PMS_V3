@@ -24,9 +24,9 @@ namespace KTE_PMS.MIMIC
         {
             InitializeComponent();
 
-            timer1.Enabled = true;
-            timer1.Interval = 2000;
-            timer1.Start();
+            ControlTimer.Enabled = true;
+            ControlTimer.Interval = 2000;
+            ControlTimer.Start();
 
 
 
@@ -41,16 +41,90 @@ namespace KTE_PMS.MIMIC
 
             lb_Power_Set.Text = String.Format("{0:0.0}", Repository.Instance.remote_power / 10);
             esS_Scheduler1.Color_Update();
-
+            
+            Display_Button_Color();
         }
 
 
+
+        private void Display_Button_Color()
+        {
+            if (Repository.Instance.GnEPS_PCS.Authority_PMS)
+            {
+                btn_uPMS.Image = null;
+                btn_LEMS.Image = ImageResize.ResizeImage(Properties.Resources.LEMS_on_G_1, btn_LEMS.Width, btn_LEMS.Height);
+            }
+            else
+            {
+                btn_uPMS.Image = ImageResize.ResizeImage(Properties.Resources.uPMS_on_G_1, btn_uPMS.Width, btn_uPMS.Height);
+                btn_LEMS.Image = null;
+
+            }
+
+            if (Repository.Instance.current_pcs_mode == 1)
+            {
+                btn_PeakCutMode.Image = null;
+                btn_ChargingMode.Image = null;
+                btn_DisChargingMode.Image = null;
+                btn_CustomMode.Image = null;
+            }
+            else if (Repository.Instance.current_pcs_mode == 2)
+            {
+                btn_PeakCutMode.Image = null;
+                btn_ChargingMode.Image = ImageResize.ResizeImage(Properties.Resources.충전_on_G_1, btn_ChargingMode.Width, btn_ChargingMode.Height);
+                btn_DisChargingMode.Image = null;
+                btn_CustomMode.Image = null;
+            }
+            else if (Repository.Instance.current_pcs_mode == 3)
+            {
+                btn_PeakCutMode.Image = null;
+                btn_ChargingMode.Image = null;
+                btn_DisChargingMode.Image = ImageResize.ResizeImage(Properties.Resources.방전_on_G_1, btn_DisChargingMode.Width, btn_DisChargingMode.Height);
+                btn_CustomMode.Image = null;
+            }
+            else if (Repository.Instance.current_pcs_mode == 4)
+            {
+                btn_PeakCutMode.Image = ImageResize.ResizeImage(Properties.Resources.피크저감_on_G_1, btn_PeakCutMode.Width, btn_PeakCutMode.Height);
+                btn_ChargingMode.Image = null;
+                btn_DisChargingMode.Image = null;
+                btn_CustomMode.Image = null;
+            }
+            else if (Repository.Instance.current_pcs_mode == 5)
+            {
+                btn_PeakCutMode.Image = null;
+                btn_ChargingMode.Image = null;
+                btn_DisChargingMode.Image = null;
+                btn_CustomMode.Image = ImageResize.ResizeImage(Properties.Resources.사용자정의_on_G_1, btn_CustomMode.Width, btn_CustomMode.Height);
+            }
+        }
+
+        private void tb_Power_Set_TextChanged(object sender, EventArgs e)
+        {
+        }
 
         private void tb_Power_Set_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-
+            if (tb_Power_Set.MaskFull)
+            {
+                tb_Power_Set.Enabled = false;
+                tb_Power_Set.Enabled = true;
+                //MessageBox.Show("모든 사항이 입력되었습니다. 추가입력이 불가합니다");
+            }
+            else if (e.Position == tb_Power_Set.Mask.Length)
+            {
+                MessageBox.Show("마스크 위치를 넘어섰습니다. 입력이 불가합니다");
+            }
+            else
+            {
+                MessageBox.Show("숫자만 입력해야 합니다. 입력이 불가합니다");
+            }
         }
 
+
+        private void tb_Power_Set_Leave(object sender, EventArgs e)
+        {
+
+        }
         // ----------------------------------------------
         // 2018-07-10 
         // Parameter로 설정된 Active_Power값을 검사하고
@@ -98,6 +172,11 @@ namespace KTE_PMS.MIMIC
             }
         }
 
+        private void tb_Power_Set_Validated(object sender, EventArgs e)
+        {
+
+        }
+
 
         private void ControlViewer_Load(object sender, EventArgs e)
         {
@@ -130,30 +209,45 @@ namespace KTE_PMS.MIMIC
                 // 현재 피크저감 모드는 어떤 식으로 할지 명확하게 정의가 안되어서 주석처리를 해놨음
                 // -------------------------------------------------------------------------------------
                 /*
-                Repository.Instance.p_setting.Charging_StartTime = new TimeSpan(08, 00, 00);
-                Repository.Instance.p_setting.Charging_EndTime = new TimeSpan(12, 00, 00);
-                Repository.Instance.p_setting.Discharging_StartTime = new TimeSpan(16, 00, 00);
-                Repository.Instance.p_setting.Discharging_EndTime = new TimeSpan(20, 00, 00);
+                Repository.Instance.Charging_StartTime = new TimeSpan(08, 00, 00);
+                Repository.Instance.Charging_EndTime = new TimeSpan(12, 00, 00);
+                Repository.Instance.Discharging_StartTime = new TimeSpan(16, 00, 00);
+                Repository.Instance.Discharging_EndTime = new TimeSpan(20, 00, 00);
                 */
+
+
+
                 Repository.Instance.Set_Scheduler_Setting
                 (
-                Repository.Instance.Charging_StartTime,
-                Repository.Instance.Charging_EndTime,
-                Repository.Instance.Discharging_StartTime,
-                Repository.Instance.Discharging_EndTime
+                new TimeSpan(08, 00, 00),
+                new TimeSpan(12, 00, 00),
+                new TimeSpan(16, 00, 00),
+                new TimeSpan(20, 00, 00)
                 );
                 // MainViewer에 있는 Scheduler를 위한 항목
                 esS_Scheduler1.Color_Update();
-                
-                Repository.Instance.p_control.esS_Scheduler1.Color_Update();
-                
+
+                // 피크저감 모드로 지정
+                Repository.Instance.current_pcs_mode = 4;
+
             }
+        }
+
+        private void btn_CustomMode_Click(object sender, EventArgs e)
+        {
+            Popup_Scheduling a = new Popup_Scheduling();
+            a.ShowDialog();
+            // Popup_Scheduling에서 물어보도록 하자
         }
 
         private void btn_ChargingMode_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("충전 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                // 180725 김보경 차장의 요청으로 충전모드는
+                // Scheduling Time 을 바꾸는 것이 아닌 강제로 충전비트를 내 보내는 것으로 다시 복구한다.
+                // 
+                /*
                 Repository.Instance.Charging_StartTime = new TimeSpan(00, 00, 00);
                 Repository.Instance.Charging_EndTime = new TimeSpan(24, 00, 00);
                 Repository.Instance.Discharging_StartTime = new TimeSpan(00, 00, 00);
@@ -164,9 +258,12 @@ namespace KTE_PMS.MIMIC
                     Repository.Instance.Charging_EndTime,
                     Repository.Instance.Discharging_StartTime,
                     Repository.Instance.Discharging_EndTime);
-
                 // MainViewer에 있는 Scheduler를 위한 항목
                 esS_Scheduler1.Color_Update();
+                */
+                // 강제 충전모드로 지정
+                Repository.Instance.pmdviewer.Control_Charge();
+                Repository.Instance.current_pcs_mode = 2;
             }
         }
 
@@ -174,6 +271,10 @@ namespace KTE_PMS.MIMIC
         {
             if (MessageBox.Show("방전 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                // 180725 김보경 차장의 요청으로 충전모드는
+                // Scheduling Time 을 바꾸는 것이 아닌 강제로 충전비트를 내 보내는 것으로 다시 복구한다.
+                // 
+                /*
                 Repository.Instance.Charging_StartTime = new TimeSpan(00, 00, 00);
                 Repository.Instance.Charging_EndTime = new TimeSpan(00, 00, 00);
                 Repository.Instance.Discharging_StartTime = new TimeSpan(00, 00, 00);
@@ -187,37 +288,11 @@ namespace KTE_PMS.MIMIC
 
                 // MainViewer에 있는 Scheduler를 위한 항목
                 esS_Scheduler1.Color_Update();
-            }
-        }
-
-        private void btn_CustomMode_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("사용자 정의 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                // -------------------------------------------------------------------------------------
-                // 180710
-                // TODO : 현재 사용자 정의 모드는 어떤 식으로 할지 명확하게 정의가 안되어서 주석처리를 해놨음
-                // -------------------------------------------------------------------------------------
-                /*
-                Repository.Instance.p_setting.Charging_StartTime = new TimeSpan(08, 00, 00);
-                Repository.Instance.p_setting.Charging_EndTime = new TimeSpan(12, 00, 00);
-                Repository.Instance.p_setting.Discharging_StartTime = new TimeSpan(16, 00, 00);
-                Repository.Instance.p_setting.Discharging_EndTime = new TimeSpan(20, 00, 00);
                 */
-
-
-                Repository.Instance.Set_Scheduler_Setting(
-                Repository.Instance.Charging_StartTime,
-                Repository.Instance.Charging_EndTime,
-                Repository.Instance.Discharging_StartTime,
-                Repository.Instance.Discharging_EndTime);
-
-
-                // MainViewer에 있는 Scheduler를 위한 항목
-                esS_Scheduler1.Color_Update();
+                Repository.Instance.pmdviewer.Control_Discharge();
+                Repository.Instance.current_pcs_mode = 3;
             }
         }
-
         private void tb_Charging_Stop_SOC_Leave(object sender, EventArgs e)
         {
 

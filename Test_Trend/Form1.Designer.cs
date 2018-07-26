@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery5 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            DevExpress.XtraCharts.XYDiagram xyDiagram5 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView5 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideStackedBar3DSeriesView sideBySideStackedBar3DSeriesView1 = new DevExpress.XtraCharts.SideBySideStackedBar3DSeriesView();
             this.trend_dataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
@@ -55,9 +57,11 @@
             this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trend_dataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBar3DSeriesView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ds)).BeginInit();
@@ -72,11 +76,11 @@
             // 
             this.sqlDataSource1.ConnectionName = "localhost_mysql_Connection";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery5.Name = "trend_data";
-            customSqlQuery5.Sql = "select `trend_data`.`DATETIME`,\r\n       `trend_data`.`VOLTAGE`\r\n  from `trend_dat" +
+            customSqlQuery1.Name = "trend_data";
+            customSqlQuery1.Sql = "select `trend_data`.`DATETIME`,\r\n       `trend_data`.`VOLTAGE`\r\n  from `trend_dat" +
     "a` `trend_data`\r\n  limit 1000";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery5});
+            customSqlQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // button1
@@ -92,42 +96,45 @@
             // chartControl1
             // 
             this.chartControl1.DataSource = this.trend_dataBindingSource;
-            xyDiagram5.AxisX.Alignment = DevExpress.XtraCharts.AxisAlignment.Zero;
-            xyDiagram5.AxisX.CrosshairAxisLabelOptions.EnableAntialiasing = DevExpress.Utils.DefaultBoolean.False;
-            xyDiagram5.AxisX.DateTimeScaleOptions.AutoGrid = false;
-            xyDiagram5.AxisX.DateTimeScaleOptions.GridAlignment = DevExpress.XtraCharts.DateTimeGridAlignment.Minute;
-            xyDiagram5.AxisX.DateTimeScaleOptions.ScaleMode = DevExpress.XtraCharts.ScaleMode.Continuous;
-            xyDiagram5.AxisX.ScaleBreakOptions.Style = DevExpress.XtraCharts.ScaleBreakStyle.Straight;
-            xyDiagram5.AxisX.StickToEnd = true;
-            xyDiagram5.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram5.AxisX.VisualRange.Auto = false;
-            xyDiagram5.AxisX.VisualRange.AutoSideMargins = false;
-            xyDiagram5.AxisX.VisualRange.MaxValueSerializable = "06/15/2018 13:01:00.000";
-            xyDiagram5.AxisX.VisualRange.MinValueSerializable = "06/15/2018 12:52:00.000";
-            xyDiagram5.AxisX.VisualRange.SideMarginsValue = 10D;
-            xyDiagram5.AxisX.WholeRange.Auto = false;
-            xyDiagram5.AxisX.WholeRange.AutoSideMargins = false;
-            xyDiagram5.AxisX.WholeRange.MaxValueSerializable = "06/15/2018 13:01:00.000";
-            xyDiagram5.AxisX.WholeRange.MinValueSerializable = "06/15/2018 12:52:00.000";
-            xyDiagram5.AxisX.WholeRange.SideMarginsValue = 10D;
-            xyDiagram5.AxisY.VisibleInPanesSerializable = "-1";
-            xyDiagram5.DependentAxesYRange = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram5.EnableAxisXScrolling = true;
-            xyDiagram5.EnableAxisXZooming = true;
-            xyDiagram5.EnableAxisYScrolling = true;
-            xyDiagram5.EnableAxisYZooming = true;
-            this.chartControl1.Diagram = xyDiagram5;
+            xyDiagram1.AxisX.Alignment = DevExpress.XtraCharts.AxisAlignment.Zero;
+            xyDiagram1.AxisX.CrosshairAxisLabelOptions.EnableAntialiasing = DevExpress.Utils.DefaultBoolean.False;
+            xyDiagram1.AxisX.DateTimeScaleOptions.AutoGrid = false;
+            xyDiagram1.AxisX.DateTimeScaleOptions.GridAlignment = DevExpress.XtraCharts.DateTimeGridAlignment.Minute;
+            xyDiagram1.AxisX.DateTimeScaleOptions.ScaleMode = DevExpress.XtraCharts.ScaleMode.Continuous;
+            xyDiagram1.AxisX.ScaleBreakOptions.Style = DevExpress.XtraCharts.ScaleBreakStyle.Straight;
+            xyDiagram1.AxisX.StickToEnd = true;
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisX.VisualRange.Auto = false;
+            xyDiagram1.AxisX.VisualRange.AutoSideMargins = false;
+            xyDiagram1.AxisX.VisualRange.MaxValueSerializable = "06/15/2018 13:01:00.000";
+            xyDiagram1.AxisX.VisualRange.MinValueSerializable = "06/15/2018 12:52:00.000";
+            xyDiagram1.AxisX.VisualRange.SideMarginsValue = 10D;
+            xyDiagram1.AxisX.WholeRange.Auto = false;
+            xyDiagram1.AxisX.WholeRange.AutoSideMargins = false;
+            xyDiagram1.AxisX.WholeRange.MaxValueSerializable = "06/15/2018 13:01:00.000";
+            xyDiagram1.AxisX.WholeRange.MinValueSerializable = "06/15/2018 12:52:00.000";
+            xyDiagram1.AxisX.WholeRange.SideMarginsValue = 10D;
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram1.DependentAxesYRange = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.EnableAxisXScrolling = true;
+            xyDiagram1.EnableAxisXZooming = true;
+            xyDiagram1.EnableAxisYScrolling = true;
+            xyDiagram1.EnableAxisYZooming = true;
+            this.chartControl1.Diagram = xyDiagram1;
             this.chartControl1.Legend.Name = "Default Legend";
             this.chartControl1.Location = new System.Drawing.Point(65, 45);
             this.chartControl1.Name = "chartControl1";
-            series5.ArgumentDataMember = "DATETIME";
-            series5.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
-            series5.DataSource = this.trend_dataBindingSource;
-            series5.Name = "Series 1";
-            series5.ValueDataMembersSerializable = "VOLTAGE";
-            series5.View = lineSeriesView5;
+            series1.ArgumentDataMember = "DATETIME";
+            series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
+            series1.DataSource = this.trend_dataBindingSource;
+            series1.Name = "Series 1";
+            series1.ValueDataMembersSerializable = "VOLTAGE";
+            series1.View = lineSeriesView1;
+            series2.Name = "Series 2";
+            series2.View = sideBySideStackedBar3DSeriesView1;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series5};
+        series1,
+        series2};
             this.chartControl1.Size = new System.Drawing.Size(605, 297);
             this.chartControl1.TabIndex = 0;
             // 
@@ -281,9 +288,11 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.trend_dataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBar3DSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
