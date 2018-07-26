@@ -41,7 +41,7 @@ namespace KTE_PMS.MIMIC
             timeoff = 10;
             MBmaster = new Master();
 
-            
+            MBmaster_Connect();
             timer.Enabled = true;
             timer.Interval = 1000;
             timer.Start();
@@ -179,7 +179,7 @@ namespace KTE_PMS.MIMIC
 
                     Thread t1 = new Thread(new ParameterizedThreadStart(ThreadProc1));
                     t1.Start(values);
-                    tLastRecv = DateTime.Now;
+                     tLastRecv = DateTime.Now;
                     Notify();
                     break;
                 case 2:

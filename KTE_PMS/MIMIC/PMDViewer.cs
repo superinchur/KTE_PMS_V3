@@ -66,7 +66,7 @@ namespace KTE_PMS.MIMIC
             txtIP1.Text = "17";
             txtIP2.Text = "91";
             txtIP3.Text = "30";
-            txtIP4.Text = "10";
+            txtIP4.Text = "11";
 
             //-----------------------------
             // Modbus TCP - uPMD 통신 시도 //
@@ -80,13 +80,13 @@ namespace KTE_PMS.MIMIC
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            PMS_Scheduling_Operation();
+            //PMS_Scheduling_Operation();
 
-            if (master.connected)
-            //if(true)
+            //if (master.connected)
+            if(true)
             {
                 // Mode에 따라서 동작하도록 코드 수정
-                PMS_Scheduling_Operation();
+                //PMS_Scheduling_Operation();
             }
             else
             {

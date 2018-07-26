@@ -38,7 +38,7 @@ namespace KTE_PMS.MIMIC
 
         public void ObserverUpdate()
         {
-            /*
+
             switch (tabPane1.SelectedPageIndex)
             {
                 case 0:
@@ -57,7 +57,7 @@ namespace KTE_PMS.MIMIC
                     ObserverUpdate_BMS_Rack2();
                     break;
             }
-            */
+
         }
 
         private void ObserverUpdate_PCS()
