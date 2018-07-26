@@ -51,7 +51,7 @@ namespace KTE_PMS.MIMIC
             WriteVoltageBuffers = new byte[2];
             WriteCurrentBuffers = new byte[2];
 
-           
+            MBmaster_Connect();
 
             timer.Interval = 1000;
             timer.Enabled = true;
@@ -79,15 +79,19 @@ namespace KTE_PMS.MIMIC
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (master.connected)
+            // 20180723 자동재접속을 하도록 프로그램을 수정하려고 했으나 실패함
+            // MBmaster.connected의 값을 신뢰할 수가 없음. 그래서 정상적으로 동작하지 않음
+            // 자동 재접속이 아닌 재접속 버튼을 통한 재접속을 하도록 수정
+            if (true)
+            //if (master.connected)
             {
                 // Mode에 따라서 동작하도록 코드 수정
                 PMS_Scheduling_Operation();
             }
             else
             {
-                Thread t1 = new Thread(new ThreadStart(MBmaster_Connect));
-                t1.Start();
+                //Thread t1 = new Thread(new ThreadStart(MBmaster_Connect));
+                //t1.Start();
 
             }
             timer.Interval = timeoff * 1000;
@@ -101,12 +105,12 @@ namespace KTE_PMS.MIMIC
             }
             else
             {
-                if (Repository.Instance.current_pcs_mode == 2)
+                if (Repository.Instance.current_pcs_mode == 2 || Repository.Instance.current_pcs_mode == 3)
                 {
                     //Manual Mode
 
                 }
-                else if (Repository.Instance.current_pcs_mode == 3)
+                else if (Repository.Instance.current_pcs_mode == 4 || Repository.Instance.current_pcs_mode == 5)
                 {
                     // 충전모드라면 충전신호를 보낸다. 충전모드가 아니라면 충전신호를 지속적으로 보낸다
                     // 방전모드라면 방전신호를 보낸다. 방전모드가 아니라면 방전신호를 지속적으로 보낸다.
@@ -119,7 +123,7 @@ namespace KTE_PMS.MIMIC
                         // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.  
                         if (!(Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
                         {
-                            if (Repository.Instance.samsung_bcs.System_SOC < Repository.Instance.p_setting.Charging_Stop_SOC)
+                            if (Repository.Instance.samsung_bcs.System_SOC < Repository.Instance.p_control.Charging_Stop_SOC)
                             {
                                 Repository.Instance.pmdviewer.Control_Charge();
                             }
@@ -130,15 +134,32 @@ namespace KTE_PMS.MIMIC
                         // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.
                         if (!(Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
                         {
-                            if (Repository.Instance.samsung_bcs.System_SOC > Repository.Instance.p_setting.Discharging_Stop_SOC)
+                            if (Repository.Instance.samsung_bcs.System_SOC > Repository.Instance.p_control.Discharging_Stop_SOC)
                             {
                                 Repository.Instance.pmdviewer.Control_Discharge();
                             }
                         }
                     }
                     else
-                    { 
-                        if ((Repository.Instance.GnEPS_PCS.Mode_Discharging == 1) || (Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
+                    {
+                        // nothing to do
+                        // 만약 충전신호나 방전신호가 가고있다면 0으로 바꿔준다.
+
+                        if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.p_control.Charging_Stop_SOC)
+                        {
+                            if (!(Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
+                            {
+                                Repository.Instance.pmdviewer.Control_Charge();
+                            }
+                        }
+                        else if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.p_control.Discharging_Stop_SOC)
+                        {
+                            if (!(Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
+                            {
+                                Repository.Instance.pmdviewer.Control_Discharge();
+                            }
+                        }
+                        else if ((Repository.Instance.GnEPS_PCS.Mode_Discharging == 1) || (Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
                         {
                             Repository.Instance.pmdviewer.Control_Idle();
                         }
@@ -312,6 +333,7 @@ namespace KTE_PMS.MIMIC
             }
             catch (Exception exc)
             {
+                MessageBox.Show("PCS와의 통신 연결 상태를 확인해주십시오");
                 Console.WriteLine(exc.Message);
             }
 

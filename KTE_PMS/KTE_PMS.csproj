@@ -1467,5 +1467,62 @@
   <ItemGroup>
     <None Include="Resources\alarm_on_1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MIMIC2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\아이콘_선2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SOC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Textbox_기본2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SOC1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\충전_on_G_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\피크저감_on_G_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uPMS_on_G_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LEMS_on_G_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\방전_on_G_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\사용자정의_on_G_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\제어_on_G_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lode_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\전압전류_RST.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting_배치1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

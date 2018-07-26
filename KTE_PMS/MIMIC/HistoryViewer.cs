@@ -20,6 +20,12 @@ namespace KTE_PMS.MIMIC
             timer1.Enabled = true;
             timer1.Interval = 1000;
             timer1.Start();
+
+            tb_startTimePicker.Format = DateTimePickerFormat.Custom;
+            tb_startTimePicker.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            tb_endTimePicker.Format = DateTimePickerFormat.Custom;
+            tb_endTimePicker.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+
         }
 
 
@@ -59,13 +65,13 @@ namespace KTE_PMS.MIMIC
                 }
                 else
                 {
-                    DateTime arg1 = DateTime.Parse(tb_startTime.Text.Trim());
-                    DateTime arg2 = DateTime.Parse(tb_endTime.Text.Trim());
-                    dataSet1 = Repository.Instance.dbConnector.Get_Product(arg1.ToString(), arg2.ToString());
+                    string arg1 = tb_startTimePicker.Text;
+                    string arg2 = tb_endTimePicker.Text;
+                    dataSet1 = Repository.Instance.dbConnector.Get_Product(arg1, arg2);
                 }
 
                 dataGridView1.DataSource = dataSet1.Tables[0];
-                dataGridView1.Columns[0].DefaultCellStyle.Format = "yyyy/MM/dd HH:mm:ss";
+                dataGridView1.Columns[0].DefaultCellStyle.Format = "yyyy-MM-dd HH:mm:ss";
                 dataGridView1.Columns[0].Width = 180;
                 dataGridView1.Columns[0].ReadOnly = true;
 
@@ -146,42 +152,36 @@ namespace KTE_PMS.MIMIC
 
             if (diff == 1440)
             {
-                dt1 = DateTime.Now.AddDays(-1);
+                //dt1 = DateTime.Now.AddDays(-1);
+                dt1 = DateTime.Now;
                 dt2 = DateTime.Now;
 
+
+                tb_startTimePicker.Text = dt1.Year.ToString("D4") + "-" + dt1.Month.ToString("D2") + "-" + dt1.Day.ToString("D2") + " 00:00:00";
+                tb_endTimePicker.Text = dt2.Year.ToString("D4") + "-" + dt2.Month.ToString("D2") + "-" + dt2.Day.ToString("D2") + " 23:59:59";
             }
             else if (diff == 43200)
             {
-                dt1 = DateTime.Now.AddMonths(-1);
+                //dt1 = DateTime.Now.AddMonths(-1);
+                dt1 = DateTime.Now;
                 dt2 = DateTime.Now;
+
+
+                tb_startTimePicker.Text = dt1.Year.ToString("D4") + "-" + dt1.Month.ToString("D2") + "-" + "01" + " 00:00:00";
+                tb_endTimePicker.Text = dt2.Year.ToString("D4") + "-" + dt2.Month.ToString("D2") + "-" + dt2.Day.ToString("D2") + " 23:59:59";
             }
             else
             {
                 dt1 = DateTime.Now.AddMinutes(-1 * diff);
                 dt2 = DateTime.Now;
+
+                tb_startTimePicker.Text = dt1.Year.ToString("D4") + "-" + dt1.Month.ToString("D2") + "-" + dt1.Day.ToString("D2") + " 00:00:00";
+                tb_endTimePicker.Text = dt2.Year.ToString("D4") + "-" + dt2.Month.ToString("D2") + "-" + dt2.Day.ToString("D2") + " 23:59:59";
             }
-            tb_startTime.Text = dt1.Year.ToString("D4") + "년" + dt1.Month.ToString("D2") + "월" + dt1.Day.ToString("D2") + "일 " + dt1.Hour.ToString("D2") + "시" + dt1.Minute.ToString("D2") + "분";
-            tb_endTime.Text = dt2.Year.ToString("D4") + "년" + dt2.Month.ToString("D2") + "월" + dt2.Day.ToString("D2") + "일 " + dt2.Hour.ToString("D2") + "시" + dt2.Minute.ToString("D2") + "분";
+
 
         }
 
-    private void tb_startTime_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            MaskedTextBox tb = (MaskedTextBox)sender;
-
-            if (tb.MaskFull)
-            {
-                System.Windows.MessageBox.Show("모든 사항이 입력되었습니다. 추가입력이 불가합니다");
-            }
-            else if (e.Position == tb.Mask.Length)
-            {
-                System.Windows.MessageBox.Show("마스크 위치를 넘어섰습니다. 입력이 불가합니다");
-            }
-            else
-            {
-                System.Windows.MessageBox.Show("숫자만 입력해야 합니다. 입력이 불가합니다");
-            }
-        }
 
         private void btn_Update_1Day_Click(object sender, EventArgs e)
         {
@@ -309,5 +309,43 @@ namespace KTE_PMS.MIMIC
             button.Image = null;
         }
         #endregion
+
+        private void tb_startTime_Click(object sender, EventArgs e)
+        {
+            DateTimePicker picker = new DateTimePicker();
+
+            picker.Format = DateTimePickerFormat.Custom;
+            picker.CustomFormat = "yyyy월mm년dd일 hh:mm:ss";
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown4_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

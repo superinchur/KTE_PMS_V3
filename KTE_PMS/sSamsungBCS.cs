@@ -57,7 +57,7 @@
         public ushort System_Alarm_Status { get; set; } // 31
         public double System_Power { get; set; } // calculated
 
-
+        public bool common_alarm { get; set; } // calculated
         #endregion
 
         public Samsung_BMS_Rack Rack1;

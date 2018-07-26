@@ -87,30 +87,48 @@ namespace KTE_PMS
         {
             switch (Repository.Instance.current_pcs_mode)
             {
+                case 0:
+                    //lb_Current_PCS_MODE.Visible = true;
+                    //lb_Current_PCS_MODE.Text = "Error";
+                    break;
                 case 1:
-                    lb_Current_PCS_MODE.Visible = true;
-                    lb_Current_PCS_MODE.Text = "IDLE";
+                    //lb_Current_PCS_MODE.Visible = true;
+                    //lb_Current_PCS_MODE.Text = "IDLE";
                     break;
                 case 2:
-                    lb_Current_PCS_MODE.Visible = true;
-                    lb_Current_PCS_MODE.Text = "메뉴얼모드";
+                    //lb_Current_PCS_MODE.Visible = true;
+                    //lb_Current_PCS_MODE.Text = "";
+                    // 강제 충전 모드
                     break;
                 case 3:
-                    lb_Current_PCS_MODE.Visible = true;
-                    lb_Current_PCS_MODE.Text = "스케줄모드";
+                    //lb_Current_PCS_MODE.Visible = true;
+                    //lb_Current_PCS_MODE.Text = "";
+                    // 강제 방전 모드.
+                    break;
+                case 4:
+                    //lb_Current_PCS_MODE.Visible = true;
+                    //lb_Current_PCS_MODE.Text = "스케줄모드";
+                    //스케줄 모드라는 것은 사용자가 정의한 스케줄대로 동작하는것을 말한다/
+                    //피크컷 모드인 경우에는 고정된 시간으로 동작하는 모드
+                    break;
+                case 5:
+                    //lb_Current_PCS_MODE.Visible = true;
+                    //lb_Current_PCS_MODE.Text = "스케줄모드";
+                    //스케줄 모드라는 것은 사용자가 정의한 스케줄대로 동작하는것을 말한다/
+                    //사용자정의 모드는 사용자가 정의한 시간
                     break;
                 default:
-                    lb_Current_PCS_MODE.Visible = false;
+                    //lb_Current_PCS_MODE.Visible = false;
                     break;
             }
         }
 
         private void Display_Current_Time()
         {
-            label6.Text = DateTime.Now.Date.ToString();
+            label6.Text = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
+            label1.Text = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString() + ":" + DateTime.Now.Second.ToString();
 
-            DateTime.Now.ToLocalTime().ToString();
-                
+
 
         }
 
@@ -438,16 +456,23 @@ namespace KTE_PMS
 
         private void btn_Reconnect_Click(object sender, EventArgs e)
         {
-            Repository.Instance.bms_dispose();
+            if (MessageBox.Show("BMS와의 연결을 재시작 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Repository.Instance.bms_dispose();
 
-            //Repository.Instance.Dispose();
-            //Repository.Instance.Reset();
+                //Repository.Instance.Dispose();
+                Repository.Instance.Reset();
+            }
+            
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Repository.Instance.pmd_dispose();
+            if (MessageBox.Show("PCS와의 연결을 재시작 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Repository.Instance.pmd_dispose();
+            }
         }
 
         private void btn_Monitor_OFF_MouseDown(object sender, MouseEventArgs e)

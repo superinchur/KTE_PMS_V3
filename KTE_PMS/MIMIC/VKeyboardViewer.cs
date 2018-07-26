@@ -88,7 +88,17 @@ namespace KTE_PMS.MIMIC
 
         private void BTN_CLEAR_Click(object sender, EventArgs e)
         {
-            tb_Password.Text = tb_Password.Text.Substring(0, (tb_Password.Text.Length - 1));
+            try
+            {
+                if (tb_Password.Text.Length != 0)
+                {
+                    tb_Password.Text = tb_Password.Text.Substring(0, (tb_Password.Text.Length - 1));
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
        
         private void BTN_ENTER_Click(object sender, EventArgs e)

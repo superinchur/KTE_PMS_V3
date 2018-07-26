@@ -73,6 +73,7 @@ namespace KTE_PMS
         public TimeSpan Discharging_EndTime { get; set; }
 
 
+
         #endregion 
 
         // ---------------------------------------------------------
@@ -272,11 +273,11 @@ namespace KTE_PMS
             observers = p_main;
             pmdviewer.AddObserver(observers);
 
-            observers = p_measure_PCS_Fault;
-            pmdviewer.AddObserver(observers);
+            //observers = p_measure_PCS_Fault;
+            //pmdviewer.AddObserver(observers);
 
-            observers = p_measure_PCS;
-            pmdviewer.AddObserver(observers);
+            //observers = p_measure_PCS;
+            //pmdviewer.AddObserver(observers);
         }
 
         private void Allocate_Observer_to_bms_mimic()

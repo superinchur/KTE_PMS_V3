@@ -44,6 +44,8 @@ namespace KTE_PMS.MIMIC
             timeoff = 10;
             MBmaster = new Master();
 
+            MBmaster_Connect();
+
             timer.Enabled = true;
             timer.Interval = 1000;
             timer.Start();
@@ -437,7 +439,8 @@ namespace KTE_PMS.MIMIC
             // BSC와 연결되어있다면 Read 시도, 그렇지 않다면 재접속 시도.
             if (Properties.Settings.Default.DEBUG) return;
 
-            if (MBmaster.connected)
+            //if (MBmaster.connected)
+            if (true)
             {
                 //-----------------------------------------------------------
                 try
@@ -454,9 +457,13 @@ namespace KTE_PMS.MIMIC
             }         
             else
             {
-                Thread t1 = new Thread(new ThreadStart(MBmaster_Connect));
-                t1.Start();
-                timer.Interval = timeoff * 1000;
+                // 20180723 자동재접속을 하도록 프로그램을 수정하려고 했으나 실패함
+                // MBmaster.connected의 값을 신뢰할 수가 없음. 그래서 정상적으로 동작하지 않음
+                // 자동 재접속이 아닌 재접속 버튼을 통한 재접속을 하도록 수정
+
+                //Thread t1 = new Thread(new ThreadStart(MBmaster_Connect));
+                //t1.Start();
+                //timer.Interval = timeoff * 1000;
             }
 
             

@@ -35,16 +35,28 @@ namespace KTE_PMS.Popup
                 {
 
                     TimeSpan current = DateTime.Now.TimeOfDay;
+                    /*
                     TimeSpan StartTime1 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
                     TimeSpan EndTime1 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_End);
 
                     TimeSpan StartTime2 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
                     TimeSpan EndTime2 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
-
                     Repository.Instance.Charging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
                     Repository.Instance.Charging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_End);
                     Repository.Instance.Discharging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
                     Repository.Instance.Discharging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
+                    */
+                    TimeSpan StartTime1 = new TimeSpan(Convert.ToInt16(t11.Value), Convert.ToInt16(t12.Value), 0);
+                    TimeSpan EndTime1 = new TimeSpan(Convert.ToInt16(t13.Value), Convert.ToInt16(t14.Value), 0);
+
+                    TimeSpan StartTime2 = new TimeSpan(Convert.ToInt16(t21.Value), Convert.ToInt16(t22.Value), 0);
+                    TimeSpan EndTime2 = new TimeSpan(Convert.ToInt16(t23.Value), Convert.ToInt16(t24.Value), 0);
+
+                    Repository.Instance.Charging_StartTime = StartTime1;
+                    Repository.Instance.Charging_EndTime = EndTime1;
+                    Repository.Instance.Discharging_StartTime = StartTime2;
+                    Repository.Instance.Discharging_EndTime = EndTime2;
+
 
                     Repository.Instance.Set_Scheduler_Setting(StartTime1, EndTime1, StartTime2, EndTime2);
 
@@ -58,6 +70,13 @@ namespace KTE_PMS.Popup
                         MessageBox.Show("방전 시간과 충전 시간이 겹칩니다. 다시 설정하여 주십시오");
                         return;
                     }
+
+                    Repository.Instance.Set_Scheduler_Setting(
+                    Repository.Instance.Charging_StartTime,
+                    Repository.Instance.Charging_EndTime,
+                    Repository.Instance.Discharging_StartTime,
+                    Repository.Instance.Discharging_EndTime);
+
                     this.Dispose();
 
                 }
@@ -128,16 +147,23 @@ namespace KTE_PMS.Popup
 
         private void Popup_Scheduling_Load(object sender, EventArgs e)
         {
-            
 
+            t11.Value = Repository.Instance.Charging_StartTime.Hours;
+            t12.Value = Repository.Instance.Charging_StartTime.Minutes;
+            t13.Value = Repository.Instance.Charging_EndTime.Hours;
+            t14.Value = Repository.Instance.Charging_EndTime.Minutes;
 
-
+            t21.Value = Repository.Instance.Discharging_StartTime.Hours;
+            t22.Value = Repository.Instance.Discharging_StartTime.Minutes;
+            t23.Value = Repository.Instance.Discharging_EndTime.Hours;
+            t24.Value = Repository.Instance.Discharging_EndTime.Minutes;
+            /*
             tb_Charging_Period_Start.Text = String.Format("{0:00}시{1:00}분", Repository.Instance.Charging_StartTime.Hours, Repository.Instance.Charging_StartTime.Minutes);
             tb_Charging_Period_End.Text = String.Format("{0:00}시{1:00}분", Repository.Instance.Charging_EndTime.Hours, Repository.Instance.Charging_EndTime.Minutes);
 
             tb_Discharging_Period_Start.Text = String.Format("{0:00}시{1:00}분", Repository.Instance.Discharging_StartTime.Hours, Repository.Instance.Discharging_StartTime.Minutes);
             tb_Discharging_Period_End.Text = String.Format("{0:00}시{1:00}분", Repository.Instance.Discharging_EndTime.Hours, Repository.Instance.Discharging_EndTime.Minutes);
-
+            */
         }
     }
 }
