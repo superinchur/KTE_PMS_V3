@@ -400,9 +400,10 @@ namespace KTE_PMS
             }
             if (prev_hour != today.Hour)
             {
+                
                 // 저장된 데이터를 DB에 저장한다.
                 Repository.Instance.dbConnector.Insert_Power_Hour();
-
+                Repository.Instance.dbConnector.Select_Power();
                 prev_hour = today.Hour;
             }
             if (prev_day != today.Day)

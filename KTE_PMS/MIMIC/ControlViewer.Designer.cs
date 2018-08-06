@@ -36,6 +36,11 @@ namespace KTE_PMS.MIMIC
             this.btn_Confirm_Power_Set = new System.Windows.Forms.Button();
             this.btn_Confirm_Charging_Stop_SOC = new System.Windows.Forms.Button();
             this.btn_Confirm_Discharging_Stop_SOC = new System.Windows.Forms.Button();
+            this.tableAdapterManager1 = new KTE_PMS.mssql_datasetTableAdapters.TableAdapterManager();
+            this.cover_control = new System.Windows.Forms.PictureBox();
+            this.cover_scheduling = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.cover_control)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cover_scheduling)).BeginInit();
             this.SuspendLayout();
             // 
             // ControlTimer
@@ -297,12 +302,38 @@ namespace KTE_PMS.MIMIC
             this.btn_Confirm_Discharging_Stop_SOC.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_Confirm_Power_Set_MouseDown);
             this.btn_Confirm_Discharging_Stop_SOC.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_Confirm_Power_Set_MouseUp);
             // 
+            // cover_control
+            // 
+            this.cover_control.BackColor = System.Drawing.Color.Transparent;
+            this.cover_control.Image = global::KTE_PMS.Properties.Resources.스케줄링상태_커버;
+            this.cover_control.Location = new System.Drawing.Point(29, 154);
+            this.cover_control.Name = "cover_control";
+            this.cover_control.Size = new System.Drawing.Size(277, 86);
+            this.cover_control.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cover_control.TabIndex = 124;
+            this.cover_control.TabStop = false;
+            this.cover_control.Visible = false;
+            // 
+            // cover_scheduling
+            // 
+            this.cover_scheduling.BackColor = System.Drawing.Color.Transparent;
+            this.cover_scheduling.Image = global::KTE_PMS.Properties.Resources.스케줄링상태_커버;
+            this.cover_scheduling.Location = new System.Drawing.Point(29, 276);
+            this.cover_scheduling.Name = "cover_scheduling";
+            this.cover_scheduling.Size = new System.Drawing.Size(277, 117);
+            this.cover_scheduling.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cover_scheduling.TabIndex = 123;
+            this.cover_scheduling.TabStop = false;
+            this.cover_scheduling.Visible = false;
+            // 
             // ControlViewer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = global::KTE_PMS.Properties.Resources.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.cover_control);
+            this.Controls.Add(this.cover_scheduling);
             this.Controls.Add(this.btn_Confirm_Discharging_Stop_SOC);
             this.Controls.Add(this.btn_Confirm_Charging_Stop_SOC);
             this.Controls.Add(this.btn_Confirm_Power_Set);
@@ -323,6 +354,8 @@ namespace KTE_PMS.MIMIC
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ControlViewer";
             this.Load += new System.EventHandler(this.ControlViewer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.cover_control)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cover_scheduling)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,5 +415,8 @@ namespace KTE_PMS.MIMIC
         private System.Windows.Forms.Button btn_Confirm_Charging_Stop_SOC;
         private System.Windows.Forms.Button btn_Confirm_Discharging_Stop_SOC;
         public ESS_Scheduler esS_Scheduler1;
+        private mssql_datasetTableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.PictureBox cover_control;
+        private System.Windows.Forms.PictureBox cover_scheduling;
     }
 }

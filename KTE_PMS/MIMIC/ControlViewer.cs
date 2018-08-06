@@ -53,11 +53,15 @@ namespace KTE_PMS.MIMIC
             {
                 btn_uPMS.Image = null;
                 btn_LEMS.Image = ImageResize.ResizeImage(Properties.Resources.LEMS_on_G_1, btn_LEMS.Width, btn_LEMS.Height);
+                cover_control.Visible = false;
+                cover_scheduling.Visible = false;
             }
             else
             {
                 btn_uPMS.Image = ImageResize.ResizeImage(Properties.Resources.uPMS_on_G_1, btn_uPMS.Width, btn_uPMS.Height);
                 btn_LEMS.Image = null;
+                cover_control.Visible = true;
+                cover_scheduling.Visible = true;
 
             }
 

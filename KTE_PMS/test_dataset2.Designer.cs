@@ -20,17 +20,17 @@ namespace KTE_PMS {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("mssql_dataset")]
+    [global::System.Xml.Serialization.XmlRootAttribute("test_dataset2")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class mssql_dataset : global::System.Data.DataSet {
+    public partial class test_dataset2 : global::System.Data.DataSet {
         
-        private trend_dataDataTable tabletrend_data;
+        private Battery_TrendDataTable tableBattery_Trend;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public mssql_dataset() {
+        public test_dataset2() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace KTE_PMS {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected mssql_dataset(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected test_dataset2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace KTE_PMS {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["trend_data"] != null)) {
-                    base.Tables.Add(new trend_dataDataTable(ds.Tables["trend_data"]));
+                if ((ds.Tables["Battery_Trend"] != null)) {
+                    base.Tables.Add(new Battery_TrendDataTable(ds.Tables["Battery_Trend"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace KTE_PMS {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public trend_dataDataTable trend_data {
+        public Battery_TrendDataTable Battery_Trend {
             get {
-                return this.tabletrend_data;
+                return this.tableBattery_Trend;
             }
         }
         
@@ -127,7 +127,7 @@ namespace KTE_PMS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            mssql_dataset cln = ((mssql_dataset)(base.Clone()));
+            test_dataset2 cln = ((test_dataset2)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace KTE_PMS {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["trend_data"] != null)) {
-                    base.Tables.Add(new trend_dataDataTable(ds.Tables["trend_data"]));
+                if ((ds.Tables["Battery_Trend"] != null)) {
+                    base.Tables.Add(new Battery_TrendDataTable(ds.Tables["Battery_Trend"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace KTE_PMS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabletrend_data = ((trend_dataDataTable)(base.Tables["trend_data"]));
+            this.tableBattery_Trend = ((Battery_TrendDataTable)(base.Tables["Battery_Trend"]));
             if ((initTable == true)) {
-                if ((this.tabletrend_data != null)) {
-                    this.tabletrend_data.InitVars();
+                if ((this.tableBattery_Trend != null)) {
+                    this.tableBattery_Trend.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace KTE_PMS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "mssql_dataset";
+            this.DataSetName = "test_dataset2";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/mssql_dataset.xsd";
+            this.Namespace = "http://tempuri.org/test_dataset2.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabletrend_data = new trend_dataDataTable();
-            base.Tables.Add(this.tabletrend_data);
+            this.tableBattery_Trend = new Battery_TrendDataTable();
+            base.Tables.Add(this.tableBattery_Trend);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializetrend_data() {
+        private bool ShouldSerializeBattery_Trend() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace KTE_PMS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            mssql_dataset ds = new mssql_dataset();
+            test_dataset2 ds = new test_dataset2();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,23 +270,29 @@ namespace KTE_PMS {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void trend_dataRowChangeEventHandler(object sender, trend_dataRowChangeEvent e);
+        public delegate void Battery_TrendRowChangeEventHandler(object sender, Battery_TrendRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class trend_dataDataTable : global::System.Data.TypedTableBase<trend_dataRow> {
+        public partial class Battery_TrendDataTable : global::System.Data.TypedTableBase<Battery_TrendRow> {
             
-            private global::System.Data.DataColumn columndate;
+            private global::System.Data.DataColumn columnDATETIME;
             
-            private global::System.Data.DataColumn columnvalue;
+            private global::System.Data.DataColumn columnVOLTAGE;
+            
+            private global::System.Data.DataColumn columnCURRENT;
+            
+            private global::System.Data.DataColumn columnPOWER;
+            
+            private global::System.Data.DataColumn columnACCU_POWER;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public trend_dataDataTable() {
-                this.TableName = "trend_data";
+            public Battery_TrendDataTable() {
+                this.TableName = "Battery_Trend";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -294,7 +300,7 @@ namespace KTE_PMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal trend_dataDataTable(global::System.Data.DataTable table) {
+            internal Battery_TrendDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -311,24 +317,48 @@ namespace KTE_PMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected trend_dataDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected Battery_TrendDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn dateColumn {
+            public global::System.Data.DataColumn DATETIMEColumn {
                 get {
-                    return this.columndate;
+                    return this.columnDATETIME;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn valueColumn {
+            public global::System.Data.DataColumn VOLTAGEColumn {
                 get {
-                    return this.columnvalue;
+                    return this.columnVOLTAGE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CURRENTColumn {
+                get {
+                    return this.columnCURRENT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn POWERColumn {
+                get {
+                    return this.columnPOWER;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ACCU_POWERColumn {
+                get {
+                    return this.columnACCU_POWER;
                 }
             }
             
@@ -343,46 +373,49 @@ namespace KTE_PMS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public trend_dataRow this[int index] {
+            public Battery_TrendRow this[int index] {
                 get {
-                    return ((trend_dataRow)(this.Rows[index]));
+                    return ((Battery_TrendRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event trend_dataRowChangeEventHandler trend_dataRowChanging;
+            public event Battery_TrendRowChangeEventHandler Battery_TrendRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event trend_dataRowChangeEventHandler trend_dataRowChanged;
+            public event Battery_TrendRowChangeEventHandler Battery_TrendRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event trend_dataRowChangeEventHandler trend_dataRowDeleting;
+            public event Battery_TrendRowChangeEventHandler Battery_TrendRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event trend_dataRowChangeEventHandler trend_dataRowDeleted;
+            public event Battery_TrendRowChangeEventHandler Battery_TrendRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Addtrend_dataRow(trend_dataRow row) {
+            public void AddBattery_TrendRow(Battery_TrendRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public trend_dataRow Addtrend_dataRow(System.DateTime date, float value) {
-                trend_dataRow rowtrend_dataRow = ((trend_dataRow)(this.NewRow()));
+            public Battery_TrendRow AddBattery_TrendRow(System.DateTime DATETIME, double VOLTAGE, double CURRENT, double POWER, double ACCU_POWER) {
+                Battery_TrendRow rowBattery_TrendRow = ((Battery_TrendRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        date,
-                        value};
-                rowtrend_dataRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtrend_dataRow);
-                return rowtrend_dataRow;
+                        DATETIME,
+                        VOLTAGE,
+                        CURRENT,
+                        POWER,
+                        ACCU_POWER};
+                rowBattery_TrendRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowBattery_TrendRow);
+                return rowBattery_TrendRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                trend_dataDataTable cln = ((trend_dataDataTable)(base.Clone()));
+                Battery_TrendDataTable cln = ((Battery_TrendDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -390,49 +423,58 @@ namespace KTE_PMS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new trend_dataDataTable();
+                return new Battery_TrendDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columndate = base.Columns["date"];
-                this.columnvalue = base.Columns["value"];
+                this.columnDATETIME = base.Columns["DATETIME"];
+                this.columnVOLTAGE = base.Columns["VOLTAGE"];
+                this.columnCURRENT = base.Columns["CURRENT"];
+                this.columnPOWER = base.Columns["POWER"];
+                this.columnACCU_POWER = base.Columns["ACCU_POWER"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columndate = new global::System.Data.DataColumn("date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndate);
-                this.columnvalue = new global::System.Data.DataColumn("value", typeof(float), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvalue);
+                this.columnDATETIME = new global::System.Data.DataColumn("DATETIME", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDATETIME);
+                this.columnVOLTAGE = new global::System.Data.DataColumn("VOLTAGE", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVOLTAGE);
+                this.columnCURRENT = new global::System.Data.DataColumn("CURRENT", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCURRENT);
+                this.columnPOWER = new global::System.Data.DataColumn("POWER", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPOWER);
+                this.columnACCU_POWER = new global::System.Data.DataColumn("ACCU_POWER", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACCU_POWER);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public trend_dataRow Newtrend_dataRow() {
-                return ((trend_dataRow)(this.NewRow()));
+            public Battery_TrendRow NewBattery_TrendRow() {
+                return ((Battery_TrendRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new trend_dataRow(builder);
+                return new Battery_TrendRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(trend_dataRow);
+                return typeof(Battery_TrendRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.trend_dataRowChanged != null)) {
-                    this.trend_dataRowChanged(this, new trend_dataRowChangeEvent(((trend_dataRow)(e.Row)), e.Action));
+                if ((this.Battery_TrendRowChanged != null)) {
+                    this.Battery_TrendRowChanged(this, new Battery_TrendRowChangeEvent(((Battery_TrendRow)(e.Row)), e.Action));
                 }
             }
             
@@ -440,8 +482,8 @@ namespace KTE_PMS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.trend_dataRowChanging != null)) {
-                    this.trend_dataRowChanging(this, new trend_dataRowChangeEvent(((trend_dataRow)(e.Row)), e.Action));
+                if ((this.Battery_TrendRowChanging != null)) {
+                    this.Battery_TrendRowChanging(this, new Battery_TrendRowChangeEvent(((Battery_TrendRow)(e.Row)), e.Action));
                 }
             }
             
@@ -449,8 +491,8 @@ namespace KTE_PMS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.trend_dataRowDeleted != null)) {
-                    this.trend_dataRowDeleted(this, new trend_dataRowChangeEvent(((trend_dataRow)(e.Row)), e.Action));
+                if ((this.Battery_TrendRowDeleted != null)) {
+                    this.Battery_TrendRowDeleted(this, new Battery_TrendRowChangeEvent(((Battery_TrendRow)(e.Row)), e.Action));
                 }
             }
             
@@ -458,14 +500,14 @@ namespace KTE_PMS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.trend_dataRowDeleting != null)) {
-                    this.trend_dataRowDeleting(this, new trend_dataRowChangeEvent(((trend_dataRow)(e.Row)), e.Action));
+                if ((this.Battery_TrendRowDeleting != null)) {
+                    this.Battery_TrendRowDeleting(this, new Battery_TrendRowChangeEvent(((Battery_TrendRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void Removetrend_dataRow(trend_dataRow row) {
+            public void RemoveBattery_TrendRow(Battery_TrendRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -474,7 +516,7 @@ namespace KTE_PMS {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                mssql_dataset ds = new mssql_dataset();
+                test_dataset2 ds = new test_dataset2();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -492,7 +534,7 @@ namespace KTE_PMS {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "trend_dataDataTable";
+                attribute2.FixedValue = "Battery_TrendDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -536,71 +578,155 @@ namespace KTE_PMS {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class trend_dataRow : global::System.Data.DataRow {
+        public partial class Battery_TrendRow : global::System.Data.DataRow {
             
-            private trend_dataDataTable tabletrend_data;
+            private Battery_TrendDataTable tableBattery_Trend;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal trend_dataRow(global::System.Data.DataRowBuilder rb) : 
+            internal Battery_TrendRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletrend_data = ((trend_dataDataTable)(this.Table));
+                this.tableBattery_Trend = ((Battery_TrendDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime date {
+            public System.DateTime DATETIME {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tabletrend_data.dateColumn]));
+                        return ((global::System.DateTime)(this[this.tableBattery_Trend.DATETIMEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("\'trend_data\' 테이블의 \'date\' 열의 값이 DBNull입니다.", e);
+                        throw new global::System.Data.StrongTypingException("\'Battery_Trend\' 테이블의 \'DATETIME\' 열의 값이 DBNull입니다.", e);
                     }
                 }
                 set {
-                    this[this.tabletrend_data.dateColumn] = value;
+                    this[this.tableBattery_Trend.DATETIMEColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public float value {
+            public double VOLTAGE {
                 get {
                     try {
-                        return ((float)(this[this.tabletrend_data.valueColumn]));
+                        return ((double)(this[this.tableBattery_Trend.VOLTAGEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("\'trend_data\' 테이블의 \'value\' 열의 값이 DBNull입니다.", e);
+                        throw new global::System.Data.StrongTypingException("\'Battery_Trend\' 테이블의 \'VOLTAGE\' 열의 값이 DBNull입니다.", e);
                     }
                 }
                 set {
-                    this[this.tabletrend_data.valueColumn] = value;
+                    this[this.tableBattery_Trend.VOLTAGEColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsdateNull() {
-                return this.IsNull(this.tabletrend_data.dateColumn);
+            public double CURRENT {
+                get {
+                    try {
+                        return ((double)(this[this.tableBattery_Trend.CURRENTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("\'Battery_Trend\' 테이블의 \'CURRENT\' 열의 값이 DBNull입니다.", e);
+                    }
+                }
+                set {
+                    this[this.tableBattery_Trend.CURRENTColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetdateNull() {
-                this[this.tabletrend_data.dateColumn] = global::System.Convert.DBNull;
+            public double POWER {
+                get {
+                    try {
+                        return ((double)(this[this.tableBattery_Trend.POWERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("\'Battery_Trend\' 테이블의 \'POWER\' 열의 값이 DBNull입니다.", e);
+                    }
+                }
+                set {
+                    this[this.tableBattery_Trend.POWERColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsvalueNull() {
-                return this.IsNull(this.tabletrend_data.valueColumn);
+            public double ACCU_POWER {
+                get {
+                    try {
+                        return ((double)(this[this.tableBattery_Trend.ACCU_POWERColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("\'Battery_Trend\' 테이블의 \'ACCU_POWER\' 열의 값이 DBNull입니다.", e);
+                    }
+                }
+                set {
+                    this[this.tableBattery_Trend.ACCU_POWERColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetvalueNull() {
-                this[this.tabletrend_data.valueColumn] = global::System.Convert.DBNull;
+            public bool IsDATETIMENull() {
+                return this.IsNull(this.tableBattery_Trend.DATETIMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDATETIMENull() {
+                this[this.tableBattery_Trend.DATETIMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsVOLTAGENull() {
+                return this.IsNull(this.tableBattery_Trend.VOLTAGEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetVOLTAGENull() {
+                this[this.tableBattery_Trend.VOLTAGEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCURRENTNull() {
+                return this.IsNull(this.tableBattery_Trend.CURRENTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCURRENTNull() {
+                this[this.tableBattery_Trend.CURRENTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPOWERNull() {
+                return this.IsNull(this.tableBattery_Trend.POWERColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPOWERNull() {
+                this[this.tableBattery_Trend.POWERColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsACCU_POWERNull() {
+                return this.IsNull(this.tableBattery_Trend.ACCU_POWERColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetACCU_POWERNull() {
+                this[this.tableBattery_Trend.ACCU_POWERColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -608,22 +734,22 @@ namespace KTE_PMS {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class trend_dataRowChangeEvent : global::System.EventArgs {
+        public class Battery_TrendRowChangeEvent : global::System.EventArgs {
             
-            private trend_dataRow eventRow;
+            private Battery_TrendRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public trend_dataRowChangeEvent(trend_dataRow row, global::System.Data.DataRowAction action) {
+            public Battery_TrendRowChangeEvent(Battery_TrendRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public trend_dataRow Row {
+            public Battery_TrendRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -639,7 +765,7 @@ namespace KTE_PMS {
         }
     }
 }
-namespace KTE_PMS.mssql_datasetTableAdapters {
+namespace KTE_PMS.test_dataset2TableAdapters {
     
     
     /// <summary>
@@ -651,27 +777,27 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class trend_dataTableAdapter : global::System.ComponentModel.Component {
+    public partial class Battery_TrendTableAdapter : global::System.ComponentModel.Component {
         
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        private global::System.Data.Odbc.OdbcDataAdapter _adapter;
         
-        private global::System.Data.SqlClient.SqlConnection _connection;
+        private global::System.Data.Odbc.OdbcConnection _connection;
         
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        private global::System.Data.Odbc.OdbcTransaction _transaction;
         
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        private global::System.Data.Odbc.OdbcCommand[] _commandCollection;
         
         private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public trend_dataTableAdapter() {
+        public Battery_TrendTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+        protected internal global::System.Data.Odbc.OdbcDataAdapter Adapter {
             get {
                 if ((this._adapter == null)) {
                     this.InitAdapter();
@@ -682,7 +808,7 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
+        internal global::System.Data.Odbc.OdbcConnection Connection {
             get {
                 if ((this._connection == null)) {
                     this.InitConnection();
@@ -702,7 +828,7 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
                 }
                 for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                        ((global::System.Data.Odbc.OdbcCommand)(this.CommandCollection[i])).Connection = value;
                     }
                 }
             }
@@ -710,7 +836,7 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+        internal global::System.Data.Odbc.OdbcTransaction Transaction {
             get {
                 return this._transaction;
             }
@@ -736,7 +862,7 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+        protected global::System.Data.Odbc.OdbcCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
                     this.InitCommandCollection();
@@ -759,35 +885,32 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            this._adapter = new global::System.Data.Odbc.OdbcDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "trend_data";
-            tableMapping.ColumnMappings.Add("date", "date");
-            tableMapping.ColumnMappings.Add("value", "value");
+            tableMapping.DataSetTable = "Battery_Trend";
+            tableMapping.ColumnMappings.Add("DATETIME", "DATETIME");
+            tableMapping.ColumnMappings.Add("VOLTAGE", "VOLTAGE");
+            tableMapping.ColumnMappings.Add("CURRENT", "CURRENT");
+            tableMapping.ColumnMappings.Add("POWER", "POWER");
+            tableMapping.ColumnMappings.Add("ACCU_POWER", "ACCU_POWER");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [trend_data] ([date], [value]) VALUES (@date, @value)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@value", global::System.Data.SqlDbType.Real, 0, global::System.Data.ParameterDirection.Input, 0, 0, "value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KTE_PMS.Properties.Settings.Default.mssql_connection_string;
+            this._connection = new global::System.Data.Odbc.OdbcConnection();
+            this._connection.ConnectionString = global::KTE_PMS.Properties.Settings.Default.ConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
+            this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT date, value FROM trend_data";
+            this._commandCollection[0].CommandText = "SELECT  trend_data.*\r\nFROM     trend_data";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -795,7 +918,7 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(mssql_dataset.trend_dataDataTable dataTable) {
+        public virtual int Fill(test_dataset2.Battery_TrendDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -808,73 +931,11 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual mssql_dataset.trend_dataDataTable GetData() {
+        public virtual test_dataset2.Battery_TrendDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            mssql_dataset.trend_dataDataTable dataTable = new mssql_dataset.trend_dataDataTable();
+            test_dataset2.Battery_TrendDataTable dataTable = new test_dataset2.Battery_TrendDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(mssql_dataset.trend_dataDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(mssql_dataset dataSet) {
-            return this.Adapter.Update(dataSet, "trend_data");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> date, global::System.Nullable<float> value) {
-            if ((date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(date.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((value.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((float)(value.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -890,8 +951,6 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private trend_dataTableAdapter _trend_dataTableAdapter;
-        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -904,20 +963,6 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public trend_dataTableAdapter trend_dataTableAdapter {
-            get {
-                return this._trend_dataTableAdapter;
-            }
-            set {
-                this._trend_dataTableAdapter = value;
             }
         }
         
@@ -940,10 +985,6 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._trend_dataTableAdapter != null) 
-                            && (this._trend_dataTableAdapter.Connection != null))) {
-                    return this._trend_dataTableAdapter.Connection;
-                }
                 return null;
             }
             set {
@@ -957,9 +998,6 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._trend_dataTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 return count;
             }
         }
@@ -969,17 +1007,8 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(mssql_dataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(test_dataset2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._trend_dataTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.trend_data.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._trend_dataTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -988,16 +1017,8 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(mssql_dataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(test_dataset2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._trend_dataTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.trend_data.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._trend_dataTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -1006,16 +1027,8 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(mssql_dataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(test_dataset2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._trend_dataTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.trend_data.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._trend_dataTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -1048,16 +1061,12 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(mssql_dataset dataSet) {
+        public virtual int UpdateAll(test_dataset2 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
-            }
-            if (((this._trend_dataTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._trend_dataTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("TableAdapterManager에서 관리하는 모든 TableAdapter에는 동일한 연결 문자열을 사용해야 합니다.");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
@@ -1090,15 +1099,6 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._trend_dataTableAdapter != null)) {
-                    revertConnections.Add(this._trend_dataTableAdapter, this._trend_dataTableAdapter.Connection);
-                    this._trend_dataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._trend_dataTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._trend_dataTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._trend_dataTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._trend_dataTableAdapter.Adapter);
-                    }
-                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1156,10 +1156,6 @@ namespace KTE_PMS.mssql_datasetTableAdapters {
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._trend_dataTableAdapter != null)) {
-                    this._trend_dataTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._trend_dataTableAdapter]));
-                    this._trend_dataTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

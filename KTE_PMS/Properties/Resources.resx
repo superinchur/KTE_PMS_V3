@@ -130,6 +130,9 @@
   <data name="uPMS_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\uPMS_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="_8_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\8_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Textbox_기본1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Textbox_기본1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,11 +205,14 @@
   <data name="TREND_button_grid_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TREND_button_grid_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="아이콘_선" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\아이콘_선1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_off_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_off_long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="피크저감_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\피크저감_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="제어_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\제어_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,14 +220,14 @@
   <data name="TREND_button_battery_off_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TREND_button_battery_off_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="popup_글만" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\popup_글만.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="lamp_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lamp_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="alarm_battery_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\alarm_battery_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alarm_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alarm_off_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ack_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ack_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,9 +250,6 @@
   <data name="Main_배치도" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Main_배치도.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="grid_toLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\grid_toLeft.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="LEMS_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LEMS_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -265,9 +268,6 @@
   <data name="사용자정의_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\사용자정의_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dot_LOAD_005" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dot_LOAD_005.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="kte_ci" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kte_ci.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -280,14 +280,14 @@
   <data name="measure_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\measure_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="통신연결" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\통신연결.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MIMIC1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MIMIC2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Grid_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Grid_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Textbox_기본" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Textbox_기본.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="확인_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\확인_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,17 +301,17 @@
   <data name="_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="확인_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\확인_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dot_Grid_PCS_001" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dot_Grid_PCS_001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="history_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\history_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TREND_button_grid_on_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TREND_button_grid_on_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="alarm_battery_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\alarm_battery_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -321,9 +321,6 @@
   </data>
   <data name="dot_LOAD_002" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dot_LOAD_002.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_6_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\6_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow_blue_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow_blue_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -336,9 +333,6 @@
   </data>
   <data name="_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="button_on_R_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\button_on_R_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Textbox_기본2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Textbox_기본2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -424,11 +418,8 @@
   <data name="SOC" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SOC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="back_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\back_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="제어_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\제어_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="toLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\toLeft.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="통신연결_끊김" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\통신연결_끊김.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -439,17 +430,14 @@
   <data name="TREND_button_generator_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TREND_button_generator_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TREND_button_generator_off_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TREND_button_generator_off_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="전압전류_RST" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\전압전류_RST.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="alarm_battery_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\alarm_battery_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="전압전류_RST" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\전압전류_RST.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="setting_배치1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setting_배치1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="generator_toLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\generator_toLeft.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -463,14 +451,14 @@
   <data name="Top_배치참조" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Top_배치참조.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SETTING" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SETTING.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="popup_글만" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\popup_글만.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trend_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trend_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Monitor_off_on_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Monitor off_on_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dot_Grid_PCS_0011" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dot_Grid_PCS_0011.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="measure_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\measure_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -502,11 +490,26 @@
   <data name="MIMIC" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MIMIC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="main_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\main_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="RUN_003_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RUN_003_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_on_R_long" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_on_R_long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SETTING" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SETTING.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mimic_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mimic_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TREND_button_generator_off_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_generator_off_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="배터리_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\배터리_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -517,8 +520,8 @@
   <data name="_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mimic_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mimic_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="grid_toLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grid_toLeft.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="왼화살표_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\왼화살표_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -528,6 +531,9 @@
   </data>
   <data name="충전_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\충전_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="통신상태" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\통신상태.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_4_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -568,8 +574,8 @@
   <data name="monitoroff_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\monitoroff_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="확인_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\확인_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_6_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="toRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\toRight.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -586,8 +592,8 @@
   <data name="setting_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="통신상태" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\통신상태.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="back_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_0_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\0_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -604,8 +610,8 @@
   <data name="all_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\all_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_8_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\8_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button_on_R_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_on_R_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Control" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Control1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -619,11 +625,8 @@
   <data name="Monitor_off_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Monitor off_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PCS_STOP_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PCS STOP_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="toLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\toLeft.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dot_Grid_PCS_0011" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dot_Grid_PCS_0011.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LEMS_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LEMS_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -640,17 +643,17 @@
   <data name="_2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="피크저감_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\피크저감_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PCS_STOP_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PCS STOP_off_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="통신연결" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\통신연결.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="제어_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\제어_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="alarm_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\alarm_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="trend_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\trend_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ack_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ack_off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -673,8 +676,8 @@
   <data name="ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="alarm_off_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\alarm_off_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TREND_button_grid_on_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TREND_button_grid_on_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TREND_button_battery_on_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TREND_button_battery_on_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -685,22 +688,22 @@
   <data name="_1day_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1day_on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Main" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dot_Grid_PCS_001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dot_Grid_PCS_001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Datagrid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Datagrid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="아이콘_선" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\아이콘_선1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dot_LOAD_005" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dot_LOAD_005.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RUN_003" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RUN_003.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="main_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\main_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Textbox_기본" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Textbox_기본.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="setting_배치1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\setting_배치1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="스케줄링상태_커버" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\스케줄링상태_커버.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

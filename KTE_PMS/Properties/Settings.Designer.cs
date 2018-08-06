@@ -35,20 +35,20 @@ namespace KTE_PMS.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=IPMS-PC\\WINCC;Initial Catalog=master;Integrated Security=True")]
-        public string mssql_connection_string {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DEBUG {
             get {
-                return ((string)(this["mssql_connection_string"]));
+                return ((bool)(this["DEBUG"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DEBUG {
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=IPMS-PC\\WINCC;Initial Catalog=master;Integrated Security=True")]
+        public string mssql_connection_string {
             get {
-                return ((bool)(this["DEBUG"]));
+                return ((string)(this["mssql_connection_string"]));
             }
         }
     }

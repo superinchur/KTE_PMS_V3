@@ -391,6 +391,7 @@ namespace KTE_PMS
             GnEPS_PCS.GRID_S_Current = ByteConverterToInt16(data, 4);
             GnEPS_PCS.GRID_T_Current = ByteConverterToInt16(data, 5);
             GnEPS_PCS.GRID_Power = ByteConverterToInt16(data, 6);
+
             p_setting.power.setPCSPower(GnEPS_PCS.GRID_Power);
 
             GnEPS_PCS.GRID_Frequency = ByteConverterToUInt16(data, 7) * 0.1;

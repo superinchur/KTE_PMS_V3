@@ -20,6 +20,7 @@ namespace KTE_PMS
                 Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
                 Insert_START_PMS();
+                
             }
 
 
@@ -109,13 +110,13 @@ namespace KTE_PMS
                 Console.WriteLine(ex.Message);
             }
         }
-        public void Insert_Value_to_Database(double voltage, double current, double power)
+        public void Insert_Value_to_Database(string nameofDB, double voltage, double current, double power)
         {
             try
             {
                 string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                String sql = "INSERT INTO trend_data (DATETIME, VOLTAGE, CURRENT, POWER) " + "VALUES ('"
+                String sql = "INSERT INTO " + nameofDB + "(DATETIME, VOLTAGE, CURRENT, POWER) " + "VALUES ('"
                     + strDateTime + "','"
                     + voltage.ToString() + "','"
                     + current.ToString() + "','"
@@ -130,6 +131,7 @@ namespace KTE_PMS
                 Console.WriteLine(ex.Message);
             }
         }
+
 
         public void Insert_Alarm_to_Database(string sz)
         {
@@ -372,8 +374,8 @@ namespace KTE_PMS
         {
             try
             {
-                string str_start = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
-                string str_end = DateTime.Now.ToString("yyyy-mm-dd HH:mm:ss");
+                string str_start = DateTime.Now.ToString("yyyy-MM-dd 00:00:00");
+                string str_end = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                 String sql = "SELECT * FROM power_data_hour WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
 
@@ -384,8 +386,8 @@ namespace KTE_PMS
                 Repository.Instance.p_setting.power_day = GetPowerFromDatabase(ds);
 
                 //
-                str_start = DateTime.Now.ToString("yyyy-mm-01 00:00:00");
-                str_end = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
+                str_start = DateTime.Now.ToString("yyyy-MM-01 00:00:00");
+                str_end = DateTime.Now.ToString("yyyy-MM-dd 00:00:00");
 
                 sql = "SELECT * FROM power_data_day WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
 
@@ -399,7 +401,7 @@ namespace KTE_PMS
 
                 //
                 str_start = DateTime.Now.ToString("yyyy-01-01 00:00:00");
-                str_end = DateTime.Now.ToString("yyyy-mm-dd 00:00:00");
+                str_end = DateTime.Now.ToString("yyyy-MM-dd 00:00:00");
 
                 sql = "SELECT * FROM power_data_month WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
 

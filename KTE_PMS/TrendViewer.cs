@@ -1,11 +1,7 @@
-﻿using DevExpress.Utils;
-using DevExpress.XtraCharts;
+﻿using DevExpress.XtraCharts;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Windows;
 using System.Windows.Forms;
 
 namespace KTE_PMS
@@ -45,7 +41,7 @@ namespace KTE_PMS
             tb_endTime.Format = DateTimePickerFormat.Custom;
             tb_endTime.CustomFormat = "yyyy-MM-dd HH:mm:ss";
 
-            
+
             SetDiagramTimeRange((XYDiagram)chartControl1.Diagram, 1440);
             SetDiagramTimeRange((XYDiagram)chartControl2.Diagram, 1440);
             SetDiagramTimeRange((XYDiagram)chartControl3.Diagram, 1440);
@@ -58,17 +54,16 @@ namespace KTE_PMS
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Battery_DataSource.Fill();
-            chartControl1.RefreshData();
-            
-
 
             if (Properties.Settings.Default.DEBUG)
             {
                 // AugoGenerating
                 Random rand = new Random();
-               
-                Repository.Instance.dbConnector.Insert_Value_to_Database(rand.Next(800,1000) / 10, rand.Next(100,200)/10 ,rand.Next(300,400)/10);
+
+                Repository.Instance.dbConnector.Insert_Value_to_Database("trend_data", rand.Next(800, 1000) / 10, rand.Next(100, 200) / 10, rand.Next(400, 500) / 10);
+                Repository.Instance.dbConnector.Insert_Value_to_Database("grid_trend_data", rand.Next(1000, 1200) / 10, rand.Next(200, 300) / 10, rand.Next(500, 600) / 10);
+                Repository.Instance.dbConnector.Insert_Value_to_Database("load_trend_data", rand.Next(1200, 1400) / 10, rand.Next(300, 400) / 10, rand.Next(600, 700) / 10);
+
             }
         }
 
@@ -144,10 +139,11 @@ namespace KTE_PMS
             XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
             XYDiagram diagram1 = (XYDiagram)chartControl2.Diagram;
             XYDiagram diagram2 = (XYDiagram)chartControl3.Diagram;
+            XYDiagram diagram3 = (XYDiagram)chartControl4.Diagram;
 
             List<ChartControl> list = new List<ChartControl>();
 
-            
+
             if (a1.Checked)
             {
                 chartControl1.Visible = true;
@@ -203,7 +199,7 @@ namespace KTE_PMS
             const int location_Y4 = 333;
 
 
-            
+
             switch (num_of_trend)
             {
 
@@ -414,17 +410,64 @@ namespace KTE_PMS
 
         private void btn_Battery_Click(object sender, EventArgs e)
         {
-            //chartControl1.DateSource = 
+            chartControl1.ClearCache();
+            chartControl2.ClearCache();
+            chartControl3.ClearCache();
+            chartControl4.ClearCache();
+
+            chartControl1.RefreshData();
+            chartControl2.RefreshData();
+            chartControl3.RefreshData();
+            chartControl4.RefreshData();
+
+            chartControl1.DataSource = Battery_DataSource;
+            chartControl2.DataSource = Battery_DataSource;
+            chartControl3.DataSource = Battery_DataSource;
+            chartControl4.DataSource = Battery_DataSource;
+
+            Battery_DataSource.Fill();
         }
 
         private void btn_Grid_Click(object sender, EventArgs e)
         {
 
+            chartControl1.ClearCache();
+            chartControl2.ClearCache();
+            chartControl3.ClearCache();
+            chartControl4.ClearCache();
+
+            chartControl1.RefreshData();
+            chartControl2.RefreshData();
+            chartControl3.RefreshData();
+            chartControl4.RefreshData();
+           
+            chartControl1.DataSource = Grid_DataSource;
+            chartControl2.DataSource = Grid_DataSource;
+            chartControl3.DataSource = Grid_DataSource;
+            chartControl4.DataSource = Grid_DataSource;
+            
+            Grid_DataSource.Fill();
+
         }
 
         private void btn_Load_Click(object sender, EventArgs e)
         {
+            chartControl1.ClearCache();
+            chartControl2.ClearCache();
+            chartControl3.ClearCache();
+            chartControl4.ClearCache();
 
+            chartControl1.RefreshData();
+            chartControl2.RefreshData();
+            chartControl3.RefreshData();
+            chartControl4.RefreshData();
+
+            chartControl1.DataSource = Load_DataSource;
+            chartControl2.DataSource = Load_DataSource;
+            chartControl3.DataSource = Load_DataSource;
+            chartControl4.DataSource = Load_DataSource;
+
+            Load_DataSource.Fill();
         }
 
         private void button2_MouseDown(object sender, MouseEventArgs e)

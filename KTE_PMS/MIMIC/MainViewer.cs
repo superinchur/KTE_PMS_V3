@@ -56,6 +56,30 @@ namespace KTE_PMS
             // MainViewer에 있는 Scheduler를 위한 항목
             esS_Scheduler1.Color_Update();
 
+            // 
+
+            CSafeSetText(lb9, Choice_Unit(Repository.Instance.p_setting.power_day.PCS_CHARGE_POWER)); // 배터리 일별 충전
+            CSafeSetText(lb12, Choice_Unit(Repository.Instance.p_setting.power_day.PCS_DISCHARGE_POWER)); // 배터리 일별 방전
+
+            CSafeSetText(lb10, Choice_Unit(Repository.Instance.p_setting.power_month.PCS_CHARGE_POWER)); // 배터리 월별 충전
+            CSafeSetText(lb13, Choice_Unit(Repository.Instance.p_setting.power_month.PCS_DISCHARGE_POWER)); // 배터리 월별 방전
+        }
+
+        private static string Choice_Unit(double value)
+        {
+            
+            if (value >= 1000 * 1000 * 1000)
+            {
+                return String.Format("{0:0.00} GW", value / 1000 * 1000);
+            }
+            else if (value >= 1000 * 1000)
+            {
+                return String.Format("{0:0.00} MW", value / 1000);
+            }
+            else
+            {
+                return String.Format("{0:0} kW", value);
+            }
         }
 
         private void Display_Button_Color()
@@ -64,12 +88,15 @@ namespace KTE_PMS
             {
                 btn_uPMS.Image = null;
                 btn_LEMS.Image = ImageResize.ResizeImage(Properties.Resources.LEMS_on_G_1, btn_LEMS.Width, btn_LEMS.Height);
+                cover_control.Visible = false;
+                cover_scheduling.Visible = false;
             }
             else
             {
                 btn_uPMS.Image = ImageResize.ResizeImage(Properties.Resources.uPMS_on_G_1, btn_uPMS.Width, btn_uPMS.Height);
                 btn_LEMS.Image = null;
-
+                cover_control.Visible = true;
+                cover_scheduling.Visible = true;
             }
 
             if (Repository.Instance.current_pcs_mode == 1)
@@ -324,11 +351,7 @@ namespace KTE_PMS
             CSafeSetText(lb7, Repository.Instance.GnEPS_PCS.GRID_Power.ToString());
             CSafeSetText(lb8, Repository.Instance.GnEPS_PCS.GRID_Frequency.ToString());
             
-            CSafeSetText(lb9, Repository.Instance.p_setting.power_day.BMS_CHARGE_POWER.ToString()); // 배터리 일별 충전
-            CSafeSetText(lb12, Repository.Instance.p_setting.power_day.BMS_DISCHARGE_POWER.ToString()); // 배터리 일별 방전
-
-            CSafeSetText(lb10, Repository.Instance.p_setting.power_month.BMS_CHARGE_POWER.ToString()); // 배터리 월별 충전
-            CSafeSetText(lb13, Repository.Instance.p_setting.power_month.BMS_DISCHARGE_POWER.ToString()); // 배터리 월별 방전
+            
 
         }
 
@@ -336,6 +359,9 @@ namespace KTE_PMS
         {
             Repository.Instance.Set_Current_PCS_Operating_Mode(Repository.Instance.Charging_StartTime, Repository.Instance.Charging_EndTime, Repository.Instance.Discharging_StartTime, Repository.Instance.Discharging_EndTime);
             Repository.Instance.Set_Scheduler_Setting(Repository.Instance.Charging_StartTime, Repository.Instance.Charging_EndTime, Repository.Instance.Discharging_StartTime, Repository.Instance.Discharging_EndTime);
+
+            Repository.Instance.dbConnector.Select_Power();
+
         }
 
         private void btn_PeakCutMode_Click(object sender, EventArgs e)
@@ -630,6 +656,11 @@ namespace KTE_PMS
         private void lb_PCS_System_Status_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lb12_Click(object sender, EventArgs e)
+        {
+            Repository.Instance.dbConnector.Select_Power();
         }
     }
 }

@@ -119,6 +119,11 @@
   <ItemGroup>
     <Compile Include="CLASS\cSamsungBMS_Rack.cs" />
     <Compile Include="CLASS\ImageResize.cs" />
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBConnector.cs" />
     <Compile Include="Control\ESS_Scheduler.cs">
       <SubType>UserControl</SubType>
@@ -294,6 +299,19 @@
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Test_DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="test_dataset2.cs">
+      <DependentUpon>test_dataset2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="test_dataset2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test_dataset2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TrendViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -388,6 +406,17 @@
     <EmbeddedResource Include="TrendViewer.resx">
       <DependentUpon>TrendViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="mssql_dataset.xsc">
       <DependentUpon>mssql_dataset.xsd</DependentUpon>
     </None>
@@ -419,6 +448,28 @@
     </None>
     <None Include="TAG_DATA.xss">
       <DependentUpon>TAG_DATA.xsd</DependentUpon>
+    </None>
+    <None Include="Test_DataSet.xsc">
+      <DependentUpon>Test_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Test_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Test_DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Test_DataSet.xss">
+      <DependentUpon>Test_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="test_dataset2.xsc">
+      <DependentUpon>test_dataset2.xsd</DependentUpon>
+    </None>
+    <None Include="test_dataset2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>test_dataset2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="test_dataset2.xss">
+      <DependentUpon>test_dataset2.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -1523,6 +1574,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\setting_배치1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\스케줄링상태_커버.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

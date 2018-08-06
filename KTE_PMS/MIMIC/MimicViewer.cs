@@ -83,6 +83,7 @@ namespace KTE_PMS.MIMIC
             {
                 //lb_Battery_Control_Authority.Text = "LEMS";
                 lb_PCS_Control_Authority.Text = "LEMS";
+                
                 // 색상도 정하자
             }
             else

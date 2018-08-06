@@ -77,12 +77,16 @@
             this.btn_ChargingMode = new System.Windows.Forms.Button();
             this.pb_PCS_to_Grid = new System.Windows.Forms.PictureBox();
             this.pb_Battery_to_PCS = new System.Windows.Forms.PictureBox();
+            this.cover_scheduling = new System.Windows.Forms.PictureBox();
+            this.cover_control = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PCS_to_Load)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Battery)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PCS_Abnormal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Battery_Abnormal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PCS_to_Grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Battery_to_PCS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cover_scheduling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cover_control)).BeginInit();
             this.SuspendLayout();
             // 
             // lb1
@@ -232,9 +236,9 @@
             this.lb10.BackColor = System.Drawing.Color.Transparent;
             this.lb10.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb10.ForeColor = System.Drawing.Color.Black;
-            this.lb10.Location = new System.Drawing.Point(482, 359);
+            this.lb10.Location = new System.Drawing.Point(461, 359);
             this.lb10.Name = "lb10";
-            this.lb10.Size = new System.Drawing.Size(70, 12);
+            this.lb10.Size = new System.Drawing.Size(100, 12);
             this.lb10.TabIndex = 38;
             this.lb10.Text = "10.0 kW";
             this.lb10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -244,9 +248,9 @@
             this.lb9.BackColor = System.Drawing.Color.Transparent;
             this.lb9.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb9.ForeColor = System.Drawing.Color.Black;
-            this.lb9.Location = new System.Drawing.Point(482, 331);
+            this.lb9.Location = new System.Drawing.Point(461, 331);
             this.lb9.Name = "lb9";
-            this.lb9.Size = new System.Drawing.Size(70, 12);
+            this.lb9.Size = new System.Drawing.Size(100, 12);
             this.lb9.TabIndex = 37;
             this.lb9.Text = "10.0 kW";
             this.lb9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -256,9 +260,9 @@
             this.lb13.BackColor = System.Drawing.Color.Transparent;
             this.lb13.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb13.ForeColor = System.Drawing.Color.Black;
-            this.lb13.Location = new System.Drawing.Point(590, 359);
+            this.lb13.Location = new System.Drawing.Point(573, 359);
             this.lb13.Name = "lb13";
-            this.lb13.Size = new System.Drawing.Size(70, 12);
+            this.lb13.Size = new System.Drawing.Size(100, 12);
             this.lb13.TabIndex = 65;
             this.lb13.Text = "10.0 kW";
             this.lb13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -268,12 +272,13 @@
             this.lb12.BackColor = System.Drawing.Color.Transparent;
             this.lb12.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb12.ForeColor = System.Drawing.Color.Black;
-            this.lb12.Location = new System.Drawing.Point(590, 331);
+            this.lb12.Location = new System.Drawing.Point(573, 331);
             this.lb12.Name = "lb12";
-            this.lb12.Size = new System.Drawing.Size(70, 12);
+            this.lb12.Size = new System.Drawing.Size(100, 12);
             this.lb12.TabIndex = 64;
             this.lb12.Text = "10.0 kW";
             this.lb12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lb12.Click += new System.EventHandler(this.lb12_Click);
             // 
             // btn_ReCreate
             // 
@@ -501,7 +506,7 @@
             this.btn_PeakCutMode.UseVisualStyleBackColor = false;
             this.btn_PeakCutMode.Click += new System.EventHandler(this.btn_PeakCutMode_Click);
             this.btn_PeakCutMode.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_PeakCutMode_MouseDown);
-            this.btn_PeakCutMode.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_DisChargingMode_MouseDown);
+            this.btn_PeakCutMode.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_PeakCutMode_MouseUp);
             // 
             // btn_DisChargingMode
             // 
@@ -559,6 +564,30 @@
             this.pb_Battery_to_PCS.TabIndex = 31;
             this.pb_Battery_to_PCS.TabStop = false;
             // 
+            // cover_scheduling
+            // 
+            this.cover_scheduling.BackColor = System.Drawing.Color.Transparent;
+            this.cover_scheduling.Image = global::KTE_PMS.Properties.Resources.스케줄링상태_커버;
+            this.cover_scheduling.Location = new System.Drawing.Point(29, 279);
+            this.cover_scheduling.Name = "cover_scheduling";
+            this.cover_scheduling.Size = new System.Drawing.Size(277, 117);
+            this.cover_scheduling.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cover_scheduling.TabIndex = 97;
+            this.cover_scheduling.TabStop = false;
+            this.cover_scheduling.Visible = false;
+            // 
+            // cover_control
+            // 
+            this.cover_control.BackColor = System.Drawing.Color.Transparent;
+            this.cover_control.Image = global::KTE_PMS.Properties.Resources.스케줄링상태_커버;
+            this.cover_control.Location = new System.Drawing.Point(29, 151);
+            this.cover_control.Name = "cover_control";
+            this.cover_control.Size = new System.Drawing.Size(277, 86);
+            this.cover_control.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cover_control.TabIndex = 98;
+            this.cover_control.TabStop = false;
+            this.cover_control.Visible = false;
+            // 
             // MainViewer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -566,6 +595,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = global::KTE_PMS.Properties.Resources.Main1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.cover_control);
+            this.Controls.Add(this.cover_scheduling);
             this.Controls.Add(this.pb_PCS_to_Load);
             this.Controls.Add(this.pb_Battery);
             this.Controls.Add(this.pb_PCS_Abnormal);
@@ -608,6 +639,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_Battery_Abnormal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PCS_to_Grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Battery_to_PCS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cover_scheduling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cover_control)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -642,5 +675,7 @@
         private System.Windows.Forms.ImageList il_Battery_List;
         private System.Windows.Forms.PictureBox pb_Battery;
         private System.Windows.Forms.PictureBox pb_PCS_to_Load;
+        private System.Windows.Forms.PictureBox cover_scheduling;
+        private System.Windows.Forms.PictureBox cover_control;
     }
 }
