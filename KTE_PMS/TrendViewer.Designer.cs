@@ -212,7 +212,7 @@
             this.chartControl1.Diagram = xyDiagram1;
             this.chartControl1.Legend.Name = "Default Legend";
             this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl1.Location = new System.Drawing.Point(43, 61);
+            this.chartControl1.Location = new System.Drawing.Point(11, 79);
             this.chartControl1.Name = "chartControl1";
             series1.ArgumentDataMember = "DATETIME";
             series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
@@ -479,8 +479,8 @@
             xyDiagram3.AxisX.DateTimeScaleOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Second;
             xyDiagram3.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram3.AxisX.VisualRange.Auto = false;
-            xyDiagram3.AxisX.VisualRange.MaxValueSerializable = "08/06/2018 08:57:06.000";
-            xyDiagram3.AxisX.VisualRange.MinValueSerializable = "08/06/2018 08:56:57.000";
+            xyDiagram3.AxisX.VisualRange.MaxValueSerializable = "08/06/2018 10:34:45.000";
+            xyDiagram3.AxisX.VisualRange.MinValueSerializable = "08/06/2018 10:34:36.000";
             xyDiagram3.AxisY.VisibleInPanesSerializable = "-1";
             xyDiagram3.AxisY.VisualRange.Auto = false;
             xyDiagram3.AxisY.VisualRange.MaxValueSerializable = "5.742";
