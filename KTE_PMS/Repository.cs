@@ -59,6 +59,8 @@ namespace KTE_PMS
 
         public int user_level;
 
+        public bool flag_Trend;
+
         public string password;
         public string first_password;
 
@@ -143,7 +145,7 @@ namespace KTE_PMS
 
         ~Repository()
         {
-            Repository.Instance.p_setting.Export_Data(); 
+
         }
         private void Initialize_Value()
         {
@@ -436,6 +438,9 @@ namespace KTE_PMS
             GnEPS_PCS.Battery_Voltage = ByteConverterToInt16(data, 50);
             GnEPS_PCS.Battery_Current = ByteConverterToInt16(data, 51);
 
+
+            dbConnector.Insert_Value_to_Database("grid_trend_data", GnEPS_PCS.Battery_Voltage, GnEPS_PCS.Battery_Current, GnEPS_PCS.GRID_Power);
+            dbConnector.Insert_Value_to_Database("load_trend_data", GnEPS_PCS.Battery_Voltage, GnEPS_PCS.Battery_Current, GnEPS_PCS.LOAD_Power);
             TagManager.PCS_Fault_처리_프로시져();
 
             //pcs_resourcePool.Release();
@@ -445,7 +450,7 @@ namespace KTE_PMS
             // 43~80은 Battery System의 항목이기에 ID 필터링 이후 값을 넣도록 한다.
             // 그리고 InputCH는 동일하다.
             //-----------------------------------------------
-            Insert_To_DataTable(data, 1, 42, 0);
+            //Insert_To_DataTable(data, 1, 42, 0);
 
         }
 
@@ -544,11 +549,11 @@ namespace KTE_PMS
             samsung_bcs.Service_SOC = ByteConverterToUInt16(data, 28) * 0.1;
 
             samsung_bcs.System_Alarm_Status = ByteConverterToUInt16(data, 30);
-            dbConnector.Insert_Value_to_Database();
+            dbConnector.Insert_BSC_Value_to_Database();
             TagManager.BMS_Fault_처리_프로시져();
 
             //bms_resourcePool.Release();
-            Insert_To_DataTable(data, 43, 80, 0);
+            //Insert_To_DataTable(data, 43, 80, 0);
         }
 
         private void Insert_To_DataTable(byte[] data, int start, int end, int offset)
@@ -675,6 +680,7 @@ namespace KTE_PMS
             Rack.Rack_External_Sensor_Info = ByteConverterToUInt16(data, 86 + offset);
             Rack.Module_Comm_Fault_Position = (ByteConverterToUInt16(data, 86 + offset) >> 8) & 0xFF;
 
+            /*
             if (num_of_Rack == 1)
             {
                 // ---------------------------------------------------
@@ -695,6 +701,7 @@ namespace KTE_PMS
                 // ---------------------------------------------------
                 Insert_To_DataTable(data, 123, 164, 100);
             }
+            */
 
         }
 

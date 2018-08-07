@@ -39,12 +39,7 @@ namespace KTE_PMS.MIMIC
             power_day = new sPower();
             power_month = new sPower();
             power_year = new sPower();
-
-            Charging_Stop_SOC = 80.0F;
-            Discharging_Stop_SOC = 30.0F;
-
-            Limit_Active_Power = 50.0F;
-
+            
         }
 
         private void btn_Access_To_Operating_System_Click(object sender, EventArgs e)

@@ -307,7 +307,7 @@
             // 
             this.lb_PCS_System_Status.BackColor = System.Drawing.Color.Transparent;
             this.lb_PCS_System_Status.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_PCS_System_Status.Location = new System.Drawing.Point(630, 234);
+            this.lb_PCS_System_Status.Location = new System.Drawing.Point(630, 235);
             this.lb_PCS_System_Status.Name = "lb_PCS_System_Status";
             this.lb_PCS_System_Status.Size = new System.Drawing.Size(87, 12);
             this.lb_PCS_System_Status.TabIndex = 87;
@@ -330,7 +330,7 @@
             // 
             this.lb_PCS_Control_Authority.BackColor = System.Drawing.Color.Transparent;
             this.lb_PCS_Control_Authority.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_PCS_Control_Authority.Location = new System.Drawing.Point(630, 213);
+            this.lb_PCS_Control_Authority.Location = new System.Drawing.Point(630, 214);
             this.lb_PCS_Control_Authority.Name = "lb_PCS_Control_Authority";
             this.lb_PCS_Control_Authority.Size = new System.Drawing.Size(87, 12);
             this.lb_PCS_Control_Authority.TabIndex = 89;
@@ -580,7 +580,7 @@
             // 
             this.cover_control.BackColor = System.Drawing.Color.Transparent;
             this.cover_control.Image = global::KTE_PMS.Properties.Resources.스케줄링상태_커버;
-            this.cover_control.Location = new System.Drawing.Point(29, 151);
+            this.cover_control.Location = new System.Drawing.Point(153, 228);
             this.cover_control.Name = "cover_control";
             this.cover_control.Size = new System.Drawing.Size(277, 86);
             this.cover_control.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

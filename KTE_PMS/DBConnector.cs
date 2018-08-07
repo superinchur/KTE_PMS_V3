@@ -32,6 +32,7 @@ namespace KTE_PMS
             Console.WriteLine("Done.");
         }
 
+
         public DataSet Get_Product()
         {
             String sql = "SELECT * FROM alarm_data ORDER BY DATETIME desc";
@@ -65,10 +66,25 @@ namespace KTE_PMS
             {
                 Console.WriteLine(ex.Message);
 
+                ExceptionManagement(ex);
+
+
             }
             
 
         }
+
+        private void ExceptionManagement(Exception ex)
+        {
+            if (ex.Message == "Connection must be valid and open.")
+            {
+                DBConnector a = new DBConnector();
+
+                Repository.Instance.dbConnector = a;
+
+            }
+        }
+
         public DataSet Get_Product(string strstartTime,string strendTime)
         {
             String sql = "SELECT * FROM alarm_data WHERE DATETIME BETWEEN '" + strstartTime + "' and '" + strendTime + "' ORDER BY DATETIME desc";
@@ -81,7 +97,7 @@ namespace KTE_PMS
             return ds;
         }
 
-        public void Insert_Value_to_Database()
+        public void Insert_BSC_Value_to_Database()
         {
             try
             {
@@ -108,8 +124,32 @@ namespace KTE_PMS
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                ExceptionManagement(ex);
             }
         }
+        public void Insert_BSC_Value_to_Database(string nameofDB, double voltage, double current, double power)
+        {
+            try
+            {
+                string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                String sql = "INSERT INTO " + nameofDB + "(DATETIME, VOLTAGE, CURRENT, POWER) " + "VALUES ('"
+                    + strDateTime + "','"
+                    + voltage.ToString() + "','"
+                    + current.ToString() + "','"
+                    + power.ToString() + "')";
+
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                ExceptionManagement(ex);
+            }
+        }
+
         public void Insert_Value_to_Database(string nameofDB, double voltage, double current, double power)
         {
             try
@@ -129,9 +169,9 @@ namespace KTE_PMS
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                ExceptionManagement(ex);
             }
         }
-
 
         public void Insert_Alarm_to_Database(string sz)
         {
@@ -152,6 +192,7 @@ namespace KTE_PMS
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                ExceptionManagement(ex);
             }
         }
         public void Insert_START_PMS()
@@ -173,6 +214,7 @@ namespace KTE_PMS
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                ExceptionManagement(ex);
             }
         }
         public void Insert_EXIT_PMS()
@@ -194,6 +236,7 @@ namespace KTE_PMS
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                ExceptionManagement(ex);
             }
         }
         public void Insert_Power()
@@ -202,12 +245,15 @@ namespace KTE_PMS
             {
                 string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:00");
 
+
+                sPower temp = Repository.Instance.p_setting.power.GetValue();
+
                 String sql = "INSERT INTO power_data_minute (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
                     + strDateTime + "','"
-                    + Repository.Instance.p_setting.power.PCS_CHARGE_POWER + "','"
-                    + Repository.Instance.p_setting.power.PCS_DISCHARGE_POWER + "','"
-                    + Repository.Instance.p_setting.power.BMS_CHARGE_POWER + "','"
-                    + Repository.Instance.p_setting.power.BMS_DISCHARGE_POWER + "')";
+                    + temp.PCS_CHARGE_POWER + "','"
+                    + temp.PCS_DISCHARGE_POWER + "','"
+                    + temp.BMS_CHARGE_POWER + "','"
+                    + temp.BMS_DISCHARGE_POWER + "')";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
@@ -215,6 +261,7 @@ namespace KTE_PMS
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                ExceptionManagement(ex);
             }
         }
         public void Insert_Power_Hour()
@@ -232,7 +279,7 @@ namespace KTE_PMS
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(ds);
 
-                sPower total_power = GetPowerFromDatabase(ds);
+                sPower total_power = GetAveragePowerFromDatabase(ds);
 
                 sql = "INSERT INTO power_data_hour (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
                     + strYesterday + "','"
@@ -243,10 +290,33 @@ namespace KTE_PMS
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
+
+
+                ////////////////////////////////////////////////////////////////////////////////
+                //////////////////////// 전력값 누적을 위해서 하는 항목  ///////////////////////
+                ////////////////////////////////////////////////////////////////////////////////
+                String sql2 = "SELECT * FROM power_data_hour_accu ORDER BY DATETIME desc LIMIT 1";
+                DataSet ds2 = new DataSet();
+                MySqlDataAdapter adpt2 = new MySqlDataAdapter(sql2, conn);
+                adpt2.Fill(ds2);
+                sPower total_power2 = GetAveragePowerFromDatabase(ds2);
+                sql2 = "INSERT INTO power_data_hour_accu (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
+                    //+ strYesterday + "','"
+                    + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','"
+                    + (total_power.PCS_CHARGE_POWER + total_power2.PCS_CHARGE_POWER) + "','"
+                    + (total_power.PCS_DISCHARGE_POWER + total_power2.PCS_DISCHARGE_POWER) + "','"
+                    + (total_power.BMS_CHARGE_POWER + total_power2.BMS_CHARGE_POWER) + "','"
+                    + (total_power.BMS_DISCHARGE_POWER + total_power2.BMS_DISCHARGE_POWER) + "')";
+                MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
+                cmd2.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////////////////////
+                
+                
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                ExceptionManagement(ex);
             }
         }
 
@@ -277,6 +347,7 @@ namespace KTE_PMS
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                ExceptionManagement(ex);
             }
         }
 
@@ -309,6 +380,7 @@ namespace KTE_PMS
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                ExceptionManagement(ex);
             }
         }
         public void Insert_Power_year()
@@ -340,10 +412,11 @@ namespace KTE_PMS
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                ExceptionManagement(ex);
             }
         }
 
-        private  sPower GetPowerFromDatabase(DataSet ds)
+        private  sPower GetAveragePowerFromDatabase(DataSet ds)
         {
             sPower power = new sPower();
             int total_count = new int();
@@ -362,10 +435,35 @@ namespace KTE_PMS
             }
             if (total_count == 0) total_count = 1; // To protect zero-division Exception
 
-            power.PCS_CHARGE_POWER = power.PCS_CHARGE_POWER / ds.Tables.Count;
-            power.PCS_DISCHARGE_POWER = power.PCS_DISCHARGE_POWER / ds.Tables.Count;
-            power.BMS_CHARGE_POWER = power.BMS_CHARGE_POWER / ds.Tables.Count;
-            power.BMS_DISCHARGE_POWER = power.BMS_DISCHARGE_POWER / ds.Tables.Count;
+            power.PCS_CHARGE_POWER = power.PCS_CHARGE_POWER / total_count;
+            power.PCS_DISCHARGE_POWER = power.PCS_DISCHARGE_POWER / total_count;
+            power.BMS_CHARGE_POWER = power.BMS_CHARGE_POWER / total_count;
+            power.BMS_DISCHARGE_POWER = power.BMS_DISCHARGE_POWER / total_count;
+
+            return power;
+        }
+
+
+        private sPower GetPowerFromDatabase(DataSet ds)
+        {
+            sPower power = new sPower();
+
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataRow dr in table.Rows)
+                {
+                    power.PCS_CHARGE_POWER = power.PCS_CHARGE_POWER + Convert.ToDouble(dr["PCS_CHARGE_POWER"]);
+                    power.PCS_DISCHARGE_POWER = power.PCS_DISCHARGE_POWER + Convert.ToDouble(dr["PCS_DISCHARGE_POWER"]);
+                    power.BMS_CHARGE_POWER = power.BMS_CHARGE_POWER + Convert.ToDouble(dr["BMS_CHARGE_POWER"]);
+                    power.BMS_DISCHARGE_POWER = power.BMS_DISCHARGE_POWER + Convert.ToDouble(dr["BMS_DISCHARGE_POWER"]);
+
+                }
+            }
+
+            power.PCS_CHARGE_POWER = power.PCS_CHARGE_POWER;
+            power.PCS_DISCHARGE_POWER = power.PCS_DISCHARGE_POWER;
+            power.BMS_CHARGE_POWER = power.BMS_CHARGE_POWER;
+            power.BMS_DISCHARGE_POWER = power.BMS_DISCHARGE_POWER;
 
             return power;
         }
