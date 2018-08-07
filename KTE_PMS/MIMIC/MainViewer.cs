@@ -58,11 +58,11 @@ namespace KTE_PMS
 
             // 
 
-            CSafeSetText(lb9, Choice_Unit(Repository.Instance.p_setting.power_day.PCS_CHARGE_POWER)); // 배터리 일별 충전
-            CSafeSetText(lb12, Choice_Unit(Repository.Instance.p_setting.power_day.PCS_DISCHARGE_POWER)); // 배터리 일별 방전
+            CSafeSetText(lb9, Choice_Unit(Repository.Instance.p_setting.power_day.BMS_CHARGE_POWER)); // 배터리 일별 충전
+            CSafeSetText(lb12, Choice_Unit(Repository.Instance.p_setting.power_day.BMS_DISCHARGE_POWER)); // 배터리 일별 방전
 
-            CSafeSetText(lb10, Choice_Unit(Repository.Instance.p_setting.power_month.PCS_CHARGE_POWER)); // 배터리 월별 충전
-            CSafeSetText(lb13, Choice_Unit(Repository.Instance.p_setting.power_month.PCS_DISCHARGE_POWER)); // 배터리 월별 방전
+            CSafeSetText(lb10, Choice_Unit(Repository.Instance.p_setting.power_month.BMS_CHARGE_POWER)); // 배터리 월별 충전
+            CSafeSetText(lb13, Choice_Unit(Repository.Instance.p_setting.power_month.BMS_DISCHARGE_POWER)); // 배터리 월별 방전
         }
 
         private static string Choice_Unit(double value)
@@ -304,12 +304,12 @@ namespace KTE_PMS
                     pb_PCS_to_Load.Image = PCS_to_Load.Images[0];
 
                 }
-                else if (Repository.Instance.GnEPS_PCS.Mode_Charging == 1)
+                else if (Repository.Instance.GnEPS_PCS.Mode_Charging == 1 || Repository.Instance.samsung_bcs.Mode_Charging == 1)
                 {
                     pb_PCS_to_Grid.Image = PCS_to_Grid.Images[index];
                     pb_PCS_to_Load.Image = PCS_to_Load.Images[0];
                 }
-                else if (Repository.Instance.GnEPS_PCS.Mode_Discharging == 1)
+                else if (Repository.Instance.GnEPS_PCS.Mode_Discharging == 1 || Repository.Instance.samsung_bcs.Mode_Discharging == 1)
                 {
                     pb_PCS_to_Grid.Image = PCS_to_Grid.Images[reverse_index];
                     pb_PCS_to_Load.Image = PCS_to_Load.Images[index];
@@ -395,7 +395,8 @@ namespace KTE_PMS
                 // 피크저감 모드로 지정
                 Repository.Instance.current_pcs_mode = 4;
 
-
+                Display_Button_Color();
+                cover_scheduling.Visible = false;
             }
         }
 
@@ -407,8 +408,8 @@ namespace KTE_PMS
             // MainViewer에 있는 Scheduler를 위한 항목
             esS_Scheduler1.Color_Update();
             // 사용자 정의 모드로 지정
-            Repository.Instance.current_pcs_mode = 5;
-
+            Display_Button_Color();
+            cover_scheduling.Visible = false;
         }
 
         private void btn_ChargingMode_Click(object sender, EventArgs e)
@@ -433,9 +434,11 @@ namespace KTE_PMS
                 esS_Scheduler1.Color_Update();
                 */
                 // 강제 충전모드로 지정
-                Repository.Instance.pmdviewer.Control_Charge();
                 Repository.Instance.current_pcs_mode = 2;
 
+
+                Display_Button_Color();
+                cover_scheduling.Visible = true;
             }
         }
 
@@ -458,12 +461,10 @@ namespace KTE_PMS
                     Repository.Instance.Discharging_StartTime,
                     Repository.Instance.Discharging_EndTime);
 
-                // MainViewer에 있는 Scheduler를 위한 항목
-                esS_Scheduler1.Color_Update();
                 */
-                Repository.Instance.pmdviewer.Control_Discharge();
                 Repository.Instance.current_pcs_mode = 3;
-
+                Display_Button_Color();
+                cover_scheduling.Visible = true;
             }
         }
 
@@ -501,14 +502,15 @@ namespace KTE_PMS
         {
 
             LEMS a = (LEMS)Parent.Parent;
-
-            a.Click_Measure();
+            a.Click_Control();
+            //a.Click_();
 
         }
         private void btn_PCS_Control_Click(object sender, EventArgs e)
         {
             LEMS a = (LEMS)Parent.Parent;
-            a.Click_Measure();
+            //a.Click_Measure();
+            a.Click_Control();
         }
 
         #region 버튼이미지_설정_함수

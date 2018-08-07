@@ -77,9 +77,10 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pb_Arrow_Grid_PCS = new System.Windows.Forms.PictureBox();
+            this.pb_Arrow_Load_PCS = new System.Windows.Forms.PictureBox();
+            this.pb_Arrow_PCS_Battery = new System.Windows.Forms.PictureBox();
+            this.btn_PCS_Control = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PCS_Abnormal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Battery_Abnormal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,9 +95,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Arrow_Grid_PCS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Arrow_Load_PCS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Arrow_PCS_Battery)).BeginInit();
             this.SuspendLayout();
             // 
             // lbGRID_R_VOLTAGE
@@ -480,9 +481,9 @@
             this.lb_System_Status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.lb_System_Status.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_System_Status.ForeColor = System.Drawing.Color.Black;
-            this.lb_System_Status.Location = new System.Drawing.Point(789, 239);
+            this.lb_System_Status.Location = new System.Drawing.Point(776, 239);
             this.lb_System_Status.Name = "lb_System_Status";
-            this.lb_System_Status.Size = new System.Drawing.Size(61, 12);
+            this.lb_System_Status.Size = new System.Drawing.Size(81, 12);
             this.lb_System_Status.TabIndex = 148;
             this.lb_System_Status.Text = "NORMAL";
             this.lb_System_Status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -550,9 +551,9 @@
             this.lb_PCS_Control_Authority.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.lb_PCS_Control_Authority.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_PCS_Control_Authority.ForeColor = System.Drawing.Color.Black;
-            this.lb_PCS_Control_Authority.Location = new System.Drawing.Point(474, 279);
+            this.lb_PCS_Control_Authority.Location = new System.Drawing.Point(463, 279);
             this.lb_PCS_Control_Authority.Name = "lb_PCS_Control_Authority";
-            this.lb_PCS_Control_Authority.Size = new System.Drawing.Size(70, 12);
+            this.lb_PCS_Control_Authority.Size = new System.Drawing.Size(100, 12);
             this.lb_PCS_Control_Authority.TabIndex = 159;
             this.lb_PCS_Control_Authority.Text = "NORMAL";
             this.lb_PCS_Control_Authority.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -562,9 +563,9 @@
             this.lb_PCS_System_Status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.lb_PCS_System_Status.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.lb_PCS_System_Status.ForeColor = System.Drawing.Color.Black;
-            this.lb_PCS_System_Status.Location = new System.Drawing.Point(474, 305);
+            this.lb_PCS_System_Status.Location = new System.Drawing.Point(463, 305);
             this.lb_PCS_System_Status.Name = "lb_PCS_System_Status";
-            this.lb_PCS_System_Status.Size = new System.Drawing.Size(70, 12);
+            this.lb_PCS_System_Status.Size = new System.Drawing.Size(100, 12);
             this.lb_PCS_System_Status.TabIndex = 160;
             this.lb_PCS_System_Status.Text = "NORMAL";
             this.lb_PCS_System_Status.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -651,44 +652,63 @@
             this.label21.Text = "주파수";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox12
+            // pb_Arrow_Grid_PCS
             // 
-            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
-            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox12.Image = global::KTE_PMS.Properties.Resources.arrow_1;
-            this.pictureBox12.Location = new System.Drawing.Point(304, 152);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(34, 16);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 169;
-            this.pictureBox12.TabStop = false;
+            this.pb_Arrow_Grid_PCS.BackColor = System.Drawing.Color.Transparent;
+            this.pb_Arrow_Grid_PCS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pb_Arrow_Grid_PCS.BackgroundImage")));
+            this.pb_Arrow_Grid_PCS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_Arrow_Grid_PCS.Image = global::KTE_PMS.Properties.Resources.arrow_1;
+            this.pb_Arrow_Grid_PCS.Location = new System.Drawing.Point(304, 152);
+            this.pb_Arrow_Grid_PCS.Name = "pb_Arrow_Grid_PCS";
+            this.pb_Arrow_Grid_PCS.Size = new System.Drawing.Size(34, 16);
+            this.pb_Arrow_Grid_PCS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Arrow_Grid_PCS.TabIndex = 169;
+            this.pb_Arrow_Grid_PCS.TabStop = false;
+            this.pb_Arrow_Grid_PCS.Visible = false;
             // 
-            // pictureBox14
+            // pb_Arrow_Load_PCS
             // 
-            this.pictureBox14.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox14.BackgroundImage")));
-            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox14.Image = global::KTE_PMS.Properties.Resources.arrow_1;
-            this.pictureBox14.Location = new System.Drawing.Point(304, 199);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(34, 16);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox14.TabIndex = 170;
-            this.pictureBox14.TabStop = false;
+            this.pb_Arrow_Load_PCS.BackColor = System.Drawing.Color.Transparent;
+            this.pb_Arrow_Load_PCS.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pb_Arrow_Load_PCS.BackgroundImage")));
+            this.pb_Arrow_Load_PCS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_Arrow_Load_PCS.Image = global::KTE_PMS.Properties.Resources.arrow_1;
+            this.pb_Arrow_Load_PCS.Location = new System.Drawing.Point(304, 199);
+            this.pb_Arrow_Load_PCS.Name = "pb_Arrow_Load_PCS";
+            this.pb_Arrow_Load_PCS.Size = new System.Drawing.Size(34, 16);
+            this.pb_Arrow_Load_PCS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Arrow_Load_PCS.TabIndex = 170;
+            this.pb_Arrow_Load_PCS.TabStop = false;
+            this.pb_Arrow_Load_PCS.Visible = false;
             // 
-            // pictureBox15
+            // pb_Arrow_PCS_Battery
             // 
-            this.pictureBox15.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox15.BackgroundImage")));
-            this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox15.Image = global::KTE_PMS.Properties.Resources.arrow_1;
-            this.pictureBox15.Location = new System.Drawing.Point(629, 171);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(34, 16);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox15.TabIndex = 171;
-            this.pictureBox15.TabStop = false;
+            this.pb_Arrow_PCS_Battery.BackColor = System.Drawing.Color.Transparent;
+            this.pb_Arrow_PCS_Battery.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pb_Arrow_PCS_Battery.BackgroundImage")));
+            this.pb_Arrow_PCS_Battery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_Arrow_PCS_Battery.Image = global::KTE_PMS.Properties.Resources.arrow_1;
+            this.pb_Arrow_PCS_Battery.Location = new System.Drawing.Point(629, 171);
+            this.pb_Arrow_PCS_Battery.Name = "pb_Arrow_PCS_Battery";
+            this.pb_Arrow_PCS_Battery.Size = new System.Drawing.Size(34, 16);
+            this.pb_Arrow_PCS_Battery.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_Arrow_PCS_Battery.TabIndex = 171;
+            this.pb_Arrow_PCS_Battery.TabStop = false;
+            this.pb_Arrow_PCS_Battery.Visible = false;
+            // 
+            // btn_PCS_Control
+            // 
+            this.btn_PCS_Control.BackColor = System.Drawing.Color.Transparent;
+            this.btn_PCS_Control.BackgroundImage = global::KTE_PMS.Properties.Resources.제어_off;
+            this.btn_PCS_Control.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_PCS_Control.FlatAppearance.BorderSize = 0;
+            this.btn_PCS_Control.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_PCS_Control.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_PCS_Control.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PCS_Control.Location = new System.Drawing.Point(422, 327);
+            this.btn_PCS_Control.Name = "btn_PCS_Control";
+            this.btn_PCS_Control.Size = new System.Drawing.Size(122, 26);
+            this.btn_PCS_Control.TabIndex = 172;
+            this.btn_PCS_Control.UseVisualStyleBackColor = false;
+            this.btn_PCS_Control.Click += new System.EventHandler(this.btn_PCS_Control_Click);
             // 
             // MimicViewer
             // 
@@ -696,9 +716,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = global::KTE_PMS.Properties.Resources.아이콘_선1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.pictureBox15);
-            this.Controls.Add(this.pictureBox14);
-            this.Controls.Add(this.pictureBox12);
+            this.Controls.Add(this.btn_PCS_Control);
+            this.Controls.Add(this.pb_Arrow_PCS_Battery);
+            this.Controls.Add(this.pb_Arrow_Load_PCS);
+            this.Controls.Add(this.pb_Arrow_Grid_PCS);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.lbGRID_POWER);
@@ -763,9 +784,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Arrow_Grid_PCS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Arrow_Load_PCS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Arrow_PCS_Battery)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -819,8 +840,9 @@
         private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.PictureBox pb_Arrow_Grid_PCS;
+        private System.Windows.Forms.PictureBox pb_Arrow_Load_PCS;
+        private System.Windows.Forms.PictureBox pb_Arrow_PCS_Battery;
+        private System.Windows.Forms.Button btn_PCS_Control;
     }
 }

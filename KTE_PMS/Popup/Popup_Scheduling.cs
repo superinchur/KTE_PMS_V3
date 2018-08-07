@@ -81,6 +81,10 @@ namespace KTE_PMS.Popup
                     Repository.Instance.Discharging_StartTime,
                     Repository.Instance.Discharging_EndTime);
 
+
+                    Repository.Instance.current_pcs_mode = 5;
+
+
                     this.Dispose();
 
                 }
@@ -152,15 +156,15 @@ namespace KTE_PMS.Popup
         private void Popup_Scheduling_Load(object sender, EventArgs e)
         {
 
-            t11.Value = Repository.Instance.Charging_StartTime.Hours;
-            t12.Value = Repository.Instance.Charging_StartTime.Minutes;
-            t13.Value = Repository.Instance.Charging_EndTime.Hours;
-            t14.Value = Repository.Instance.Charging_EndTime.Minutes;
+            t21.Value = Repository.Instance.Charging_StartTime.Hours;
+            t22.Value = Repository.Instance.Charging_StartTime.Minutes;
+            t23.Value = Repository.Instance.Charging_EndTime.Hours;
+            t24.Value = Repository.Instance.Charging_EndTime.Minutes;
 
-            t21.Value = Repository.Instance.Discharging_StartTime.Hours;
-            t22.Value = Repository.Instance.Discharging_StartTime.Minutes;
-            t23.Value = Repository.Instance.Discharging_EndTime.Hours;
-            t24.Value = Repository.Instance.Discharging_EndTime.Minutes;
+            t11.Value = Repository.Instance.Discharging_StartTime.Hours;
+            t12.Value = Repository.Instance.Discharging_StartTime.Minutes;
+            t13.Value = Repository.Instance.Discharging_EndTime.Hours;
+            t14.Value = Repository.Instance.Discharging_EndTime.Minutes;
             /*
             tb_Charging_Period_Start.Text = String.Format("{0:00}시{1:00}분", Repository.Instance.Charging_StartTime.Hours, Repository.Instance.Charging_StartTime.Minutes);
             tb_Charging_Period_End.Text = String.Format("{0:00}시{1:00}분", Repository.Instance.Charging_EndTime.Hours, Repository.Instance.Charging_EndTime.Minutes);

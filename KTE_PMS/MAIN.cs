@@ -216,7 +216,11 @@ namespace KTE_PMS
 
         public void Click_Measure()
         {
-            NAVI_MEASURE_Click((object)NAVI_MIMIC, new EventArgs());
+            NAVI_MEASURE_Click((object)NAVI_MEASURE, new EventArgs());
+        }
+        public void Click_Control()
+        {
+            NAVI_CONTROL_Click((object)NAVI_CONTROL, new EventArgs());
         }
         private void NAVI_MEASURE_Click(object sender, EventArgs e)
         {
@@ -280,6 +284,8 @@ namespace KTE_PMS
 
             panel1.Controls.Clear();
             panel1.Controls.Add(Repository.Instance.p_trend);
+
+            Repository.Instance.flag_Trend = true;
         }
 
         private void Navigation_Button_Initialize()
@@ -291,8 +297,21 @@ namespace KTE_PMS
             this.NAVI_MEASURE.Image = null;
             this.NAVI_CONTROL.Image = null;
             this.NAVI_SETTING.Image = null;
+            Repository.Instance.flag_Trend = false;
         }
 
+        public bool get_NAVI_TREND_Image()
+        {
+            if (this.NAVI_TREND.Image == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -390,7 +409,8 @@ namespace KTE_PMS
             // 하루가 지날때 마다 전력량을 DB에 또 저장하자. (SELECT문으로 그날 있었던 전력량을 모두 저장해서 하루에 저장)
 
             // 현재는 1분 주기지만 1초든 10초든 다 가능하드아~
-            if (prev_minute != today.Minute)
+            //if (prev_minute != today.Minute)
+            if ((today.Second % 10) == 1)
             {
                 // 저장된 데이터를 DB에 저장한다.
                 
@@ -398,7 +418,8 @@ namespace KTE_PMS
                 // 처리 완료 후, prev값을 새로 갱신
                 prev_minute = today.Minute;
             }
-            if (prev_hour != today.Hour)
+            //if (prev_hour != today.Hour)
+            if (prev_minute != today.Minute)
             {
                 
                 // 저장된 데이터를 DB에 저장한다.

@@ -90,7 +90,7 @@
             this.btn_t_0.FlatAppearance.BorderSize = 0;
             this.btn_t_0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_t_0.Font = new System.Drawing.Font("나눔바른고딕", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn_t_0.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_t_0.ForeColor = System.Drawing.Color.Transparent;
             this.btn_t_0.Location = new System.Drawing.Point(9, 42);
             this.btn_t_0.Margin = new System.Windows.Forms.Padding(0);
             this.btn_t_0.Name = "btn_t_0";

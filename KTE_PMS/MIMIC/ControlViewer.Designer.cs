@@ -36,9 +36,12 @@ namespace KTE_PMS.MIMIC
             this.btn_Confirm_Power_Set = new System.Windows.Forms.Button();
             this.btn_Confirm_Charging_Stop_SOC = new System.Windows.Forms.Button();
             this.btn_Confirm_Discharging_Stop_SOC = new System.Windows.Forms.Button();
-            this.tableAdapterManager1 = new KTE_PMS.mssql_datasetTableAdapters.TableAdapterManager();
             this.cover_control = new System.Windows.Forms.PictureBox();
             this.cover_scheduling = new System.Windows.Forms.PictureBox();
+            this.btn_BMS_RESET = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cover_control)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cover_scheduling)).BeginInit();
             this.SuspendLayout();
@@ -51,8 +54,8 @@ namespace KTE_PMS.MIMIC
             // lb_Power_Set
             // 
             this.lb_Power_Set.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Power_Set.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lb_Power_Set.Location = new System.Drawing.Point(521, 64);
+            this.lb_Power_Set.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_Power_Set.Location = new System.Drawing.Point(502, 100);
             this.lb_Power_Set.Name = "lb_Power_Set";
             this.lb_Power_Set.Size = new System.Drawing.Size(66, 22);
             this.lb_Power_Set.TabIndex = 91;
@@ -63,11 +66,11 @@ namespace KTE_PMS.MIMIC
             // 
             this.tb_Power_Set.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.tb_Power_Set.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Power_Set.Font = new System.Drawing.Font("나눔바른고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_Power_Set.Location = new System.Drawing.Point(680, 61);
+            this.tb_Power_Set.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Power_Set.Location = new System.Drawing.Point(509, 125);
             this.tb_Power_Set.Mask = "99.9";
             this.tb_Power_Set.Name = "tb_Power_Set";
-            this.tb_Power_Set.Size = new System.Drawing.Size(59, 22);
+            this.tb_Power_Set.Size = new System.Drawing.Size(59, 18);
             this.tb_Power_Set.TabIndex = 101;
             this.tb_Power_Set.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_Power_Set.ValidatingType = typeof(int);
@@ -198,8 +201,8 @@ namespace KTE_PMS.MIMIC
             // lb_Charging_Stop_SOC
             // 
             this.lb_Charging_Stop_SOC.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Charging_Stop_SOC.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lb_Charging_Stop_SOC.Location = new System.Drawing.Point(521, 206);
+            this.lb_Charging_Stop_SOC.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_Charging_Stop_SOC.Location = new System.Drawing.Point(502, 271);
             this.lb_Charging_Stop_SOC.Name = "lb_Charging_Stop_SOC";
             this.lb_Charging_Stop_SOC.Size = new System.Drawing.Size(66, 22);
             this.lb_Charging_Stop_SOC.TabIndex = 114;
@@ -209,8 +212,8 @@ namespace KTE_PMS.MIMIC
             // lb_Discharging_Stop_SOC
             // 
             this.lb_Discharging_Stop_SOC.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Discharging_Stop_SOC.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lb_Discharging_Stop_SOC.Location = new System.Drawing.Point(521, 335);
+            this.lb_Discharging_Stop_SOC.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_Discharging_Stop_SOC.Location = new System.Drawing.Point(745, 100);
             this.lb_Discharging_Stop_SOC.Name = "lb_Discharging_Stop_SOC";
             this.lb_Discharging_Stop_SOC.Size = new System.Drawing.Size(66, 22);
             this.lb_Discharging_Stop_SOC.TabIndex = 115;
@@ -221,11 +224,11 @@ namespace KTE_PMS.MIMIC
             // 
             this.tb_Charging_Stop_SOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.tb_Charging_Stop_SOC.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Charging_Stop_SOC.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_Charging_Stop_SOC.Location = new System.Drawing.Point(680, 207);
+            this.tb_Charging_Stop_SOC.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Charging_Stop_SOC.Location = new System.Drawing.Point(509, 296);
             this.tb_Charging_Stop_SOC.Mask = "999.9";
             this.tb_Charging_Stop_SOC.Name = "tb_Charging_Stop_SOC";
-            this.tb_Charging_Stop_SOC.Size = new System.Drawing.Size(59, 19);
+            this.tb_Charging_Stop_SOC.Size = new System.Drawing.Size(59, 18);
             this.tb_Charging_Stop_SOC.TabIndex = 118;
             this.tb_Charging_Stop_SOC.TabStop = false;
             this.tb_Charging_Stop_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -238,11 +241,11 @@ namespace KTE_PMS.MIMIC
             // 
             this.tb_Discharging_Stop_SOC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.tb_Discharging_Stop_SOC.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Discharging_Stop_SOC.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_Discharging_Stop_SOC.Location = new System.Drawing.Point(680, 335);
+            this.tb_Discharging_Stop_SOC.Font = new System.Drawing.Font("나눔고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_Discharging_Stop_SOC.Location = new System.Drawing.Point(749, 125);
             this.tb_Discharging_Stop_SOC.Mask = "999.9";
             this.tb_Discharging_Stop_SOC.Name = "tb_Discharging_Stop_SOC";
-            this.tb_Discharging_Stop_SOC.Size = new System.Drawing.Size(59, 19);
+            this.tb_Discharging_Stop_SOC.Size = new System.Drawing.Size(59, 18);
             this.tb_Discharging_Stop_SOC.TabIndex = 119;
             this.tb_Discharging_Stop_SOC.TabStop = false;
             this.tb_Discharging_Stop_SOC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -306,7 +309,7 @@ namespace KTE_PMS.MIMIC
             // 
             this.cover_control.BackColor = System.Drawing.Color.Transparent;
             this.cover_control.Image = global::KTE_PMS.Properties.Resources.스케줄링상태_커버;
-            this.cover_control.Location = new System.Drawing.Point(29, 154);
+            this.cover_control.Location = new System.Drawing.Point(309, 149);
             this.cover_control.Name = "cover_control";
             this.cover_control.Size = new System.Drawing.Size(277, 86);
             this.cover_control.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -318,7 +321,7 @@ namespace KTE_PMS.MIMIC
             // 
             this.cover_scheduling.BackColor = System.Drawing.Color.Transparent;
             this.cover_scheduling.Image = global::KTE_PMS.Properties.Resources.스케줄링상태_커버;
-            this.cover_scheduling.Location = new System.Drawing.Point(29, 276);
+            this.cover_scheduling.Location = new System.Drawing.Point(309, 278);
             this.cover_scheduling.Name = "cover_scheduling";
             this.cover_scheduling.Size = new System.Drawing.Size(277, 117);
             this.cover_scheduling.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -326,12 +329,94 @@ namespace KTE_PMS.MIMIC
             this.cover_scheduling.TabStop = false;
             this.cover_scheduling.Visible = false;
             // 
+            // btn_BMS_RESET
+            // 
+            this.btn_BMS_RESET.BackColor = System.Drawing.Color.Transparent;
+            this.btn_BMS_RESET.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_BMS_RESET.BackgroundImage")));
+            this.btn_BMS_RESET.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_BMS_RESET.FlatAppearance.BorderSize = 0;
+            this.btn_BMS_RESET.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btn_BMS_RESET.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_BMS_RESET.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_BMS_RESET.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_BMS_RESET.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btn_BMS_RESET.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_BMS_RESET.Location = new System.Drawing.Point(710, 278);
+            this.btn_BMS_RESET.Name = "btn_BMS_RESET";
+            this.btn_BMS_RESET.Size = new System.Drawing.Size(93, 23);
+            this.btn_BMS_RESET.TabIndex = 125;
+            this.btn_BMS_RESET.UseVisualStyleBackColor = false;
+            this.btn_BMS_RESET.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_BMS_RESET_MouseClick);
+            this.btn_BMS_RESET.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_BMS_RESET_MouseDown);
+            this.btn_BMS_RESET.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_BMS_RESET_MouseUp);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(475, 158);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 23);
+            this.button1.TabIndex = 126;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.btn_Confirm_Power_Set_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(710, 158);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 23);
+            this.button2.TabIndex = 127;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.btn_Confirm_Discharging_Stop_SOC_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button3.Location = new System.Drawing.Point(475, 330);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(93, 23);
+            this.button3.TabIndex = 128;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.btn_Confirm_Charging_Stop_SOC_Click);
+            // 
             // ControlViewer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
-            this.BackgroundImage = global::KTE_PMS.Properties.Resources.Control;
+            this.BackgroundImage = global::KTE_PMS.Properties.Resources.Control1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_BMS_RESET);
             this.Controls.Add(this.cover_control);
             this.Controls.Add(this.cover_scheduling);
             this.Controls.Add(this.btn_Confirm_Discharging_Stop_SOC);
@@ -415,8 +500,12 @@ namespace KTE_PMS.MIMIC
         private System.Windows.Forms.Button btn_Confirm_Charging_Stop_SOC;
         private System.Windows.Forms.Button btn_Confirm_Discharging_Stop_SOC;
         public ESS_Scheduler esS_Scheduler1;
-        private mssql_datasetTableAdapters.TableAdapterManager tableAdapterManager1;
+
         private System.Windows.Forms.PictureBox cover_control;
         private System.Windows.Forms.PictureBox cover_scheduling;
+        private System.Windows.Forms.Button btn_BMS_RESET;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

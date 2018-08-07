@@ -105,10 +105,44 @@ namespace KTE_PMS.MIMIC
             }
             else
             {
-                if (Repository.Instance.current_pcs_mode == 2 || Repository.Instance.current_pcs_mode == 3)
+                if (Repository.Instance.current_pcs_mode == 2 )
                 {
-                    //Manual Mode
+                    //Manual Mode 충전모드 상태임
+                    // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.  
+                    if ((Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
+                    {
+                        if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.p_control.Charging_Stop_SOC)
+                        {
+                            Repository.Instance.pmdviewer.Control_Idle();
+                        }
+                    }
+                    else
+                    {
+                        if (Repository.Instance.samsung_bcs.System_SOC < Repository.Instance.p_control.Charging_Stop_SOC)
+                        {
+                            Repository.Instance.pmdviewer.Control_Charge();
+                        }
+                    }
 
+                }
+                else if (Repository.Instance.current_pcs_mode == 3)
+                {
+                    //Manual Mode 방전모드 상태임
+                    // 방전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.  
+                    if ((Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
+                    {
+                        if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.p_control.Discharging_Stop_SOC)
+                        {
+                            Repository.Instance.pmdviewer.Control_Idle();
+                        }
+                    }
+                    else
+                    {
+                        if (Repository.Instance.samsung_bcs.System_SOC > Repository.Instance.p_control.Discharging_Stop_SOC)
+                        {
+                            Repository.Instance.pmdviewer.Control_Discharge();
+                        }
+                    }
                 }
                 else if (Repository.Instance.current_pcs_mode == 4 || Repository.Instance.current_pcs_mode == 5)
                 {

@@ -442,7 +442,7 @@
         +vr+BZ9JxiO1sqhbAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox12.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pb_Arrow_Grid_PCS.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAARoAAAA/CAYAAAA/pQeLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAABGpJREFUeF7t3DuIXFUcx/GNCSGNmEYUTRQkoohYGqxMkSLprCy0UDAkloFAGisV
@@ -467,7 +467,7 @@
         +vr+BZ9JxiO1sqhbAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox14.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pb_Arrow_Load_PCS.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAARoAAAA/CAYAAAA/pQeLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAABGpJREFUeF7t3DuIXFUcx/GNCSGNmEYUTRQkoohYGqxMkSLprCy0UDAkloFAGisV
@@ -492,7 +492,7 @@
         +vr+BZ9JxiO1sqhbAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox15.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pb_Arrow_PCS_Battery.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAARoAAAA/CAYAAAA/pQeLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAABGpJREFUeF7t3DuIXFUcx/GNCSGNmEYUTRQkoohYGqxMkSLprCy0UDAkloFAGisV
