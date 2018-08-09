@@ -20,10 +20,7 @@ namespace KTE_PMS.Popup
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("현재 창을 닫으시겠습니까??", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Dispose();
-            }
+            this.Dispose();
         }
 
         private void btn_OK_Click(object sender, EventArgs e)
@@ -35,17 +32,7 @@ namespace KTE_PMS.Popup
                 {
 
                     TimeSpan current = DateTime.Now.TimeOfDay;
-                    /*
-                    TimeSpan StartTime1 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
-                    TimeSpan EndTime1 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_End);
 
-                    TimeSpan StartTime2 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
-                    TimeSpan EndTime2 = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
-                    Repository.Instance.Charging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_Start);
-                    Repository.Instance.Charging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Charging_Period_End);
-                    Repository.Instance.Discharging_StartTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_Start);
-                    Repository.Instance.Discharging_EndTime = Convert_From_MaskedTextBox_To_TimeSpan(tb_Discharging_Period_End);
-                    */
 
                     // StartTime1은 충전, StartTime2는 방전 t11~4는 방전, t21~4도 방전.
                     TimeSpan StartTime1 = new TimeSpan(Convert.ToInt16(t21.Value), Convert.ToInt16(t22.Value), 0);
@@ -54,15 +41,6 @@ namespace KTE_PMS.Popup
                     TimeSpan StartTime2 = new TimeSpan(Convert.ToInt16(t11.Value), Convert.ToInt16(t12.Value), 0);
                     TimeSpan EndTime2 = new TimeSpan(Convert.ToInt16(t13.Value), Convert.ToInt16(t14.Value), 0);
 
-                    Repository.Instance.Charging_StartTime = StartTime1;
-                    Repository.Instance.Charging_EndTime = EndTime1;
-                    Repository.Instance.Discharging_StartTime = StartTime2;
-                    Repository.Instance.Discharging_EndTime = EndTime2;
-
-
-
-
-                    Repository.Instance.Set_Scheduler_Setting(StartTime1, EndTime1, StartTime2, EndTime2);
 
                     if ((StartTime1 < StartTime2) && (StartTime2 < EndTime1))
                     {
@@ -75,6 +53,13 @@ namespace KTE_PMS.Popup
                         return;
                     }
 
+                    Repository.Instance.Charging_StartTime = StartTime1;
+                    Repository.Instance.Charging_EndTime = EndTime1;
+                    Repository.Instance.Discharging_StartTime = StartTime2;
+                    Repository.Instance.Discharging_EndTime = EndTime2;
+
+                    Repository.Instance.Set_Scheduler_Setting(StartTime1, EndTime1, StartTime2, EndTime2);
+
                     Repository.Instance.Set_Scheduler_Setting(
                     Repository.Instance.Charging_StartTime,
                     Repository.Instance.Charging_EndTime,
@@ -84,6 +69,8 @@ namespace KTE_PMS.Popup
 
                     Repository.Instance.current_pcs_mode = 5;
 
+                    // 모든 작업이 끝난 이후에는 항상 Parameter를 Export해서 껐다 켰을때를 대비한다.
+                    Repository.Instance.p_setting.Export_Setting_Parameter_Value();
 
                     this.Dispose();
 
@@ -142,7 +129,7 @@ namespace KTE_PMS.Popup
         {
             // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
             Button button = (Button)sender;
-            button.Image = ImageResize.ResizeImage(Properties.Resources.닫기_on, button.Width, button.Height);
+            button.Image = ImageResize.ResizeImage(Properties.Resources.취소_on, button.Width, button.Height);
         }
 
         private void btn_Cancel_MouseUp(object sender, MouseEventArgs e)

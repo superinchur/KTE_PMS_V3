@@ -57,12 +57,12 @@ namespace KTE_PMS.MIMIC
 
         private void btn_Export_Data_Click(object sender, EventArgs e)
         {
-            Export_Data();
+            Export_Setting_Parameter_Value();
 
 
         }
 
-        public void Export_Data()
+        public void Export_Setting_Parameter_Value()
         {
             try
             {
@@ -99,7 +99,13 @@ namespace KTE_PMS.MIMIC
                 sw.WriteLine("Charging_Stop_SOC = " + Repository.Instance.p_control.Charging_Stop_SOC.ToString());
                 sw.WriteLine("Discharging_Stop_SOC = " + Repository.Instance.p_control.Discharging_Stop_SOC.ToString());
                 sw.WriteLine("remote_power = " + Repository.Instance.remote_power.ToString());
+                sw.WriteLine("Current_Mode = " + Repository.Instance.current_pcs_mode.ToString());
+                sw.WriteLine("Limit_Active_Power = " + Repository.Instance.p_setting.Limit_Active_Power.ToString());
+                
+                // 추후 이값은 PCS에서 받아오는 값으로 변경해야 한다. 현재는 Noise 문제때문에 하고있지 않음
+                sw.WriteLine("Authority_PMS = " + Repository.Instance.GnEPS_PCS.Authority_PMS.ToString());
 
+              
                 //close the file
                 sw.Close();
             }
@@ -173,17 +179,24 @@ namespace KTE_PMS.MIMIC
                             Repository.Instance.Discharging_EndTime = ts;
                             break;
                         case "Charging_Stop_SOC":
-
                             Repository.Instance.p_control.Charging_Stop_SOC = Convert.ToSingle(parsing[1].Trim());
                             break;
-
                         case "Discharging_Stop_SOC":
-                            
-
                             Repository.Instance.p_control.Discharging_Stop_SOC = Convert.ToSingle(parsing[1].Trim());
                             break;
                         case "remote_power":
                             Repository.Instance.remote_power = Convert.ToUInt16(parsing[1].Trim());
+                            break;
+                        case "Current_Mode":
+                            Repository.Instance.current_pcs_mode = Convert.ToUInt16(parsing[1].Trim());
+                            break;
+
+                        case "Authority_PMS":
+                            Repository.Instance.GnEPS_PCS.Authority_PMS = Convert.ToBoolean(parsing[1].Trim());
+                            break;
+
+                        case "Limit_Active_Power":
+                            Repository.Instance.p_setting.Limit_Active_Power = Convert.ToSingle(parsing[1].Trim());
                             break;
                     }
 

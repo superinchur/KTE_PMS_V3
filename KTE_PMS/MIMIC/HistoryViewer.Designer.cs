@@ -42,6 +42,10 @@
             this.dataTable3 = new System.Data.DataTable();
             this.dataTable4 = new System.Data.DataTable();
             this.dataTable5 = new System.Data.DataTable();
+            this.tb_startTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.tb_endTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btn_Update_1Month = new System.Windows.Forms.Button();
             this.btn_Update_1Day = new System.Windows.Forms.Button();
@@ -49,8 +53,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btn_TO_ALARM = new System.Windows.Forms.Button();
             this.btn_TO_HISTORY = new System.Windows.Forms.Button();
-            this.tb_startTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.tb_endTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
@@ -86,7 +88,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataGridView1.Location = new System.Drawing.Point(65, 68);
+            this.dataGridView1.Location = new System.Drawing.Point(110, 93);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -106,11 +108,12 @@
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("나눔바른고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(835, 356);
+            this.dataGridView1.Size = new System.Drawing.Size(1696, 664);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.TabStop = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -153,6 +156,59 @@
             this.dataTable5.MinimumCapacity = 400;
             this.dataTable5.TableName = "IO";
             // 
+            // tb_startTimePicker
+            // 
+            this.tb_startTimePicker.CalendarFont = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_startTimePicker.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_startTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tb_startTimePicker.Location = new System.Drawing.Point(675, 54);
+            this.tb_startTimePicker.Name = "tb_startTimePicker";
+            this.tb_startTimePicker.Size = new System.Drawing.Size(297, 35);
+            this.tb_startTimePicker.TabIndex = 29;
+            this.tb_startTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // tb_endTimePicker
+            // 
+            this.tb_endTimePicker.CalendarFont = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_endTimePicker.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_endTimePicker.Location = new System.Drawing.Point(1019, 54);
+            this.tb_endTimePicker.MaxDate = new System.DateTime(2048, 12, 31, 0, 0, 0, 0);
+            this.tb_endTimePicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
+            this.tb_endTimePicker.Name = "tb_endTimePicker";
+            this.tb_endTimePicker.Size = new System.Drawing.Size(297, 35);
+            this.tb_endTimePicker.TabIndex = 30;
+            this.tb_endTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label15.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label15.Location = new System.Drawing.Point(979, 58);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(35, 28);
+            this.label15.TabIndex = 115;
+            this.label15.Text = "~";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::KTE_PMS.Properties.Resources.검색_off;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(1490, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(150, 46);
+            this.button2.TabIndex = 31;
+            this.button2.TabStop = false;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button2_MouseClick);
+            this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button2_MouseDown);
+            this.button2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button2_MouseUp);
+            // 
             // button3
             // 
             this.button3.BackgroundImage = global::KTE_PMS.Properties.Resources.all_off;
@@ -162,9 +218,9 @@
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(531, 15);
+            this.button3.Location = new System.Drawing.Point(1011, 7);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(140, 44);
             this.button3.TabIndex = 28;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.btn_Update_Total);
@@ -180,9 +236,9 @@
             this.btn_Update_1Month.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_Update_1Month.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Update_1Month.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Update_1Month.Location = new System.Drawing.Point(450, 15);
+            this.btn_Update_1Month.Location = new System.Drawing.Point(845, 7);
             this.btn_Update_1Month.Name = "btn_Update_1Month";
-            this.btn_Update_1Month.Size = new System.Drawing.Size(75, 23);
+            this.btn_Update_1Month.Size = new System.Drawing.Size(140, 44);
             this.btn_Update_1Month.TabIndex = 27;
             this.btn_Update_1Month.UseVisualStyleBackColor = true;
             this.btn_Update_1Month.Click += new System.EventHandler(this.btn_Update_1Month_Click);
@@ -198,9 +254,9 @@
             this.btn_Update_1Day.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_Update_1Day.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Update_1Day.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Update_1Day.Location = new System.Drawing.Point(369, 15);
+            this.btn_Update_1Day.Location = new System.Drawing.Point(675, 7);
             this.btn_Update_1Day.Name = "btn_Update_1Day";
-            this.btn_Update_1Day.Size = new System.Drawing.Size(75, 23);
+            this.btn_Update_1Day.Size = new System.Drawing.Size(140, 44);
             this.btn_Update_1Day.TabIndex = 26;
             this.btn_Update_1Day.UseVisualStyleBackColor = true;
             this.btn_Update_1Day.Click += new System.EventHandler(this.btn_Update_1Day_Click);
@@ -216,9 +272,9 @@
             this.btn_Update_Manual.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_Update_Manual.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_Update_Manual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Update_Manual.Location = new System.Drawing.Point(612, 15);
+            this.btn_Update_Manual.Location = new System.Drawing.Point(1176, 7);
             this.btn_Update_Manual.Name = "btn_Update_Manual";
-            this.btn_Update_Manual.Size = new System.Drawing.Size(75, 23);
+            this.btn_Update_Manual.Size = new System.Drawing.Size(140, 44);
             this.btn_Update_Manual.TabIndex = 23;
             this.btn_Update_Manual.UseVisualStyleBackColor = true;
             this.btn_Update_Manual.Click += new System.EventHandler(this.btn_Update_Manual_Click);
@@ -234,9 +290,9 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(825, 25);
+            this.button1.Location = new System.Drawing.Point(1646, 22);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(150, 46);
             this.button1.TabIndex = 11;
             this.button1.TabStop = false;
             this.button1.UseVisualStyleBackColor = true;
@@ -246,16 +302,16 @@
             // 
             // btn_TO_ALARM
             // 
-            this.btn_TO_ALARM.BackgroundImage = global::KTE_PMS.Properties.Resources.alarm_off_1;
+            this.btn_TO_ALARM.BackgroundImage = global::KTE_PMS.Properties.Resources.alarm_off1;
             this.btn_TO_ALARM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_TO_ALARM.FlatAppearance.BorderSize = 0;
             this.btn_TO_ALARM.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btn_TO_ALARM.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_TO_ALARM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_TO_ALARM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_TO_ALARM.Location = new System.Drawing.Point(65, 15);
+            this.btn_TO_ALARM.Location = new System.Drawing.Point(110, 22);
             this.btn_TO_ALARM.Name = "btn_TO_ALARM";
-            this.btn_TO_ALARM.Size = new System.Drawing.Size(93, 23);
+            this.btn_TO_ALARM.Size = new System.Drawing.Size(186, 46);
             this.btn_TO_ALARM.TabIndex = 9;
             this.btn_TO_ALARM.TabStop = false;
             this.btn_TO_ALARM.UseVisualStyleBackColor = true;
@@ -272,9 +328,9 @@
             this.btn_TO_HISTORY.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_TO_HISTORY.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_TO_HISTORY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_TO_HISTORY.Location = new System.Drawing.Point(185, 15);
+            this.btn_TO_HISTORY.Location = new System.Drawing.Point(302, 22);
             this.btn_TO_HISTORY.Name = "btn_TO_HISTORY";
-            this.btn_TO_HISTORY.Size = new System.Drawing.Size(93, 23);
+            this.btn_TO_HISTORY.Size = new System.Drawing.Size(186, 46);
             this.btn_TO_HISTORY.TabIndex = 8;
             this.btn_TO_HISTORY.TabStop = false;
             this.btn_TO_HISTORY.UseVisualStyleBackColor = true;
@@ -282,31 +338,13 @@
             this.btn_TO_HISTORY.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_TO_HISTORY_MouseDown);
             this.btn_TO_HISTORY.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_TO_HISTORY_MouseUp);
             // 
-            // tb_startTimePicker
-            // 
-            this.tb_startTimePicker.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_startTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.tb_startTimePicker.Location = new System.Drawing.Point(316, 40);
-            this.tb_startTimePicker.Name = "tb_startTimePicker";
-            this.tb_startTimePicker.Size = new System.Drawing.Size(200, 25);
-            this.tb_startTimePicker.TabIndex = 29;
-            this.tb_startTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // tb_endTimePicker
-            // 
-            this.tb_endTimePicker.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.tb_endTimePicker.Location = new System.Drawing.Point(522, 40);
-            this.tb_endTimePicker.MaxDate = new System.DateTime(2048, 12, 31, 0, 0, 0, 0);
-            this.tb_endTimePicker.MinDate = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
-            this.tb_endTimePicker.Name = "tb_endTimePicker";
-            this.tb_endTimePicker.Size = new System.Drawing.Size(200, 25);
-            this.tb_endTimePicker.TabIndex = 30;
-            this.tb_endTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
-            // 
             // HistoryViewer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.tb_endTimePicker);
             this.Controls.Add(this.tb_startTimePicker);
             this.Controls.Add(this.button3);
@@ -319,6 +357,7 @@
             this.Controls.Add(this.btn_TO_HISTORY);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "HistoryViewer";
+            this.Size = new System.Drawing.Size(1920, 796);
             this.Load += new System.EventHandler(this.HistoryViewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
@@ -334,9 +373,7 @@
         #endregion
         private System.Windows.Forms.Button btn_TO_ALARM;
         private System.Windows.Forms.Button btn_TO_HISTORY;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Timer timer1;
-        private System.Data.DataSet dataSet1;
         private System.Data.DataTable dataTable1;
         private System.Data.DataTable dataTable2;
         private System.Data.DataTable dataTable3;
@@ -347,7 +384,11 @@
         private System.Windows.Forms.Button btn_Update_Manual;
         private System.Windows.Forms.Button btn_Update_1Month;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DateTimePicker tb_startTimePicker;
-        private System.Windows.Forms.DateTimePicker tb_endTimePicker;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label15;
+        public System.Data.DataSet dataSet1;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DateTimePicker tb_startTimePicker;
+        public System.Windows.Forms.DateTimePicker tb_endTimePicker;
     }
 }

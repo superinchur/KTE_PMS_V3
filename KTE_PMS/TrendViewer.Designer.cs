@@ -42,6 +42,8 @@
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView2 = new DevExpress.XtraCharts.LineSeriesView();
             DevExpress.DataAccess.Sql.SelectQuery selectQuery3 = new DevExpress.DataAccess.Sql.SelectQuery();
             DevExpress.DataAccess.Sql.AllColumns allColumns3 = new DevExpress.DataAccess.Sql.AllColumns();
             DevExpress.DataAccess.Sql.Table table3 = new DevExpress.DataAccess.Sql.Table();
@@ -49,15 +51,15 @@
             DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint2 = new DevExpress.XtraCharts.ChartAnchorPoint();
             DevExpress.XtraCharts.FreePosition freePosition2 = new DevExpress.XtraCharts.FreePosition();
             DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView2 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView3 = new DevExpress.XtraCharts.LineSeriesView();
             DevExpress.XtraCharts.TextAnnotation textAnnotation3 = new DevExpress.XtraCharts.TextAnnotation();
             DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint3 = new DevExpress.XtraCharts.ChartAnchorPoint();
             DevExpress.XtraCharts.FreePosition freePosition3 = new DevExpress.XtraCharts.FreePosition();
             DevExpress.XtraCharts.XYDiagram xyDiagram3 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView3 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView4 = new DevExpress.XtraCharts.LineSeriesView();
             DevExpress.DataAccess.Sql.SelectQuery selectQuery4 = new DevExpress.DataAccess.Sql.SelectQuery();
             DevExpress.DataAccess.Sql.AllColumns allColumns4 = new DevExpress.DataAccess.Sql.AllColumns();
             DevExpress.DataAccess.Sql.Table table4 = new DevExpress.DataAccess.Sql.Table();
@@ -65,8 +67,8 @@
             DevExpress.XtraCharts.ChartAnchorPoint chartAnchorPoint4 = new DevExpress.XtraCharts.ChartAnchorPoint();
             DevExpress.XtraCharts.FreePosition freePosition4 = new DevExpress.XtraCharts.FreePosition();
             DevExpress.XtraCharts.XYDiagram xyDiagram4 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView4 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.LineSeriesView lineSeriesView5 = new DevExpress.XtraCharts.LineSeriesView();
             this.Load_dataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Load_DataSource = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Grid_dataBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -105,24 +107,26 @@
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Battery_dataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(textAnnotation2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(textAnnotation3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.POWER_ACCU_dataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(textAnnotation4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView5)).BeginInit();
             this.SuspendLayout();
             // 
             // Load_dataBindingSource
@@ -134,7 +138,7 @@
             // 
             this.Load_DataSource.ConnectionName = "localhost_mysql_Connection_v1.0";
             this.Load_DataSource.Name = "Load_DataSource";
-            table1.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"192\" />";
+            table1.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"153\" />";
             table1.Name = "load_trend_data";
             allColumns1.Table = table1;
             selectQuery1.Columns.Add(allColumns1);
@@ -153,7 +157,7 @@
             // 
             this.Grid_DataSource.ConnectionName = "localhost_mysql_Connection_v1.0";
             this.Grid_DataSource.Name = "Grid_DataSource";
-            table2.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"192\" />";
+            table2.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"153\" />";
             table2.Name = "grid_trend_data";
             allColumns2.Table = table2;
             selectQuery2.Columns.Add(allColumns2);
@@ -188,16 +192,22 @@
             this.chartControl1.Diagram = xyDiagram1;
             this.chartControl1.Legend.Name = "Default Legend";
             this.chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl1.Location = new System.Drawing.Point(43, 61);
+            this.chartControl1.Location = new System.Drawing.Point(91, 113);
             this.chartControl1.Name = "chartControl1";
             series1.ArgumentDataMember = "DATETIME";
             series1.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
-            series1.Name = "Series 1";
-            series1.ValueDataMembersSerializable = "POWER";
+            series1.Name = "충전 전력";
+            series1.ValueDataMembersSerializable = "C_POWER";
             series1.View = lineSeriesView1;
+            series2.ArgumentDataMember = "DATETIME";
+            series2.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
+            series2.Name = "방전 전력";
+            series2.ValueDataMembersSerializable = "D_POWER";
+            series2.View = lineSeriesView2;
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
-            this.chartControl1.Size = new System.Drawing.Size(741, 115);
+        series1,
+        series2};
+            this.chartControl1.Size = new System.Drawing.Size(1480, 217);
             this.chartControl1.TabIndex = 2;
             this.chartControl1.Visible = false;
             // 
@@ -210,7 +220,7 @@
             // 
             this.Battery_DataSource.ConnectionName = "localhost_mysql_Connection_v1.0";
             this.Battery_DataSource.Name = "Battery_DataSource";
-            table3.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"192\" />";
+            table3.MetaSerializable = "<Meta X=\"30\" Y=\"30\" Width=\"125\" Height=\"153\" />";
             table3.Name = "trend_data";
             allColumns3.Table = table3;
             selectQuery3.Columns.Add(allColumns3);
@@ -226,9 +236,9 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(540, 9);
+            this.button2.Location = new System.Drawing.Point(1060, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 23);
+            this.button2.Size = new System.Drawing.Size(174, 46);
             this.button2.TabIndex = 5;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.적용);
@@ -237,9 +247,10 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(633, 37);
+            this.button5.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button5.Location = new System.Drawing.Point(1401, 61);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(60, 23);
+            this.button5.Size = new System.Drawing.Size(170, 46);
             this.button5.TabIndex = 22;
             this.button5.Text = "1일";
             this.button5.UseVisualStyleBackColor = true;
@@ -247,9 +258,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(567, 37);
+            this.button4.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button4.Location = new System.Drawing.Point(1225, 61);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(60, 23);
+            this.button4.Size = new System.Drawing.Size(170, 46);
             this.button4.TabIndex = 21;
             this.button4.Text = "1시간";
             this.button4.UseVisualStyleBackColor = true;
@@ -257,9 +269,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(501, 37);
+            this.button3.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button3.Location = new System.Drawing.Point(1049, 62);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 23);
+            this.button3.Size = new System.Drawing.Size(170, 46);
             this.button3.TabIndex = 20;
             this.button3.Text = "10분";
             this.button3.UseVisualStyleBackColor = true;
@@ -267,12 +280,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(699, 37);
+            this.button1.Location = new System.Drawing.Point(1702, 53);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 23);
+            this.button1.Size = new System.Drawing.Size(170, 46);
             this.button1.TabIndex = 23;
             this.button1.Text = "Export_Data";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // checkBox1
@@ -280,9 +294,10 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(120, 38);
+            this.checkBox1.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox1.Location = new System.Drawing.Point(240, 66);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(59, 19);
+            this.checkBox1.Size = new System.Drawing.Size(73, 31);
             this.checkBox1.TabIndex = 25;
             this.checkBox1.Text = "전력";
             this.checkBox1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -292,9 +307,10 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(185, 38);
+            this.checkBox2.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox2.Location = new System.Drawing.Point(308, 66);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(89, 19);
+            this.checkBox2.Size = new System.Drawing.Size(115, 31);
             this.checkBox2.TabIndex = 26;
             this.checkBox2.Text = "전력누계";
             this.checkBox2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -304,9 +320,10 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(277, 38);
+            this.checkBox3.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox3.Location = new System.Drawing.Point(418, 66);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(59, 19);
+            this.checkBox3.Size = new System.Drawing.Size(73, 31);
             this.checkBox3.TabIndex = 27;
             this.checkBox3.Text = "전압";
             this.checkBox3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -316,9 +333,10 @@
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(331, 38);
+            this.checkBox4.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.checkBox4.Location = new System.Drawing.Point(486, 66);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(59, 19);
+            this.checkBox4.Size = new System.Drawing.Size(73, 31);
             this.checkBox4.TabIndex = 28;
             this.checkBox4.Text = "전류";
             this.checkBox4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -327,52 +345,48 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label1.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(54, 13);
+            this.label1.Location = new System.Drawing.Point(115, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.Size = new System.Drawing.Size(98, 31);
             this.label1.TabIndex = 29;
             this.label1.Text = "조회기간";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label2.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(54, 38);
+            this.label2.Location = new System.Drawing.Point(115, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 17);
+            this.label2.Size = new System.Drawing.Size(98, 31);
             this.label2.TabIndex = 30;
             this.label2.Text = "조회항목";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label3.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(111, 13);
+            this.label3.Location = new System.Drawing.Point(232, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 17);
+            this.label3.Size = new System.Drawing.Size(70, 31);
             this.label3.TabIndex = 31;
             this.label3.Text = "From";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label4.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(332, 13);
+            this.label4.Location = new System.Drawing.Point(658, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 17);
+            this.label4.Size = new System.Drawing.Size(70, 31);
             this.label4.TabIndex = 32;
             this.label4.Text = "To";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -383,9 +397,9 @@
             this.btn_Battery.BackgroundImage = global::KTE_PMS.Properties.Resources.배터리_off;
             this.btn_Battery.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Battery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Battery.Location = new System.Drawing.Point(843, 83);
+            this.btn_Battery.Location = new System.Drawing.Point(1682, 156);
             this.btn_Battery.Name = "btn_Battery";
-            this.btn_Battery.Size = new System.Drawing.Size(82, 92);
+            this.btn_Battery.Size = new System.Drawing.Size(164, 184);
             this.btn_Battery.TabIndex = 81;
             this.btn_Battery.UseVisualStyleBackColor = false;
             this.btn_Battery.Click += new System.EventHandler(this.btn_Battery_Click);
@@ -396,9 +410,9 @@
             this.btn_Load.BackgroundImage = global::KTE_PMS.Properties.Resources.LOAD_off;
             this.btn_Load.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Load.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Load.Location = new System.Drawing.Point(843, 309);
+            this.btn_Load.Location = new System.Drawing.Point(1682, 568);
             this.btn_Load.Name = "btn_Load";
-            this.btn_Load.Size = new System.Drawing.Size(82, 92);
+            this.btn_Load.Size = new System.Drawing.Size(164, 184);
             this.btn_Load.TabIndex = 82;
             this.btn_Load.UseVisualStyleBackColor = false;
             this.btn_Load.Click += new System.EventHandler(this.btn_Load_Click);
@@ -409,9 +423,9 @@
             this.btn_Grid.BackgroundImage = global::KTE_PMS.Properties.Resources.Grid_off;
             this.btn_Grid.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Grid.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Grid.Location = new System.Drawing.Point(843, 196);
+            this.btn_Grid.Location = new System.Drawing.Point(1682, 357);
             this.btn_Grid.Name = "btn_Grid";
-            this.btn_Grid.Size = new System.Drawing.Size(82, 92);
+            this.btn_Grid.Size = new System.Drawing.Size(164, 184);
             this.btn_Grid.TabIndex = 83;
             this.btn_Grid.UseVisualStyleBackColor = false;
             this.btn_Grid.Click += new System.EventHandler(this.btn_Grid_Click);
@@ -441,17 +455,17 @@
             this.chartControl4.Diagram = xyDiagram2;
             this.chartControl4.Legend.Name = "Default Legend";
             this.chartControl4.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl4.Location = new System.Drawing.Point(43, 302);
+            this.chartControl4.Location = new System.Drawing.Point(91, 559);
             this.chartControl4.Name = "chartControl4";
-            series2.ArgumentDataMember = "DATETIME";
-            series2.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
-            series2.DataSource = this.Load_dataBindingSource;
-            series2.Name = "Series 1";
-            series2.ValueDataMembersSerializable = "CURRENT";
-            series2.View = lineSeriesView2;
+            series3.ArgumentDataMember = "DATETIME";
+            series3.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
+            series3.DataSource = this.Load_dataBindingSource;
+            series3.Name = "전류";
+            series3.ValueDataMembersSerializable = "CURRENT";
+            series3.View = lineSeriesView3;
             this.chartControl4.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
-            this.chartControl4.Size = new System.Drawing.Size(744, 115);
+        series3};
+            this.chartControl4.Size = new System.Drawing.Size(1480, 217);
             this.chartControl4.TabIndex = 24;
             this.chartControl4.Click += new System.EventHandler(this.chartControl4_Click);
             // 
@@ -480,19 +494,19 @@
             this.chartControl2.Diagram = xyDiagram3;
             this.chartControl2.Legend.Name = "Default Legend";
             this.chartControl2.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl2.Location = new System.Drawing.Point(331, 202);
+            this.chartControl2.Location = new System.Drawing.Point(1619, 223);
             this.chartControl2.Name = "chartControl2";
-            series3.ArgumentDataMember = "DATETIME";
-            series3.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
-            series3.Name = "충전누적전력";
             series4.ArgumentDataMember = "DATETIME";
-            series4.Name = "방전누적전력";
+            series4.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
+            series4.Name = "충전누적전력";
+            series5.ArgumentDataMember = "DATETIME";
+            series5.Name = "방전누적전력";
             this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series3,
-        series4};
+        series4,
+        series5};
             this.chartControl2.SeriesTemplate.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
-            this.chartControl2.SeriesTemplate.View = lineSeriesView3;
-            this.chartControl2.Size = new System.Drawing.Size(523, 196);
+            this.chartControl2.SeriesTemplate.View = lineSeriesView4;
+            this.chartControl2.Size = new System.Drawing.Size(227, 160);
             this.chartControl2.TabIndex = 6;
             this.chartControl2.Click += new System.EventHandler(this.chartControl2_Click);
             // 
@@ -540,32 +554,34 @@
             this.chartControl3.Diagram = xyDiagram4;
             this.chartControl3.Legend.Name = "Default Legend";
             this.chartControl3.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl3.Location = new System.Drawing.Point(43, 182);
+            this.chartControl3.Location = new System.Drawing.Point(91, 336);
             this.chartControl3.Name = "chartControl3";
-            series5.ArgumentDataMember = "DATETIME";
-            series5.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
-            series5.DataSource = this.Grid_dataBindingSource;
-            series5.Name = "Series 1";
-            series5.ValueDataMembersSerializable = "VOLTAGE";
-            series5.View = lineSeriesView4;
+            series6.ArgumentDataMember = "DATETIME";
+            series6.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.DateTime;
+            series6.DataSource = this.Grid_dataBindingSource;
+            series6.Name = "전압";
+            series6.ValueDataMembersSerializable = "VOLTAGE";
+            series6.View = lineSeriesView5;
             this.chartControl3.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series5};
-            this.chartControl3.Size = new System.Drawing.Size(744, 115);
+        series6};
+            this.chartControl3.Size = new System.Drawing.Size(1480, 217);
             this.chartControl3.TabIndex = 7;
             this.chartControl3.Click += new System.EventHandler(this.chartControl3_Click);
             // 
             // tb_startTime
             // 
-            this.tb_startTime.Location = new System.Drawing.Point(154, 8);
+            this.tb_startTime.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_startTime.Location = new System.Drawing.Point(308, 18);
             this.tb_startTime.Name = "tb_startTime";
-            this.tb_startTime.Size = new System.Drawing.Size(172, 25);
+            this.tb_startTime.Size = new System.Drawing.Size(344, 35);
             this.tb_startTime.TabIndex = 84;
             // 
             // tb_endTime
             // 
-            this.tb_endTime.Location = new System.Drawing.Point(362, 9);
+            this.tb_endTime.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.tb_endTime.Location = new System.Drawing.Point(710, 18);
             this.tb_endTime.Name = "tb_endTime";
-            this.tb_endTime.Size = new System.Drawing.Size(172, 25);
+            this.tb_endTime.Size = new System.Drawing.Size(344, 35);
             this.tb_endTime.TabIndex = 85;
             // 
             // TrendViewer
@@ -597,6 +613,7 @@
             this.Controls.Add(this.chartControl1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "TrendViewer";
+            this.Size = new System.Drawing.Size(1920, 796);
             this.Load += new System.EventHandler(this.TrendViewer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Load_dataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_dataBindingSource)).EndInit();
@@ -604,24 +621,26 @@
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Battery_dataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(textAnnotation2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(textAnnotation3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.POWER_ACCU_dataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(textAnnotation4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(lineSeriesView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

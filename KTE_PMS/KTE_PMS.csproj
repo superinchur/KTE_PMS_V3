@@ -66,6 +66,7 @@
     <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.2.Extensions, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v17.2.UI, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v17.2.Wizard, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -94,6 +95,7 @@
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -117,6 +119,8 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLASS\cConvertFromMaskedTextBox.cs" />
+    <Compile Include="CLASS\cDelay.cs" />
     <Compile Include="CLASS\cSamsungBMS_Rack.cs" />
     <Compile Include="CLASS\ImageResize.cs" />
     <Compile Include="DBConnector.cs" />
@@ -243,6 +247,30 @@
     <Compile Include="Popup\Popup_Battery.Designer.cs">
       <DependentUpon>Popup_Battery.cs</DependentUpon>
     </Compile>
+    <Compile Include="Popup\Popup_History_Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Popup_History_Search.Designer.cs">
+      <DependentUpon>Popup_History_Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Popup_Power_Active_Set.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Popup_Power_Active_Set.Designer.cs">
+      <DependentUpon>Popup_Power_Active_Set.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Popup_DisCharging_Stop_SOC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Popup_DisCharging_Stop_SOC.Designer.cs">
+      <DependentUpon>Popup_DisCharging_Stop_SOC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Popup_Charging_Stop_SOC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popup\Popup_Charging_Stop_SOC.Designer.cs">
+      <DependentUpon>Popup_Charging_Stop_SOC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Popup\Popup_PCS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +345,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MIMIC\MainViewer.resx">
       <DependentUpon>MainViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MIMIC\MeasureViewer4.resx">
       <DependentUpon>MeasureViewer4.cs</DependentUpon>
@@ -353,6 +382,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\Popup_Battery.resx">
       <DependentUpon>Popup_Battery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Popup_History_Search.resx">
+      <DependentUpon>Popup_History_Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Popup_Power_Active_Set.resx">
+      <DependentUpon>Popup_Power_Active_Set.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Popup_DisCharging_Stop_SOC.resx">
+      <DependentUpon>Popup_DisCharging_Stop_SOC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popup\Popup_Charging_Stop_SOC.resx">
+      <DependentUpon>Popup_Charging_Stop_SOC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Popup\Popup_PCS.resx">
       <DependentUpon>Popup_PCS.cs</DependentUpon>
@@ -1510,6 +1551,69 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Control2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Top_배치참조1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Alarm_Event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trend_배치참조.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TREND2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\취소_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\취소_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Control3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\변경_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\변경_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\검색_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\검색_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LEMS_on_G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\제어_on_G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\사용자정의_on_G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\방전_on_G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\충전_on_G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\피크저감_on_G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uPMS_on_G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\방전제한.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\유효전력제어.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\충전제한.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

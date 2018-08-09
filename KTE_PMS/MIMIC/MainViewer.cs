@@ -18,7 +18,7 @@ namespace KTE_PMS
         {
             InitializeComponent();
 
-            timer1.Interval = 1000;
+            timer1.Interval = 500;
             timer1.Enabled = true;
             timer1.Start();
 
@@ -87,58 +87,73 @@ namespace KTE_PMS
             if (Repository.Instance.GnEPS_PCS.Authority_PMS)
             {
                 btn_uPMS.Image = null;
-                btn_LEMS.Image = ImageResize.ResizeImage(Properties.Resources.LEMS_on_G_1, btn_LEMS.Width, btn_LEMS.Height);
+                btn_LEMS.Image = ImageResize.ResizeImage(Properties.Resources.LEMS_on_G, btn_LEMS.Width, btn_LEMS.Height);
                 cover_control.Visible = false;
                 cover_scheduling.Visible = false;
+
+
+                if (Repository.Instance.current_pcs_mode == 1)
+                {
+                    btn_PeakCutMode.Image = null;
+                    btn_ChargingMode.Image = null;
+                    btn_DisChargingMode.Image = null;
+                    btn_CustomMode.Image = null;
+                    cover_control.Visible = false;
+                    cover_scheduling.Visible = false;
+
+                }
+                else if (Repository.Instance.current_pcs_mode == 2)
+                {
+                    btn_PeakCutMode.Image = null;
+                    btn_ChargingMode.Image = ImageResize.ResizeImage(Properties.Resources.충전_on_G, btn_ChargingMode.Width, btn_ChargingMode.Height);
+                    btn_DisChargingMode.Image = null;
+                    btn_CustomMode.Image = null;
+                    cover_scheduling.Visible = true;
+                }
+                else if (Repository.Instance.current_pcs_mode == 3)
+                {
+                    btn_PeakCutMode.Image = null;
+                    btn_ChargingMode.Image = null;
+                    btn_DisChargingMode.Image = ImageResize.ResizeImage(Properties.Resources.방전_on_G, btn_DisChargingMode.Width, btn_DisChargingMode.Height);
+                    btn_CustomMode.Image = null;
+                    cover_scheduling.Visible = true;
+                }
+                else if (Repository.Instance.current_pcs_mode == 4)
+                {
+                    btn_PeakCutMode.Image = ImageResize.ResizeImage(Properties.Resources.피크저감_on_G, btn_PeakCutMode.Width, btn_PeakCutMode.Height);
+                    btn_ChargingMode.Image = null;
+                    btn_DisChargingMode.Image = null;
+                    btn_CustomMode.Image = null;
+                    cover_control.Visible = false;
+                    cover_scheduling.Visible = false;
+                }
+                else if (Repository.Instance.current_pcs_mode == 5)
+                {
+                    btn_PeakCutMode.Image = null;
+                    btn_ChargingMode.Image = null;
+                    btn_DisChargingMode.Image = null;
+                    btn_CustomMode.Image = ImageResize.ResizeImage(Properties.Resources.사용자정의_on_G, btn_CustomMode.Width, btn_CustomMode.Height);
+                    cover_control.Visible = false;
+                    cover_scheduling.Visible = false;
+                }
             }
             else
             {
-                btn_uPMS.Image = ImageResize.ResizeImage(Properties.Resources.uPMS_on_G_1, btn_uPMS.Width, btn_uPMS.Height);
+                btn_uPMS.Image = ImageResize.ResizeImage(Properties.Resources.uPMS_on_G, btn_uPMS.Width, btn_uPMS.Height);
                 btn_LEMS.Image = null;
+
                 cover_control.Visible = true;
                 cover_scheduling.Visible = true;
+                
             }
 
-            if (Repository.Instance.current_pcs_mode == 1)
-            {
-                btn_PeakCutMode.Image = null;
-                btn_ChargingMode.Image = null;
-                btn_DisChargingMode.Image = null;
-                btn_CustomMode.Image = null;
-            }
-            else if (Repository.Instance.current_pcs_mode == 2)
-            {
-                btn_PeakCutMode.Image = null;
-                btn_ChargingMode.Image = ImageResize.ResizeImage(Properties.Resources.충전_on_G_1, btn_ChargingMode.Width, btn_ChargingMode.Height);
-                btn_DisChargingMode.Image = null;
-                btn_CustomMode.Image = null;
-            }
-            else if (Repository.Instance.current_pcs_mode == 3)
-            {
-                btn_PeakCutMode.Image = null;
-                btn_ChargingMode.Image = null;
-                btn_DisChargingMode.Image = ImageResize.ResizeImage(Properties.Resources.방전_on_G_1, btn_DisChargingMode.Width, btn_DisChargingMode.Height);
-                btn_CustomMode.Image = null;
-            }
-            else if (Repository.Instance.current_pcs_mode == 4)
-            {
-                btn_PeakCutMode.Image = ImageResize.ResizeImage(Properties.Resources.피크저감_on_G_1, btn_PeakCutMode.Width, btn_PeakCutMode.Height);
-                btn_ChargingMode.Image = null;
-                btn_DisChargingMode.Image = null;
-                btn_CustomMode.Image = null;
-            }
-            else if (Repository.Instance.current_pcs_mode == 5)
-            {
-                btn_PeakCutMode.Image = null;
-                btn_ChargingMode.Image = null;
-                btn_DisChargingMode.Image = null;
-                btn_CustomMode.Image = ImageResize.ResizeImage(Properties.Resources.사용자정의_on_G_1, btn_CustomMode.Width, btn_CustomMode.Height);
-            }
         }
 
         private void Display_Battery_SOC()
         {
             double soc = Repository.Instance.samsung_bcs.System_SOC;
+
+            lb_Battery_SOC.Text = String.Format("{0:0.0 %}", soc);
             if (soc < 20)
             {
                 pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[0], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
@@ -182,22 +197,28 @@ namespace KTE_PMS
 
         private void Display_Device_Connection_Status()
         {
-            if (Repository.Instance.GnEPS_PCS.common_alarm || (Repository.Instance.bmsviewer.Connected() == 0))
+            if (Repository.Instance.GnEPS_PCS.common_alarm || (Repository.Instance.pmdviewer.Connected() == 0))
             {
-                pb_Battery_Abnormal.Visible = false;
-            }
-            else
-            {
-                pb_Battery_Abnormal.Visible = true;
-            }
-
-            if (Repository.Instance.samsung_bcs.common_alarm || (Repository.Instance.pmdviewer.Connected() == 0))
-            {
+                // 에러 상황에는 빨간색으로 표시되어야 하므로, 회색이 나타나서는 안된다,
                 pb_PCS_Abnormal.Visible = false;
             }
             else
             {
+                // 정상 상황에는 회색으로 표시되어야 하므로, 회색이 나타나야한다
                 pb_PCS_Abnormal.Visible = true;
+            }
+
+            if (Repository.Instance.samsung_bcs.common_alarm || (Repository.Instance.bmsviewer.Connected() == 0) )
+            {
+                // 에러 상황에는 빨간색으로 표시되어야 하므로, 회색이 나타나서는 안된다,
+                pb_Battery_Abnormal.Visible = false;
+                
+            }
+            else
+            {
+                // 정상 상황에는 회색으로 표시되어야 하므로, 회색이 나타나야한다
+                pb_Battery_Abnormal.Visible = true;
+                
             }
         }
 
@@ -372,14 +393,6 @@ namespace KTE_PMS
                 // 180710
                 // 현재 피크저감 모드는 어떤 식으로 할지 명확하게 정의가 안되어서 주석처리를 해놨음
                 // -------------------------------------------------------------------------------------
-                /*
-                Repository.Instance.Charging_StartTime = new TimeSpan(08, 00, 00);
-                Repository.Instance.Charging_EndTime = new TimeSpan(12, 00, 00);
-                Repository.Instance.Discharging_StartTime = new TimeSpan(16, 00, 00);
-                Repository.Instance.Discharging_EndTime = new TimeSpan(20, 00, 00);
-                */
-
-
                 
                 Repository.Instance.Set_Scheduler_Setting
                 (
@@ -388,7 +401,7 @@ namespace KTE_PMS
                 new TimeSpan(16, 00, 00),
                 new TimeSpan(20, 00, 00)
                 );
-
+                
                 // MainViewer에 있는 Scheduler를 위한 항목
                 esS_Scheduler1.Color_Update();
 
@@ -397,6 +410,8 @@ namespace KTE_PMS
 
                 Display_Button_Color();
                 cover_scheduling.Visible = false;
+                // 2018-08-07 설정값 저장
+                Repository.Instance.p_setting.Export_Setting_Parameter_Value();
             }
         }
 
@@ -410,35 +425,20 @@ namespace KTE_PMS
             // 사용자 정의 모드로 지정
             Display_Button_Color();
             cover_scheduling.Visible = false;
+            // 2018-08-07 설정값 저장
+            Repository.Instance.p_setting.Export_Setting_Parameter_Value();
         }
 
         private void btn_ChargingMode_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("충전 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                // 180725 김보경 차장의 요청으로 충전모드는
-                // Scheduling Time 을 바꾸는 것이 아닌 강제로 충전비트를 내 보내는 것으로 다시 복구한다.
-                // 
-                /*
-                Repository.Instance.Charging_StartTime = new TimeSpan(00, 00, 00);
-                Repository.Instance.Charging_EndTime = new TimeSpan(24, 00, 00);
-                Repository.Instance.Discharging_StartTime = new TimeSpan(00, 00, 00);
-                Repository.Instance.Discharging_EndTime = new TimeSpan(00, 00, 00);
+                Repository.Instance.current_pcs_mode = 2; // 충전모드로 변경 (current_pcs_mode == 2)
 
-                Repository.Instance.Set_Scheduler_Setting(
-                    Repository.Instance.Charging_StartTime,
-                    Repository.Instance.Charging_EndTime,
-                    Repository.Instance.Discharging_StartTime,
-                    Repository.Instance.Discharging_EndTime);
-                // MainViewer에 있는 Scheduler를 위한 항목
-                esS_Scheduler1.Color_Update();
-                */
-                // 강제 충전모드로 지정
-                Repository.Instance.current_pcs_mode = 2;
-
-
-                Display_Button_Color();
-                cover_scheduling.Visible = true;
+                // 2018-08-07 설정값 저장
+                Repository.Instance.p_setting.Export_Setting_Parameter_Value();
+               
+                
             }
         }
 
@@ -446,25 +446,10 @@ namespace KTE_PMS
         {
             if (MessageBox.Show("방전 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                // 180725 김보경 차장의 요청으로 충전모드는
-                // Scheduling Time 을 바꾸는 것이 아닌 강제로 충전비트를 내 보내는 것으로 다시 복구한다.
-                // 
-                /*
-                Repository.Instance.Charging_StartTime = new TimeSpan(00, 00, 00);
-                Repository.Instance.Charging_EndTime = new TimeSpan(00, 00, 00);
-                Repository.Instance.Discharging_StartTime = new TimeSpan(00, 00, 00);
-                Repository.Instance.Discharging_EndTime = new TimeSpan(24, 00, 00);
+                Repository.Instance.current_pcs_mode = 3; // 방전 모드로 변경 (current_pcs_mode == 3)
 
-                Repository.Instance.Set_Scheduler_Setting(
-                    Repository.Instance.Charging_StartTime,
-                    Repository.Instance.Charging_EndTime,
-                    Repository.Instance.Discharging_StartTime,
-                    Repository.Instance.Discharging_EndTime);
-
-                */
-                Repository.Instance.current_pcs_mode = 3;
-                Display_Button_Color();
-                cover_scheduling.Visible = true;
+                // 2018-08-07 설정값 저장
+                Repository.Instance.p_setting.Export_Setting_Parameter_Value();
             }
         }
 
@@ -503,13 +488,11 @@ namespace KTE_PMS
 
             LEMS a = (LEMS)Parent.Parent;
             a.Click_Control();
-            //a.Click_();
 
         }
         private void btn_PCS_Control_Click(object sender, EventArgs e)
         {
             LEMS a = (LEMS)Parent.Parent;
-            //a.Click_Measure();
             a.Click_Control();
         }
 
@@ -663,6 +646,11 @@ namespace KTE_PMS
         private void lb12_Click(object sender, EventArgs e)
         {
             Repository.Instance.dbConnector.Select_Power();
+        }
+
+        private void lb_Battery_Control_Authority_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

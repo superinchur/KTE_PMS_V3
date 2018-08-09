@@ -51,6 +51,12 @@
             this.tb_Active_Power_Maximum = new System.Windows.Forms.MaskedTextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Access_To_Operating_System
@@ -65,9 +71,9 @@
             this.btn_Access_To_Operating_System.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Access_To_Operating_System.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Access_To_Operating_System.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Access_To_Operating_System.Location = new System.Drawing.Point(285, 350);
+            this.btn_Access_To_Operating_System.Location = new System.Drawing.Point(570, 638);
             this.btn_Access_To_Operating_System.Name = "btn_Access_To_Operating_System";
-            this.btn_Access_To_Operating_System.Size = new System.Drawing.Size(93, 23);
+            this.btn_Access_To_Operating_System.Size = new System.Drawing.Size(186, 46);
             this.btn_Access_To_Operating_System.TabIndex = 6;
             this.btn_Access_To_Operating_System.UseVisualStyleBackColor = false;
             this.btn_Access_To_Operating_System.Click += new System.EventHandler(this.btn_Access_To_Operating_System_Click);
@@ -86,9 +92,9 @@
             this.btn_Password_Change.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Password_Change.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Password_Change.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Password_Change.Location = new System.Drawing.Point(582, 350);
+            this.btn_Password_Change.Location = new System.Drawing.Point(1162, 638);
             this.btn_Password_Change.Name = "btn_Password_Change";
-            this.btn_Password_Change.Size = new System.Drawing.Size(93, 23);
+            this.btn_Password_Change.Size = new System.Drawing.Size(186, 46);
             this.btn_Password_Change.TabIndex = 8;
             this.btn_Password_Change.UseVisualStyleBackColor = false;
             this.btn_Password_Change.Click += new System.EventHandler(this.btn_Password_Change_Click);
@@ -107,7 +113,7 @@
             this.btn_Export_Data.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Export_Data.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Export_Data.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Export_Data.Location = new System.Drawing.Point(747, 198);
+            this.btn_Export_Data.Location = new System.Drawing.Point(1630, 281);
             this.btn_Export_Data.Name = "btn_Export_Data";
             this.btn_Export_Data.Size = new System.Drawing.Size(93, 23);
             this.btn_Export_Data.TabIndex = 9;
@@ -129,7 +135,7 @@
             this.btn_Import_Data.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Import_Data.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Import_Data.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Import_Data.Location = new System.Drawing.Point(747, 141);
+            this.btn_Import_Data.Location = new System.Drawing.Point(1630, 224);
             this.btn_Import_Data.Name = "btn_Import_Data";
             this.btn_Import_Data.Size = new System.Drawing.Size(93, 23);
             this.btn_Import_Data.TabIndex = 10;
@@ -258,9 +264,9 @@
             this.btn_DateTime_Setup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_DateTime_Setup.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_DateTime_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_DateTime_Setup.Location = new System.Drawing.Point(286, 224);
+            this.btn_DateTime_Setup.Location = new System.Drawing.Point(571, 410);
             this.btn_DateTime_Setup.Name = "btn_DateTime_Setup";
-            this.btn_DateTime_Setup.Size = new System.Drawing.Size(93, 23);
+            this.btn_DateTime_Setup.Size = new System.Drawing.Size(186, 46);
             this.btn_DateTime_Setup.TabIndex = 114;
             this.btn_DateTime_Setup.UseVisualStyleBackColor = false;
             this.btn_DateTime_Setup.Click += new System.EventHandler(this.btn_DateTime_Setup_Click);
@@ -279,9 +285,9 @@
             this.btn_Language_Setup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Language_Setup.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Language_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Language_Setup.Location = new System.Drawing.Point(286, 98);
+            this.btn_Language_Setup.Location = new System.Drawing.Point(570, 178);
             this.btn_Language_Setup.Name = "btn_Language_Setup";
-            this.btn_Language_Setup.Size = new System.Drawing.Size(93, 23);
+            this.btn_Language_Setup.Size = new System.Drawing.Size(186, 46);
             this.btn_Language_Setup.TabIndex = 116;
             this.btn_Language_Setup.UseVisualStyleBackColor = false;
             this.btn_Language_Setup.Click += new System.EventHandler(this.btn_Language_Setup_Click);
@@ -300,9 +306,9 @@
             this.btn_Comm_Setup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Comm_Setup.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Comm_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Comm_Setup.Location = new System.Drawing.Point(582, 98);
+            this.btn_Comm_Setup.Location = new System.Drawing.Point(1162, 178);
             this.btn_Comm_Setup.Name = "btn_Comm_Setup";
-            this.btn_Comm_Setup.Size = new System.Drawing.Size(93, 23);
+            this.btn_Comm_Setup.Size = new System.Drawing.Size(186, 46);
             this.btn_Comm_Setup.TabIndex = 118;
             this.btn_Comm_Setup.UseVisualStyleBackColor = false;
             this.btn_Comm_Setup.Click += new System.EventHandler(this.btn_Comm_Setup_Click);
@@ -321,9 +327,9 @@
             this.btn_Power_Setup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Power_Setup.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Power_Setup.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Power_Setup.Location = new System.Drawing.Point(582, 224);
+            this.btn_Power_Setup.Location = new System.Drawing.Point(1162, 410);
             this.btn_Power_Setup.Name = "btn_Power_Setup";
-            this.btn_Power_Setup.Size = new System.Drawing.Size(93, 23);
+            this.btn_Power_Setup.Size = new System.Drawing.Size(186, 46);
             this.btn_Power_Setup.TabIndex = 120;
             this.btn_Power_Setup.UseVisualStyleBackColor = false;
             this.btn_Power_Setup.Click += new System.EventHandler(this.btn_Power_Setup_Click);
@@ -416,13 +422,79 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(838, 400);
+            this.label1.Location = new System.Drawing.Point(1681, 757);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 19);
+            this.label1.Size = new System.Drawing.Size(160, 27);
             this.label1.TabIndex = 129;
             this.label1.Text = "LEMS : V 0.01";
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.label3.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label3.Location = new System.Drawing.Point(549, 106);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(230, 28);
+            this.label3.TabIndex = 132;
+            this.label3.Text = "언어";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.label4.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(1138, 106);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(230, 28);
+            this.label4.TabIndex = 133;
+            this.label4.Text = "통신";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.label7.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Location = new System.Drawing.Point(1138, 341);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(230, 28);
+            this.label7.TabIndex = 134;
+            this.label7.Text = "전원 설정";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.label8.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Location = new System.Drawing.Point(1138, 571);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(230, 28);
+            this.label8.TabIndex = 135;
+            this.label8.Text = "Password Change";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.label9.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Location = new System.Drawing.Point(495, 571);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(346, 28);
+            this.label9.TabIndex = 136;
+            this.label9.Text = "Access To Operating System";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.label11.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label11.Location = new System.Drawing.Point(549, 341);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(230, 28);
+            this.label11.TabIndex = 137;
+            this.label11.Text = "날짜 및 시간";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Setting_PageViewer
             // 
@@ -430,6 +502,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(222)))), ((int)(((byte)(222)))));
             this.BackgroundImage = global::KTE_PMS.Properties.Resources.setting_배치1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.tb_Active_Power_Maximum);
@@ -455,6 +533,7 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Setting_PageViewer";
+            this.Size = new System.Drawing.Size(1920, 796);
             this.Load += new System.EventHandler(this.Setting_PageViewer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -484,5 +563,11 @@
         private System.Windows.Forms.MaskedTextBox tb_Active_Power_Maximum;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
     }
 }

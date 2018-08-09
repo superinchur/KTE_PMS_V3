@@ -789,18 +789,33 @@ namespace KTE_PMS
         public void bms_dispose()
         {
             bmsviewer.Dispose();
+            Delay(2000);
             bmsviewer = new MIMIC.BMSViewer();
-
             Allocate_Observer_to_bms_mimic();
         }
         public void pmd_dispose()
         {
             pmdviewer.Dispose();
+            Delay(2000);
             pmdviewer = new MIMIC.PMDViewer();
-
             Allocate_Observer_to_pmd_mimic();
         }
         #endregion
+
+        public static DateTime Delay(int MS)
+        {
+            DateTime ThisMoment = DateTime.Now;
+            TimeSpan duration = new TimeSpan(0, 0, 0, 0, MS);
+            DateTime AfterWards = ThisMoment.Add(duration);
+
+            while (AfterWards >= ThisMoment)
+            {
+                System.Windows.Forms.Application.DoEvents();
+                ThisMoment = DateTime.Now;
+            }
+
+            return DateTime.Now;
+        }
 
     }
 }

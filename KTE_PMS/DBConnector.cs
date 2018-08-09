@@ -99,33 +99,10 @@ namespace KTE_PMS
 
         public void Insert_BSC_Value_to_Database()
         {
-            try
-            {
-                string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-                double voltage;
-                double current;
-                double power;
-
-                voltage = Repository.Instance.samsung_bcs.System_Voltage;
-                current = Repository.Instance.samsung_bcs.System_Current;
-                power = Repository.Instance.samsung_bcs.System_Power;
-
-                String sql = "INSERT INTO trend_data (DATETIME, VOLTAGE, CURRENT, POWER) " + "VALUES ('"
-                    + strDateTime + "','"
-                    + voltage.ToString() + "','"
-                    + current.ToString() + "','"
-                    + power.ToString() + "')";
-
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                ExceptionManagement(ex);
-            }
+            Insert_BSC_Value_to_Database("trend_data",
+                Repository.Instance.samsung_bcs.System_Voltage,
+                Repository.Instance.samsung_bcs.System_Current,
+                Repository.Instance.samsung_bcs.System_Power);
         }
         public void Insert_BSC_Value_to_Database(string nameofDB, double voltage, double current, double power)
         {
@@ -133,12 +110,19 @@ namespace KTE_PMS
             {
                 string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                String sql = "INSERT INTO " + nameofDB + "(DATETIME, VOLTAGE, CURRENT, POWER) " + "VALUES ('"
+                double charging_power = 0;
+                double discharging_power = 0;
+
+                if (power > 0) charging_power = power;
+                else if (power < 0) discharging_power = power;
+                
+
+                String sql = "INSERT INTO " + nameofDB + "(DATETIME, VOLTAGE, CURRENT, C_POWER, D_POWER) " + "VALUES ('"
                     + strDateTime + "','"
                     + voltage.ToString() + "','"
                     + current.ToString() + "','"
-                    + power.ToString() + "')";
-
+                    + charging_power.ToString() + "',"
+                    + discharging_power.ToString() + "')";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();

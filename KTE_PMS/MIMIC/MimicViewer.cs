@@ -14,7 +14,7 @@ namespace KTE_PMS.MIMIC
 
 
             timer1.Enabled = true;
-            timer1.Interval = 1000;
+            timer1.Interval = 500;
             timer1.Start();
         }
         
@@ -164,24 +164,31 @@ namespace KTE_PMS.MIMIC
 
         private void Display_Device_Connection_Status()
         {
-            if (Repository.Instance.GnEPS_PCS.common_alarm || (Repository.Instance.bmsviewer.Connected() == 0))
+            if (Repository.Instance.GnEPS_PCS.common_alarm || (Repository.Instance.pmdviewer.Connected() == 0))
             {
-                pb_Battery_Abnormal.Visible = true;
-            }
-            else
-            {
-                pb_Battery_Abnormal.Visible = false;
-            }
-
-            if (Repository.Instance.samsung_bcs.common_alarm || (Repository.Instance.pmdviewer.Connected() == 0))
-            {
-                pb_PCS_Abnormal.Visible = true;
-            }
-            else
-            {
+                // 에러 상황에는 빨간색으로 표시되어야 하므로, 회색이 나타나서는 안된다,
                 pb_PCS_Abnormal.Visible = false;
             }
+            else
+            {
+                // 정상 상황에는 회색으로 표시되어야 하므로, 회색이 나타나야한다
+                pb_PCS_Abnormal.Visible = true;
+            }
+
+            if (Repository.Instance.samsung_bcs.common_alarm || (Repository.Instance.bmsviewer.Connected() == 0))
+            {
+                // 에러 상황에는 빨간색으로 표시되어야 하므로, 회색이 나타나서는 안된다,
+                pb_Battery_Abnormal.Visible = false;
+
+            }
+            else
+            {
+                // 정상 상황에는 회색으로 표시되어야 하므로, 회색이 나타나야한다
+                pb_Battery_Abnormal.Visible = true;
+
+            }
         }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -202,8 +209,22 @@ namespace KTE_PMS.MIMIC
         private void btn_PCS_Control_Click(object sender, EventArgs e)
         {
             LEMS a = (LEMS)Parent.Parent;
-            //a.Click_Measure();
+            
             a.Click_Control();
+        }
+
+        private void btn_PCS_Control_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
+        }
+
+        private void btn_PCS_Control_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.제어_on, button.Width, button.Height);
         }
     }
 

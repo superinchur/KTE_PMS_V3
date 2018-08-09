@@ -255,13 +255,8 @@ namespace KTE_PMS
             Button button = (Button)sender;
             button.Image = ImageResize.ResizeImage(Properties.Resources.setting_on, button.Width, button.Height);
 
-            //VKeyboardViewer a = new VKeyboardViewer();
-            //var password = a.ShowDialogAsync();
             VKeyboardViewer a = new VKeyboardViewer();
             a.ShowDialog();
-
-            //a.Close();
-            //await data;
 
             if (Repository.Instance.user_level == 5)
             {
@@ -409,8 +404,8 @@ namespace KTE_PMS
             // 하루가 지날때 마다 전력량을 DB에 또 저장하자. (SELECT문으로 그날 있었던 전력량을 모두 저장해서 하루에 저장)
 
             // 현재는 1분 주기지만 1초든 10초든 다 가능하드아~
-            //if (prev_minute != today.Minute)
-            if ((today.Second % 10) == 1)
+            if (prev_minute != today.Minute)
+            //if ((today.Second % 10) == 1)
             {
                 // 저장된 데이터를 DB에 저장한다.
                 
@@ -418,8 +413,8 @@ namespace KTE_PMS
                 // 처리 완료 후, prev값을 새로 갱신
                 prev_minute = today.Minute;
             }
-            //if (prev_hour != today.Hour)
-            if (prev_minute != today.Minute)
+            if (prev_hour != today.Hour)
+            //if (prev_minute != today.Minute)
             {
                 
                 // 저장된 데이터를 DB에 저장한다.
@@ -487,9 +482,6 @@ namespace KTE_PMS
             if (MessageBox.Show("BMS와의 연결을 재시작 하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Repository.Instance.bms_dispose();
-
-                //Repository.Instance.Dispose();
-                Repository.Instance.Reset();
             }
             
 
@@ -529,6 +521,21 @@ namespace KTE_PMS
             // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
             Button button = (Button)sender;
             button.Image = null;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using KTE_PMS.CLASS;
+using KTE_PMS.Popup;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -11,7 +13,7 @@ namespace KTE_PMS.MIMIC
         const int max_row_size = 11;
 
         Color flashColor;
-        private int diff;
+        public int diff;
 
         public HistoryViewer()
         {
@@ -74,16 +76,16 @@ namespace KTE_PMS.MIMIC
 
                 dataGridView1.DataSource = dataSet1.Tables[0];
                 dataGridView1.Columns[0].DefaultCellStyle.Format = "yyyy-MM-dd HH:mm:ss";
-                dataGridView1.Columns[0].Width = 180;
+                dataGridView1.Columns[0].Width = 360;
                 dataGridView1.Columns[0].ReadOnly = true;
 
-                dataGridView1.Columns[1].Width = 85;
+                dataGridView1.Columns[1].Width = 170;
                 dataGridView1.Columns[1].ReadOnly = true;
-                dataGridView1.Columns[2].Width = 80;
+                dataGridView1.Columns[2].Width = 160;
                 dataGridView1.Columns[2].ReadOnly = true;
-                dataGridView1.Columns[3].Width = 270;
+                dataGridView1.Columns[3].Width = 540;
                 dataGridView1.Columns[3].ReadOnly = true;
-                dataGridView1.Columns[4].Width = 180;
+                dataGridView1.Columns[4].Width = 360;
                 dataGridView1.Columns[4].ReadOnly = true;
 
                 //                dataGridView1.AutoResizeColumns();
@@ -149,6 +151,16 @@ namespace KTE_PMS.MIMIC
             LoadCurrentFault();
 
             btn_Update_1Day_Click(null, null);
+
+            DataGridViewCellStyle style = new DataGridViewCellStyle();
+            style.Font = new Font("나눔바른고딕", 18F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            //style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.ColumnHeadersHeight = 50;
+            dataGridView1.Columns[0].HeaderCell.Style = style;
+            dataGridView1.Columns[1].HeaderCell.Style = style;
+            dataGridView1.Columns[2].HeaderCell.Style = style;
+            dataGridView1.Columns[3].HeaderCell.Style = style;
+            dataGridView1.Columns[4].HeaderCell.Style = style;
         }
 
         private void Set_TimeTextBox(int diff)
@@ -352,6 +364,35 @@ namespace KTE_PMS.MIMIC
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                Popup_History_Search a = new Popup_History_Search();
+
+                a.Show();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void button2_MouseDown(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = ImageResize.ResizeImage(Properties.Resources.검색_on, button.Width, button.Height);
+        }
+
+        private void button2_MouseUp(object sender, MouseEventArgs e)
+        {
+            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
+            Button button = (Button)sender;
+            button.Image = null;
         }
     }
 }

@@ -21,25 +21,27 @@ namespace KTE_PMS
 
                 foreach (Control gb in this.Controls)
                 {
-                    if (gb is Button)
+                    if (gb is Label)
                     {
                         string[] parse = gb.Name.Split('_');
-
-                        int index = Convert.ToInt16(parse[2]);
-
-                        if (Repository.Instance.Scheduler[index] == 1)
+                        if (parse[0] == "lb")
                         {
-                            gb.BackColor = Color.FromArgb(234, 24, 24);
-                        }
-                        else if (Repository.Instance.Scheduler[index] == 2)
-                        {
-                            gb.BackColor = Color.FromArgb(0, 153, 43) ;
-                        }
-                        else
-                        {
-                            gb.BackColor = Color.FromArgb(44, 44, 44);
+                            int index = Convert.ToInt16(parse[2]);
+                            if (Repository.Instance.Scheduler[index] == 1)
+                            {
+                                gb.BackColor = Color.FromArgb(234, 24, 24);
+                            }
+                            else if (Repository.Instance.Scheduler[index] == 2)
+                            {
+                                gb.BackColor = Color.FromArgb(0, 153, 43);
+                            }
+                            else
+                            {
+                                gb.BackColor = Color.FromArgb(44, 44, 44);
 
+                            }
                         }
+                        
 
                     }
                 }

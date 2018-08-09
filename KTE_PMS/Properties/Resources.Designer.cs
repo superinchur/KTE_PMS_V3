@@ -373,6 +373,16 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Alarm_Event {
+            get {
+                object obj = ResourceManager.GetObject("Alarm_Event", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap alarm_off {
             get {
                 object obj = ResourceManager.GetObject("alarm_off", resourceCulture);
@@ -663,16 +673,6 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Control1 {
-            get {
-                object obj = ResourceManager.GetObject("Control1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
         internal static System.Drawing.Bitmap Datagrid {
             get {
                 object obj = ResourceManager.GetObject("Datagrid", resourceCulture);
@@ -923,6 +923,16 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap LEMS_on_G {
+            get {
+                object obj = ResourceManager.GetObject("LEMS_on_G", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap LEMS_on_G_1 {
             get {
                 object obj = ResourceManager.GetObject("LEMS_on_G_1", resourceCulture);
@@ -963,16 +973,6 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap Main {
-            get {
-                object obj = ResourceManager.GetObject("Main", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
         internal static System.Drawing.Bitmap main_bottom {
             get {
                 object obj = ResourceManager.GetObject("main_bottom", resourceCulture);
@@ -1006,26 +1006,6 @@ namespace KTE_PMS.Properties {
         internal static System.Drawing.Bitmap main_on {
             get {
                 object obj = ResourceManager.GetObject("main_on", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap Main_배치도 {
-            get {
-                object obj = ResourceManager.GetObject("Main_배치도", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap Main1 {
-            get {
-                object obj = ResourceManager.GetObject("Main1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1463,9 +1443,29 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Top_배치참조1 {
+            get {
+                object obj = ResourceManager.GetObject("Top_배치참조1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap toRight {
             get {
                 object obj = ResourceManager.GetObject("toRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap TREND {
+            get {
+                object obj = ResourceManager.GetObject("TREND", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1613,6 +1613,16 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Trend_배치참조 {
+            get {
+                object obj = ResourceManager.GetObject("Trend_배치참조", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap update_off {
             get {
                 object obj = ResourceManager.GetObject("update_off", resourceCulture);
@@ -1653,9 +1663,39 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap uPMS_on_G {
+            get {
+                object obj = ResourceManager.GetObject("uPMS_on_G", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap uPMS_on_G_1 {
             get {
                 object obj = ResourceManager.GetObject("uPMS_on_G_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 검색_off {
+            get {
+                object obj = ResourceManager.GetObject("검색_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 검색_on {
+            get {
+                object obj = ResourceManager.GetObject("검색_on", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1703,9 +1743,29 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 방전_on_G {
+            get {
+                object obj = ResourceManager.GetObject("방전_on_G", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 방전_on_G_1 {
             get {
                 object obj = ResourceManager.GetObject("방전_on_G_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 방전제한 {
+            get {
+                object obj = ResourceManager.GetObject("방전제한", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1743,6 +1803,26 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 변경_off {
+            get {
+                object obj = ResourceManager.GetObject("변경_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 변경_on {
+            get {
+                object obj = ResourceManager.GetObject("변경_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 사용자정의_off {
             get {
                 object obj = ResourceManager.GetObject("사용자정의_off", resourceCulture);
@@ -1756,6 +1836,16 @@ namespace KTE_PMS.Properties {
         internal static System.Drawing.Bitmap 사용자정의_on {
             get {
                 object obj = ResourceManager.GetObject("사용자정의_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 사용자정의_on_G {
+            get {
+                object obj = ResourceManager.GetObject("사용자정의_on_G", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1853,6 +1943,16 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 유효전력제어 {
+            get {
+                object obj = ResourceManager.GetObject("유효전력제어", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 적용_off {
             get {
                 object obj = ResourceManager.GetObject("적용_off", resourceCulture);
@@ -1913,6 +2013,16 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 제어_on_G {
+            get {
+                object obj = ResourceManager.GetObject("제어_on_G", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 제어_on_G_1 {
             get {
                 object obj = ResourceManager.GetObject("제어_on_G_1", resourceCulture);
@@ -1943,9 +2053,49 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap 충전_on_G {
+            get {
+                object obj = ResourceManager.GetObject("충전_on_G", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap 충전_on_G_1 {
             get {
                 object obj = ResourceManager.GetObject("충전_on_G_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 충전제한 {
+            get {
+                object obj = ResourceManager.GetObject("충전제한", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 취소_off {
+            get {
+                object obj = ResourceManager.GetObject("취소_off", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 취소_on {
+            get {
+                object obj = ResourceManager.GetObject("취소_on", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1996,6 +2146,16 @@ namespace KTE_PMS.Properties {
         internal static System.Drawing.Bitmap 피크저감_on {
             get {
                 object obj = ResourceManager.GetObject("피크저감_on", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 피크저감_on_G {
+            get {
+                object obj = ResourceManager.GetObject("피크저감_on_G", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

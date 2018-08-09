@@ -178,27 +178,27 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(l47_2, t.Rack1.Max1_Cell_Voltage_Value.ToString() + " " + "V");
             module = t.Rack1.Max1_Cell_Voltage_Position >> 8 & 0xFF;
             cell = t.Rack1.Max1_Cell_Voltage_Position & 0xFF;
-            CSafeSetText(l48_2, module.ToString());
-            CSafeSetText(l48_3, cell.ToString());
+            CSafeSetText(l48_2, "Module : " + module.ToString());
+            CSafeSetText(l48_3, "Cell   : " + cell.ToString());
 
 
             CSafeSetText(l49_2, t.Rack1.Min1_Cell_Voltage_Value.ToString() + " " + "V");
             module = t.Rack1.Min1_Cell_Voltage_Position >> 8 & 0xFF;
             cell = t.Rack1.Min1_Cell_Voltage_Position & 0xFF;
-            CSafeSetText(l410_2, module.ToString());
-            CSafeSetText(l410_3, cell.ToString());
+            CSafeSetText(l410_2, "Module : " + module.ToString());
+            CSafeSetText(l410_3, "Cell   : " + cell.ToString());
 
             CSafeSetText(l411_2, t.Rack1.Max1_Cell_Temp_Value.ToString() + " " + "°C");
             module = t.Rack1.Max1_Cell_Temp_Position >> 8 & 0xFF;
             cell = t.Rack1.Max1_Cell_Temp_Position & 0xFF;
-            CSafeSetText(l412_2, module.ToString());
-            CSafeSetText(l412_3, cell.ToString());
+            CSafeSetText(l412_2, "Module : " + module.ToString());
+            CSafeSetText(l412_3, "Cell   : " + cell.ToString());
 
             CSafeSetText(l413_2, t.Rack1.Min1_Cell_Temp_Value.ToString() + " " + "°C");
             module = t.Rack1.Min1_Cell_Temp_Position >> 8 & 0xFF;
             cell = t.Rack1.Min1_Cell_Temp_Position & 0xFF;
-            CSafeSetText(l414_2, module.ToString());
-            CSafeSetText(l414_3, cell.ToString());
+            CSafeSetText(l414_2, "Module : " + module.ToString());
+            CSafeSetText(l414_3, "Cell   : " + cell.ToString());
 
             CSafeSetText(l44_3, t.Rack1.String2_Rack_Voltage.ToString() + " " + "V");
             CSafeSetText(l45_3, t.Rack1.String2_Cell_Summation_Voltage.ToString() + " " + "V");
@@ -238,26 +238,26 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(l57_2, t.Rack2.Max1_Cell_Voltage_Value .ToString() + " " + "V");
             module = t.Rack2.Max1_Cell_Temp_Position >> 8 & 0xFF;
             cell = t.Rack2.Max1_Cell_Temp_Position & 0xFF;
-            CSafeSetText(l58_2, module.ToString());
-            CSafeSetText(l58_3, cell.ToString());
+            CSafeSetText(l58_2, "Module : " +  module.ToString());
+            CSafeSetText(l58_3, "Cell   : " + cell.ToString());
 
             CSafeSetText(l59_2, t.Rack2.Min1_Cell_Voltage_Value.ToString() + " " + "V");          
             module = t.Rack2.Min1_Cell_Voltage_Position >> 8 & 0xFF;
             cell = t.Rack2.Min1_Cell_Voltage_Position & 0xFF;
-            CSafeSetText(l510_2, module.ToString());
-            CSafeSetText(l510_3, cell.ToString());
+            CSafeSetText(l510_2, "Module : " + module.ToString());
+            CSafeSetText(l510_3, "Cell   : " + cell.ToString());
 
             CSafeSetText(l511_2, t.Rack2.Max1_Cell_Temp_Value .ToString() + " " + "°C");
             module = t.Rack2.Max1_Cell_Temp_Position >> 8 & 0xFF;
             cell = t.Rack2.Min1_Cell_Voltage_Position & 0xFF;
-            CSafeSetText(l512_2, module.ToString());
-            CSafeSetText(l512_3, cell.ToString());
+            CSafeSetText(l512_2, "Module : " + module.ToString());
+            CSafeSetText(l512_3, "Cell   : " + cell.ToString());
 
             CSafeSetText(l513_2, t.Rack2.Min1_Cell_Temp_Value.ToString() + " " + "°C");
             module = t.Rack2.Min1_Cell_Temp_Position >> 8 & 0xFF;
             cell = t.Rack2.Min1_Cell_Temp_Position & 0xFF;
-            CSafeSetText(l514_2, module.ToString());
-            CSafeSetText(l514_3, cell.ToString());
+            CSafeSetText(l514_2, "Module : " + module.ToString());
+            CSafeSetText(l514_3, "Cell   : " + cell.ToString());
 
             CSafeSetText(l54_3, t.Rack2.String2_Rack_Voltage.ToString() + " " + "V");
             CSafeSetText(l55_3, t.Rack2.String2_Cell_Summation_Voltage.ToString() + " " + "V");
@@ -346,6 +346,76 @@ namespace KTE_PMS.MIMIC
         }
 
         private void BMS_Rack1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label37_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label38_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label39_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label40_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label41_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label49_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label60_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void l514_2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void l514_3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void l512_2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void l512_3_Click(object sender, EventArgs e)
         {
 
         }

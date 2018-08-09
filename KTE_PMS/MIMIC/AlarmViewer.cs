@@ -282,7 +282,14 @@ namespace KTE_PMS.MIMIC
 
         private void AlarmViewer_Load(object sender, EventArgs e)
         {
-
+            DataGridViewCellStyle style = new DataGridViewCellStyle();
+            style.Font = new Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));          
+            dataGridView1.Columns[0].HeaderCell.Style = style;
+            dataGridView1.Columns[1].HeaderCell.Style = style;
+            dataGridView1.Columns[2].HeaderCell.Style = style;
+            dataGridView1.Columns[3].HeaderCell.Style = style;
+            dataGridView1.Columns[4].HeaderCell.Style = style;
+            
         }
 
         #region 버튼_Image처리관련함수들

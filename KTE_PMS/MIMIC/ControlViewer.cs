@@ -25,7 +25,7 @@ namespace KTE_PMS.MIMIC
             InitializeComponent();
 
             ControlTimer.Enabled = true;
-            ControlTimer.Interval = 2000;
+            ControlTimer.Interval = 500;
             ControlTimer.Start();
 
 
@@ -36,8 +36,8 @@ namespace KTE_PMS.MIMIC
         {
             // 현재 상태를 보고 BTN의 불을 켤것인지 말것인지 결정하자.
             //lb_Power_Set.Text = Powerset
-            lb_Charging_Stop_SOC.Text = Charging_Stop_SOC.ToString();
-            lb_Discharging_Stop_SOC.Text = Discharging_Stop_SOC.ToString();
+            lb_Charging_Stop_SOC.Text = Repository.Instance.p_control.Charging_Stop_SOC.ToString();
+            lb_Discharging_Stop_SOC.Text = Repository.Instance.p_control.Discharging_Stop_SOC.ToString();
 
             lb_Power_Set.Text = String.Format("{0:0.0}", Repository.Instance.remote_power / 10);
             esS_Scheduler1.Color_Update();
@@ -52,54 +52,66 @@ namespace KTE_PMS.MIMIC
             if (Repository.Instance.GnEPS_PCS.Authority_PMS)
             {
                 btn_uPMS.Image = null;
-                btn_LEMS.Image = ImageResize.ResizeImage(Properties.Resources.LEMS_on_G_1, btn_LEMS.Width, btn_LEMS.Height);
+                btn_LEMS.Image = ImageResize.ResizeImage(Properties.Resources.LEMS_on_G, btn_LEMS.Width, btn_LEMS.Height);
                 cover_control.Visible = false;
                 cover_scheduling.Visible = false;
+
+
+                if (Repository.Instance.current_pcs_mode == 1)
+                {
+                    btn_PeakCutMode.Image = null;
+                    btn_ChargingMode.Image = null;
+                    btn_DisChargingMode.Image = null;
+                    btn_CustomMode.Image = null;
+                    cover_control.Visible = false;
+                    cover_scheduling.Visible = false;
+
+                }
+                else if (Repository.Instance.current_pcs_mode == 2)
+                {
+                    btn_PeakCutMode.Image = null;
+                    btn_ChargingMode.Image = ImageResize.ResizeImage(Properties.Resources.충전_on_G, btn_ChargingMode.Width, btn_ChargingMode.Height);
+                    btn_DisChargingMode.Image = null;
+                    btn_CustomMode.Image = null;
+                    cover_scheduling.Visible = true;
+                }
+                else if (Repository.Instance.current_pcs_mode == 3)
+                {
+                    btn_PeakCutMode.Image = null;
+                    btn_ChargingMode.Image = null;
+                    btn_DisChargingMode.Image = ImageResize.ResizeImage(Properties.Resources.방전_on_G, btn_DisChargingMode.Width, btn_DisChargingMode.Height);
+                    btn_CustomMode.Image = null;
+                    cover_scheduling.Visible = true;
+                }
+                else if (Repository.Instance.current_pcs_mode == 4)
+                {
+                    btn_PeakCutMode.Image = ImageResize.ResizeImage(Properties.Resources.피크저감_on_G, btn_PeakCutMode.Width, btn_PeakCutMode.Height);
+                    btn_ChargingMode.Image = null;
+                    btn_DisChargingMode.Image = null;
+                    btn_CustomMode.Image = null;
+                    cover_control.Visible = false;
+                    cover_scheduling.Visible = false;
+                }
+                else if (Repository.Instance.current_pcs_mode == 5)
+                {
+                    btn_PeakCutMode.Image = null;
+                    btn_ChargingMode.Image = null;
+                    btn_DisChargingMode.Image = null;
+                    btn_CustomMode.Image = ImageResize.ResizeImage(Properties.Resources.사용자정의_on_G, btn_CustomMode.Width, btn_CustomMode.Height);
+                    cover_control.Visible = false;
+                    cover_scheduling.Visible = false;
+                }
             }
             else
             {
-                btn_uPMS.Image = ImageResize.ResizeImage(Properties.Resources.uPMS_on_G_1, btn_uPMS.Width, btn_uPMS.Height);
+                btn_uPMS.Image = ImageResize.ResizeImage(Properties.Resources.uPMS_on_G, btn_uPMS.Width, btn_uPMS.Height);
                 btn_LEMS.Image = null;
+
                 cover_control.Visible = true;
                 cover_scheduling.Visible = true;
 
             }
 
-            if (Repository.Instance.current_pcs_mode == 1)
-            {
-                btn_PeakCutMode.Image = null;
-                btn_ChargingMode.Image = null;
-                btn_DisChargingMode.Image = null;
-                btn_CustomMode.Image = null;
-            }
-            else if (Repository.Instance.current_pcs_mode == 2)
-            {
-                btn_PeakCutMode.Image = null;
-                btn_ChargingMode.Image = ImageResize.ResizeImage(Properties.Resources.충전_on_G_1, btn_ChargingMode.Width, btn_ChargingMode.Height);
-                btn_DisChargingMode.Image = null;
-                btn_CustomMode.Image = null;
-            }
-            else if (Repository.Instance.current_pcs_mode == 3)
-            {
-                btn_PeakCutMode.Image = null;
-                btn_ChargingMode.Image = null;
-                btn_DisChargingMode.Image = ImageResize.ResizeImage(Properties.Resources.방전_on_G_1, btn_DisChargingMode.Width, btn_DisChargingMode.Height);
-                btn_CustomMode.Image = null;
-            }
-            else if (Repository.Instance.current_pcs_mode == 4)
-            {
-                btn_PeakCutMode.Image = ImageResize.ResizeImage(Properties.Resources.피크저감_on_G_1, btn_PeakCutMode.Width, btn_PeakCutMode.Height);
-                btn_ChargingMode.Image = null;
-                btn_DisChargingMode.Image = null;
-                btn_CustomMode.Image = null;
-            }
-            else if (Repository.Instance.current_pcs_mode == 5)
-            {
-                btn_PeakCutMode.Image = null;
-                btn_ChargingMode.Image = null;
-                btn_DisChargingMode.Image = null;
-                btn_CustomMode.Image = ImageResize.ResizeImage(Properties.Resources.사용자정의_on_G_1, btn_CustomMode.Width, btn_CustomMode.Height);
-            }
         }
 
         private void tb_Power_Set_TextChanged(object sender, EventArgs e)
@@ -135,25 +147,7 @@ namespace KTE_PMS.MIMIC
         // 적당할 값일 경우 데이터를 변수안에 집어넣는 함수이다
         // Check_Active_Power_Input
         // ----------------------------------------------
-        private void Check_Active_Power_Input()
-        {
-            try
-            {
-                double a = Convert.ToSingle(tb_Power_Set.Text);
-
-
-                if (a > Repository.Instance.p_setting.Limit_Active_Power)
-                {
-                    a = Repository.Instance.p_setting.Limit_Active_Power;
-                    MessageBox.Show("Power를 " + Repository.Instance.p_setting.Limit_Active_Power + "kW 이상 설정할 수 없습니다");
-                }
-                Repository.Instance.remote_power = Convert.ToUInt16(a * 10);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+       
 
         // -----------------------------------------------
         // KeyChar이 Enter가 들어오면 Enable의 Positive Edge를
@@ -164,14 +158,14 @@ namespace KTE_PMS.MIMIC
             switch (e.KeyChar)
             {
                 case (char)Keys.Enter:
-                    tb_Power_Set.Enabled = false;
-                    tb_Power_Set.Enabled = true;
+                    //tb_Power_Set.Enabled = false;
+                    //tb_Power_Set.Enabled = true;
 
-                    tb_Charging_Stop_SOC.Enabled = false;
-                    tb_Charging_Stop_SOC.Enabled = true;
+                    //tb_Charging_Stop_SOC.Enabled = false;
+                    //tb_Charging_Stop_SOC.Enabled = true;
 
-                    tb_Discharging_Stop_SOC.Enabled = false;
-                    tb_Discharging_Stop_SOC.Enabled = true;
+                    //tb_Discharging_Stop_SOC.Enabled = false;
+                    //tb_Discharging_Stop_SOC.Enabled = true;
                     break;
             }
         }
@@ -211,8 +205,8 @@ namespace KTE_PMS.MIMIC
                 // -------------------------------------------------------------------------------------
                 // 180710
                 // 현재 피크저감 모드는 어떤 식으로 할지 명확하게 정의가 안되어서 주석처리를 해놨음
-                // ------------------------------------------------------------------------------------
-                /*
+                // -------------------------------------------------------------------------------------
+
                 Repository.Instance.Set_Scheduler_Setting
                 (
                 new TimeSpan(08, 00, 00),
@@ -220,14 +214,17 @@ namespace KTE_PMS.MIMIC
                 new TimeSpan(16, 00, 00),
                 new TimeSpan(20, 00, 00)
                 );
-                */
+
                 // MainViewer에 있는 Scheduler를 위한 항목
                 esS_Scheduler1.Color_Update();
-                cover_scheduling.Visible = false;
+
                 // 피크저감 모드로 지정
                 Repository.Instance.current_pcs_mode = 4;
-                Display_Button_Color();
 
+                Display_Button_Color();
+                cover_scheduling.Visible = false;
+                // 2018-08-07 설정값 저장
+                Repository.Instance.p_setting.Export_Setting_Parameter_Value();
             }
         }
 
@@ -235,26 +232,26 @@ namespace KTE_PMS.MIMIC
         {
             Popup_Scheduling a = new Popup_Scheduling();
             a.ShowDialog();
-            // Popup_Scheduling에서 물어보도록 하자
 
             // MainViewer에 있는 Scheduler를 위한 항목
             esS_Scheduler1.Color_Update();
             // 사용자 정의 모드로 지정
             Display_Button_Color();
-
+            cover_scheduling.Visible = false;
+            // 2018-08-07 설정값 저장
+            Repository.Instance.p_setting.Export_Setting_Parameter_Value();
         }
 
         private void btn_ChargingMode_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("충전 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                // 180725 김보경 차장의 요청으로 충전모드는
-                // Scheduling Time 을 바꾸는 것이 아닌 강제로 충전비트를 내 보내는 것으로 다시 복구한다.
+                Repository.Instance.current_pcs_mode = 2; // 충전모드로 변경 (current_pcs_mode == 2)
 
-                // 강제 충전모드로 지정
-                Repository.Instance.current_pcs_mode = 2;
-                cover_scheduling.Visible = true;
-                Display_Button_Color();
+                // 2018-08-07 설정값 저장
+                Repository.Instance.p_setting.Export_Setting_Parameter_Value();
+
+
             }
         }
 
@@ -262,15 +259,13 @@ namespace KTE_PMS.MIMIC
         {
             if (MessageBox.Show("방전 모드로 변경하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                // 180725 김보경 차장의 요청으로 충전모드는
-                // Scheduling Time 을 바꾸는 것이 아닌 강제로 충전비트를 내 보내는 것으로 다시 복구한다.
-                // 
-                
-                Repository.Instance.current_pcs_mode = 3;
-                cover_scheduling.Visible = true;
-                Display_Button_Color();
+                Repository.Instance.current_pcs_mode = 3; // 방전 모드로 변경 (current_pcs_mode == 3)
+
+                // 2018-08-07 설정값 저장
+                Repository.Instance.p_setting.Export_Setting_Parameter_Value();
             }
         }
+
         private void tb_Charging_Stop_SOC_Leave(object sender, EventArgs e)
         {
 
@@ -301,102 +296,26 @@ namespace KTE_PMS.MIMIC
 
         private void btn_Confirm_Power_Set_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("해당 설정을 적용하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Check_Active_Power_Input();
-                Repository.Instance.pmdviewer.Control_Power_Active_Set();
-            }
+            Popup_Power_Active_Set a = new Popup_Power_Active_Set();
+            a.ShowDialog();
         }
 
         private void btn_Confirm_Charging_Stop_SOC_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-                if (MessageBox.Show("해당 설정을 적용하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    Charging_Stop_SOC = Convert_From_MaskedTextBox_To_Single(tb_Charging_Stop_SOC);
-                }
-
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("다시 입력해주십시오");
-            }
-        
+            Popup_Charging_Stop_SOC a = new Popup_Charging_Stop_SOC();
+            a.ShowDialog();
         }
 
         private void btn_Confirm_Discharging_Stop_SOC_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (MessageBox.Show("해당 설정을 적용하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    Discharging_Stop_SOC = Convert_From_MaskedTextBox_To_Single(tb_Discharging_Stop_SOC);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("다시 입력해주십시오");
-            }
+            Popup_DisCharging_Stop_SOC a = new Popup_DisCharging_Stop_SOC();
+            a.ShowDialog();
+
         }
 
 
-        private float Convert_From_MaskedTextBox_To_Single(MaskedTextBox maskedTextBox)
-        {
-            
-            string temp;
-
-            temp = maskedTextBox.Text.Replace("_", "0");
-            temp = temp.Trim();
-            return Convert.ToSingle(temp);
-        }
-
-        private TimeSpan Convert_From_MaskedTextBox_To_TimeSpan(MaskedTextBox maskedTextBox)
-        {
-            string temp;
-
-            temp = maskedTextBox.Text.Trim();
-            temp = temp.Replace("시", ":");
-            temp = temp.Replace("분", "");
-            TimeSpan time;
-
-            if (!TimeSpan.TryParse(temp, out time))
-            {
-                MessageBox.Show("올바르지 않은 데이터가 들어갔습니다, 다시 확인해주시길 바랍니다");
-            }
-            return time;
-        }
         #region 버튼이미지_설정_함수
-        private void btn_Battery_Control_MouseDown(object sender, MouseEventArgs e)
-        {
-            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
-            Button button = (Button)sender;
-            button.Image = ImageResize.ResizeImage(Properties.Resources.제어_on, button.Width, button.Height);
-        }
 
-        private void btn_Battery_Control_MouseUp(object sender, MouseEventArgs e)
-        {
-            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
-            Button button = (Button)sender;
-            button.Image = null;
-        }
-
-
-
-        private void btn_PCS_Control_MouseDown(object sender, MouseEventArgs e)
-        {
-            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
-            Button button = (Button)sender;
-            button.Image = ImageResize.ResizeImage(Properties.Resources.제어_on, button.Width, button.Height);
-        }
-
-        private void btn_PCS_Control_MouseUp(object sender, MouseEventArgs e)
-        {
-            // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
-            Button button = (Button)sender;
-            button.Image = null;
-        }
 
         private void btn_uPMS_MouseDown(object sender, MouseEventArgs e)
         {
@@ -487,7 +406,7 @@ namespace KTE_PMS.MIMIC
         {
             // 클릭한 버튼에 해당되는 이미지만 On Image로 변경한다 //
             Button button = (Button)sender;
-            button.Image = ImageResize.ResizeImage(Properties.Resources.확인_on, button.Width, button.Height);
+            button.Image = ImageResize.ResizeImage(Properties.Resources.변경_on, button.Width, button.Height);
         }
 
         private void btn_Confirm_Power_Set_MouseUp(object sender, MouseEventArgs e)
@@ -544,6 +463,5 @@ namespace KTE_PMS.MIMIC
 
             return DateTime.Now;
         }
-
     }
 }
