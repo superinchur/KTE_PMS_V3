@@ -13,7 +13,7 @@ namespace KTE_PMS.Popup
 {
     public partial class Popup_Charging_Stop_SOC : Form
     {
-        float Range_Min = 60.0f;
+        float Range_Min = 00.0f;
         float Range_Max = 100.0f;
 
         public Popup_Charging_Stop_SOC()

@@ -723,16 +723,6 @@ namespace KTE_PMS.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap dot_Grid_PCS_0011 {
-            get {
-                object obj = ResourceManager.GetObject("dot_Grid_PCS_0011", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
         internal static System.Drawing.Bitmap dot_LOAD_001 {
             get {
                 object obj = ResourceManager.GetObject("dot_LOAD_001", resourceCulture);

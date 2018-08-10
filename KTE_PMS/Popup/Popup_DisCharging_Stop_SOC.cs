@@ -7,8 +7,8 @@ namespace KTE_PMS.Popup
     public partial class Popup_DisCharging_Stop_SOC : Form
     {
         // Parameter이다. 파일로 넣는게 좋겠네?
-        float Range_Min = 10.0f;
-        float Range_Max = 50.0f;
+        float Range_Min = 0.0f;
+        float Range_Max = 100.0f;
 
         public Popup_DisCharging_Stop_SOC()
         {

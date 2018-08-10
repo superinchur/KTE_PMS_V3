@@ -125,10 +125,11 @@ namespace KTE_PMS
 
         private void Display_Current_Time()
         {
-            label6.Text = DateTime.Now.Year.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
-            label1.Text = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString() + ":" + DateTime.Now.Second.ToString();
+            label6.Text = String.Format("{0:00}-{1:00}-{2:00}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            //label6.Text =.ToString().Format + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
+            //label1.Text = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString() + ":" + DateTime.Now.Second.ToString();
 
-
+            label1.Text = String.Format("{0:00}:{1:00}:{2:00}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
 
         }
 
@@ -410,6 +411,7 @@ namespace KTE_PMS
                 // 저장된 데이터를 DB에 저장한다.
                 
                 Repository.Instance.dbConnector.Insert_Power();
+                Repository.Instance.dbConnector.Select_Power();
                 // 처리 완료 후, prev값을 새로 갱신
                 prev_minute = today.Minute;
             }
@@ -419,7 +421,7 @@ namespace KTE_PMS
                 
                 // 저장된 데이터를 DB에 저장한다.
                 Repository.Instance.dbConnector.Insert_Power_Hour();
-                Repository.Instance.dbConnector.Select_Power();
+
                 prev_hour = today.Hour;
             }
             if (prev_day != today.Day)

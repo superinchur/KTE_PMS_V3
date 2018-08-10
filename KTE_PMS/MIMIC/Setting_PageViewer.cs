@@ -12,6 +12,7 @@ namespace KTE_PMS.MIMIC
 
 
         public sPower power { get; set; }
+        public sPower power_hour { get; set; }
         public sPower power_day { get; set; }
         public sPower power_month { get; set; }
         public sPower power_year { get; set; }
@@ -36,6 +37,7 @@ namespace KTE_PMS.MIMIC
 
 
             power = new sPower();
+            power_hour = new sPower();
             power_day = new sPower();
             power_month = new sPower();
             power_year = new sPower();
@@ -364,7 +366,8 @@ namespace KTE_PMS.MIMIC
 
         private void btn_Language_Setup_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("rundll32.exe", "shell32.dll,Control_RunDLL intl.cpl");
+            MessageBox.Show("추후 작업 예정입니다.");
+            //System.Diagnostics.Process.Start("rundll32.exe", "shell32.dll,Control_RunDLL intl.cpl");
         }
 
         private void tb_Power_Prices_Click(object sender, EventArgs e)

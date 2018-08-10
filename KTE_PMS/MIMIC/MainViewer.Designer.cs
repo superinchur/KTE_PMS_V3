@@ -95,6 +95,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.lb_Battery_SOC = new System.Windows.Forms.Label();
             this.cover_scheduling = new System.Windows.Forms.PictureBox();
+            this.PCS_to_Battery = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pb_PCS_to_Load)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Battery)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_PCS_Abnormal)).BeginInit();
@@ -216,11 +217,11 @@
             // 
             this.Battery_to_PCS.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Battery_to_PCS.ImageStream")));
             this.Battery_to_PCS.TransparentColor = System.Drawing.Color.Transparent;
-            this.Battery_to_PCS.Images.SetKeyName(0, "dot_battery_PCS_001.png");
-            this.Battery_to_PCS.Images.SetKeyName(1, "dot_battery_PCS_002.png");
-            this.Battery_to_PCS.Images.SetKeyName(2, "dot_battery_PCS_003.png");
-            this.Battery_to_PCS.Images.SetKeyName(3, "dot_battery_PCS_004.png");
-            this.Battery_to_PCS.Images.SetKeyName(4, "dot_battery_PCS_005.png");
+            this.Battery_to_PCS.Images.SetKeyName(0, "dot_battery_PCS_005.png");
+            this.Battery_to_PCS.Images.SetKeyName(1, "dot_battery_PCS_001.png");
+            this.Battery_to_PCS.Images.SetKeyName(2, "dot_battery_PCS_002.png");
+            this.Battery_to_PCS.Images.SetKeyName(3, "dot_battery_PCS_003.png");
+            this.Battery_to_PCS.Images.SetKeyName(4, "dot_battery_PCS_004.png");
             // 
             // PCS_to_Grid
             // 
@@ -553,7 +554,7 @@
             // 
             // pb_PCS_to_Grid
             // 
-            this.pb_PCS_to_Grid.Image = global::KTE_PMS.Properties.Resources.dot_Grid_PCS_0011;
+            this.pb_PCS_to_Grid.Image = ((System.Drawing.Image)(resources.GetObject("pb_PCS_to_Grid.Image")));
             this.pb_PCS_to_Grid.Location = new System.Drawing.Point(1462, 142);
             this.pb_PCS_to_Grid.Name = "pb_PCS_to_Grid";
             this.pb_PCS_to_Grid.Size = new System.Drawing.Size(204, 146);
@@ -566,7 +567,7 @@
             this.pb_Battery_to_PCS.Image = global::KTE_PMS.Properties.Resources.dot_battery_PCS_001;
             this.pb_Battery_to_PCS.Location = new System.Drawing.Point(979, 210);
             this.pb_Battery_to_PCS.Name = "pb_Battery_to_PCS";
-            this.pb_Battery_to_PCS.Size = new System.Drawing.Size(204, 68);
+            this.pb_Battery_to_PCS.Size = new System.Drawing.Size(204, 67);
             this.pb_Battery_to_PCS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_Battery_to_PCS.TabIndex = 31;
             this.pb_Battery_to_PCS.TabStop = false;
@@ -582,6 +583,7 @@
             this.cover_control.TabIndex = 98;
             this.cover_control.TabStop = false;
             this.cover_control.Visible = false;
+            this.cover_control.Click += new System.EventHandler(this.cover_control_Click);
             // 
             // label1
             // 
@@ -780,6 +782,16 @@
             this.cover_scheduling.TabStop = false;
             this.cover_scheduling.Visible = false;
             // 
+            // PCS_to_Battery
+            // 
+            this.PCS_to_Battery.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("PCS_to_Battery.ImageStream")));
+            this.PCS_to_Battery.TransparentColor = System.Drawing.Color.Transparent;
+            this.PCS_to_Battery.Images.SetKeyName(0, "dot_battery_PCS_005.png");
+            this.PCS_to_Battery.Images.SetKeyName(1, "dot_battery_PCS_004.png");
+            this.PCS_to_Battery.Images.SetKeyName(2, "dot_battery_PCS_003.png");
+            this.PCS_to_Battery.Images.SetKeyName(3, "dot_battery_PCS_002.png");
+            this.PCS_to_Battery.Images.SetKeyName(4, "dot_battery_PCS_001.png");
+            // 
             // MainViewer
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -901,5 +913,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lb_Battery_SOC;
         private System.Windows.Forms.PictureBox cover_scheduling;
+        private System.Windows.Forms.ImageList PCS_to_Battery;
     }
 }

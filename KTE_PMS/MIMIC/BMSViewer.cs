@@ -406,7 +406,7 @@ namespace KTE_PMS.MIMIC
 
             TimeSpan span = dt_now - tLastRecv;
 
-            if (span.TotalSeconds < 10)
+            if (span.TotalSeconds < 15)
             {
                 if (Repository.Instance.TagManager.FAULT_STATUS[48, 10, 0] != "0")
                     Repository.Instance.TagManager.경보발생및해제(0, 48, 10);

@@ -59,10 +59,10 @@ namespace KTE_PMS
             // 
 
             CSafeSetText(lb9, Choice_Unit(Repository.Instance.p_setting.power_day.BMS_CHARGE_POWER)); // 배터리 일별 충전
-            CSafeSetText(lb12, Choice_Unit(Repository.Instance.p_setting.power_day.BMS_DISCHARGE_POWER)); // 배터리 일별 방전
+            CSafeSetText(lb12, Choice_Unit(Math.Abs(Repository.Instance.p_setting.power_day.BMS_DISCHARGE_POWER))); // 배터리 일별 방전
 
             CSafeSetText(lb10, Choice_Unit(Repository.Instance.p_setting.power_month.BMS_CHARGE_POWER)); // 배터리 월별 충전
-            CSafeSetText(lb13, Choice_Unit(Repository.Instance.p_setting.power_month.BMS_DISCHARGE_POWER)); // 배터리 월별 방전
+            CSafeSetText(lb13, Choice_Unit(Math.Abs(Repository.Instance.p_setting.power_month.BMS_DISCHARGE_POWER))); // 배터리 월별 방전
         }
 
         private static string Choice_Unit(double value)
@@ -78,7 +78,7 @@ namespace KTE_PMS
             }
             else
             {
-                return String.Format("{0:0} kW", value);
+                return String.Format("{0:0.0} kW", value);
             }
         }
 
@@ -153,7 +153,7 @@ namespace KTE_PMS
         {
             double soc = Repository.Instance.samsung_bcs.System_SOC;
 
-            lb_Battery_SOC.Text = String.Format("{0:0.0 %}", soc);
+            lb_Battery_SOC.Text = String.Format("{0:0.0 %}", soc / 100);
             if (soc < 20)
             {
                 pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[0], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
@@ -247,7 +247,7 @@ namespace KTE_PMS
             }
             else
             {
-                lb_System_Status.Text = "UNEXPECTED";
+                lb_System_Status.Text = "-";
             }
             if (Repository.Instance.GnEPS_PCS.Mode_Standby == 1)
             {
@@ -264,7 +264,7 @@ namespace KTE_PMS
             }
             else
             {
-                lb_PCS_System_Status.Text = "NO STANDBY";
+                lb_PCS_System_Status.Text = "-";
             }
         }
 
@@ -306,7 +306,7 @@ namespace KTE_PMS
                 ////////////////////////////////////////////////////////////
                 if (Repository.Instance.samsung_bcs.Mode_Charging == 1)
                 {
-                    pb_Battery_to_PCS.Image = Battery_to_PCS.Images[reverse_index];
+                    pb_Battery_to_PCS.Image = PCS_to_Battery.Images[index];
                 }
                 else if (Repository.Instance.samsung_bcs.Mode_Discharging == 1)
                 {
@@ -332,7 +332,7 @@ namespace KTE_PMS
                 }
                 else if (Repository.Instance.GnEPS_PCS.Mode_Discharging == 1 || Repository.Instance.samsung_bcs.Mode_Discharging == 1)
                 {
-                    pb_PCS_to_Grid.Image = PCS_to_Grid.Images[reverse_index];
+                    pb_PCS_to_Grid.Image = PCS_to_Grid.Images[0];
                     pb_PCS_to_Load.Image = PCS_to_Load.Images[index];
                 }
                 else
@@ -649,6 +649,11 @@ namespace KTE_PMS
         }
 
         private void lb_Battery_Control_Authority_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cover_control_Click(object sender, EventArgs e)
         {
 
         }

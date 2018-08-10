@@ -74,12 +74,13 @@ namespace KTE_PMS.Popup
 
                 double a = new cConvertFromMaskedTextBox().ToSingle(tb_Power_Set);
 
-
+                /*
                 if (a > Repository.Instance.p_setting.Limit_Active_Power)
                 {
                     a = Repository.Instance.p_setting.Limit_Active_Power;
                     MessageBox.Show("Power를 " + Repository.Instance.p_setting.Limit_Active_Power + "kW 을 초과 설정할 수 없습니다");
                 }
+                */
                 Repository.Instance.remote_power = Convert.ToUInt16(a * 10);
             }
             catch (Exception ex)

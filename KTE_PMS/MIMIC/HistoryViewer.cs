@@ -333,7 +333,7 @@ namespace KTE_PMS.MIMIC
             DateTimePicker picker = new DateTimePicker();
 
             picker.Format = DateTimePickerFormat.Custom;
-            picker.CustomFormat = "yyyy월mm년dd일 hh:mm:ss";
+            picker.CustomFormat = "yyyy월mm년dd일 HH:mm:ss";
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)

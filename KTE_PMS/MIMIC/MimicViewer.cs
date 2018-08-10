@@ -17,7 +17,7 @@ namespace KTE_PMS.MIMIC
             timer1.Interval = 500;
             timer1.Start();
         }
-        
+
         delegate void CrossThreadSafetySetText(Control ctl, String text);
 
         private void CSafeSetText(Control ctl, String text)
@@ -37,6 +37,36 @@ namespace KTE_PMS.MIMIC
                 ctl.Text = text;
         }
 
+
+        private void Display_Battery_SOC()
+        {
+            double soc = Repository.Instance.samsung_bcs.System_SOC;
+
+            lb_Battery_SOC.Text = String.Format("{0:0.0 %}", soc / 100);
+            if (soc < 20)
+            {
+                pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[0], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
+            }
+            else if (soc >= 20 && soc < 40)
+            {
+                pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[1], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
+            }
+            else if (soc >= 40 && soc < 60)
+            {
+                pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[2], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
+            }
+            else if (soc >= 60 && soc < 80)
+            {
+                pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[3], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
+            }
+            else if (soc >= 80)
+            {
+                pb_Battery.Image = ImageResize.ResizeImage(il_Battery_List.Images[4], il_Battery_List.ImageSize.Width, il_Battery_List.ImageSize.Height);
+            }
+
+
+        }
+
         public void ObserverUpdate()
         {
             // 값 써주기
@@ -48,7 +78,7 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(lbGRID_T_CURRENT, Repository.Instance.GnEPS_PCS.GRID_T_Current.ToString() + " A");
             CSafeSetText(lbGRID_POWER, Repository.Instance.GnEPS_PCS.GRID_Power.ToString() + " kW");
 
-            
+
 
             CSafeSetText(lbGRID_Frequency, String.Format("{0:0.0}", Repository.Instance.GnEPS_PCS.GRID_Frequency) + " Hz");
             if (Repository.Instance.GnEPS_PCS.isTemperatureWarning == 1)
@@ -67,7 +97,7 @@ namespace KTE_PMS.MIMIC
             //CSafeSetText(lbINVERTER_POWER, Repository.Instance.GnEPS_PCS.INVERTER_Power .ToString());
 
             CSafeSetText(lb_Battery_Power, String.Format("{0:0.0}", Repository.Instance.samsung_bcs.System_Power) + " kW");
-            
+
             CSafeSetText(lb_Battery_Voltage, String.Format("{0:0.0}", Repository.Instance.samsung_bcs.System_Voltage) + " V");
             CSafeSetText(lb_Battery_Current, String.Format("{0:0.0}", Repository.Instance.samsung_bcs.System_Current) + " A");
             CSafeSetText(lb_Battery_SOC, String.Format("{0:0.0}", Repository.Instance.samsung_bcs.System_SOC) + " %");
@@ -84,7 +114,7 @@ namespace KTE_PMS.MIMIC
             {
                 //lb_Battery_Control_Authority.Text = "LEMS";
                 lb_PCS_Control_Authority.Text = "LEMS";
-                
+
                 // 색상도 정하자
             }
             else
@@ -101,13 +131,13 @@ namespace KTE_PMS.MIMIC
             {
                 lb_System_Status.Text = "CHARGING";
                 pb_Arrow_PCS_Battery.Visible = true;
-                pb_Arrow_PCS_Battery.Image = ImageResize.ResizeImage(Properties.Resources.arrow_1, pb_Arrow_PCS_Battery.Width, pb_Arrow_PCS_Battery.Height);
+                pb_Arrow_PCS_Battery.Image = ImageResize.ResizeImage(Properties.Resources.arrow, pb_Arrow_PCS_Battery.Width, pb_Arrow_PCS_Battery.Height);
             }
             else if (Repository.Instance.samsung_bcs.Mode_Discharging == 1)
             {
                 lb_System_Status.Text = "DISCHARGING";
                 pb_Arrow_PCS_Battery.Visible = true;
-                pb_Arrow_PCS_Battery.Image = ImageResize.ResizeImage(Properties.Resources.arrow, pb_Arrow_PCS_Battery.Width, pb_Arrow_PCS_Battery.Height);
+                pb_Arrow_PCS_Battery.Image = ImageResize.ResizeImage(Properties.Resources.arrow_1, pb_Arrow_PCS_Battery.Width, pb_Arrow_PCS_Battery.Height);
             }
             else if (Repository.Instance.samsung_bcs.Mode_Offline == 1)
             {
@@ -126,7 +156,7 @@ namespace KTE_PMS.MIMIC
             }
             else
             {
-                lb_System_Status.Text = "UNEXPECTED";
+                lb_System_Status.Text = "-";
                 pb_Arrow_PCS_Battery.Visible = false;
             }
             if (Repository.Instance.GnEPS_PCS.Mode_Standby == 1)
@@ -136,7 +166,7 @@ namespace KTE_PMS.MIMIC
                 pb_Arrow_Load_PCS.Visible = false;
 
             }
-            else if (Repository.Instance.GnEPS_PCS.Mode_Charging == 1)
+            else if (Repository.Instance.GnEPS_PCS.Mode_Charging == 1 || Repository.Instance.samsung_bcs.Mode_Charging == 1)
             {
                 lb_PCS_System_Status.Text = "CHARGING";
                 pb_Arrow_Grid_PCS.Visible = true;
@@ -144,10 +174,10 @@ namespace KTE_PMS.MIMIC
                 pb_Arrow_Grid_PCS.Image = ImageResize.ResizeImage(Properties.Resources.arrow, pb_Arrow_Grid_PCS.Width, pb_Arrow_Grid_PCS.Height);
                
             }
-            else if (Repository.Instance.GnEPS_PCS.Mode_Discharging == 1)
+            else if (Repository.Instance.GnEPS_PCS.Mode_Discharging == 1 || Repository.Instance.samsung_bcs.Mode_Discharging == 1)
             {
                 lb_PCS_System_Status.Text = "DISCHARGING";
-                pb_Arrow_Grid_PCS.Visible = true;
+                pb_Arrow_Grid_PCS.Visible = false;
                 pb_Arrow_Load_PCS.Visible = true;
                 pb_Arrow_Grid_PCS.Image = ImageResize.ResizeImage(Properties.Resources.arrow_1, pb_Arrow_Grid_PCS.Width, pb_Arrow_Grid_PCS.Height);
                 pb_Arrow_Load_PCS.Image = ImageResize.ResizeImage(Properties.Resources.arrow_1, pb_Arrow_Load_PCS.Width, pb_Arrow_Load_PCS.Height);
@@ -155,7 +185,7 @@ namespace KTE_PMS.MIMIC
             }
             else
             {
-                lb_PCS_System_Status.Text = "NO STANDBY";
+                lb_PCS_System_Status.Text = "-";
                 pb_Arrow_Grid_PCS.Visible = false;
                 pb_Arrow_Load_PCS.Visible = false;
             }
@@ -199,6 +229,8 @@ namespace KTE_PMS.MIMIC
             Display_Device_Connection_Status();
             Display_Textbox_Device_Status();
             Display_Device_Control_Authority();
+            Display_Battery_SOC();
+
         }
 
         private void MimicViewer_Load(object sender, EventArgs e)

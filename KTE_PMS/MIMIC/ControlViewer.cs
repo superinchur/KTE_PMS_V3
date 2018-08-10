@@ -298,6 +298,7 @@ namespace KTE_PMS.MIMIC
         {
             Popup_Power_Active_Set a = new Popup_Power_Active_Set();
             a.ShowDialog();
+            
         }
 
         private void btn_Confirm_Charging_Stop_SOC_Click(object sender, EventArgs e)
@@ -426,14 +427,8 @@ namespace KTE_PMS.MIMIC
 
         private void btn_BMS_RESET_MouseUp(object sender, MouseEventArgs e)
         {
-
-            if (MessageBox.Show("BMS를 리셋하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Repository.Instance.bmsviewer.GRID_OFF();
-                Delay(2000);
-                Repository.Instance.bmsviewer.GRID_ON();
-            }
-
+            Button button = (Button)sender;
+            button.Image = null;
         }
 
         private void btn_BMS_RESET_MouseDown(object sender, MouseEventArgs e)
@@ -445,8 +440,23 @@ namespace KTE_PMS.MIMIC
 
         private void btn_BMS_RESET_MouseClick(object sender, MouseEventArgs e)
         {
-            Button button = (Button)sender;
-            button.Image = null;
+            if (MessageBox.Show("BMS를 리셋하시겠습니까?", "확인", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                VKeyboardViewer a = new VKeyboardViewer();
+                a.ShowDialog();
+
+                if (Repository.Instance.user_level == 5)
+                {
+                    Repository.Instance.bmsviewer.GRID_OFF();
+                    Delay(2000);
+                    Repository.Instance.bmsviewer.GRID_ON();
+                }
+                else
+                {
+                    MessageBox.Show("권한이 없어서 BMS를 리셋할 수 없습니다");
+                }
+
+            }
         }
 
         private static DateTime Delay(int MS)

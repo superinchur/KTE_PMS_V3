@@ -1,7 +1,5 @@
 ﻿using KTE_PMS.Observer;
 using System;
-using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace KTE_PMS.MIMIC
@@ -159,10 +157,20 @@ namespace KTE_PMS.MIMIC
             
             CSafeSetText(l46_2, t.Rack1.String1_Rack_Current.ToString() + " " + "A");
             CSafeSetText(l46_3, t.Rack1.String2_Rack_Current.ToString() + " " + "A");
+
             CSafeSetText(l43_1, t.Rack1.Rack_Current_Average.ToString() + " " + "A");
+
+            if (t.Rack1.Rack_Mode == 0) CSafeSetText(l44_1, "NONE");
+            else if (t.Rack1.Rack_Mode == 1) CSafeSetText(l44_1, "INIT");
+            else if (t.Rack1.Rack_Mode == 2) CSafeSetText(l44_1, "OFFLINE");
+            else if (t.Rack1.Rack_Mode == 3) CSafeSetText(l44_1, "ONLINE");
+            else if (t.Rack1.Rack_Mode == 4) CSafeSetText(l44_1, "RACK BALANCING");
+
+            
+
             CSafeSetText(l45_1, t.Rack1.Rack_SOC.ToString() + " " + "%");
             CSafeSetText(l46_1, t.Rack1.Rack_SOH.ToString() + " " + "%");
-            CSafeSetText(l47_1, t.Rack1.Average_Cell_Voltage_Value.ToString() + " " + "mV");
+            CSafeSetText(l47_1, t.Rack1.Average_Cell_Voltage_Value.ToString() + " " + "V");
             CSafeSetText(l48_1, String.Format("{0:0.0} °C", t.Rack1.Average_Cell_Temp_Value));
             CSafeSetText(l49_1, String.Format("{0:0.0} A", t.Rack1.Rack_Discharge_Current_Limit_of_Rack));
             CSafeSetText(l410_1, String.Format("{0:0.0} A", t.Rack1.Rack_Charge_Current_Limit_of_Rack));
@@ -219,10 +227,16 @@ namespace KTE_PMS.MIMIC
             CSafeSetText(l51_1, t.Rack2.Rack_Voltage.ToString() + " " + "V");
             CSafeSetText(l52_1, t.Rack2.Rack_Current.ToString() + " " + "A");
             CSafeSetText(l53_1, t.Rack2.Rack_Current_Average.ToString() + " " + "A");
-            CSafeSetText(l54_1, t.Rack2.Rack_Mode.ToString());
+
+            if (t.Rack2.Rack_Mode == 0) CSafeSetText(l54_1, "NONE");
+            else if (t.Rack2.Rack_Mode == 1) CSafeSetText(l54_1, "INIT");
+            else if (t.Rack2.Rack_Mode == 2) CSafeSetText(l54_1, "OFFLINE");
+            else if (t.Rack2.Rack_Mode == 3) CSafeSetText(l54_1, "ONLINE");
+            else if (t.Rack2.Rack_Mode == 4) CSafeSetText(l54_1, "RACK BALANCING");
+
             CSafeSetText(l55_1, t.Rack2.Rack_SOC.ToString() + " " + "%");
             CSafeSetText(l56_1, t.Rack2.Rack_SOH.ToString() + " " + "%");
-            CSafeSetText(l57_1, t.Rack2.Average_Cell_Voltage_Value.ToString() + " " + "mV");
+            CSafeSetText(l57_1, t.Rack2.Average_Cell_Voltage_Value.ToString() + " " + "V");
             CSafeSetText(l58_1, String.Format("{0:0.0} °C", t.Rack2.Average_Cell_Temp_Value));
             CSafeSetText(l59_1, String.Format("{0:0.0}  A", t.Rack2.Rack_Discharge_Current_Limit_of_Rack));
             CSafeSetText(l510_1, String.Format("{0:0.0}  A", t.Rack2.Rack_Charge_Current_Limit_of_Rack));
@@ -297,7 +311,7 @@ namespace KTE_PMS.MIMIC
             }
             else
             {
-                lb_System_Status = "UNEXPECTED";
+                lb_System_Status = "-";
             }
             return lb_System_Status;
 

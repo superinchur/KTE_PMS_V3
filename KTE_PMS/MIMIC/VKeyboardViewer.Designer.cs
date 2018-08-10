@@ -336,6 +336,7 @@
             this.Controls.Add(this.BTN7);
             this.DoubleBuffered = true;
             this.Name = "VKeyboardViewer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LOGIN";
             this.ResumeLayout(false);
             this.PerformLayout();

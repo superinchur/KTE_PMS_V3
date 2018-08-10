@@ -294,7 +294,7 @@ namespace KTE_PMS
                     //
                     FAULT_STATUS[nFileNo, nBit, 0] = nStatus.ToString();
                     FAULT_STATUS[nFileNo, nBit, 1] = tCurrent.ToString("yyyy-MM-dd HH:mm:ss");
-                    string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), string.Format("{0} [0x{1:X2}] ", nFileNo, nBit), DeviceName, szFaultText, "UNACK");
+                    string szFault = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd HH:mm:ss"), string.Format("{0} [0x{1:X2}] ", nFileNo, nBit), DeviceName, szFaultText, "UNACK");
                     Repository.Instance.dbConnector.Insert_Alarm_to_Database(szFault);
 
                     htCurrentFault[szFaultCode] = szFault;
@@ -346,7 +346,7 @@ namespace KTE_PMS
             }
 
             DateTime tCurrent = DateTime.Now;
-            string szEvent = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), "SYS", "LEMS", "ALARM ACK IS OCCURED BY USER", "EVENT");
+            string szEvent = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd HH:mm:ss"), "SYS", "LEMS", "ALARM ACK IS OCCURED BY USER", "EVENT");
             Repository.Instance.dbConnector.Insert_Alarm_to_Database(szEvent);
         }
         public void ALARM_ACK(int count)
@@ -391,7 +391,7 @@ namespace KTE_PMS
             }
 
             DateTime tCurrent = DateTime.Now;
-            string szEvent = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd hh:mm:ss"), "SYS", "LEMS", "ALARM ACK IS OCCURED BY USER", "EVENT");
+            string szEvent = string.Format("{0}|{1}|{2}|{3}|{4}", tCurrent.ToString("yyyy-MM-dd HH:mm:ss"), "SYS", "LEMS", "ALARM ACK IS OCCURED BY USER", "EVENT");
             Repository.Instance.dbConnector.Insert_Alarm_to_Database(szEvent);
 
         }

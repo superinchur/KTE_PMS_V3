@@ -160,6 +160,7 @@
             this.Controls.Add(this.btn_Confirm);
             this.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Name = "Popup_Power_Active_Set";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Popup_Charging_Stop_SOC";
             this.ResumeLayout(false);
             this.PerformLayout();

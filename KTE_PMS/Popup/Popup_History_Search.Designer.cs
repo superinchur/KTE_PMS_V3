@@ -89,7 +89,7 @@
             this.label1.Size = new System.Drawing.Size(166, 28);
             this.label1.TabIndex = 134;
             this.label1.Text = "Description";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
@@ -99,8 +99,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 28);
             this.label2.TabIndex = 135;
-            this.label2.Text = "System";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Text = "Device";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
@@ -111,7 +111,7 @@
             this.label3.Size = new System.Drawing.Size(166, 28);
             this.label3.TabIndex = 136;
             this.label3.Text = "IO";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button1
             // 
@@ -157,6 +157,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tb_System_Filter);
             this.Name = "Popup_History_Search";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Popup_History_Search";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -110,18 +110,18 @@ namespace KTE_PMS
             {
                 string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
+                
                 double charging_power = 0;
                 double discharging_power = 0;
 
                 if (power > 0) charging_power = power;
                 else if (power < 0) discharging_power = power;
-                
 
-                String sql = "INSERT INTO " + nameofDB + "(DATETIME, VOLTAGE, CURRENT, C_POWER, D_POWER) " + "VALUES ('"
+               String sql = "INSERT INTO " + nameofDB + "(DATETIME, VOLTAGE, CURRENT, C_POWER, D_POWER) " + "VALUES ('"
                     + strDateTime + "','"
                     + voltage.ToString() + "','"
                     + current.ToString() + "','"
-                    + charging_power.ToString() + "',"
+                    + charging_power.ToString() + "','"
                     + discharging_power.ToString() + "')";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -140,11 +140,18 @@ namespace KTE_PMS
             {
                 string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                String sql = "INSERT INTO " + nameofDB + "(DATETIME, VOLTAGE, CURRENT, POWER) " + "VALUES ('"
+                double charging_power = 0;
+                double discharging_power = 0;
+
+                if (power > 0) charging_power = power;
+                else if (power < 0) discharging_power = power;
+
+                String sql = "INSERT INTO " + nameofDB + "(DATETIME, VOLTAGE, CURRENT, C_POWER, D_POWER) " + "VALUES ('"
                     + strDateTime + "','"
                     + voltage.ToString() + "','"
                     + current.ToString() + "','"
-                    + power.ToString() + "')";
+                    + charging_power.ToString() + "','"
+                    + discharging_power.ToString() + "')";
 
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -225,26 +232,47 @@ namespace KTE_PMS
         }
         public void Insert_Power()
         {
+            string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:00");
+
+
+            sPower temp = Repository.Instance.p_setting.power.GetValue();
+
+            String sql = "INSERT INTO power_data_minute (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
+                + strDateTime + "','"
+                + temp.PCS_CHARGE_POWER + "','"
+                + temp.PCS_DISCHARGE_POWER + "','"
+                + temp.BMS_CHARGE_POWER + "','"
+                + temp.BMS_DISCHARGE_POWER + "')";
+
             try
             {
-                string strDateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:00");
-
-
-                sPower temp = Repository.Instance.p_setting.power.GetValue();
-
-                String sql = "INSERT INTO power_data_minute (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
-                    + strDateTime + "','"
-                    + temp.PCS_CHARGE_POWER + "','"
-                    + temp.PCS_DISCHARGE_POWER + "','"
-                    + temp.BMS_CHARGE_POWER + "','"
-                    + temp.BMS_DISCHARGE_POWER + "')";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
+
+                ////////////////////////////////////////////////////////////////////////////////
+                //////////////////////// 전력값 누적을 위해서 하는 항목  ///////////////////////
+                ////////////////////////////////////////////////////////////////////////////////
+                String sql2 = "SELECT * FROM power_data_hour_accu ORDER BY DATETIME desc LIMIT 1";
+                DataSet ds2 = new DataSet();
+                MySqlDataAdapter adpt2 = new MySqlDataAdapter(sql2, conn);
+                adpt2.Fill(ds2);
+                sPower total_power2 = GetAveragePowerFromDatabase(ds2);
+                sql2 = "INSERT INTO power_data_hour_accu (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
+                    //+ strYesterday + "','"
+                    + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','"
+                    + (temp.PCS_CHARGE_POWER/60 + total_power2.PCS_CHARGE_POWER) + "','"
+                    + (temp.PCS_DISCHARGE_POWER / 60 + total_power2.PCS_DISCHARGE_POWER) + "','"
+                    + (temp.BMS_CHARGE_POWER / 60 + total_power2.BMS_CHARGE_POWER) + "','"
+                    + (temp.BMS_DISCHARGE_POWER / 60 + total_power2.BMS_DISCHARGE_POWER) + "')";
+                MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
+                cmd2.ExecuteNonQuery();
+                ////////////////////////////////////////////////////////////////////////////////
+
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(sql + " : " + ex.Message);
                 ExceptionManagement(ex);
             }
         }
@@ -276,24 +304,7 @@ namespace KTE_PMS
                 cmd.ExecuteNonQuery();
 
 
-                ////////////////////////////////////////////////////////////////////////////////
-                //////////////////////// 전력값 누적을 위해서 하는 항목  ///////////////////////
-                ////////////////////////////////////////////////////////////////////////////////
-                String sql2 = "SELECT * FROM power_data_hour_accu ORDER BY DATETIME desc LIMIT 1";
-                DataSet ds2 = new DataSet();
-                MySqlDataAdapter adpt2 = new MySqlDataAdapter(sql2, conn);
-                adpt2.Fill(ds2);
-                sPower total_power2 = GetAveragePowerFromDatabase(ds2);
-                sql2 = "INSERT INTO power_data_hour_accu (DATETIME, PCS_CHARGE_POWER, PCS_DISCHARGE_POWER, BMS_CHARGE_POWER, BMS_DISCHARGE_POWER) " + "VALUES ('"
-                    //+ strYesterday + "','"
-                    + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "','"
-                    + (total_power.PCS_CHARGE_POWER + total_power2.PCS_CHARGE_POWER) + "','"
-                    + (total_power.PCS_DISCHARGE_POWER + total_power2.PCS_DISCHARGE_POWER) + "','"
-                    + (total_power.BMS_CHARGE_POWER + total_power2.BMS_CHARGE_POWER) + "','"
-                    + (total_power.BMS_DISCHARGE_POWER + total_power2.BMS_DISCHARGE_POWER) + "')";
-                MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
-                cmd2.ExecuteNonQuery();
-                ////////////////////////////////////////////////////////////////////////////////
+
                 
                 
             }
@@ -426,7 +437,32 @@ namespace KTE_PMS
 
             return power;
         }
+        private sPower GetAccuPowerFromDatabase(DataSet ds)
+        {
+            sPower power = new sPower();
+            int total_count = new int();
 
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataRow dr in table.Rows)
+                {
+                    power.PCS_CHARGE_POWER = power.PCS_CHARGE_POWER + Convert.ToDouble(dr["PCS_CHARGE_POWER"]);
+                    power.PCS_DISCHARGE_POWER = power.PCS_DISCHARGE_POWER + Convert.ToDouble(dr["PCS_DISCHARGE_POWER"]);
+                    power.BMS_CHARGE_POWER = power.BMS_CHARGE_POWER + Convert.ToDouble(dr["BMS_CHARGE_POWER"]);
+                    power.BMS_DISCHARGE_POWER = power.BMS_DISCHARGE_POWER + Convert.ToDouble(dr["BMS_DISCHARGE_POWER"]);
+
+                    total_count = total_count + 1;
+                }
+            }
+            if (total_count == 0) total_count = 1; // To protect zero-division Exception
+
+            power.PCS_CHARGE_POWER = power.PCS_CHARGE_POWER / 60;
+            power.PCS_DISCHARGE_POWER = power.PCS_DISCHARGE_POWER / 60;
+            power.BMS_CHARGE_POWER = power.BMS_CHARGE_POWER / 60;
+            power.BMS_DISCHARGE_POWER = power.BMS_DISCHARGE_POWER / 60;
+
+            return power;
+        }
 
         private sPower GetPowerFromDatabase(DataSet ds)
         {
@@ -456,16 +492,26 @@ namespace KTE_PMS
         {
             try
             {
-                string str_start = DateTime.Now.ToString("yyyy-MM-dd 00:00:00");
+                string str_start = DateTime.Now.ToString("yyyy-MM-dd HH:00:00");
                 string str_end = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                String sql = "SELECT * FROM power_data_hour WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
+                String sql = "SELECT * FROM power_data_minute WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
 
                 DataSet ds = new DataSet();
                 MySqlDataAdapter adpt = new MySqlDataAdapter(sql, conn);
                 adpt.Fill(ds);
+                Repository.Instance.p_setting.power_hour = GetAccuPowerFromDatabase(ds);
 
-                Repository.Instance.p_setting.power_day = GetPowerFromDatabase(ds);
+                str_start = DateTime.Now.ToString("yyyy-MM-dd 00:00:00");
+                str_end = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                sql = "SELECT * FROM power_data_hour WHERE DATETIME BETWEEN '" + str_start + "' and '" + str_end + "' ORDER BY DATETIME desc";
+
+                ds = new DataSet();
+                adpt = new MySqlDataAdapter(sql, conn);
+                adpt.Fill(ds);
+
+                Repository.Instance.p_setting.power_day = Repository.Instance.p_setting.power_hour +  GetPowerFromDatabase(ds);
 
                 //
                 str_start = DateTime.Now.ToString("yyyy-MM-01 00:00:00");

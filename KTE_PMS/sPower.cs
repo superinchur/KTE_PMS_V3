@@ -65,7 +65,12 @@ namespace KTE_PMS
             }
             else
             {
+                if (answer.PCS_DISCHARGE_POWER < 0)
+                {
+
+                }
                 answer.PCS_DISCHARGE_POWER = this.PCS_DISCHARGE_POWER / this.PCS_DISCHARGE_COUNT;
+                
             }
 
             PCS_CHARGE_POWER = 0;
@@ -89,7 +94,7 @@ namespace KTE_PMS
             }
             else if (power < 0)
             {
-                BMS_DISCHARGE_POWER = -1 * BMS_DISCHARGE_POWER + power;
+                BMS_DISCHARGE_POWER = BMS_DISCHARGE_POWER + power;
                 BMS_DISCHARGE_COUNT++;
             }
             return true;
@@ -104,7 +109,7 @@ namespace KTE_PMS
             }
             else if (power < 0)
             {
-                PCS_DISCHARGE_POWER = -1 * PCS_DISCHARGE_POWER + power;
+                PCS_DISCHARGE_POWER =  PCS_DISCHARGE_POWER + power;
                 PCS_DISCHARGE_POWER++;
             }
             return true;

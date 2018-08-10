@@ -19,11 +19,12 @@ namespace KTE_PMS
             XYDiagram diagram2 = (XYDiagram)chartControl3.Diagram;
             XYDiagram diagram3 = (XYDiagram)chartControl4.Diagram;
 
-            diagram.AxisX.Label.TextPattern = "{A: hh:mm}";
-            diagram1.AxisX.Label.TextPattern = "{A: hh:mm}";
-            diagram2.AxisX.Label.TextPattern = "{A: hh:mm}";
-            diagram3.AxisX.Label.TextPattern = "{A: hh:mm}";
-
+            /*
+            diagram.AxisX.Label.TextPattern = "{A: yyyy-MM-dd hh:mm}";
+            diagram1.AxisX.Label.TextPattern = "{A:yyyy-MM-dd hh:mm}";
+            diagram2.AxisX.Label.TextPattern = "{A: yyyy-MM-dd hh:mm}";
+            diagram3.AxisX.Label.TextPattern = "{A: yyyy-MM-dd hh:mm}";
+            */
             diagram.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Continuous;
             diagram1.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Continuous;
             diagram2.AxisX.DateTimeScaleOptions.ScaleMode = ScaleMode.Continuous;
@@ -158,15 +159,18 @@ namespace KTE_PMS
                     tb_endTime.Text = dt1.Year.ToString("D4") + "-" + dt1.Month.ToString("D2") + "-" + dt1.Day.ToString("D2") + " " + dt1.Hour.ToString("D2") + ":" + dt1.Minute.ToString("D2") + ":00";
                     tb_startTime.Text = dt2.Year.ToString("D4") + "-" + dt2.Month.ToString("D2") + "-" + dt2.Day.ToString("D2") + " " + dt2.Hour.ToString("D2") + ":" + dt2.Minute.ToString("D2") + ":00";
                 }
+                else
+                {
 
-                //DateTime t_Datetime_Maxvalue = DateTime.Parse(tb_endTime.Text);             
-                DateTime t_Datetime_Maxvalue = dt1;
+                }
+                DateTime t_Datetime_Maxvalue = DateTime.Parse(tb_endTime.Text);             
+                //DateTime t_Datetime_Maxvalue = dt1;
 
                 diagram.AxisX.VisualRange.MaxValue = t_Datetime_Maxvalue;
                 diagram.AxisX.WholeRange.MaxValue = t_Datetime_Maxvalue;
 
-                //DateTime t_Datetime_Minvalue = DateTime.Parse(tb_startTime.Text.Trim());
-                DateTime t_Datetime_Minvalue = dt2;
+                DateTime t_Datetime_Minvalue = DateTime.Parse(tb_startTime.Text.Trim());
+                //DateTime t_Datetime_Minvalue = dt2;
                 diagram.AxisX.VisualRange.MinValue = t_Datetime_Minvalue;
                 diagram.AxisX.WholeRange.MinValue = t_Datetime_Minvalue;
             }
@@ -421,26 +425,66 @@ namespace KTE_PMS
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            SetDiagramTimeRange((XYDiagram)chartControl1.Diagram, 10);
-            SetDiagramTimeRange((XYDiagram)chartControl2.Diagram, 10);
-            SetDiagramTimeRange((XYDiagram)chartControl3.Diagram, 10);
-            SetDiagramTimeRange((XYDiagram)chartControl4.Diagram, 10);
+
+
+
+            XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
+            XYDiagram diagram1 = (XYDiagram)chartControl2.Diagram;
+            XYDiagram diagram2 = (XYDiagram)chartControl3.Diagram;
+            XYDiagram diagram3 = (XYDiagram)chartControl4.Diagram;
+
+            SetDiagramTimeRange(diagram, 10);
+            SetDiagramTimeRange(diagram1, 10);
+            SetDiagramTimeRange(diagram2, 10);
+            SetDiagramTimeRange(diagram3, 10);
+
+            /*
+            diagram.AxisX.Label.TextPattern = "{A: hh:mm}";
+            diagram1.AxisX.Label.TextPattern = "{A: hh:mm}";
+            diagram2.AxisX.Label.TextPattern = "{A: hh:mm}";
+            diagram3.AxisX.Label.TextPattern = "{A: hh:mm}";
+            */
         }
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            SetDiagramTimeRange((XYDiagram)chartControl1.Diagram, 60);
-            SetDiagramTimeRange((XYDiagram)chartControl2.Diagram, 60);
-            SetDiagramTimeRange((XYDiagram)chartControl3.Diagram, 60);
-            SetDiagramTimeRange((XYDiagram)chartControl4.Diagram, 60);
+
+            XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
+            XYDiagram diagram1 = (XYDiagram)chartControl2.Diagram;
+            XYDiagram diagram2 = (XYDiagram)chartControl3.Diagram;
+            XYDiagram diagram3 = (XYDiagram)chartControl4.Diagram;
+
+            SetDiagramTimeRange(diagram, 60);
+            SetDiagramTimeRange(diagram1, 60);
+            SetDiagramTimeRange(diagram2, 60);
+            SetDiagramTimeRange(diagram3, 60);
+
+            /*
+            diagram.AxisX.Label.TextPattern = "{A: hh:mm}";
+            diagram1.AxisX.Label.TextPattern = "{A: hh:mm}";
+            diagram2.AxisX.Label.TextPattern = "{A: hh:mm}";
+            diagram3.AxisX.Label.TextPattern = "{A: hh:mm}";
+            */
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            SetDiagramTimeRange((XYDiagram)chartControl1.Diagram, 1440);
-            SetDiagramTimeRange((XYDiagram)chartControl2.Diagram, 1440);
-            SetDiagramTimeRange((XYDiagram)chartControl3.Diagram, 1440);
-            SetDiagramTimeRange((XYDiagram)chartControl4.Diagram, 1440);
+            XYDiagram diagram = (XYDiagram)chartControl1.Diagram;
+            XYDiagram diagram1 = (XYDiagram)chartControl2.Diagram;
+            XYDiagram diagram2 = (XYDiagram)chartControl3.Diagram;
+            XYDiagram diagram3 = (XYDiagram)chartControl4.Diagram;
+
+            SetDiagramTimeRange(diagram, 1440);
+            SetDiagramTimeRange(diagram1, 1440);
+            SetDiagramTimeRange(diagram2, 1440);
+            SetDiagramTimeRange(diagram3, 1440);
+
+            /*
+            diagram.AxisX.Label.TextPattern = "{A: MM-dd hh:mm}";
+            diagram1.AxisX.Label.TextPattern = "{A: MM-dd hh:mm}";
+            diagram2.AxisX.Label.TextPattern = "{A: MM-dd hh:mm}";
+            diagram3.AxisX.Label.TextPattern = "{A: MM-dd hh:mm}";
+            */
         }
 
         private void button1_Click_1(object sender, EventArgs e)
