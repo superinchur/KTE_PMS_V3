@@ -427,9 +427,12 @@ namespace KTE_PMS
         }
         public void Alarm_Display(ref DataGridView dataGridView1, int count)
         {
+            // datagrid 초기화
             dataGridView1.Rows.Clear();
             ArrayList alFault = new ArrayList();
             int i = 0;
+
+            // 현재 발생된 알람이 저장되어있는 Repository.Instance.TagManager.htCurrentFault에서 데이터를 읽는다.
             foreach (KeyValuePair<String, String> pDir in Repository.Instance.TagManager.htCurrentFault)
             {
                 string szFault = pDir.Value + "";
@@ -440,6 +443,7 @@ namespace KTE_PMS
             alFault.Sort();
             string[] row0 = new string[5];
 
+            // datagrid의 각 row에 Split 한 Fault값을 넣는다.
             foreach (string szFaultData in alFault)
             {
                 string[] szFault = szFaultData.Split('|');
@@ -451,7 +455,6 @@ namespace KTE_PMS
                 row0[4] = szFault[4];
 
                 // row0[4] 는 ACK, UNACK, UNACK_NORMAL로 구성됨
-
                 dataGridView1.Rows.Add(row0);
                 i++;
                 if (i == count) break;

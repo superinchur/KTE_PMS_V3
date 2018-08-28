@@ -40,7 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_alarm_count = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lb_Date = new System.Windows.Forms.Label();
             this.CLOCK_TIMER = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +50,7 @@
             this.IO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lb_Current_PCS_MODE = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_Time = new System.Windows.Forms.Label();
             this.Status_PMS_BMS = new System.Windows.Forms.PictureBox();
             this.Status_PMS_PCS = new System.Windows.Forms.PictureBox();
             this.Status_LEMS_BMS = new System.Windows.Forms.PictureBox();
@@ -119,19 +119,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label6
+            // lb_Date
             // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label6.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(148, 25);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 36);
-            this.label6.TabIndex = 15;
-            this.label6.Tag = "TEST1";
-            this.label6.Text = "2018-03-20";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.lb_Date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lb_Date.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_Date.Location = new System.Drawing.Point(148, 25);
+            this.lb_Date.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_Date.Name = "lb_Date";
+            this.lb_Date.Size = new System.Drawing.Size(158, 36);
+            this.lb_Date.TabIndex = 15;
+            this.lb_Date.Tag = "TEST1";
+            this.lb_Date.Text = "2018-03-20";
+            this.lb_Date.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_Date.Click += new System.EventHandler(this.label6_Click);
             // 
             // CLOCK_TIMER
             // 
@@ -253,19 +253,19 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // label1
+            // lb_Time
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label1.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(156, 61);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 30);
-            this.label1.TabIndex = 83;
-            this.label1.Tag = "TEST1";
-            this.label1.Text = "11:35:26";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lb_Time.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.lb_Time.Font = new System.Drawing.Font("나눔바른고딕", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lb_Time.Location = new System.Drawing.Point(156, 61);
+            this.lb_Time.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lb_Time.Name = "lb_Time";
+            this.lb_Time.Size = new System.Drawing.Size(138, 30);
+            this.lb_Time.TabIndex = 83;
+            this.lb_Time.Tag = "TEST1";
+            this.lb_Time.Text = "11:35:26";
+            this.lb_Time.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_Time.Click += new System.EventHandler(this.label1_Click);
             // 
             // Status_PMS_BMS
             // 
@@ -484,7 +484,7 @@
             this.Controls.Add(this.Status_LEMS_BMS);
             this.Controls.Add(this.Status_LEMS_PMS);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lb_Time);
             this.Controls.Add(this.lb_Current_PCS_MODE);
             this.Controls.Add(this.NAVI_SETTING);
             this.Controls.Add(this.NAVI_CONTROL);
@@ -492,7 +492,7 @@
             this.Controls.Add(this.NAVI_MEASURE);
             this.Controls.Add(this.btn_PCS_STOP);
             this.Controls.Add(this.NAVI_TREND);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lb_Date);
             this.Controls.Add(this.NAVI_MIMIC);
             this.Controls.Add(this.NAVI_ALARM);
             this.Controls.Add(this.NAVI_MAIN);
@@ -532,7 +532,7 @@
         private System.Windows.Forms.Button NAVI_MEASURE;
         private System.Windows.Forms.Button NAVI_CONTROL;
         private System.Windows.Forms.Button NAVI_SETTING;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lb_Date;
         private System.Windows.Forms.Timer CLOCK_TIMER;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -542,7 +542,7 @@
         private System.Windows.Forms.Label lb_alarm_count;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_Time;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox Status_LEMS_PMS;
         private System.Windows.Forms.PictureBox Status_LEMS_BMS;

@@ -125,12 +125,8 @@ namespace KTE_PMS
 
         private void Display_Current_Time()
         {
-            label6.Text = String.Format("{0:00}-{1:00}-{2:00}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-            //label6.Text =.ToString().Format + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString();
-            //label1.Text = DateTime.Now.Hour.ToString() + ":" + DateTime.Now.Minute.ToString() + ":" + DateTime.Now.Second.ToString();
-
-            label1.Text = String.Format("{0:00}:{1:00}:{2:00}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-
+            lb_Date.Text = String.Format("{0:00}-{1:00}-{2:00}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            lb_Time.Text = String.Format("{0:00}:{1:00}:{2:00}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
         }
 
         private void Flashing_Row()
@@ -322,9 +318,6 @@ namespace KTE_PMS
         private void timer1_Tick(object sender, EventArgs e)
         {
             // 1초 Timer에 의해서 수행되는 코드
-
-            // 1초마다 Flashing을 하자
-            // 1초 Timer에 의해서 수행되는 코드
             
             Display_Current_Time();
             Display_Current_PCS_Mode();
@@ -461,7 +454,6 @@ namespace KTE_PMS
         public void LoadCurrentFault()
         {
             Repository.Instance.TagManager.Alarm_Display(ref dataGridView1, 3);
-            
         }
 
         private void lb_alarm_count_Click(object sender, EventArgs e)
