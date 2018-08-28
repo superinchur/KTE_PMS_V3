@@ -46,7 +46,7 @@ namespace KTE_PMS
         private void timer1_Tick(object sender, EventArgs e)
         {
             Display_Animation();
-            Display_Textbox_Power();
+
             Display_Textbox_Device_Status();
             Display_Device_Connection_Status();
             Display_Device_Control_Authority();
@@ -151,7 +151,7 @@ namespace KTE_PMS
 
         private void Display_Battery_SOC()
         {
-            double soc = Repository.Instance.samsung_bcs.System_SOC;
+            double soc = Repository.Instance.samsung_bms.System_SOC;
 
             lb_Battery_SOC.Text = String.Format("{0:0.0 %}", soc / 100);
             if (soc < 20)
@@ -208,7 +208,7 @@ namespace KTE_PMS
                 pb_PCS_Abnormal.Visible = true;
             }
 
-            if (Repository.Instance.samsung_bcs.common_alarm || (Repository.Instance.bmsviewer.Connected() == 0) )
+            if (Repository.Instance.samsung_bms.common_alarm || (Repository.Instance.bmsviewer.Connected() == 0) )
             {
                 // 에러 상황에는 빨간색으로 표시되어야 하므로, 회색이 나타나서는 안된다,
                 pb_Battery_Abnormal.Visible = false;
@@ -225,23 +225,23 @@ namespace KTE_PMS
         private void Display_Textbox_Device_Status()
         {
             // 값을 써주자.
-            if (Repository.Instance.samsung_bcs.Mode_Charging == 1)
+            if (Repository.Instance.samsung_bms.Mode_Charging == 1)
             {
                 lb_System_Status.Text = "CHARGING";
             }
-            else if (Repository.Instance.samsung_bcs.Mode_Discharging == 1)
+            else if (Repository.Instance.samsung_bms.Mode_Discharging == 1)
             {
                 lb_System_Status.Text = "DISCHARGING";
             }
-            else if (Repository.Instance.samsung_bcs.Mode_Offline == 1)
+            else if (Repository.Instance.samsung_bms.Mode_Offline == 1)
             {
                 lb_System_Status.Text = "OFFLINE";
             }
-            else if (Repository.Instance.samsung_bcs.Mode_Idle == 1)
+            else if (Repository.Instance.samsung_bms.Mode_Idle == 1)
             {
                 lb_System_Status.Text = "IDLE";
             }
-            else if (Repository.Instance.samsung_bcs.Mode_Ready == 1)
+            else if (Repository.Instance.samsung_bms.Mode_Ready == 1)
             {
                 lb_System_Status.Text = "READY";
             }
@@ -249,18 +249,19 @@ namespace KTE_PMS
             {
                 lb_System_Status.Text = "-";
             }
-            if (Repository.Instance.GnEPS_PCS.Mode_Standby == 1)
-            {
-                lb_PCS_System_Status.Text = "STANDBY";
 
-            }
-            else if (Repository.Instance.GnEPS_PCS.Mode_Charging == 1)
+            if (Repository.Instance.GnEPS_PCS.Mode_Charging == 1)
             {
                 lb_PCS_System_Status.Text = "CHARGING";
             }
             else if (Repository.Instance.GnEPS_PCS.Mode_Discharging == 1)
             {
                 lb_PCS_System_Status.Text = "DISCHARGING";
+            }
+            else if (Repository.Instance.GnEPS_PCS.Mode_Standby == 1)
+            {
+                lb_PCS_System_Status.Text = "STANDBY";
+
             }
             else
             {
@@ -276,39 +277,15 @@ namespace KTE_PMS
         {
             try
             {
-                // Status Check
-                // Reverse Mode가 있어야한다.
-                int reverse_index = new int();
-
-                switch (index)
-                {
-                    case 0:
-                        reverse_index = 0;
-                        break;
-                    case 1:
-                        reverse_index = 4;
-                        break;
-                    case 2:
-                        reverse_index = 3;
-                        break;
-                    case 3:
-                        reverse_index = 2;
-                        break;
-                    case 4:
-                        reverse_index = 1;
-                        break;
-                    default:
-                        reverse_index = 0;
-                        break;
-                }
+                
                 ////////////////////////////////////////////////////////////
                 //   Depending a status, Determine a direction of signal  //
                 ////////////////////////////////////////////////////////////
-                if (Repository.Instance.samsung_bcs.Mode_Charging == 1)
+                if (Repository.Instance.samsung_bms.Mode_Charging == 1)
                 {
                     pb_Battery_to_PCS.Image = PCS_to_Battery.Images[index];
                 }
-                else if (Repository.Instance.samsung_bcs.Mode_Discharging == 1)
+                else if (Repository.Instance.samsung_bms.Mode_Discharging == 1)
                 {
                     pb_Battery_to_PCS.Image = Battery_to_PCS.Images[index];
                 }
@@ -318,22 +295,24 @@ namespace KTE_PMS
                 }
 
                 // TODO : 현재 LOAD와 GRID간의 차이가 없다. 이것을 구분하기가 상당히 어려움.
+                // 사용자 검사용 CODE, PCS가 정상동작 안하는 관계로 BMS가 충전일 경우 PCS가 충전이라고 가정하여 전시, 마찬가지로 BMS가 방전일 경우 PCS가 방전이라고 가정하여 전시
                 // 그래서 이것은 그냥 같은 취급을 한다.
-                if (Repository.Instance.GnEPS_PCS.Mode_Standby == 1)
-                {
-                    pb_PCS_to_Grid.Image = PCS_to_Grid.Images[0];
-                    pb_PCS_to_Load.Image = PCS_to_Load.Images[0];
 
-                }
-                else if (Repository.Instance.GnEPS_PCS.Mode_Charging == 1 || Repository.Instance.samsung_bcs.Mode_Charging == 1)
+                if (Repository.Instance.GnEPS_PCS.Mode_Charging == 1 || Repository.Instance.samsung_bms.Mode_Charging == 1)
                 {
                     pb_PCS_to_Grid.Image = PCS_to_Grid.Images[index];
                     pb_PCS_to_Load.Image = PCS_to_Load.Images[0];
                 }
-                else if (Repository.Instance.GnEPS_PCS.Mode_Discharging == 1 || Repository.Instance.samsung_bcs.Mode_Discharging == 1)
+                else if (Repository.Instance.GnEPS_PCS.Mode_Discharging == 1 || Repository.Instance.samsung_bms.Mode_Discharging == 1)
                 {
                     pb_PCS_to_Grid.Image = PCS_to_Grid.Images[0];
                     pb_PCS_to_Load.Image = PCS_to_Load.Images[index];
+                }
+                else if (Repository.Instance.GnEPS_PCS.Mode_Standby == 1)
+                {
+                    pb_PCS_to_Grid.Image = PCS_to_Grid.Images[0];
+                    pb_PCS_to_Load.Image = PCS_to_Load.Images[0];
+
                 }
                 else
                 {
@@ -358,10 +337,10 @@ namespace KTE_PMS
         public void ObserverUpdate()
         {
             // Battery SIde middle of left
-            CSafeSetText(lb1, Repository.Instance.samsung_bcs.System_Voltage.ToString());
-            CSafeSetText(lb2, Repository.Instance.samsung_bcs.System_Current.ToString());
-            CSafeSetText(lb3, Repository.Instance.samsung_bcs.System_Power.ToString());
-            CSafeSetText(lb4, Repository.Instance.samsung_bcs.System_SOC.ToString());
+            CSafeSetText(lb1, Repository.Instance.samsung_bms.System_Voltage.ToString());
+            CSafeSetText(lb2, Repository.Instance.samsung_bms.System_Current.ToString());
+            CSafeSetText(lb3, Repository.Instance.samsung_bms.System_Power.ToString());
+            CSafeSetText(lb4, Repository.Instance.samsung_bms.System_SOC.ToString());
 
             // Grid Side at bottom of right
             double Grid_Voltage = (Repository.Instance.GnEPS_PCS.GRID_R_Voltage + Repository.Instance.GnEPS_PCS.GRID_S_Voltage + Repository.Instance.GnEPS_PCS.GRID_T_Voltage) / 3;
@@ -654,6 +633,11 @@ namespace KTE_PMS
         }
 
         private void cover_control_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Viewer_Timer_Tick(object sender, EventArgs e)
         {
 
         }

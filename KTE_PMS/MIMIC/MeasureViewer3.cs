@@ -119,7 +119,7 @@ namespace KTE_PMS.MIMIC
 
         private void ObserverUpdate_BMS_System()
         {
-            sSamsungBCS t = Repository.Instance.samsung_bcs;
+            sSamsungBCS t = Repository.Instance.samsung_bms;
 
             CSafeSetText(l31_1, t.System_Voltage.ToString() + " " + "V");
             CSafeSetText(l32_1, t.System_Current.ToString() + " " + "A");
@@ -145,7 +145,7 @@ namespace KTE_PMS.MIMIC
         {
             // BMS : System용 이다
             // 값 써주기
-            sSamsungBCS t = Repository.Instance.samsung_bcs;
+            sSamsungBCS t = Repository.Instance.samsung_bms;
             int module = new int();
             int cell = new int();
 
@@ -219,7 +219,7 @@ namespace KTE_PMS.MIMIC
         {
             // BMS : System용 이다
             // 값 써주기
-            sSamsungBCS t = Repository.Instance.samsung_bcs;
+            sSamsungBCS t = Repository.Instance.samsung_bms;
 
             int module = new int();
             int cell = new int();
@@ -289,23 +289,23 @@ namespace KTE_PMS.MIMIC
             string lb_System_Status;
 
                     // 값을 써주자.
-            if (Repository.Instance.samsung_bcs.Mode_Charging == 1)
+            if (Repository.Instance.samsung_bms.Mode_Charging == 1)
             {
                 lb_System_Status = "CHARGING";
             }
-            else if (Repository.Instance.samsung_bcs.Mode_Discharging == 1)
+            else if (Repository.Instance.samsung_bms.Mode_Discharging == 1)
             {
                 lb_System_Status = "DISCHARGING";
             }
-            else if (Repository.Instance.samsung_bcs.Mode_Offline == 1)
+            else if (Repository.Instance.samsung_bms.Mode_Offline == 1)
             {
                 lb_System_Status = "OFFLINE";
             }
-            else if (Repository.Instance.samsung_bcs.Mode_Idle == 1)
+            else if (Repository.Instance.samsung_bms.Mode_Idle == 1)
             {
                 lb_System_Status = "IDLE";
             }
-            else if (Repository.Instance.samsung_bcs.Mode_Ready == 1)
+            else if (Repository.Instance.samsung_bms.Mode_Ready == 1)
             {
                 lb_System_Status = "READY";
             }

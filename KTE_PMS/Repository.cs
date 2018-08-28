@@ -35,7 +35,7 @@ namespace KTE_PMS
         public sPCS GnEPS_PCS;
         public sPMD pmd;
         public sBCS bsc;
-        public sSamsungBCS samsung_bcs;
+        public sSamsungBCS samsung_bms;
 
         public TagManager TagManager { get; set; }
         // 20180628 Parameter Setting 초기화
@@ -88,7 +88,7 @@ namespace KTE_PMS
             // 각각의 장비에서 받아온 데이터값들을 저장 할 Structure 선언하는 항목들.
             GnEPS_PCS = new sPCS();         // GnEPS_PCS
             pmd = new sPMD();               // GnEPS_PCS
-            samsung_bcs = new sSamsungBCS(); // Samsung BCS
+            samsung_bms = new sSamsungBCS(); // Samsung BCS
 
             // 20180628 
             // BMSViewer 할당
@@ -462,35 +462,35 @@ namespace KTE_PMS
             //bms_resourcePool.WaitOne();
             byte[] temp_byte = new byte[2];
 
-            samsung_bcs.Protocol_Version = ByteConverterToUInt16(data, 0);
-            samsung_bcs.System_Voltage = ByteConverterToUInt16(data, 1) * 0.1;
-            samsung_bcs.System_Current = ByteConverterToInt16(data, 2);
-            samsung_bcs.System_Power = samsung_bcs.System_Voltage * samsung_bcs.System_Current / 1000;
+            samsung_bms.Protocol_Version = ByteConverterToUInt16(data, 0);
+            samsung_bms.System_Voltage = ByteConverterToUInt16(data, 1) * 0.1;
+            samsung_bms.System_Current = ByteConverterToInt16(data, 2);
+            samsung_bms.System_Power = samsung_bms.System_Voltage * samsung_bms.System_Current / 1000;
 
 
 
             //t_dr[0]["Value"] = ByteConverterToUInt16(data, 1) * 0.1;      
 
             // Charging과 DisCHarging을 나누기 위해서 만듬
-            p_setting.power.setBMSPower(samsung_bcs.System_Power);
+            p_setting.power.setBMSPower(samsung_bms.System_Power);
 
-            if (!(samsung_bcs.System_SOC == ByteConverterToUInt16(data, 3) * 0.1))
+            if (!(samsung_bms.System_SOC == ByteConverterToUInt16(data, 3) * 0.1))
             {
                 pmdviewer.flag_WriteSOCBuffers_isChanged = true;
-                samsung_bcs.System_SOC = ByteConverterToUInt16(data, 3) * 0.1;
+                samsung_bms.System_SOC = ByteConverterToUInt16(data, 3) * 0.1;
             }
 
 
-            if (!(samsung_bcs.System_SOH == ByteConverterToUInt16(data, 4) * 0.1))
+            if (!(samsung_bms.System_SOH == ByteConverterToUInt16(data, 4) * 0.1))
             {
                 pmdviewer.flag_WriteSOCBuffers_isChanged = true;
-                samsung_bcs.System_SOH = ByteConverterToUInt16(data, 4) * 0.1;
+                samsung_bms.System_SOH = ByteConverterToUInt16(data, 4) * 0.1;
             }
 
-            if (!(samsung_bcs.System_Mode == ByteConverterToUInt16(data, 5)))
+            if (!(samsung_bms.System_Mode == ByteConverterToUInt16(data, 5)))
             {
                 pmdviewer.flag_WriteSOCBuffers_isChanged = true;
-                samsung_bcs.System_Mode = ByteConverterToUInt16(data, 5);
+                samsung_bms.System_Mode = ByteConverterToUInt16(data, 5);
             }
 
 
@@ -513,42 +513,42 @@ namespace KTE_PMS
 
 
 
-            samsung_bcs.Mode_Charging = (samsung_bcs.System_Mode >> 15) & 0x01;
-            samsung_bcs.Mode_Discharging = (samsung_bcs.System_Mode >> 14) & 0x01;
-            samsung_bcs.Mode_Offline = (samsung_bcs.System_Mode >> 10) & 0x01;
-            samsung_bcs.Mode_Idle = (samsung_bcs.System_Mode >> 9) & 0x01;
-            samsung_bcs.Mode_Ready = (samsung_bcs.System_Mode >> 8) & 0x01;
-            samsung_bcs.Mode_InputSignal4 = (samsung_bcs.System_Mode >> 7) & 0x01;
-            samsung_bcs.Mode_InputSignal3 = (samsung_bcs.System_Mode >> 6) & 0x01;
-            samsung_bcs.Mode_InputSignal2 = (samsung_bcs.System_Mode >> 5) & 0x01;
-            samsung_bcs.Mode_InputSIgnal1 = (samsung_bcs.System_Mode >> 4) & 0x01;
-            samsung_bcs.Mode_OutputControl2 = (samsung_bcs.System_Mode >> 1) & 0x01;
-            samsung_bcs.Mode_OutputControl1 = (samsung_bcs.System_Mode >> 0) & 0x01;
+            samsung_bms.Mode_Charging = (samsung_bms.System_Mode >> 15) & 0x01;
+            samsung_bms.Mode_Discharging = (samsung_bms.System_Mode >> 14) & 0x01;
+            samsung_bms.Mode_Offline = (samsung_bms.System_Mode >> 10) & 0x01;
+            samsung_bms.Mode_Idle = (samsung_bms.System_Mode >> 9) & 0x01;
+            samsung_bms.Mode_Ready = (samsung_bms.System_Mode >> 8) & 0x01;
+            samsung_bms.Mode_InputSignal4 = (samsung_bms.System_Mode >> 7) & 0x01;
+            samsung_bms.Mode_InputSignal3 = (samsung_bms.System_Mode >> 6) & 0x01;
+            samsung_bms.Mode_InputSignal2 = (samsung_bms.System_Mode >> 5) & 0x01;
+            samsung_bms.Mode_InputSIgnal1 = (samsung_bms.System_Mode >> 4) & 0x01;
+            samsung_bms.Mode_OutputControl2 = (samsung_bms.System_Mode >> 1) & 0x01;
+            samsung_bms.Mode_OutputControl1 = (samsung_bms.System_Mode >> 0) & 0x01;
 
-            samsung_bcs.System_Max_Voltage = ByteConverterToUInt16(data, 6) * 0.001;
-            samsung_bcs.System_Min_Voltage = ByteConverterToUInt16(data, 7) * 0.001;
-            samsung_bcs.System_Max_Temp = ByteConverterToInt16(data, 8) * 0.01;
-            samsung_bcs.System_Min_Temp = ByteConverterToInt16(data, 9) * 0.01;
-            samsung_bcs.Protection_Summary4 = ByteConverterToUInt16(data, 14);
-            samsung_bcs.Protection_Summary3 = ByteConverterToUInt16(data, 15);
-            samsung_bcs.Protection_Summary2 = ByteConverterToUInt16(data, 16);
-            samsung_bcs.Protection_Summary1 = ByteConverterToUInt16(data, 17);
-            samsung_bcs.Alarm_Summary4 = ByteConverterToUInt16(data, 18);
-            samsung_bcs.Alarm_Summary3 = ByteConverterToUInt16(data, 19);
-            samsung_bcs.Alarm_Summary2 = ByteConverterToUInt16(data, 20);
-            samsung_bcs.Alarm_Summary1 = ByteConverterToUInt16(data, 21);
+            samsung_bms.System_Max_Voltage = ByteConverterToUInt16(data, 6) * 0.001;
+            samsung_bms.System_Min_Voltage = ByteConverterToUInt16(data, 7) * 0.001;
+            samsung_bms.System_Max_Temp = ByteConverterToInt16(data, 8) * 0.01;
+            samsung_bms.System_Min_Temp = ByteConverterToInt16(data, 9) * 0.01;
+            samsung_bms.Protection_Summary4 = ByteConverterToUInt16(data, 14);
+            samsung_bms.Protection_Summary3 = ByteConverterToUInt16(data, 15);
+            samsung_bms.Protection_Summary2 = ByteConverterToUInt16(data, 16);
+            samsung_bms.Protection_Summary1 = ByteConverterToUInt16(data, 17);
+            samsung_bms.Alarm_Summary4 = ByteConverterToUInt16(data, 18);
+            samsung_bms.Alarm_Summary3 = ByteConverterToUInt16(data, 19);
+            samsung_bms.Alarm_Summary2 = ByteConverterToUInt16(data, 20);
+            samsung_bms.Alarm_Summary1 = ByteConverterToUInt16(data, 21);
 
-            samsung_bcs.Discharge_Current_Limit = ByteConverterToUInt16(data, 22) * 0.1;
-            samsung_bcs.Charge_Current_Limit = ByteConverterToUInt16(data, 23) * 0.1;
-            samsung_bcs.Watchdog_Response = ByteConverterToInt16(data, 24);
+            samsung_bms.Discharge_Current_Limit = ByteConverterToUInt16(data, 22) * 0.1;
+            samsung_bms.Charge_Current_Limit = ByteConverterToUInt16(data, 23) * 0.1;
+            samsung_bms.Watchdog_Response = ByteConverterToInt16(data, 24);
 
-            samsung_bcs.System_Heartbit = ByteConverterToUInt16(data, 25);
-            samsung_bcs.Connecting_Status = ByteConverterToUInt16(data, 26);
+            samsung_bms.System_Heartbit = ByteConverterToUInt16(data, 25);
+            samsung_bms.Connecting_Status = ByteConverterToUInt16(data, 26);
 
-            samsung_bcs.Service_Voltage = ByteConverterToUInt16(data, 27) * 0.1;
-            samsung_bcs.Service_SOC = ByteConverterToUInt16(data, 28) * 0.1;
+            samsung_bms.Service_Voltage = ByteConverterToUInt16(data, 27) * 0.1;
+            samsung_bms.Service_SOC = ByteConverterToUInt16(data, 28) * 0.1;
 
-            samsung_bcs.System_Alarm_Status = ByteConverterToUInt16(data, 30);
+            samsung_bms.System_Alarm_Status = ByteConverterToUInt16(data, 30);
             dbConnector.Insert_BSC_Value_to_Database();
             TagManager.BMS_Fault_처리_프로시져();
 

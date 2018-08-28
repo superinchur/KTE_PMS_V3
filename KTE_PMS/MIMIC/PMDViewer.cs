@@ -111,14 +111,14 @@ namespace KTE_PMS.MIMIC
                     // 충전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.  
                     if ((Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
                     {
-                        if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.p_control.Charging_Stop_SOC)
+                        if (Repository.Instance.samsung_bms.System_SOC >= Repository.Instance.p_control.Charging_Stop_SOC)
                         {
                             Repository.Instance.pmdviewer.Control_Idle();
                         }
                     }
                     else
                     {
-                        if (Repository.Instance.samsung_bcs.System_SOC < Repository.Instance.p_control.Charging_Stop_SOC)
+                        if (Repository.Instance.samsung_bms.System_SOC < Repository.Instance.p_control.Charging_Stop_SOC)
                         {
                             Repository.Instance.pmdviewer.Control_Charge();
                         }
@@ -135,14 +135,14 @@ namespace KTE_PMS.MIMIC
                     // 방전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.  
                     if ((Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
                     {
-                        if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.p_control.Discharging_Stop_SOC)
+                        if (Repository.Instance.samsung_bms.System_SOC <= Repository.Instance.p_control.Discharging_Stop_SOC)
                         {
                             Repository.Instance.pmdviewer.Control_Idle();
                         }
                     }
                     else
                     {
-                        if (Repository.Instance.samsung_bcs.System_SOC > Repository.Instance.p_control.Discharging_Stop_SOC)
+                        if (Repository.Instance.samsung_bms.System_SOC > Repository.Instance.p_control.Discharging_Stop_SOC)
                         {
                             Repository.Instance.pmdviewer.Control_Discharge();
                         }
@@ -164,14 +164,14 @@ namespace KTE_PMS.MIMIC
                     {
                         if ((Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
                         {
-                            if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.p_control.Charging_Stop_SOC)
+                            if (Repository.Instance.samsung_bms.System_SOC >= Repository.Instance.p_control.Charging_Stop_SOC)
                             {
                                 Repository.Instance.pmdviewer.Control_Idle();
                             }
                         }
                         else
                         {
-                            if (Repository.Instance.samsung_bcs.System_SOC < Repository.Instance.p_control.Charging_Stop_SOC)
+                            if (Repository.Instance.samsung_bms.System_SOC < Repository.Instance.p_control.Charging_Stop_SOC)
                             {
                                 Repository.Instance.pmdviewer.Control_Charge();
                             }
@@ -187,14 +187,14 @@ namespace KTE_PMS.MIMIC
                         // 방전 정지 SOC를 확인하자, 그리고 현재 상태도 확인.  
                         if ((Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
                         {
-                            if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.p_control.Discharging_Stop_SOC)
+                            if (Repository.Instance.samsung_bms.System_SOC <= Repository.Instance.p_control.Discharging_Stop_SOC)
                             {
                                 Repository.Instance.pmdviewer.Control_Idle();
                             }
                         }
                         else
                         {
-                            if (Repository.Instance.samsung_bcs.System_SOC > Repository.Instance.p_control.Discharging_Stop_SOC)
+                            if (Repository.Instance.samsung_bms.System_SOC > Repository.Instance.p_control.Discharging_Stop_SOC)
                             {
                                 Repository.Instance.pmdviewer.Control_Discharge();
                             }
@@ -209,14 +209,14 @@ namespace KTE_PMS.MIMIC
                         // nothing to do
                         // 만약 충전신호나 방전신호가 가고있다면 0으로 바꿔준다.
 
-                        if (Repository.Instance.samsung_bcs.System_SOC <= Repository.Instance.p_control.Charging_Stop_SOC)
+                        if (Repository.Instance.samsung_bms.System_SOC <= Repository.Instance.p_control.Charging_Stop_SOC)
                         {
                             if (!(Repository.Instance.GnEPS_PCS.Mode_Charging == 1))
                             {
                                 Repository.Instance.pmdviewer.Control_Charge();
                             }
                         }
-                        else if (Repository.Instance.samsung_bcs.System_SOC >= Repository.Instance.p_control.Discharging_Stop_SOC)
+                        else if (Repository.Instance.samsung_bms.System_SOC >= Repository.Instance.p_control.Discharging_Stop_SOC)
                         {
                             if (!(Repository.Instance.GnEPS_PCS.Mode_Discharging == 1))
                             {
