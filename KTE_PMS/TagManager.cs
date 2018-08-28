@@ -172,21 +172,21 @@ namespace KTE_PMS
             for (int nFileNo = 14; nFileNo <= 21; nFileNo++)
             {
                 if (nFileNo == 14)
-                    ushValue = Repository.Instance.samsung_bcs.Protection_Summary4;
+                    ushValue = Repository.Instance.samsung_bms.Protection_Summary4;
                 else if (nFileNo == 15)
-                    ushValue = Repository.Instance.samsung_bcs.Protection_Summary3;
+                    ushValue = Repository.Instance.samsung_bms.Protection_Summary3;
                 else if (nFileNo == 16)
-                    ushValue = Repository.Instance.samsung_bcs.Protection_Summary2;
+                    ushValue = Repository.Instance.samsung_bms.Protection_Summary2;
                 else if (nFileNo == 17)
-                    ushValue = Repository.Instance.samsung_bcs.Protection_Summary1;
+                    ushValue = Repository.Instance.samsung_bms.Protection_Summary1;
                 else if (nFileNo == 18)
-                    ushValue = Repository.Instance.samsung_bcs.Alarm_Summary4;
+                    ushValue = Repository.Instance.samsung_bms.Alarm_Summary4;
                 else if (nFileNo == 19)
-                    ushValue = Repository.Instance.samsung_bcs.Alarm_Summary3;
+                    ushValue = Repository.Instance.samsung_bms.Alarm_Summary3;
                 else if (nFileNo == 20)
-                    ushValue = Repository.Instance.samsung_bcs.Alarm_Summary2;
+                    ushValue = Repository.Instance.samsung_bms.Alarm_Summary2;
                 else if (nFileNo == 21)
-                    ushValue = Repository.Instance.samsung_bcs.Alarm_Summary1;
+                    ushValue = Repository.Instance.samsung_bms.Alarm_Summary1;
                 else
                     ushValue = 0;
 
@@ -195,11 +195,11 @@ namespace KTE_PMS
                 // common_alarm을 확인하기 위해서 추가한 항목
                 if (ushValue > 0 )
                 {
-                    Repository.Instance.samsung_bcs.common_alarm = true;
+                    Repository.Instance.samsung_bms.common_alarm = true;
                 }
                 else
                 {
-                    Repository.Instance.samsung_bcs.common_alarm = false;
+                    Repository.Instance.samsung_bms.common_alarm = false;
                 }
 
                 for (int nBit = 0; nBit <= 15; nBit++)

@@ -100,9 +100,9 @@ namespace KTE_PMS
         public void Insert_BSC_Value_to_Database()
         {
             Insert_BSC_Value_to_Database("trend_data",
-                Repository.Instance.samsung_bcs.System_Voltage,
-                Repository.Instance.samsung_bcs.System_Current,
-                Repository.Instance.samsung_bcs.System_Power);
+                Repository.Instance.samsung_bms.System_Voltage,
+                Repository.Instance.samsung_bms.System_Current,
+                Repository.Instance.samsung_bms.System_Power);
         }
         public void Insert_BSC_Value_to_Database(string nameofDB, double voltage, double current, double power)
         {

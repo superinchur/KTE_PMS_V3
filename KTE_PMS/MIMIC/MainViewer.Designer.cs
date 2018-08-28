@@ -106,6 +106,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.cover_scheduling)).BeginInit();
             this.SuspendLayout();
             // 
+            // Viewer_Timer
+            // 
+            this.Viewer_Timer.Tick += new System.EventHandler(this.Viewer_Timer_Tick);
+            // 
             // lb1
             // 
             this.lb1.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -576,7 +580,7 @@
             // 
             this.cover_control.BackColor = System.Drawing.Color.Transparent;
             this.cover_control.Image = global::KTE_PMS.Properties.Resources.스케줄링상태_커버;
-            this.cover_control.Location = new System.Drawing.Point(43, 276);
+            this.cover_control.Location = new System.Drawing.Point(40, 275);
             this.cover_control.Name = "cover_control";
             this.cover_control.Size = new System.Drawing.Size(572, 165);
             this.cover_control.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -774,7 +778,7 @@
             // 
             this.cover_scheduling.BackColor = System.Drawing.Color.Transparent;
             this.cover_scheduling.Image = global::KTE_PMS.Properties.Resources.스케줄링상태_커버;
-            this.cover_scheduling.Location = new System.Drawing.Point(43, 495);
+            this.cover_scheduling.Location = new System.Drawing.Point(60, 505);
             this.cover_scheduling.Name = "cover_scheduling";
             this.cover_scheduling.Size = new System.Drawing.Size(572, 244);
             this.cover_scheduling.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

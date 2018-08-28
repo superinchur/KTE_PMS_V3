@@ -216,11 +216,11 @@ namespace KTE_PMS.MIMIC
         }
         public static void ThreadProc2(object values)
         {
-            Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack1, (byte[])values, 1);
+            Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bms.Rack1, (byte[])values, 1);
         }
         public static void ThreadProc3(object values)
         {
-            Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bcs.Rack2, (byte[])values, 2);
+            Repository.Instance.Insert_Rack(ref Repository.Instance.samsung_bms.Rack2, (byte[])values, 2);
         }
 
 
